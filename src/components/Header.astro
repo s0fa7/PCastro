@@ -1,0 +1,254 @@
+<!-- ---
+    const infoMenuModal = document.querySelector(".info-menu");
+
+    document
+      .querySelector(".info-catalog")
+      .addEventListener("click", () => {
+        if (infoMenuModal.hasAttribute("style")) {
+          infoMenuModal.removeAttribute("style");
+        } else {
+          infoMenuModal.setAttribute("style", "display: none;");
+        }
+      });
+--- -->
+<header class="header-container">
+    <div class="header-content">
+        <div class="header-nav">
+            <a href="#" class="logo">
+                <img src="src/assets/Srf.svg" />
+            </a>
+            <div class="cataloge">
+                <img src="/src/assets/icons/Catalog.svg" />
+                <a href="#"> каталог</a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">.компания</a></li>
+                    <li><a href="#">.акции</a></li>
+                    <!-- <li class="cataloge">
+                        <a href="#">.информация</a>
+                        <img src="/src/assets/icons/OneArrowButton.svg" />
+                    </li> -->
+
+                    <!-- <li>
+                        <div class="info-catalog-wrapper">
+                            <button type="button" class="btn info-cataloge">
+                                <span>.информация</span>
+                                <img
+                                    src="/src/assets/icons/OneArrowButton.svg"
+                                />
+                            </button>
+                            <div class="info-menu" style="display: none">
+                                <ul>
+                                    <li><a href="">новости</a></li>
+                                    <li><a href="">Доставка и оплата</a></li>
+                                    <li><a href="">Гарантия и возврат</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li> -->
+                    <li>
+                        <div class="info-catalog-wrapper">
+                            <button type="button" class="btn info-catalog">
+                                <span>.информация</span>
+                                <img
+                                    src="/src/assets/icons/OneArrowButton.svg"
+                                />
+                            </button>
+                            <div class="info-menu" style="display: none">
+                                <ul>
+                                    <li>новости</li>
+                                    <li>Доставка и оплата</li>
+                                    <li>Гарантия и возврат</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="#">.контакты</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="configurator-button">
+                конфигуратор пк
+                <span class="arrow-icon">»</span>
+            </a>
+        </div>
+
+        <div class="user-controls">
+            <div class="search">
+                <input type="search" placeholder="поиск" />
+            </div>
+            <div class="user-collection">
+                <a href="#">
+                    <img
+                        src="/src/assets/icons/shopping-bag.svg"
+                        alt="basket"
+                    />
+                </a>
+                <a href="#">
+                    <img src="/src/assets/icons/heart.svg" alt="favorite" />
+                </a>
+            </div>
+            <span class="phone-number cataloge">
+                <a href="#">+7 495 266 07 92</a>
+                <img src="/src/assets/icons/OneArrowButton.svg" />
+            </span>
+        </div>
+    </div>
+</header>
+
+<style>
+    .header-container {
+        width: 100%;
+
+        font-family: "JetBrainsMono", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+
+        /* background-image: url("../assets/images/HeaderBg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top; */
+        /* border-bottom: 1px solid oklch(from var(--stroke) l c h); */
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 107.25rem;
+        margin: 0 auto;
+        padding: 22px 0;
+        /* color: var(--text-color); */
+    }
+
+    .header-nav {
+        max-width: 1305px;
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .cataloge {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .main-nav ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-nav a {
+        text-decoration: none;
+    }
+
+    .main-nav li:hover {
+        color: oklch(from var(--purple-text) l c h);
+        transition: color 0.3s;
+    }
+
+    .configurator-button {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .arrow-icon {
+        margin-left: 5px;
+        font-weight: bold;
+        color: oklch(from var(--purple-text) l c h);
+    }
+
+    .user-controls {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        font-size: 14px;
+    }
+
+    .user-controls img {
+        cursor: pointer;
+        display: block;
+        align-items: center;
+    }
+
+    .search {
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .search::before {
+        content: url("../assets/icons/Search.svg");
+        position: absolute;
+        top: 50%;
+        left: 0.5rem;
+
+        transform: translateY(-50%);
+
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .search input {
+        padding: 0.25rem 0.5rem 0.25rem 2rem;
+        max-width: 6rem;
+        font-size: 16px;
+        border-radius: 0.1rem;
+    }
+
+    .search input::-webkit-search-cancel-button {
+        display: none;
+    }
+
+    .user-collection {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .info-catalog-wrapper {
+        position: relative;
+    }
+    .info-catalog-wrapper span {
+        text-transform: uppercase;
+    }
+    .info-catalog {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0;
+    }
+
+    .info-menu {
+        position: absolute;
+        right: 0;
+        padding: 1rem 2rem;
+        color: oklch(from var(--body-text) l c h);
+        background-color: oklch(from var(--bg) l c h);
+        text-transform: uppercase;
+        ul {
+            list-style: none;
+        }
+    }
+
+    .info-menu::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(
+            rgba(43, 31, 58) 1px,
+            transparent 1px
+        );
+        background-size: 20px 20px;
+        z-index: -2;
+    }
+</style>

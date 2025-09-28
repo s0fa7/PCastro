@@ -1,0 +1,62 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"button"> {
+    buttonText: string;
+    hrefPage: string;
+    classes: string;
+}
+
+const { buttonText, hrefPage, classes, ...attrs } = Astro.props;
+---
+
+<a href={hrefPage} class=`cyber-button ${classes}` {...attrs}>
+    <span class="button-text">{buttonText}</span>
+    <div class="icon-container">
+        <span>&gt;&gt;</span>
+    </div>
+</a>
+<style>
+    .cyber-button {
+        all: unset;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 29px;
+        justify-content: flex-end;
+        height: auto;
+
+        padding: 1.3rem 2rem; 
+        background-image: url(src/assets/icons/BigBtnBackground.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right;
+    }
+
+    .cyber-button span {
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+        color: oklch(from var(--bg) l c h);
+    }
+
+    /* .cyber-button:hover {
+        box-shadow: 0 5px 20px oklch(from var(--purple) l c h);
+    } */
+
+    .icon-container {
+        background-image: url(src/assets/icons/BtnBgBlack.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        width: 54px;
+        height: 54px;
+        padding: 1rem;
+    }
+    .icon-container span{
+        color: oklch(from var(--purple) l c h);
+    }
+</style>

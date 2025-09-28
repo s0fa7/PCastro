@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"div"> {
+    text: string;
+    iconSVG?: string;
+}
+
+const { text, iconSVG } = Astro.props;
+
+const defaultIcon = "src/assets/icons/StarsIcon.svg";
+const iconContent = iconSVG || defaultIcon;
+---
+
+<div class="purple-tag">
+    <img class="tag-icon" src={iconContent} />
+    <span class="tag-text">{text}</span>
+</div>
+
+<style>
+    .purple-tag {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+        padding: 10px 12px;
+        background-image: linear-gradient(90deg, #9d4edd 0%, #4a2069 100%);
+        border-radius: 3px;
+    }
+
+    .tag-icon {
+        width: auto;
+        height: 20px;
+    }
+
+    @media (max-width: 600px) {
+        .purple-tag {
+            padding: 6px 15px;
+            font-size: 0.9em;
+        }
+    }
+</style>

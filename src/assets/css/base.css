@@ -1,0 +1,138 @@
+@font-face {
+  font-family: "EuropeExt";
+  font-display: auto;
+  src: url("/src/assets/fonts/europeext.otf"); 
+}
+
+@font-face {
+  font-family: "JetBrainsMono";
+  font-display: auto;
+  src: url("/src/assets/fonts/JetBrainsMono-VariableFont_wght.ttf");
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-padding-top: 10rem;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-feature-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: "EuropeExt", sans-serif;
+    font-weight: 400;
+
+    color: oklch(from var(--body-text) l c h);
+    background-color: oklch(from var(--bg) l c h);
+
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(43, 31, 58) 1px, transparent 1px);
+    background-size: 20px 20px;
+    z-index: -2;
+  }
+
+  /* :focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  :focus-visible {
+    border-radius: 2px;
+    outline-color: oklch(from var(--slate-50) l c h);
+  } */
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "EuropeExt", sans-serif;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
+  section{
+    margin: 0 0 14.375rem 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+
+    cursor: pointer;
+
+    border: none;
+
+    padding: 0.75rem 1.25rem;
+
+    background-color: transparent;
+
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+  }
+
+  .btn:hover {
+    text-decoration: none;
+  }
+
+  /* .btn-primary {
+    background-color: oklch(from var(--rose-600) l c h);
+
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  .btn-primary:hover {
+    background-color: oklch(from var(--rose-500) l c h);
+  } */
+
+  input {
+    border: none;
+
+    font-family: "EuropeExt", sans-serif;
+    font-size: inherit;
+
+    background-color: transparent;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .form-field-label {
+    font-family: "EuropeExt", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}

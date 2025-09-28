@@ -1,0 +1,139 @@
+---
+import OrderButton from "./OrderButton.astro";
+
+interface Props {
+  cardId?: string;
+  productImage: string;
+  price: string;
+  isHit?: boolean;
+}
+
+const { cardId, productImage, price, isHit = true } = Astro.props;
+---
+
+<div
+  class="product-card"
+  style={`background-image: url('src/assets/icons/TheCardBackground.svg');`}
+>
+  <div class="header">
+    <div class="card-id">
+      <span class="number">{cardId}</span>
+    </div>
+    <div class="hit-badge">
+      {
+        isHit ? (
+          // <Icon name="Hit" />
+          <span class="hit">
+            <img src="/src/assets/icons/Hit.svg" />
+            ХИТ
+          </span>
+        ) : (
+          <span class="favorite-icon">
+            <img src="/src/assets/icons/heart.svg" alt="favorite" />
+          </span>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="product-image-container">
+    <img src={productImage} alt="Product" class="product-image" />
+  </div>
+
+  <div class="product-info">
+    <slot style="font-size: 14px;" name="cardTitle" />
+    <slot name="cardDescription" />
+  </div>
+
+  <div class="footer">
+    <div class="price">{price}</div>
+    <div class="order-section">
+      <OrderButton text="заказать" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    width: 25.6875rem;
+    height: 30.75rem; 
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    box-sizing: border-box;
+    color: oklch(from var(--body-text) l c h);
+    text-transform: uppercase;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    top: 7%;
+    left: -2%;
+
+    font-family: "JetBrainsMono";
+  }
+
+  .card-id {
+    color: oklch(from var(--light-stroke) l c h); 
+    font-size: 12px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .hit-badge {
+    padding: 10px 12px;
+    background-image: linear-gradient(90deg, #9d4edd 0%, #4a2069 100%);
+    border-radius: 3px;
+  }
+
+  .hit,
+  .favorite-icon {
+    font-size: 12px;
+  }
+
+  .product-image-container {
+    text-align: center;
+    margin: 0 0 0 10%;
+  }
+
+  .product-image {
+    max-width: 90%;
+    height: auto;
+  }
+
+  .product-info {
+    margin-left: 4.3125rem;
+    font-size: 20px;
+    position: relative;
+    bottom: 15%;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 2%;
+    left: 18%;
+    right: 3%;
+  }
+
+  .price {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .order-section {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+</style>

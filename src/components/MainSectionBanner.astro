@@ -1,0 +1,203 @@
+---
+
+import type { HTMLAttributes } from 'astro/types';
+import OrderButton from "./OrderButton.astro";
+
+// Интерфейс для списка подпунктов
+interface ListItem {
+  id: number;
+  text: string;
+}
+
+export interface Props extends HTMLAttributes<'section'> {
+  backgroundImage: string;
+  purpleBoxText: string;
+  mainTitle: string;
+  mainSubtitle: string;
+  rightTopText: string;
+  listItems: ListItem[];
+}
+
+const {
+  backgroundImage,
+  purpleBoxText,
+  mainTitle,
+  mainSubtitle,
+  rightTopText,
+  listItems,
+  ...attrs
+} = Astro.props;
+---
+
+<div
+  class="feature-section"
+  style={{ '--bg-image': `url(${backgroundImage})` }}
+  {...attrs}
+>
+  <div class="content-overlay"></div>
+  <div class="content-container">
+    <div class="left-column">
+      <div class="purple-box">
+        {purpleBoxText}
+      </div>
+      <h1 class="main-title">{mainTitle}</h1>
+      <p class="main-subtitle">{mainSubtitle}</p>
+      <OrderButton text="сконфигурировать" class="order-btn" />
+    </div>
+
+    <div class="right-column">
+      <p class="right-top-text">{rightTopText}</p>
+      <ul class="list-items">
+        {listItems.map((item) => (
+          <li class="list-item">
+            <span class="bullet-point"></span>
+            {item.text}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Имитация тёмной темы с фиолетовыми акцентами */
+  :root {
+    --color-dark-bg: #1e1e2d;
+    --color-surface-dark: #2c2c44;
+    --color-purple-accent: #a020f0; /* Насыщенный фиолетовый */
+    --color-text-light: #f0f0f0;
+    --color-text-secondary: #aaaaaa;
+    --color-list-bullet: #7d48d0; /* Более тёмный фиолетовый для пули */
+  }
+
+  .feature-section {
+    position: relative;
+    padding: 80px 20px;
+    color: var(--color-text-light);
+    background-color: var(--color-dark-bg);
+    background-image: var(--bg-image, none);
+    background-size: cover;
+    background-position: center;
+    min-height: 550px;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Обрезка фона по границам секции */
+  }
+
+  /* Полупрозрачное затемнение поверх фона для читаемости */
+  .content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
+    z-index: 1;
+  }
+
+  .content-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    position: relative;
+    z-index: 2;
+  }
+
+  .left-column {
+    flex: 2;
+    padding-right: 20px;
+  }
+
+  .right-column {
+    flex: 1;
+    background-color: var(--color-surface-dark);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Фиолетовое окошко */
+  .purple-box {
+    display: inline-block;
+    background-color: var(--color-purple-accent);
+    color: var(--color-text-light);
+    padding: 6px 18px;
+    border-radius: 20px; /* Скругленные углы */
+    margin-bottom: 25px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(160, 32, 240, 0.4); /* Небольшая тень для выделения */
+  }
+
+  .main-title {
+    font-size: 3.5em;
+    font-weight: 800;
+    margin: 0 0 15px 0;
+    line-height: 1.1;
+  }
+
+  .main-subtitle {
+    font-size: 1.25em;
+    color: var(--color-text-secondary);
+    margin-bottom: 40px;
+    line-height: 1.5;
+  }
+
+  /* Текст справа (наверху) */
+  .right-top-text {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--color-text-light);
+    border-bottom: 1px solid var(--color-surface-dark);
+    padding-bottom: 10px;
+  }
+
+  .list-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .list-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    font-size: 1em;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+  }
+
+  .bullet-point {
+    height: 10px;
+    width: 10px;
+    background-color: var(--color-list-bullet);
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 5px; /* Выравнивание по первой строке текста */
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  /* Адаптивность для мобильных устройств */
+  @media (max-width: 900px) {
+    .content-container {
+      flex-direction: column;
+      gap: 30px;
+    }
+    .main-title {
+      font-size: 2.5em;
+    }
+    .left-column {
+      padding-right: 0;
+    }
+    .right-column {
+      width: 100%;
+    }
+  }
+</style>

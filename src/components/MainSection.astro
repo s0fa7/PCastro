@@ -1,0 +1,178 @@
+---
+import Header from "./Header.astro";
+import PurpleTag from "./PurpleTag.astro";
+import BigButton from "./BigButton.astro";
+
+interface Props {
+    background?: string;
+    purpleBoxText?: string;
+    title?: string;
+    subtitle?: string;
+    rightTopText?: string;
+    text1: string;
+    text2: string;
+    text3: string;
+}
+
+const {
+    background = "src/assets/images/MainSectionBannerBg.png",
+    purpleBoxText = "ДЛЯ ИГР, РАБОТЫ ИЛИ УЧЁБЫ",
+    title = "КОНФИГУРАТОР ПК",
+    subtitle = "Выбирай любые комплектующие из каталога — мы соберём мощную машину под твои задачи",
+    rightTopText = "Преумещества:\\ Подбираем и собираем системы, ориентируясь на качество, стабильность и точный расчёт. Без компромиссов в эстетике, мощности и сервисе.",
+    text1 = "Высококачественные комплектующие от проверенных производителей",
+    text2 = "Индивидуальная сборка ПК под потребности клиента",
+    text3 = "Гарантия на комплектующие и собранные ПК",
+} = Astro.props;
+---
+
+<div class="main-section">
+    <Header />
+    <div class="configurator">
+        <div
+            class="left"
+            style={`background-image: url(${background}); background-size: cover; background-position: center;`}
+        >
+            <div class="banner-info">
+                <PurpleTag text={purpleBoxText} />
+                <div class="banner-info__tittle">
+                    <h2>{title}</h2>
+                    <p class="subtitle">{subtitle}</p>
+                </div>
+            </div>
+            <BigButton
+                buttonText="сконфигурировать"
+                hrefPage="#"
+                classes="config-btn"
+            />
+        </div>
+        <div class="right">
+            <div class="right-top">{rightTopText}</div>
+            <div class="features">
+                <div class="feature">
+                    <img
+                        class="feature-icon"
+                        src="/src/assets/icons/StarIcon1.svg"
+                        alt="icon"
+                    />
+                    <span>{text1}</span>
+                </div>
+                <div class="feature">
+                    <img
+                        class="feature-icon"
+                        src="/src/assets/icons/StarIcon2.svg"
+                        alt="icon"
+                    />
+                    <span>{text2}</span>
+                </div>
+                <div class="feature">
+                    <img
+                        class="feature-icon"
+                        src="/src/assets/icons/StarIcon3.svg"
+                        alt="icon"
+                    />
+                    <span>{text3}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .main-section {
+        background-image: url(../assets/images/BgElements.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        height: 1014px;
+        max-width: 1919px;
+        margin: 0 auto;
+    }
+    .configurator {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        height: 86.4%;
+
+        color: oklch(from var(--text) l c h);
+        overflow: hidden;
+        /* border-bottom: 1px solid oklch(from var(--stroke) l c h); */
+    }
+
+    .left {
+        position: absolute;
+        top: 0;
+        left: 4.5%;
+        right: 20%;
+
+        max-width: 1305px;
+        width: auto;
+        height: 100%;
+    }
+    .banner-info {
+        margin: 2rem;
+    }
+    .banner-info,
+    .banner-info__tittle {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3.625rem;
+    }
+    .banner-info__tittle {
+        gap: 1rem;
+        max-width: 729px;
+    }
+
+    .banner-info h2 {
+        font-size: 68px;
+        text-transform: uppercase;
+    }
+
+    .subtitle {
+        max-width: 500px;
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        max-width: 33.125rem;
+        width: 20%;
+        padding: 1rem;
+    }
+
+    .right-top {
+        font-size: 1rem;
+        font-family: "JetBrainsMono";
+        color: hsla(188, 39%, 89%, 0.5);
+        line-height: 1.2;
+    }
+
+    .features {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .feature {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+    }
+
+    .feature-icon {
+        width: 70px;
+        height: 70px;
+        border: 1px dashed hsla(0, 0%, 100%, 0.5);
+    }
+
+    .config-btn{
+        position: absolute;
+        bottom: 2%;
+        right: 1%;
+    }
+</style>
