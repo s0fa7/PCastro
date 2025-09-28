@@ -4,6 +4,8 @@ import ProductCard from "../components/ProductCard.astro";
 import MainSection from "../components/MainSection.astro";
 import TheArticle from "../components/TheArticle.astro";
 import BigButton from "../components/BigButton.astro";
+import OrderButton from "../components/OrderButton.astro";
+import BrandCard from "../components/BrandCard.astro";
 
 const customArticles = [
     { id: 1, title: '', body: 'Ищете мощный игровой компьютер или рабочую станцию под задачи любой сложности? У нас вы найдёте проверенные комплектующие от ведущих производителей: видеокарты, процессоры, материнские платы, оперативную память и многое другое.' },
@@ -103,6 +105,44 @@ const customArticles = [
             </ProductCard>
         </div>
     </section>
+    <section class="brand-container">
+        <div class="brands-tittle">
+            <h2>бренды</h2>
+            <OrderButton text="смотреть все"/>
+        </div>
+        <div class="brands">
+            <BrandCard 
+            imageSrc="/src/assets/images/Brand1.png" 
+            imageAlt="Логотип Acer"
+            captionText="acer"
+        />
+            <BrandCard 
+            imageSrc="/src/assets/images/Brand2.png" 
+            imageAlt="Логотип Intel"
+            captionText="intel"
+        />
+            <BrandCard 
+            imageSrc="/src/assets/images/Brand3.png" 
+            imageAlt="Логотип MSI"
+            captionText="msi"
+        />
+            <BrandCard 
+            imageSrc="/src/assets/images/Brand1.png" 
+            imageAlt="Логотип Acer"
+            captionText="acer"
+        />
+            <BrandCard 
+            imageSrc="/src/assets/images/Brand2.png" 
+            imageAlt="Логотип Intel"
+            captionText="intel"
+        />
+            <BrandCard 
+            imageSrc="/src/assets/images/Brand3.png" 
+            imageAlt="Логотип MSI"
+            captionText="msi"
+        />
+        </div>
+    </section>
 </Layout>
 
 <style>
@@ -110,5 +150,28 @@ const customArticles = [
         background-position: center;
         justify-content: center;
         margin-top: 3.75rem;
+    }
+
+
+    .brand-container{
+        display: flex;
+        flex-direction: column;
+        gap: 3.75rem;
+        padding: 1rem;
+    }
+    .brands-tittle{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .brands-tittle h2{
+        font-size: 68px;
+        text-transform: uppercase;
+        color: oklch(from var(--body-text)l c h);
+    }
+    .brands{
+        display: flex;
+        gap: 2rem;
     }
 </style>
