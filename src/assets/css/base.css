@@ -33,12 +33,14 @@
 
     color: oklch(from var(--body-text) l c h);
     background-color: oklch(from var(--bg) l c h);
+    background-image: url(/src/assets/icons/main-pattern.svg);
+    background-repeat: repeat;
 
     position: relative;
     overflow-x: hidden;
   }
 
-  body::before {
+  /* body::before {
     content: "";
     position: fixed;
     top: 0;
@@ -48,7 +50,7 @@
     background-image: radial-gradient(rgba(43, 31, 58) 1px, transparent 1px);
     background-size: 20px 20px;
     z-index: -2;
-  }
+  } */
 
   /* :focus {
     outline: 2px solid transparent;

@@ -6,10 +6,21 @@ import TheArticle from "../components/TheArticle.astro";
 import BigButton from "../components/BigButton.astro";
 import OrderButton from "../components/OrderButton.astro";
 import BrandCard from "../components/BrandCard.astro";
+import TehCard from "../components/TehCard.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 
 const customArticles = [
-    { id: 1, title: '', body: 'Ищете мощный игровой компьютер или рабочую станцию под задачи любой сложности? У нас вы найдёте проверенные комплектующие от ведущих производителей: видеокарты, процессоры, материнские платы, оперативную память и многое другое.' },
-    { id: 2, title: '', body: 'Соберите ПК под себя или выберите готовую кастомную сборку — мы предлагаем решения под любые задачи и бюджет. Каждая сборка проходит тестирование и полностью готова к работе сразу после получения. Наши специалисты помогут подобрать конфигурацию, оптимальную по соотношению цены и производительности, а быстрая доставка и гарантия качества делают покупку максимально удобной.' },
+    {
+        id: 1,
+        title: "",
+        body: "Ищете мощный игровой компьютер или рабочую станцию под задачи любой сложности? У нас вы найдёте проверенные комплектующие от ведущих производителей: видеокарты, процессоры, материнские платы, оперативную память и многое другое.",
+    },
+    {
+        id: 2,
+        title: "",
+        body: "Соберите ПК под себя или выберите готовую кастомную сборку — мы предлагаем решения под любые задачи и бюджет. Каждая сборка проходит тестирование и полностью готова к работе сразу после получения. Наши специалисты помогут подобрать конфигурацию, оптимальную по соотношению цены и производительности, а быстрая доставка и гарантия качества делают покупку максимально удобной.",
+    },
 ];
 ---
 
@@ -29,12 +40,17 @@ const customArticles = [
 
     <section>
         <TheArticle
-        mainTitle="Актуальные новости и важные события"
-        tagText="о компании"
-        descriptionText=""
-        articles={customArticles}
-        showFeatures={true} />
-        <BigButton buttonText="подробнее о нас" hrefPage="#" classes="btn-center"/>
+            mainTitle="Актуальные новости и важные события"
+            tagText="о компании"
+            descriptionText=""
+            articles={customArticles}
+            showFeatures={true}
+        />
+        <BigButton
+            buttonText="подробнее о нас"
+            hrefPage="#"
+            classes="btn-center"
+        />
     </section>
 
     <section>
@@ -108,70 +124,117 @@ const customArticles = [
     <section class="brand-container">
         <div class="brands-tittle">
             <h2>бренды</h2>
-            <OrderButton text="смотреть все"/>
+            <OrderButton text="смотреть все" />
         </div>
         <div class="brands">
-            <BrandCard 
-            imageSrc="/src/assets/images/Brand1.png" 
-            imageAlt="Логотип Acer"
-            captionText="acer"
-        />
-            <BrandCard 
-            imageSrc="/src/assets/images/Brand2.png" 
-            imageAlt="Логотип Intel"
-            captionText="intel"
-        />
-            <BrandCard 
-            imageSrc="/src/assets/images/Brand3.png" 
-            imageAlt="Логотип MSI"
-            captionText="msi"
-        />
-            <BrandCard 
-            imageSrc="/src/assets/images/Brand1.png" 
-            imageAlt="Логотип Acer"
-            captionText="acer"
-        />
-            <BrandCard 
-            imageSrc="/src/assets/images/Brand2.png" 
-            imageAlt="Логотип Intel"
-            captionText="intel"
-        />
-            <BrandCard 
-            imageSrc="/src/assets/images/Brand3.png" 
-            imageAlt="Логотип MSI"
-            captionText="msi"
-        />
+            <BrandCard
+                imageSrc="/src/assets/images/Brand1.png"
+                imageAlt="Логотип Acer"
+                captionText="acer"
+            />
+            <BrandCard
+                imageSrc="/src/assets/images/Brand2.png"
+                imageAlt="Логотип Intel"
+                captionText="intel"
+            />
+            <BrandCard
+                imageSrc="/src/assets/images/Brand3.png"
+                imageAlt="Логотип MSI"
+                captionText="msi"
+            />
+            <BrandCard
+                imageSrc="/src/assets/images/Brand1.png"
+                imageAlt="Логотип Acer"
+                captionText="acer"
+            />
+            <BrandCard
+                imageSrc="/src/assets/images/Brand2.png"
+                imageAlt="Логотип Intel"
+                captionText="intel"
+            />
+            <BrandCard
+                imageSrc="/src/assets/images/Brand3.png"
+                imageAlt="Логотип MSI"
+                captionText="msi"
+            />
         </div>
     </section>
+
+    <section>
+        <div class="brands-tittle">
+            <div class="brands-tittle__btn">
+                <button class="btn active-btn">акции</button>
+                <button class="btn passive-btn">новости</button>
+            </div>
+            <OrderButton text="смотреть все"/>
+        </div>
+        <div class="products-container">
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+        </div>
+    </section>
+
+    <Footer/>
 </Layout>
 
 <style>
-    .btn-center{
+    .btn-center {
         background-position: center;
         justify-content: center;
         margin-top: 3.75rem;
     }
 
-
-    .brand-container{
+    .brand-container {
         display: flex;
         flex-direction: column;
         gap: 3.75rem;
         padding: 1rem;
     }
-    .brands-tittle{
+    .brands-tittle {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+        margin: 0 5rem;
     }
-    .brands-tittle h2{
+    .brands-tittle h2 {
         font-size: 68px;
         text-transform: uppercase;
-        color: oklch(from var(--body-text)l c h);
+        color: oklch(from var(--body-text) l c h);
     }
-    .brands{
+    .brands {
         display: flex;
         gap: 2rem;
+    }
+
+
+    .brands-tittle__btn button{
+        font-size: 68px;
+        text-transform: uppercase;
+    }
+    .passive-btn{
+        color: oklch(from var(--grey-text) l c h);
     }
 </style>

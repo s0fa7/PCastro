@@ -1,0 +1,106 @@
+---
+// --- Component Script (JavaScript/TypeScript) ---
+// Определяем интерфейс для свойств компонента (props)
+export interface Props {
+    imageSrc: string;
+    caption: string;
+    linkHref: string;
+    altText?: string; // Необязательный текст для alt изображения
+}
+
+// Извлекаем свойства (props) из глобального объекта Astro
+const { imageSrc, caption, linkHref, altText = caption } = Astro.props;
+---
+
+<div class="image-card">
+    <img src={imageSrc} alt={altText} class="card-image" loading="lazy" />
+    <div class="card-footer">
+        <div class="card-interactive">
+            <span>12 <span class="grey-style">//</span> 06</span>
+            <a
+                href={linkHref}
+                class="card-link"
+                aria-label={`Перейти по ссылке: ${caption}`}
+            >
+                &gt;&gt;
+            </a>
+        </div>
+
+        <p class="card-caption">{caption}</p>
+    </div>
+</div>
+
+<style>
+    .image-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 411px;
+        height: 100%;
+        max-height: 473px;
+        border: 1px solid oklch(from var(--stroke) l c h);
+        overflow: hidden;
+        padding: 20px;
+        padding-bottom: 0;
+    }
+
+    .card-image {
+        max-width: 340px;
+        width: auto;
+        height: 191px;
+        min-height: 200px;
+        object-fit: cover;
+        display: block;
+    }
+
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        height: 387px;
+        width: auto;
+        position: relative;
+        top: -20px;
+
+        background-image: url(/src/assets/images/TehCardBg.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .card-interactive {
+        display: flex;
+        width: 90%;
+        justify-content: space-between;
+        font-family: "JetBrainsMono";
+    }
+
+    .card-interactive a {
+        display: block;
+        text-align: center;
+    }
+
+    .card-caption {
+        padding: 2%;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: oklch(from var(--body-text) l c h);
+    }
+
+    .card-link {
+        width: 20px;
+        height: 16px;
+        color: oklch(from var(--white) l c h);
+    }
+
+    .arrow-icon {
+        width: 24px;
+        height: 24px;
+    }
+    .grey-style {
+        color: oklch(from var(--grey-text) l c h);
+    }
+</style>

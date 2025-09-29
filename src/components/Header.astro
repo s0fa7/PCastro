@@ -1,16 +1,3 @@
-<!-- ---
-    const infoMenuModal = document.querySelector(".info-menu");
-
-    document
-      .querySelector(".info-catalog")
-      .addEventListener("click", () => {
-        if (infoMenuModal.hasAttribute("style")) {
-          infoMenuModal.removeAttribute("style");
-        } else {
-          infoMenuModal.setAttribute("style", "display: none;");
-        }
-      });
---- -->
 <header class="header-container">
     <div class="header-content">
         <div class="header-nav">
@@ -25,28 +12,6 @@
                 <ul>
                     <li><a href="#">.компания</a></li>
                     <li><a href="#">.акции</a></li>
-                    <!-- <li class="cataloge">
-                        <a href="#">.информация</a>
-                        <img src="/src/assets/icons/OneArrowButton.svg" />
-                    </li> -->
-
-                    <!-- <li>
-                        <div class="info-catalog-wrapper">
-                            <button type="button" class="btn info-cataloge">
-                                <span>.информация</span>
-                                <img
-                                    src="/src/assets/icons/OneArrowButton.svg"
-                                />
-                            </button>
-                            <div class="info-menu" style="display: none">
-                                <ul>
-                                    <li><a href="">новости</a></li>
-                                    <li><a href="">Доставка и оплата</a></li>
-                                    <li><a href="">Гарантия и возврат</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </li> -->
                     <li>
                         <div class="info-catalog-wrapper">
                             <button type="button" class="btn info-catalog">
@@ -97,6 +62,20 @@
     </div>
 </header>
 
+<script>
+    const infoMenuModal = document.querySelector(".info-menu"); 
+ 
+  document.querySelector(".info-catalog")?.addEventListener("click", showMenu); 
+ 
+  function showMenu() { 
+    if (infoMenuModal !== null && infoMenuModal.hasAttribute("style")) { 
+      infoMenuModal.removeAttribute("style"); 
+    } else { 
+      infoMenuModal?.setAttribute("style", "display: none;"); 
+    } 
+  }
+</script>
+
 <style>
     .header-container {
         width: 100%;
@@ -104,12 +83,6 @@
         font-family: "JetBrainsMono", sans-serif;
         font-size: 16px;
         text-transform: uppercase;
-
-        /* background-image: url("../assets/images/HeaderBg.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: top; */
-        /* border-bottom: 1px solid oklch(from var(--stroke) l c h); */
     }
 
     .header-content {
@@ -119,7 +92,6 @@
         max-width: 107.25rem;
         margin: 0 auto;
         padding: 22px 0;
-        /* color: var(--text-color); */
     }
 
     .header-nav {
@@ -227,28 +199,22 @@
 
     .info-menu {
         position: absolute;
-        right: 0;
+        z-index: 3;
         padding: 1rem 2rem;
+        min-width: 14.8125rem;
+
         color: oklch(from var(--body-text) l c h);
         background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
         text-transform: uppercase;
         ul {
             list-style: none;
         }
     }
-
-    .info-menu::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: radial-gradient(
-            rgba(43, 31, 58) 1px,
-            transparent 1px
-        );
-        background-size: 20px 20px;
-        z-index: -2;
+    .info-menu ul{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 </style>

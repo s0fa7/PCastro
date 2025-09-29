@@ -1,0 +1,124 @@
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <a href="#" class="logo">
+                <img src="src/assets/Srf.svg" />
+            </a>
+            <div class="footer-links-group">
+                <div class="cataloge">
+                    <img src="/src/assets/icons/Catalog.svg" />
+                    <a href="#"> каталог</a>
+                </div>
+                <div>
+                    <a class="menu-title" href="#">конфигуратор пк</a>
+                    <nav>
+                        <ul>
+                            <li><a href="#">компания</a></li>
+                            <li><a href="#">отзывы</a></li>
+                            <li><a href="#">доставка и оплата</a></li>
+                            <li><a href="#">гарантия и возврат</a></li>
+                            <li><a href="#">новости</a></li>
+                            <li><a href="#">акции</a></li>
+                            <li><a href="#">контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <div class="contact-info">
+                <a href="tel:+74952660792"
+                    >+7 495 266 07 92</a
+                >
+                <a href="mailto:INFO@NAMECOMPANY.COM"
+                    >info@namecompany.com</a
+                >
+            </div>
+
+            <p class="address-info">
+                г. москва, ул. сущевский вал, д. 5, стр. 28, оф. и7 (3-й этаж)
+            </p>
+
+            <div class="working-hours">
+                <p>ПН-ПТ 11:00-19:00</p>
+                <p>СБ-ВС 12:00-18:00</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span class="year">2025</span>
+        <a href="#"
+            >политика обработки персональных данных</a
+        >
+        <img class="privacy-icon" src="src/assets/icons/FooterIcon.svg" />
+    </div>
+
+    <style>
+        footer {
+            font-family: "JetBrainsMono";
+            display: flex;
+            flex-direction: column;
+            text-transform: uppercase;
+        }
+
+        .footer-col{
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .footer-links-group{
+            display: flex;
+            gap: 4rem;
+        }
+        .footer-links-group ul{
+            list-style: none;
+        }
+
+        .footer-content{
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            margin: 0 auto;
+            padding-bottom: 5rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 90%;
+            margin: 0 auto;
+            padding: 2rem 0;
+
+            color: #D8EBEE66;
+            font-size: 14px;
+            border-top: 1px dashed #FFFFFF80;
+        }
+        .footer-bottom a{
+            text-transform: uppercase;
+        }
+        .contact-info{
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            font-family: "EuropeExt";
+            color: oklch(from var(--purple-text)l c h);
+            font-size: 28px;
+        }
+        .contact-info a:first-child{
+            font-size: 68px;
+            color: oklch(from var(--text)l c h);
+        }
+        .address-info{
+            font-size: 20px
+        }
+        .working-hours{
+            color: #EAE3F066;
+        }
+    </style>
+</footer>
