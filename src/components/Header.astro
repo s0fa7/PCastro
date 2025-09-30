@@ -63,17 +63,34 @@
 </header>
 
 <script>
-    const infoMenuModal = document.querySelector(".info-menu"); 
- 
-  document.querySelector(".info-catalog")?.addEventListener("click", showMenu); 
- 
-  function showMenu() { 
-    if (infoMenuModal !== null && infoMenuModal.hasAttribute("style")) { 
-      infoMenuModal.removeAttribute("style"); 
-    } else { 
-      infoMenuModal?.setAttribute("style", "display: none;"); 
-    } 
-  }
+
+    document.addEventListener("click", toggleDropdown);
+
+    function toggleDropdown(e: MouseEvent): void {
+        toggle(e, ".info-catalog", ".info-menu");
+    }
+
+    function toggle(
+        e: MouseEvent,
+        watchedElementClass: string,
+        toggledElementClass: string,
+    ): void {
+        const watchedElement = document.querySelector(watchedElementClass);
+        const toggledElement = document.querySelector(toggledElementClass);
+
+        console.log(watchedElement);
+
+        if (toggledElement !== null) {
+            if (
+                watchedElement?.contains(e.target as Node) &&
+                toggledElement.hasAttribute("style")
+            ) {
+                toggledElement.removeAttribute("style");
+            } else {
+                toggledElement.setAttribute("style", "display: none;");
+            }
+        }
+    }
 </script>
 
 <style>
@@ -212,7 +229,7 @@
             list-style: none;
         }
     }
-    .info-menu ul{
+    .info-menu ul {
         display: flex;
         flex-direction: column;
         align-items: flex-start;

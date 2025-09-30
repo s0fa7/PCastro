@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import TehCard from "../components/TehCard.astro";
+import OrderButton from "../components/OrderButton.astro";
+import TheArticle from "../components/TheArticle.astro";
+
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "акции", href: "#" },
+];
+
+const customArticles = [
+    {
+        id: 1,
+        title: "Почему стоит следить за нашими акциями",
+        body: "Наши акции — это не разовые скидки, а продуманная система лояльности, разработанная для того, чтобы каждый клиент мог получить дополнительную выгоду. Мы регулярно запускаем сезонные и праздничные предложения, устраиваем специальные распродажи, дарим бонусы постоянным клиентам и предлагаем уникальные условия на популярные товары и услуги. Следить за обновлениями выгодно: участие в акциях — это реальный способ снизить расходы и получить качественный сервис на особых условиях. Подпишитесь на рассылку или добавьте страницу в закладки, чтобы быть в курсе всех новых предложений.",
+    },
+    {
+        id: 2,
+        title: "Как воспользоваться специальным предложением",
+        body: "Все наши акции оформляются просто и прозрачно. Чтобы принять участие, достаточно выбрать подходящее предложение и выполнить несколько шагов: например, ввести промокод при оформлении заказа, заполнить короткую форму обратной связи или обратиться к нашему менеджеру. Каждое предложение сопровождается подробными условиями — срок действия, список участвующих товаров или услуг, ограничения и нюансы. Мы всегда готовы ответить на вопросы и помочь разобраться в деталях. Даже если вы не нашли подходящего предложения сегодня — заходите позже, новые акции появляются регулярно.",
+    },
+];
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <section class="news">
+        <div class="news-tittle">
+            <h2>акции</h2>
+            <p>
+                //В этом разделе собраны все актуальные акции, скидки
+                и специальные предложения, которые помогут вам сэкономить
+                и получить максимум пользы от сотрудничества с нашей компанией.
+                Мы регулярно обновляем условия, проводим сезонные распродажи,
+                запускаем временные кампании и персональные предложения
+                для постоянных клиентов. Следите за обновлениями,
+                чтобы не пропустить выгодные условия на услуги и товары. Здесь
+                вы всегда найдёте лучшие предложения — просто, прозрачно
+                и без скрытых условий.
+            </p>
+        </div>
+        <div class="news-cards">
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+        </div>
+        <OrderButton text="смотреть все" />
+    </section>
+    <section>
+        <TheArticle
+            mainTitle="Выгодные акции и специальные предложения"
+            tagText="о наших акциях"
+            descriptionText="Мы ценим своих клиентов и предлагаем не просто качественные услуги или товары, но и выгодные условия для сотрудничества. В этом разделе вы всегда найдёте актуальные акции, временные скидки, сезонные распродажи и персональные предложения. Следите за обновлениями, чтобы не упустить возможность сэкономить и получить больше за меньшие деньги."
+            articles={customArticles}
+            showFeatures={true}
+        />
+    </section>
+    <Footer />
+</Layout>
+
+<style>
+    .news {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+        margin: 0 auto;
+    }
+    .news-tittle {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 90%;
+
+        color: oklch(from var(--text) l c h);
+    }
+    @media (max-width: 850px) {
+        .news-tittle {
+            flex-direction: column;
+            text-align: left;
+        }
+        .news-tittle p {
+            text-align: left;
+        }
+    }
+    .news-tittle h2 {
+        text-transform: uppercase;
+        font-size: 68px;
+    }
+    .news-tittle p {
+        max-width: 38.125rem;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        text-align: right;
+    }
+    .news-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+</style>

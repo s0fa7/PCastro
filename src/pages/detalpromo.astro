@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import ArticlePresentation from "../components/ArticlePresentation.astro";
+
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "информация", href: "#" },
+    { text: "акции", href: "#" },
+    { text: "Зачем нужен водяной кулер и когда он реально нужен?", href: "#" },
+];
+
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <ArticlePresentation
+        title="Скидка 20% на видеокарты NVIDIA GeForce RTX 40 SUPER",
+        description="Скидка 20% на видеокарты NVIDIA GeForce RTX 40 SUPER — отличная возможность обновить свою систему с максимальной выгодой. В рамках акции вы можете приобрести модели RTX 4070 SUPER, 4070 Ti SUPER и 4080 SUPER по сниженной цене. Эти видеокарты обеспечивают высокую производительность, поддержку трассировки лучей и технологии DLSS 3. Предложение ограничено по срокам и количеству — успейте заказать до окончания акции. Идеальный выбор для геймеров, стримеров и специалистов, работающих с графикой.",
+        author="Катерина иванчикова",
+        image="/src/assets/images/Card1.png",
+        imageAlt="карта фото",
+        showAuthor="false"
+    />
+    <Footer />
+</Layout>
+
+<style></style>

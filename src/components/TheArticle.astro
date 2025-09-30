@@ -1,5 +1,5 @@
 ---
-import PurpleTag from './PurpleTag.astro';
+import PurpleTag from "./PurpleTag.astro";
 
 interface ArticleItem {
   id: number;
@@ -10,9 +10,9 @@ interface ArticleItem {
 export interface Props {
   mainTitle: string;
   tagText: string;
-  descriptionText?: string; 
-  featuresTitle?: string; 
-  
+  descriptionText?: string;
+  featuresTitle?: string;
+
   showDescription?: boolean;
   showFeatures?: boolean;
 
@@ -20,97 +20,110 @@ export interface Props {
 }
 
 const {
-  mainTitle = 'онлайн-конфигуратор компьютера с визуальной сборкой – соберите идеальный пк прямо на сайте',
-  tagText = 'конфигуратор',
-  descriptionText, 
+  mainTitle = "онлайн-конфигуратор компьютера с визуальной сборкой – соберите идеальный пк прямо на сайте",
+  tagText = "конфигуратор",
+  descriptionText,
   featuresTitle,
-  
+
   showDescription = true,
   showFeatures = true,
-  
+
   articles = [
-    { id: 1, title: 'Ищете мощный игровой компьютер или рабочую станцию под задачи любой сложности?', body: 'У нас вы найдёте проверенные комплектующие от ведущих производителей: видеокарты, процессоры, материнские платы, оперативную память и многое другое.' },
-    { id: 2, title: 'Соберите ПК под себя или выберите готовую кастомную сборку', body: 'Мы предлагаем решения под любые задачи и бюджет.' },
-    { id: 3, title: 'Профессиональная сборка и тестирование.', body: 'Каждая сборка проходит тестирование и полностью готова к работе сразу после получения. Наши специалисты помогут подобрать конфигурацию, оптимальную по соотношению цены и производительности, а быстрая доставка и гарантия качества делают покупку максимально удобной.' },
+    {
+      id: 1,
+      title:
+        "Ищете мощный игровой компьютер или рабочую станцию под задачи любой сложности?",
+      body: "У нас вы найдёте проверенные комплектующие от ведущих производителей: видеокарты, процессоры, материнские платы, оперативную память и многое другое.",
+    },
+    {
+      id: 2,
+      title: "Соберите ПК под себя или выберите готовую кастомную сборку",
+      body: "Мы предлагаем решения под любые задачи и бюджет.",
+    },
+    {
+      id: 3,
+      title: "Профессиональная сборка и тестирование.",
+      body: "Каждая сборка проходит тестирование и полностью готова к работе сразу после получения. Наши специалисты помогут подобрать конфигурацию, оптимальную по соотношению цены и производительности, а быстрая доставка и гарантия качества делают покупку максимально удобной.",
+    },
   ],
 } = Astro.props;
 ---
-  
-  <header>
-    <div class="header-tittle">
-        <PurpleTag text={tagText}/>
-        
-        <h2>{mainTitle}</h2>
+
+<header>
+  <div class="header-tittle">
+    <PurpleTag text={tagText} />
+
+    <div class="header-tittle__info">
+      <h2>{mainTitle}</h2>
+      {showDescription && descriptionText && <p>{descriptionText}</p>}
     </div>
+  </div>
+</header>
 
-    {showDescription && descriptionText && (
-      <p>
-        {descriptionText}
-      </p>
-    )}
-  </header>
-
-  {showFeatures && articles.length > 0 && (
+{
+  showFeatures && articles.length > 0 && (
     <div>
-      
-      {featuresTitle && (
-        <h3>
-          {featuresTitle}
-        </h3>
-      )}
+      {featuresTitle && <h3>{featuresTitle}</h3>}
 
       <div class="articles">
         {articles.map((article) => (
           <div class="article">
-            <h3>
-              {article.title}
-            </h3>
-            <p>
-              {article.body}
-            </p>
+            <h3>{article.title}</h3>
+            <p>{article.body}</p>
           </div>
         ))}
       </div>
     </div>
-  )}
+  )
+}
 
 <style>
-    header{
-        max-width: 1200px;
-        margin: 0 auto;
-        padding-bottom: 6.25rem;
-        margin-bottom: 5rem;
-        border-bottom: 1px dashed hsla(0, 0%, 100%, 0.5);
-    }
-    .header-tittle{
-        display: flex;
-        gap: 5rem;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
-    .header-tittle h2{
-        font-size: 46px;
-        text-transform: uppercase;
-        max-width: 698px;
-        color: oklch(from var(--text)l c h);
-    }
-    h3{
-        font-size: 32px;
-        color: linear-gradient(90deg, #E3C3FD 0%, #853AC2 100%);
-        margin-bottom: 3.75rem;
-        text-transform: uppercase;
-    }
-    .articles{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .article{
-        width: 35%;
-        color: oklch(from var(--body-text)l c h);
-        font-family: "JetBrainsMono";
-        line-height: 1.3;
-    }
+  header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 6.25rem;
+    margin-bottom: 5rem;
+    border-bottom: 1px dashed hsla(0, 0%, 100%, 0.5);
+  }
+  .header-tittle {
+    display: flex;
+    gap: 5rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .header-tittle__info {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    max-width: 800px;
+  }
+  .header-tittle h2 {
+    font-size: 46px;
+    text-transform: uppercase;
+    max-width: 698px;
+    color: oklch(from var(--text) l c h);
+  }
+  h3 {
+    font-size: 32px;
+    background-image: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    margin-bottom: 3.75rem;
+    text-transform: uppercase;
+  }
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .article {
+    width: 35%;
+    color: oklch(from var(--body-text) l c h);
+    font-family: "JetBrainsMono";
+    line-height: 1.3;
+  }
 </style>

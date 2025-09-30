@@ -1,0 +1,112 @@
+---
+// Astro component: ArticlePresentation.astro
+// Props:
+//   title: string (optional)
+//   description: string (optional)
+//   author: string | null (optional)
+//   image: string | null (URL, optional)
+//   imageAlt: string (optional)
+//   showAuthor: boolean (optional, defaults to true)
+
+const {
+    title = "Заголовок статьи",
+    description = "Короткое описание статьи. Можно заменить через пропсы.",
+    author = "Имя Автора",
+    image = null,
+    imageAlt = "Фотография статьи",
+    showAuthor = false,
+} = Astro.props;
+---
+
+<article class="article-presentation">
+    <div class="content">
+        <h2 class="title">{title}</h2>
+        <p class="desc">{description}</p>
+        {
+            showAuthor && author ? (
+                <div class="meta">
+                    <span>{author}</span>
+                    <span>12//06</span>
+                </div>
+            ) : null
+        }
+    </div>
+    <div class="media">
+        {
+            image ? (
+                <img src={image} alt={imageAlt} class="hero" />
+            ) : (
+                <div class="placeholder" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <rect width="928px" height="563px"/>
+                    </svg>
+                </div>
+            )
+        }
+    </div>
+</article>
+
+<style>
+    .article-presentation {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+        margin: 0 auto;
+        max-width: 1500px;
+        width: 100%;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .media {
+        display: block;
+        height: 100%;
+        width: auto;
+        max-width: 847px;
+        max-height: 425px;
+    }
+    
+    .placeholder {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+    }
+    .title {
+        font-size: 46px;
+        text-transform: uppercase;
+        color: oklch(from var(--body-text) l c h);
+    }
+    .desc {
+        color: oklch(from var(--body-text) l c h);
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .meta {
+        font-size: 14px;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+        color: oklch(from var(--grey-text) l c h);
+
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+        .article-presentation {
+            grid-template-columns: 1fr;
+        }
+        .hero,
+        .placeholder {
+            width: 343px;
+            height: 220px;
+        }
+    }
+</style>

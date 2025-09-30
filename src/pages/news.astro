@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import TehCard from "../components/TehCard.astro";
+import OrderButton from "../components/OrderButton.astro";
+import TheArticle from "../components/TheArticle.astro";
+
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "информация", href: "#" },
+    { text: "новости", href: "#" },
+];
+
+const customArticles = [
+    {
+        id: 1,
+        title: "Зачем следить за новостями",
+        body: "Раздел новостей — это не просто хроника событий. Здесь вы первыми узнаете о запуске новых продуктов, выгодных предложениях, изменениях в графике работы и других важных аспектах нашей деятельности. Постоянное обновление информации помогает быть в курсе и принимать более информированные решения.",
+    },
+    {
+        id: 2,
+        title: "Надёжный источник информации",
+        body: "Мы публикуем только проверенные и официальные данные. Все новости проходят модерацию и направлены на то, чтобы обеспечить прозрачность и доверие со стороны наших клиентов.",
+    },
+];
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <section class="news">
+        <div class="news-tittle">
+            <h2>новости</h2>
+            <p>
+                //В этом разделе вы найдёте актуальные новости компании SFR:
+                свежие обновления, новинки в линейке компьютеров, полезные
+                советы по выбору комплектующих и обзоры новейших технологий.
+                Мы делимся опытом, рассказываем о поступлении новых моделей,
+                а также публикуем материалы, которые помогут вам лучше
+                ориентироваться в мире высокопроизводительных ПК. Следите
+                за обновлениями — мы всегда на связи и готовы делиться важным
+                и интересным.
+            </p>
+        </div>
+        <div class="news-cards">
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard1.png"
+                caption="скидка -20% на RTX 4070 Ti Super и RTX 5070 Ti 16GB"
+                linkHref="#"
+                altText="скидка"
+            />
+            <TehCard
+                imageSrc="/src/assets/images/TehCard2.png"
+                caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                linkHref="#"
+                altText="скидка"
+            />
+        </div>
+        <OrderButton text="смотреть все" />
+    </section>
+    <section>
+        <TheArticle
+            mainTitle="Актуальные новости и важные события"
+            tagText="актуальные новости"
+            descriptionText="Следите за последними обновлениями нашей компании, новыми предложениями, изменениями в работе и значимыми этапами развития. В этом разделе мы регулярно публикуем информацию о новых проектах, достижениях, участии в мероприятиях и других событиях, которые могут быть полезны нашим клиентам и партнёрам."
+            articles={customArticles}
+            showFeatures={true}
+        />
+    </section>
+    <Footer />
+</Layout>
+
+<style>
+    .news {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5rem;
+        margin: 0 auto;
+    }
+    .news-tittle {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 90%;
+
+        color: oklch(from var(--text) l c h);
+    }
+    @media (max-width: 850px) {
+        .news-tittle {
+            flex-direction: column;
+            text-align: left;
+        }
+        .news-tittle p{
+            text-align: left;
+        }
+    }
+    .news-tittle h2 {
+        text-transform: uppercase;
+        font-size: 68px;
+    }
+    .news-tittle p {
+        max-width: 38.125rem;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.2;
+        text-align: right;
+    }
+    .news-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 1rem;
+    }
+</style>

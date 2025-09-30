@@ -1,0 +1,74 @@
+---
+import OrderButton from "./OrderButton.astro";
+const {
+    imageSrc = "",
+    title = "здесь пока пусто",
+    subtitle = "ничего страшного!",
+    description = "",
+} = Astro.props;
+---
+
+<div class="card-content">
+    <div class="image-wrapper">
+        <img src={imageSrc} alt="Контрольная иконка" class="card-image" />
+    </div>
+
+    <h2 class="card-title">{title}</h2>
+    <div class="card-caption">
+        <h3 class="card-subtitle">{subtitle}</h3>
+        <p class="card-description">{description}</p>
+    </div>
+
+    <OrderButton text="перейти в каталог" />
+</div>
+
+<style>
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        gap: 3rem;
+
+        height: 100%;
+        width: auto;
+        max-height: 734px;
+        max-width: 1087px;
+        padding: 125px 0;
+        margin: 0 auto;
+
+        background-image: url(/src/assets/images/UserControlBg.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .card-image {
+        width: 160px; 
+        height: 160px;
+    }
+
+    .card-title {
+        font-size: 46px;
+    }
+
+    .card-caption{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .card-subtitle {
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+    .card-description {
+        font-size: 16px;
+        line-height: 1.2;
+        max-width: 710px;
+        font-weight: 600;
+        font-family: "JetBrainsMono";
+    }
+</style>
