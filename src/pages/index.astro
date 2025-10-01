@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ProductCard from "../components/ProductCard.astro";
 import MainSection from "../components/MainSection.astro";
 import TheArticle from "../components/TheArticle.astro";
 import BigButton from "../components/BigButton.astro";
@@ -8,7 +7,7 @@ import OrderButton from "../components/OrderButton.astro";
 import BrandCard from "../components/BrandCard.astro";
 import TehCard from "../components/TehCard.astro";
 import Footer from "../components/Footer.astro";
-
+import PopularList from "../components/PopularList.astro";
 
 const customArticles = [
     {
@@ -25,17 +24,19 @@ const customArticles = [
 ---
 
 <Layout>
+    <MainSection
+        background="src/assets/images/MainSectionBannerBg.png"
+        purpleBoxText="для игр, работы или учебы"
+        title="Конфигуратор пк"
+        subtitle="Выбирай любые комплектующие из каталога — мы соберём мощную машину под твои задачи"
+        rightTopText="ПРЕИМУЩЕСТВА: // Подбираем и собираем системы, ориентируясь на качество, стабильность и точный расчёт. Без компромиссов в эстетике, мощности и сервисе."
+        text1="Высококачественные комплектующие от проверенных производителей"
+        text2="Индивидуальная сборка ПК под потребности клиента"
+        text3="Гарантия на комплектующие и собранные ПК"
+    />
+
     <section>
-        <MainSection
-            background="src/assets/images/MainSectionBannerBg.png"
-            purpleBoxText="для игр, работы или учебы"
-            title="Конфигуратор пк"
-            subtitle="Выбирай любые комплектующие из каталога — мы соберём мощную машину под твои задачи"
-            rightTopText="ПРЕИМУЩЕСТВА: // Подбираем и собираем системы, ориентируясь на качество, стабильность и точный расчёт. Без компромиссов в эстетике, мощности и сервисе."
-            text1="Высококачественные комплектующие от проверенных производителей"
-            text2="Индивидуальная сборка ПК под потребности клиента"
-            text3="Гарантия на комплектующие и собранные ПК"
-        />
+        <PopularList />
     </section>
 
     <section>
@@ -53,74 +54,6 @@ const customArticles = [
         />
     </section>
 
-    <section>
-        <div class="products-container">
-            <ProductCard
-                cardId={"001"}
-                productImage="src/assets/images/Videocard.png"
-                price="140 000₽"
-                isHit={true}
-            >
-                <h3 slot="cardTitle">
-                    видеокарта <span
-                        style="color: oklch(from var(--purple-text)l c h);"
-                        >//</span
-                    > 16ГБ
-                </h3>
-                <p slot="cardDescription">
-                    msi (g5080-16gtc) geforce rtx 5080 16g gaming trio oc
-                </p>
-            </ProductCard>
-            <ProductCard
-                cardId={"002"}
-                productImage="src/assets/images/Operative.png"
-                price="140 000₽"
-                isHit={true}
-            >
-                <h3 slot="cardTitle">
-                    оперативная память <span
-                        style="color: oklch(from var(--purple-text)l c h);"
-                        >//</span
-                    > 32ГБ
-                </h3>
-                <p slot="cardDescription">
-                    TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
-                </p>
-            </ProductCard>
-            <ProductCard
-                cardId={"003"}
-                productImage="src/assets/images/Videocard.png"
-                price="140 000₽"
-                isHit={true}
-            >
-                <h3 slot="cardTitle">
-                    видеокарта <span
-                        style="color: oklch(from var(--purple-text)l c h);"
-                        >//</span
-                    > 16ГБ
-                </h3>
-                <p slot="cardDescription">
-                    msi (g5080-16gtc) geforce rtx 5080 16g gaming trio oc
-                </p>
-            </ProductCard>
-            <ProductCard
-                cardId={"004"}
-                productImage="src/assets/images/Operative.png"
-                price="140 000₽"
-                isHit={true}
-            >
-                <h3 slot="cardTitle">
-                    оперативная память <span
-                        style="color: oklch(from var(--purple-text)l c h);"
-                        >//</span
-                    > 32ГБ
-                </h3>
-                <p slot="cardDescription">
-                    TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
-                </p>
-            </ProductCard>
-        </div>
-    </section>
     <section class="brand-container">
         <div class="brands-tittle">
             <h2>бренды</h2>
@@ -166,7 +99,7 @@ const customArticles = [
                 <button class="btn active-btn">акции</button>
                 <button class="btn passive-btn">новости</button>
             </div>
-            <OrderButton text="смотреть все"/>
+            <OrderButton text="смотреть все" />
         </div>
         <div class="products-container">
             <TehCard
@@ -196,7 +129,7 @@ const customArticles = [
         </div>
     </section>
 
-    <Footer/>
+    <Footer />
 </Layout>
 
 <style>
@@ -229,12 +162,11 @@ const customArticles = [
         gap: 2rem;
     }
 
-
-    .brands-tittle__btn button{
+    .brands-tittle__btn button {
         font-size: 68px;
         text-transform: uppercase;
     }
-    .passive-btn{
+    .passive-btn {
         color: oklch(from var(--grey-text) l c h);
     }
 </style>

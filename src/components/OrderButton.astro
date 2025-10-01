@@ -1,77 +1,59 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-
-interface Props extends HTMLAttributes<"button"> {
-  text?: string;
-  rotate?: boolean;
-}
-
-const { text = "показать всё", rotate = false, ...attrs } = Astro.props;
+import BtnIcon from "../assets/icons/product-card/btn-arrow.svg"
 ---
 
-<div class="button-container">
-  <button {...attrs}>
-    <span class="text">{text}</span>
-    <span class:list={["arrow-wrapper", { "rotate-90": rotate }]}>
-      &gt;&gt;
-    </span>
+<div class="btn-with-label">
+  <span class="label">Заказать</span>
+  <button class="btn order-btn">
+    <BtnIcon />
   </button>
 </div>
 
 <style>
-  .button-container {
-    display: inline-block;
-  }
-
-  button {
-    display: flex;
+  .btn-with-label {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+    gap: 0.5rem;
   }
 
-  .text {
-    color: oklch(from var(--body-text) l c h);
-    font-size: 16px;
+  .order-btn {
+    padding: 0.75rem;
+    background-color: #eadcf6;
+    clip-path: polygon(10% 0, 90% 0, 100% 10%, 100% 90%, 90% 100%, 10% 100%, 0 90%, 0 10%);
+
+    transition:
+      background-color 0.2s ease-in-out,
+      fill 0.2s ease-in-out;
+  }
+
+  .order-btn:hover {
+    background-color: #b860ff;
+  }
+
+  .order-btn:hover svg {
+    fill: #ffffff;
+  }
+
+  .order-btn svg {
+    fill: #16171c;
+
+    width: 12px;
+    height: 12px;
+  }
+
+  .label {
     font-family: "JetBrainsMono", sans-serif;
-    margin-right: 15px;
+    font-size: 0.75rem;
     text-transform: uppercase;
   }
 
-  .arrow-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
+  @media (width >= 768px) {
+    .label {
+      font-size: 1rem;
+    }
 
-    background-image: url(/src/assets/icons/OrderBgBtn.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    transition:
-      transform 0.1s ease-in-out,
-      box-shadow 0.1s ease-in-out;
-    transform: rotate(0deg);
-  }
-
-  .arrow-wrapper.rotate-90 {
-    transform: rotate(90deg);
-  }
-
-  .arrow {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  .arrow-wrapper:hover {
-    box-shadow: 0 5px 15px oklch(from var(--purple) l c h);
-    background-image: url(/src/assets/icons/OrderBtnPurple.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    color: oklch(from var(--white)l c h);
+    .order-btn {
+      padding: 1rem;
+    }
   }
 </style>

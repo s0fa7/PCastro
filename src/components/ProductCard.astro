@@ -1,134 +1,185 @@
 ---
-import OrderButton from "./OrderButton.astro";
+import { Image } from "astro:assets";
+import CrossIcon from "../assets/icons/product-card/cross.svg";
 import PurpleTag from "./PurpleTag.astro";
+import TwoSlashesIcon from "../assets/icons/product-card/line.svg";
+import OrderButton from "./OrderButton.astro";
 
 interface Props {
-  cardId?: string;
-  productImage: string;
+  id: string;
+  photoSrc: ImageMetadata;
+  photoAlt: string;
+  productTitle: string;
+  productSpec: string;
   price: string;
-  isHit?: boolean;
+  isBadgeVisible?: boolean;
 }
 
-const { cardId, productImage, price, isHit = true } = Astro.props;
+const {
+  id,
+  photoSrc,
+  photoAlt,
+  productTitle,
+  productSpec,
+  price,
+  isBadgeVisible = true
+} = Astro.props;
 ---
 
-<div
-  class="product-card"
-  style={`background-image: url('src/assets/icons/TheCardBackground.svg');`}
->
-  <div class="header">
-    <div class="card-id">
-      <span class="number">{cardId}</span>
-    </div>
+<div class="product-card-wrapper">
+  <p class="product-card-number">
+    <CrossIcon />
+    <span>{id}</span>
+  </p>
+  <div class="product-card">
+    <div class="product-wrapper">
       {
-        isHit ? (
-          // <Icon name="Hit" />
-          // <span class="hit">
-          //   <img src="/src/assets/icons/Hit.svg" />
-          //   ХИТ
-          // </span>
-          <PurpleTag text="хит" iconSVG="/src/assets/icons/Hit.svg"/>
-        ) : (
-          <span class="favorite-icon">
-            <img src="/src/assets/icons/heart.svg" alt="favorite" />
-          </span>
-        )
+        () => {
+          if (isBadgeVisible) {
+            return <PurpleTag text="Хит" iconSVG="src/assets/icons/Hit.svg"/>;
+          }
+        }
       }
-  </div>
-
-  <div class="product-image-container">
-    <img src={productImage} alt="Product" class="product-image" />
-  </div>
-
-  <div class="product-info">
-    <slot style="font-size: 14px;" name="cardTitle" />
-    <slot name="cardDescription" />
-  </div>
-
-  <div class="footer">
-    <div class="price">{price}</div>
-    <div class="order-section">
-      <OrderButton text="заказать" />
+      <div class="product">
+        <Image src={photoSrc} alt={photoAlt} class="product-photo" />
+        <div class="product-info">
+          <p class="product-title">
+            <span>{productTitle}</span>
+            <TwoSlashesIcon />
+            <span>{productSpec}</span>
+          </p>
+          <p class="product-spec">
+            <slot />
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="product-price">
+      <span>{`${price}₽`}</span>
+      <OrderButton />
     </div>
   </div>
 </div>
-
 <style>
+  .product-card-wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 0.135fr) 1fr;
+
+    background-image: url("../assets/images/products/product-card/card-bg.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+    font-family: "JetBrainsMono", sans-serif;
+
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .product-card-number {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    padding: 2.25rem 0;
+    font-size: 0.625rem;
+
+    color: oklch(from #545b5f l c h);
+    justify-self: center;
+  }
+
+  .product-card-number svg {
+    fill: oklch(from #d8ebee l c h);
+
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+
   .product-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    position: relative;
-    width: 25.6875rem;
-    height: 30.75rem; 
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    box-sizing: border-box;
-    color: oklch(from var(--body-text) l c h);
-    text-transform: uppercase;
+    gap: 1rem;
+
+    padding: 2.625rem 1rem 0.5rem;
   }
 
-  .header {
+  .product-wrapper {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    position: relative;
-    top: 7%;
-    left: -2%;
-
-    font-family: "JetBrainsMono";
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
   }
 
-  .card-id {
-    color: oklch(from var(--light-stroke) l c h); 
-    font-size: 12px;
-    position: relative;
-    z-index: 10;
+  .product {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
-  .hit,
-  .favorite-icon {
-    font-size: 12px;
-  }
+  .product-photo {
+    align-self: center;
 
-  .product-image-container {
-    text-align: center;
-    margin: 0 0 0 10%;
-  }
-
-  .product-image {
-    max-width: 90%;
+    width: 80%;
     height: auto;
   }
 
   .product-info {
-    margin-left: 4.3125rem;
-    font-size: 20px;
-    position: relative;
-    bottom: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .footer {
+  .product-title {
     display: flex;
+    align-items: center;
+    gap: 0.375rem;
+
+    font-size: 0.625rem;
+    text-transform: uppercase;
+  }
+
+  .product-title svg {
+    fill: oklch(from #9d4edd l c h);
+
+    width: 0.75rem;
+    height: auto;
+  }
+
+  .product-spec {
+    font-family: "EuropeExt";
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+
+  .product-price {
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    bottom: 2%;
-    left: 18%;
-    right: 3%;
   }
 
-  .price {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: "JetBrainsMono";
+  .product-price > span {
+    font-size: 1.125rem;
+    font-weight: 200;
   }
 
-  .order-section {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  @media (width >= 768px) {
+    .product-card-wrapper {
+      max-width: 400px;
+    }
+
+    .product-card-number {
+      font-size: 0.75rem;
+    }
+
+    .product-spec,
+    .product-price > span {
+      font-size: 1.25rem;
+    }
+
+    .product-title {
+      font-size: 0.875rem;
+    }
   }
 </style>

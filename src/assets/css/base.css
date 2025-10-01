@@ -1,13 +1,13 @@
 @font-face {
   font-family: "EuropeExt";
   font-display: auto;
-  src: url("/src/assets/fonts/europeext.otf"); 
+  src: url("../fonts/EuropeExt-normal.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "JetBrainsMono";
   font-display: auto;
-  src: url("/src/assets/fonts/JetBrainsMono-VariableFont_wght.ttf");
+  src: url("../fonts/JetBrainsMono.woff2") format("woff2");
 }
 
 @layer base {
