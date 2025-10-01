@@ -9,17 +9,17 @@
                     <img src="/src/assets/icons/Catalog.svg" />
                     <a href="#"> каталог</a>
                 </div>
-                <div>
-                    <a class="menu-title" href="#">конфигуратор пк</a>
+                <div class="menu-title">
+                    <a  href="#">конфигуратор пк</a>
                     <nav>
                         <ul>
-                            <li><a href="#">компания</a></li>
-                            <li><a href="#">отзывы</a></li>
-                            <li><a href="#">доставка и оплата</a></li>
-                            <li><a href="#">гарантия и возврат</a></li>
-                            <li><a href="#">новости</a></li>
-                            <li><a href="#">акции</a></li>
-                            <li><a href="#">контакты</a></li>
+                            <li><a href="#">.компания</a></li>
+                            <li><a href="#">.отзывы</a></li>
+                            <li><a href="#">.доставка и оплата</a></li>
+                            <li><a href="#">.гарантия и возврат</a></li>
+                            <li><a href="#">.новости</a></li>
+                            <li><a href="#">.акции</a></li>
+                            <li><a href="#">.контакты</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -83,6 +83,14 @@
             width: 90%;
             margin: 3rem auto 0 auto;
             padding-bottom: 5rem;
+        }
+        .menu-title{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .menu-title a:hover{
+            color: oklch(from var(--purple-text)l c h);
         }
 
         .footer-bottom {

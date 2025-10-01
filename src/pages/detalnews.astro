@@ -29,15 +29,211 @@ const customArticles = [
 <Layout>
     <Header />
     <Nav items={myPath} />
-    <ArticlePresentation
-        title="Зачем нужен водяной кулер и когда он реально нужен",
-        description="Водяное охлаждение становится всё более популярным среди сборщиков ПК — как опытных, так и начинающих. Особенно актуально оно для мощных процессоров, игровых конфигураций и рабочих станций. В отличие от классических воздушных кулеров, жидкостные системы обеспечивают более стабильную температуру и бесшумную работу.",
-        author="Катерина иванчикова",
-        image="/src/assets/images/culer1.png",
-        imageAlt="кулер фото",
-        showAuthor="true"
-    />
+    <section>
+        <ArticlePresentation
+            title="Зачем нужен водяной кулер и когда он реально нужен"
+            ,
+            description="Водяное охлаждение становится всё более популярным среди сборщиков ПК — как опытных, так и начинающих. Особенно актуально оно для мощных процессоров, игровых конфигураций и рабочих станций. В отличие от классических воздушных кулеров, жидкостные системы обеспечивают более стабильную температуру и бесшумную работу."
+            ,
+            author="Катерина иванчикова"
+            ,
+            image="/src/assets/images/culer1.png"
+            ,
+            imageAlt="кулер фото"
+            ,
+            showAuthor="true"
+        />
+    </section>
+    <section>
+        <h2>Преимущества водяного охлаждения</h2>
+        <article class="article-container">
+            
+            <div class="article">
+                <img
+                    src="/src/assets/images/culer2.png"
+                    width="858px"
+                    height="498px"
+                />
+                <div class="article-caption top">
+                    <p>
+                        Водянка — это не просто эффектный элемент в сборке,
+                        но и серьёзный инструмент в борьбе с перегревом.
+                    </p>
+                    <ul>
+                        <li>
+                            Высокая эффективность. Жидкость быстрее отводит
+                            тепло от процессора, чем воздух.
+                        </li>
+                        <li>
+                            Низкий уровень шума. Даже при высокой нагрузке
+                            вентиляторы работают тише.
+                        </li>
+                        <li>
+                            Компактность в корпусе. Нет громоздкого радиатора
+                            над процессором.
+                        </li>
+                        <li>
+                            Эстетика. С подсветкой RGB и прозрачными шлангами
+                            система выглядит современно и эффектно.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="article middle">
+                <div class="article-caption middle">
+                    <h3>Как выбрать водяное охлаждение: ключевые параметры</h3>
+                    <p>
+                        Перед покупкой стоит оценить характеристики
+                        и совместимость с вашей системой.
+                    </p>
+                    <h4>Вот на что стоит обратить внимание:</h4>
+                    <ol>
+                        <li>
+                            <span>Размер радиатора</span>
+                            <p>
+                                Радиаторы бывают на 120 мм, 240 мм,
+                                280 мм и 360 мм. Чем больше, тем лучше
+                                теплоотвод, но учитывайте размер корпуса.
+                            </p>
+                        </li>
+                        <li>
+                            <span>Тип крепления</span>
+                            <p>
+                                Убедитесь, что кулер поддерживает сокет вашей
+                                материнской платы: AM4, LGA1200,
+                                LGA1700 и другие.
+                            </p>
+                        </li>
+                        <li>
+                            <span>Уровень шума</span>
+                            <p>
+                                Проверяйте данные по децибелам (дБ) — чем ниже,
+                                тем тише будет работать система.
+                            </p>
+                        </li>
+                        <li>
+                            <span>Подсветка и управление</span>
+                            <p>
+                                Некоторые модели поддерживают ARGB
+                                и синхронизацию с системами подсветки ASUS Aura,
+                                MSI Mystic Light и другими.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <img
+                    src="/src/assets/images/culer3.png"
+                    width="853px"
+                    height="592px"
+                />
+            </div>
+            <div class="article-bottom">
+                <h3>Кому точно стоит рассмотреть водяное охлаждение</h3>
+                <p>
+                    Водянка — это не просто эффектный элемент в сборке,
+                    но и серьёзный инструмент в борьбе с перегревом.
+                </p>
+                <ul>
+                    <li>Игровым сборкам с видеокартами RTX 4070 и выше</li>
+                    <li>Рабочим станциям для монтажа, 3D или стриминга.</li>
+                    <li>Тем, кто хочет максимально тихую и стильную сборку.</li>
+                    <li>
+                        Любителям кастомных и визуально эффектных конфигураций.
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </section>
     <Footer />
 </Layout>
 
-<style></style>
+<style>
+    .article-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5rem;
+        max-width: 1748px;
+        margin: 0 auto;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-size: 40px;
+        max-width: 1748px;
+        margin: 2rem auto;
+    }
+    .article-container h3 {
+        text-transform: uppercase;
+        font-size: 32px;
+    }
+    .article-container h4 {
+        text-transform: uppercase;
+        font-size: 20px;
+        font-family: "JetBrainsMono";
+    }
+    .article-container li,
+    .article-container p {
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 120%;
+    }
+
+    .article {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1752px;
+        width: 100%;
+    }
+    .article.middle{
+        align-items: flex-end;
+    }
+    .article img {
+        height: auto;
+        width: 40%;
+    }
+    .article-caption {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 50%;
+    }
+    .article-caption.top p {
+        text-align: center;
+    }
+    .article-caption.middle {
+        li p{
+            margin-top: 24px;
+        }
+        ol {
+            list-style-type: none;
+            counter-reset: num;
+            margin: 0 0 0 35px;
+            padding: 15px 0 5px 0;
+        }
+        ol li {
+            position: relative;
+            margin: 0 0 0 0;
+            padding: 0 0 10px 0;
+        }
+        ol li:before {
+            content: "00" counter(num);
+            counter-increment: num;
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            left: -32px;
+            width: 20px;
+            color: oklch(from var(--purple-text)l c h);
+            text-align: right;
+        }
+    }
+
+    .article-bottom{
+        display: flex;
+        flex-direction: column;
+        max-width: 40%;
+        gap: 3rem;
+    }
+</style>

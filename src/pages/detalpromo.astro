@@ -11,21 +11,205 @@ const myPath = [
     { text: "акции", href: "#" },
     { text: "Зачем нужен водяной кулер и когда он реально нужен?", href: "#" },
 ];
-
 ---
 
 <Layout>
     <Header />
     <Nav items={myPath} />
-    <ArticlePresentation
-        title="Скидка 20% на видеокарты NVIDIA GeForce RTX 40 SUPER",
-        description="Скидка 20% на видеокарты NVIDIA GeForce RTX 40 SUPER — отличная возможность обновить свою систему с максимальной выгодой. В рамках акции вы можете приобрести модели RTX 4070 SUPER, 4070 Ti SUPER и 4080 SUPER по сниженной цене. Эти видеокарты обеспечивают высокую производительность, поддержку трассировки лучей и технологии DLSS 3. Предложение ограничено по срокам и количеству — успейте заказать до окончания акции. Идеальный выбор для геймеров, стримеров и специалистов, работающих с графикой.",
-        author="Катерина иванчикова",
-        image="/src/assets/images/Card1.png",
-        imageAlt="карта фото",
-        showAuthor="false"
-    />
+    <section>
+        <ArticlePresentation
+            title="Скидка 20% на видеокарты NVIDIA GeForce RTX 40 SUPER"
+            ,
+            description="Скидка 20% на видеокарты NVIDIA GeForce RTX 40 SUPER — отличная возможность обновить свою систему с максимальной выгодой. В рамках акции вы можете приобрести модели RTX 4070 SUPER, 4070 Ti SUPER и 4080 SUPER по сниженной цене. Эти видеокарты обеспечивают высокую производительность, поддержку трассировки лучей и технологии DLSS 3. Предложение ограничено по срокам и количеству — успейте заказать до окончания акции. Идеальный выбор для геймеров, стримеров и специалистов, работающих с графикой."
+            ,
+            author="Катерина иванчикова"
+            ,
+            image="/src/assets/images/Card1.png"
+            ,
+            imageAlt="карта фото"
+            ,
+            showAuthor="false"
+        />
+    </section>
+    <section>
+        <h2>Видеокарты RTX 40 SUPER — максимум мощности по выгодной цене</h2>
+        <article class="article-container">
+            <div class="article">
+                <img
+                    src="/src/assets/images/Card2.png"
+                    width="858px"
+                    height="498px"
+                />
+                <div class="article-caption top">
+                    <p>
+                        Серия видеокарт NVIDIA GeForce RTX 40 SUPER —
+                        это продвинутые решения на базе архитектуры Ada
+                        Lovelace, сочетающие в себе высокую производительность,
+                        энергоэффективность и поддержку новейших технологий.
+                        В рамках текущей акции вы можете приобрести популярные
+                        модели RTX 4070 SUPER, RTX 4070 Ti SUPER и RTX
+                        4080 SUPER со скидкой 20%. Это отличная возможность
+                        собрать или обновить игровую систему, не переплачивая.
+                        В ассортименте представлены видеокарты от ведущих
+                        производителей — MSI, ASUS, Gigabyte, Palit и других,
+                        с различными вариантами охлаждения, дизайна
+                        и комплектации. Подходит как для геймеров,
+                        так и для тех, кто работает с графикой, видео или 3D.
+                        Карты поддерживают DLSS 3.5, трассировку лучей
+                        и обеспечивают плавную работу в разрешениях до 4K.
+                    </p>
+                </div>
+            </div>
+            <div class="article middle">
+                <div class="article-caption middle">
+                    <h3>Почему стоит выбрать RTX 40 SUPER</h3>
+                    <ol>
+                        <li>
+                            <span>Скидка 20% уже включена в цену</span>
+                            <p>
+                                Отображается на странице каждой участвующей
+                                модели. Никаких купонов вводить не нужно — цена
+                                финальная.
+                            </p>
+                        </li>
+                        <li>
+                            <span>Ограниченное количество</span>
+                            <p>
+                                Акция действует до окончания складских остатков.
+                                Самые популярные карты разбирают в первые дни —
+                                лучше не тянуть.
+                            </p>
+                        </li>
+                        <li>
+                            <span>Доставка по всей России</span>
+                            <p>
+                                Отправим в день заказа. Упакуем бережно,
+                                с защитой от ударов и влаги.
+                            </p>
+                        </li>
+                        <li>
+                            <span>Оплата — как удобно</span>
+                            <p>
+                                Картой, по счёту, рассрочка или оплата
+                                при получении — выбирайте удобный способ.
+                            </p>
+                        </li>
+                    </ol>
+                </div>
+                <img
+                    src="/src/assets/images/Card3.png"
+                    width="853px"
+                    height="592px"
+                />
+            </div>
+            <div class="article-bottom">
+                <h3>Кому подойдёт RTX 40 SUPER</h3>
+                <ul>
+                    <li>
+                        Геймерам, которые хотят играть в Full HD/QHD/4K
+                        без компромиссов.
+                    </li>
+                    <li>
+                        Стримерам, монтажёрам и 3D-дизайнерам — для работы
+                        и развлечений.
+                    </li>
+                    <li>Тем, кто хочет апгрейд без переплат и с гарантией.</li>
+                    <li>
+                        Пользователям, у которых уже есть RTX 20 или 30 серий —
+                        переход на 40 SUPER даёт заметный прирост
+                        производительности.
+                    </li>
+                </ul>
+            </div>
+        </article>
+    </section>
     <Footer />
 </Layout>
 
-<style></style>
+<style>
+    .article-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5rem;
+        max-width: 1748px;
+        margin: 0 auto;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-size: 40px;
+        max-width: 1748px;
+        margin: 2rem auto;
+    }
+    .article-container h3 {
+        text-transform: uppercase;
+        font-size: 32px;
+    }
+    .article-container h4 {
+        text-transform: uppercase;
+        font-size: 20px;
+        font-family: "JetBrainsMono";
+    }
+    .article-container li,
+    .article-container p {
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        font-size: 600;
+        line-height: 120%;
+    }
+
+    .article {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        max-width: 1752px;
+        width: 100%;
+    }
+    .article.middle {
+        align-items: flex-end;
+    }
+    .article img {
+        height: auto;
+        width: 40%;
+    }
+    .article-caption {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 50%;
+    }
+    .article-caption.middle {
+        li p {
+            margin-top: 24px;
+        }
+        ol {
+            list-style-type: none;
+            counter-reset: num;
+            margin: 0 0 0 35px;
+            padding: 15px 0 5px 0;
+        }
+        ol li {
+            position: relative;
+            margin: 0 0 0 0;
+            padding: 0 0 10px 0;
+        }
+        ol li:before {
+            content: "00" counter(num);
+            counter-increment: num;
+            display: inline-block;
+            position: absolute;
+            top: 0px;
+            left: -32px;
+            width: 20px;
+            color: oklch(from var(--purple-text) l c h);
+            text-align: right;
+        }
+    }
+
+    .article-bottom {
+        display: flex;
+        flex-direction: column;
+        max-width: 40%;
+        gap: 3rem;
+    }
+</style>
