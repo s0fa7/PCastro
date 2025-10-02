@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import UserContolCard from "../components/UserContolCard.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
+import ProductCard from "../components/ProductCard.astro";
+import OrderButton from "../components/OrderButton.astro";
+import Intel from "../assets/images/products/product-card/intel.png";
+import BigButton from "../components/BigButton.astro";
+
 const myPath = [
     { text: "главное", href: "#" },
     { text: "избранное", href: "#" },
@@ -13,9 +17,177 @@ const myPath = [
 <Layout>
     <Header />
     <Nav items={myPath} />
-    <UserContolCard
-        imageSrc="src/assets/images/Wishlist.png"
-        description="Добавляй товары в избранное, чтобы быстро вернуться к ним позже. Просто нажми на сердечко рядом с товаром — и они появятся здесь."
-    />
+    <section class="favorite-container">
+        <div class="favorite-header">
+            <h2>избранное</h2>
+            <p>Вы добавили сюда понравившиеся товары, чтобы вернуться к ним позже. Удобно для сравнения и планирования покупок.</p>
+        </div>
+        <div class="favorite-products">
+            <ProductCard
+                id="001"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="2 ядра"
+                price="2 920"
+                isBadgeVisible={true}
+                isHeartVisible={true}
+            >
+                Intel Celeron G5905 OEM
+            </ProductCard>
+            <ProductCard
+                id="002"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="4 ядра"
+                price="4 120"
+                isBadgeVisible={false}
+                isHeartVisible={true}
+            >
+                Intel Core i3 12100F OEM
+            </ProductCard>
+            <ProductCard
+                id="003"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="4 ядра"
+                price="4 550"
+                isBadgeVisible={false}
+                isHeartVisible={true}
+            >
+                Intel Core i3 10105F OEM CM8070104291323
+            </ProductCard>
+            <ProductCard
+                id="004"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="4 ядра"
+                price="4 650"
+                isBadgeVisible={true}
+                isHeartVisible={true}
+            >
+                Intel Core i3 10105F OEM CM8070104291323
+            </ProductCard>
+            <ProductCard
+                id="005"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="2 ядра"
+                price="2 920"
+                isBadgeVisible={false}
+                isHeartVisible={true}
+            >
+                Intel Celeron G5905 OEM
+            </ProductCard>
+            <ProductCard
+                id="006"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="4 ядра"
+                price="4 120"
+                isBadgeVisible={true}
+                isHeartVisible={true}
+            >
+                Intel Core i3 12100F OEM
+            </ProductCard>
+            <ProductCard
+                id="007"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="4 ядра"
+                price="4 550"
+                isBadgeVisible={false}
+                isHeartVisible={true}
+            >
+                Intel Core i3 10105F OEM CM8070104291323
+            </ProductCard>
+            <ProductCard
+                id="008"
+                photoSrc={Intel}
+                photoAlt="Intel Celeron"
+                productTitle="процессор"
+                productSpec="4 ядра"
+                price="4 650"
+                isBadgeVisible={false}
+                isHeartVisible={true}
+            >
+                Intel Core i3 10105F OEM CM8070104291323
+            </ProductCard>
+        </div>
+        <div class="favorite-btn">
+            <OrderButton text="показать все"/>
+        </div>
+        <div class="favorite-result">
+            <p>у вас в избранном 8 товаров </p>
+            <div class="favorite-result__info">
+                <span>на сумму</span>
+                <span>23 920₽</span>
+            </div>
+            <BigButton buttonText="переместить в корзину" hrefPage="#" classes=""/>
+        </div>
+    </section>
     <Footer />
 </Layout>
+
+<style>
+    .favorite-container{
+        display: flex;
+        flex-direction: column;
+        gap: 3.75rem;
+        max-width: 95%;
+        margin: 0 auto;
+    }
+    .favorite-header{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        max-width: 100%;
+    }
+    .favorite-header h2{
+        font-size: 68px;
+        text-transform: uppercase;
+        color: oklch(from var(--text)l c h);
+    }
+    .favorite-header p{
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 600;
+        max-width: 600px;
+    }
+    .favorite-products{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .favorite-btn{
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    .favorite-result{
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        background-color: oklch(from var(--dark-card) l c h);
+        padding: 2.5rem;
+        max-width: 411px;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    .favorite-result__info{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .favorite-result__info span:last-child{
+        color: oklch(from var(--purple-text) l c h);
+    }
+</style>

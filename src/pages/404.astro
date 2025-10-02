@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BigButton from "../components/BigButton.astro";
+---
+
+<Layout>
+    <Header />
+    <section>
+        <div class="error-container">
+            <img
+                src="/src/assets/images/404.png"
+                alt="ошибка 404"
+                width="827px"
+                height="421px"
+            />
+            <p>Похоже, вы потерялись в системе...</p>
+            <BigButton
+                buttonText="вернуться в систему"
+                hrefPage="/"
+                classes=""
+            />
+        </div>
+    </section>
+    <Footer />
+</Layout>
+
+<style>
+    .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        margin: 0 auto;
+    }
+    .error-container p {
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+        font-size: 20px;
+    }
+    .error-container img {
+        width: 50%;
+        height: auto;
+    }
+    @media (max-width: 768px) {
+        .error-container img {
+            width: 80%;
+        }
+        .error-container p {
+            font-size: 18px;
+        }
+    }
+</style>

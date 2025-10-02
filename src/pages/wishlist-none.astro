@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import UserContolCard from "../components/UserContolCard.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "избранное", href: "#" },
+];
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <UserContolCard
+        imageSrc="src/assets/images/Wishlist.png"
+        description="Добавляй товары в избранное, чтобы быстро вернуться к ним позже. Просто нажми на сердечко рядом с товаром — и они появятся здесь."
+    />
+    <Footer />
+</Layout>

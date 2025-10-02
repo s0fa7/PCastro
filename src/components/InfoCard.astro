@@ -1,0 +1,91 @@
+---
+interface Props {
+    title?: string;
+    items?: string[];
+}
+
+const { title = "Инфо", items = [] } = Astro.props as Props;
+---
+
+<div class="info-card" aria-labelledby="info-title">
+    <header class="card-header">
+        <h3 id="info-title">{title}</h3>
+        <img
+            src="src/assets/images/StarIconCard.png"
+            alt="иконка карточки"
+            width="70px"
+            height="68px"
+        />
+    </header>
+
+    <ol class="card-list">
+        {items.map((it, i) => <li class="card-list-item">{it}</li>)}
+    </ol>
+</div>
+
+<style>
+    .info-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        max-width: 411px;
+        height: 479px;
+        width: auto;
+        padding: 24px;
+        margin: 0.5rem;
+
+        background: oklch(from var(--dark-card) l c h);
+        border: 1px solid oklch(from var(--stroke) l c h);
+    }
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+    }
+    .card-header h3 {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    .card-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+        padding-left: 30px;
+    }
+    .card-list-item {
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: num;
+        margin: 0 0 0 35px;
+        padding: 15px 0 5px 0;
+    }
+    ol li {
+        position: relative;
+        margin: 0 0 0 0;
+        padding: 0 0 10px 0;
+    }
+    ol li:before {
+        content: "00" counter(num);
+        counter-increment: num;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        left: -40px;
+        width: 20px;
+        color: oklch(from var(--grey-text) l c h);
+        text-align: right;
+    }
+
+    @media (max-width: 770px) {
+        .info-card {
+            padding: 14px;
+        }
+    }
+</style>
