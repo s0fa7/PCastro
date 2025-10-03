@@ -1,0 +1,290 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import TheArticle from "../components/TheArticle.astro";
+import PurpleTag from "../components/PurpleTag.astro";
+import OrderButton from "../components/OrderButton.astro";
+
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "информация", href: "#" },
+    { text: "гарантия и возврат", href: "#" },
+];
+const customArticles = [
+    {
+        id: 1,
+        title: "Условия возврата товара надлежащего качества",
+        body: "Покупатель вправе вернуть товар надлежащего качества в течение 7 календарных дней с момента получения заказа. Обязательные условия возврата: сохранённый товарный вид, упаковка, наличие всех комплектующих, документов (чек, гарантийный талон). Товар не должен иметь следов эксплуатации. Возврат средств осуществляется тем же способом, которым была произведена оплата. Возврат возможен только после рассмотрения заявления и проверки состояния товара.",
+    },
+    {
+        id: 2,
+        title: "Что делать, если товар оказался с браком",
+        body: "Если в товаре был обнаружен производственный дефект, вы можете потребовать возврата, замены или ремонта. В течение 15 календарных дней после покупки вы вправе подать заявление. При этом товар не должен иметь механических повреждений, а дефект должен быть подтверждён сервисной проверкой. Если по закону товар относится к «технически сложным», вернуть его после 15 дней можно только при наличии существенного дефекта, нарушений сроков ремонта или невозможности использования товара более 30 дней в году.",
+    },
+    {
+        id: 3,
+        title: "Проверка качества и экспертиза товара",
+        body: "При обращении по гарантии продавец имеет право провести проверку качества. Для этого покупатель должен предоставить товар в магазин или сервисный центр. Если результаты проверки вызывают сомнения, покупатель может потребовать независимую экспертизу. Она проводится за счёт магазина, но в случае, если дефект вызван неправильной эксплуатацией, расходы возлагаются на покупателя. После проверки SRF предоставляет официальный ответ с дальнейшими инструкциями.",
+    },
+    {
+        id: 4,
+        title: "Что не входит в гарантийные обязательства",
+        body: "Гарантия не распространяется на повреждения, вызванные неправильной эксплуатацией, механическим воздействием, попаданием влаги, использованием несовместимого ПО или комплектующих. Также она не действует в случаях вскрытия устройства, повреждения пломб, отсутствия серийного номера. Не подлежат гарантийному ремонту расходные материалы: батареи, картриджи, кабели и т.п. Полный список исключений указан в документации производителя и на странице с условиями гарантии.",
+    },
+];
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <section class="return-container">
+        <div class="warranty-header">
+            <h2>гарантия и возврат</h2>
+            <p>
+                Мы в SRF уверены в качестве наших товаров и заботимся о каждом
+                клиенте. Если вы хотите вернуть товар или воспользоваться
+                гарантией — мы постараемся сделать процесс максимально удобным.
+                Ниже — подробности возврата и условий гарантийного обслуживания.
+            </p>
+        </div>
+        <PurpleTag text="гарантия и вовзрат" />
+        <div class="warranty-content">
+            <div class="sidebar">
+                <button class="btn tab-btn active" data-index="1">
+                    <img
+                        src="src/assets/images/return/StarIcon1.png"
+                        alt="иконка"
+                    />
+                    .Возврат товара надлежащего качества
+                </button>
+                <button class="btn tab-btn" data-index="2">
+                    <img
+                        src="src/assets/images/return/StarIcon2.png"
+                        alt="иконка"
+                    />
+                    .Возврат товара ненадлежащего качества
+                </button>
+                <button class="btn tab-btn" data-index="3">
+                    <img
+                        src="src/assets/images/return/StarIcon3.png"
+                        alt="иконка"
+                    />
+                    .Проверка качества и экспертиза
+                </button>
+                <button class="btn tab-btn" data-index="4">
+                    <img
+                        src="src/assets/images/return/StarIcon4.png"
+                        alt="иконка"
+                    />
+                    .Гарантийное обслуживание
+                </button>
+            </div>
+            <div class="content">
+                <div id="content-1" class="content-block active-content">
+                    <div class="content-block__text">
+                        <p>
+                            Вы можете вернуть товар надлежащего качества в
+                            течение 7 дней с момента покупки.
+                        </p>
+                        <p>Для этого необходимо:</p>
+                        <ol>
+                            <li>Обратиться в магазин SRF</li>
+                            <li>Заполнить заявление на возврат.</li>
+                            <li>
+                                Сохранить товарный вид, упаковку, комплектность.
+                            </li>
+                            <li>
+                                Приложить чек, гарантийный талон и другие
+                                документы.
+                            </li>
+                        </ol>
+                        <p>
+                            Если товар имеет следы использования, возврат может
+                            быть отклонён. Деньги возвращаются тем же способом,
+                            которым была произведена оплата.
+                        </p>
+                    </div>
+                    <OrderButton text="скачать заявление на возврат" />
+                </div>
+                <div id="content-2" class="content-block">
+                    <p>
+                        Возврат товара ненадлежащего качества осуществляется в
+                        течение гарантийного срока или срока годности.
+                    </p>
+                </div>
+                <div id="content-3" class="content-block">
+                    <p>
+                        При возникновении спорных ситуаций проводится проверка
+                        качества и независимая экспертиза товара.
+                    </p>
+                </div>
+                <div id="content-4" class="content-block">
+                    <p>
+                        Гарантийное обслуживание осуществляется в сервисных
+                        центрах в течение всего гарантийного срока.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <TheArticle
+            mainTitle="Гарантия на товары SRF — защита ваших покупок"
+            tagText="гарантия и возврат"
+            descriptionText="В магазине SRF мы предоставляем официальную гарантию на все товары, если иное не указано. Гарантийный срок зависит от типа продукта и производителя. Мы сотрудничаем только с проверенными поставщиками и брендами, поэтому каждый покупатель может быть уверен в качестве приобретённого устройства. При выявлении дефектов вы можете обратиться в сервисный центр или напрямую к нам. Также мы уважаем закон «О защите прав потребителей» и соблюдаем все процедуры, включая возврат и ремонт товара."
+            articles={customArticles}
+            showFeatures={true}
+        />
+    </section>
+    <Footer />
+</Layout>
+<script>
+    // Обработчик клика по кнопке
+    function handleTabClick(event: MouseEvent): void {
+        const target = event.currentTarget as HTMLButtonElement | null;
+        if (!target) return;
+
+        // Снимаем активность со всех кнопок и блоков
+        document
+            .querySelectorAll<HTMLButtonElement>(".tab-btn")
+            .forEach((btn) => btn.classList.remove("active"));
+        document
+            .querySelectorAll<HTMLElement>(".content-block")
+            .forEach((block) => block.classList.remove("active-content"));
+
+        // Активируем текущую кнопку
+        target.classList.add("active");
+
+        // Берём data-index
+        const index = target.getAttribute("data-index");
+        if (!index) return;
+
+        // Находим нужный блок и активируем его
+        const content = document.getElementById(`content-${index}`);
+        if (content) {
+            content.classList.add("active-content");
+        }
+    }
+
+    // Назначаем обработчики
+    document
+        .querySelectorAll<HTMLButtonElement>(".tab-btn")
+        .forEach((btn) => btn.addEventListener("click", handleTabClick));
+</script>
+
+<style>
+    .return-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .warranty-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .warranty-header p {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+        max-width: 709px;
+        color: oklch(from var(--text) l c h);
+    }
+
+    .warranty-content {
+        display: flex;
+        justify-content: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .tab-btn {
+        padding: 16px 12px;
+        font-size: 16px;
+        border: 1px dashed oklch(from var(--stroke) l c h);
+        color: oklch(from var(--grey-text) l c h);
+        text-transform: uppercase;
+        width: 100%;
+    }
+    .tab-btn img {
+        margin-right: 1rem;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 600px;
+    }
+
+    .tab-btn.active {
+        color: oklch(from var(--text) l c h);
+    }
+
+    .content {
+        flex: 1;
+        padding: 24px;
+    }
+
+    .content-block {
+        display: none;
+        animation: fade 0.3s ease-in-out;
+    }
+
+    .content-block.active-content {
+        display: block;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .content-block {
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 120%;
+
+        padding: 0 2rem;
+    }
+    .content-block__text{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: num;
+        margin: 0 0 0 35px;
+        padding: 15px 0 5px 0;
+    }
+    ol li {
+        position: relative;
+        margin: 0 0 0 0;
+        padding: 0 0 10px 0;
+    }
+    ol li:before {
+        content: "00" counter(num);
+        counter-increment: num;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        left: -32px;
+        width: 20px;
+        color: oklch(from var(--grey-text) l c h);
+        text-align: right;
+    }
+</style>

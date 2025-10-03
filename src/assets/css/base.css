@@ -60,7 +60,14 @@
     line-height: inherit;
   }
 
-  section{
+  h2 {
+    font-size: 68px;
+    text-transform: uppercase;
+    color: oklch(from var(--text) l c h);
+    max-width: 495px;
+  }
+
+  section {
     margin: 5rem 0;
   }
 
