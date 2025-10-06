@@ -4,10 +4,10 @@
             <a href="#" class="logo">
                 <img src="src/assets/Srf.svg" />
             </a>
-            <div class="cataloge">
+            <button type="button" class="btn cataloge">
                 <img src="/src/assets/icons/Catalog.svg" />
-                <a href="#"> каталог</a>
-            </div>
+                <span>каталог</span>
+            </button>
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">.компания</a></li>
@@ -61,8 +61,282 @@
         </div>
     </div>
 </header>
+<div class="modal-overlay" style="display: none">
+    <div class="modal-window">
+        <aside class="sidebar">
+            <ul>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/pc.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.компьютеры</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/processor.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.процессоры</span>
+                </li>
+                <li class="active">
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/pc.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.видеокарты</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/motherboard.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.материнские платы</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/ram.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.оперативная память</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/ssd.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.диски ssd</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/hdd.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.диски hdd</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/power-unit.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.блок питания</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/pc-case.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.корпуса</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/cpu-cooling.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.охлаждение процессора</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/pc-case-cooling.png"
+                            alt=""
+                        /></span
+                    >
+                    <span>.корпусные вентиляторы</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/pc-modding.webp"
+                            alt=""
+                        /></span
+                    >
+                    <span>.моддинг пк</span>
+                </li>
+                <li>
+                    <span class="icon"
+                        ><img
+                            src="/src/assets/images/catalog/monitor.webp"
+                            alt=""
+                        /></span
+                    >
+                    <span>.мониторы</span>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="modal-content">
+            <!-- видеокарты -->
+            <div class="columns" data-category=".видеокарты">
+                <div class="column">
+                    <h4 class="category-title highlight">
+                        NVIDIA (GeForce RTX / GTX)
+                    </h4>
+                    <div class="category-group">
+                        <strong>GEFORCE RTX 40-СЕРИИ (новое поколение)</strong>
+                        <ul>
+                            <li>RTX 4090</li>
+                            <li>RTX 4080 Super / 4080</li>
+                            <li>
+                                RTX 4070 Ti Super / 4070 Ti / 4070 Super / 4070
+                            </li>
+                            <li>RTX 4060 Ti / 4060</li>
+                        </ul>
+                        <strong
+                            >GEFORCE RTX 30-СЕРИИ (предыдущее поколение)</strong
+                        >
+                        <ul>
+                            <li>RTX 3090 Ti / 3090</li>
+                            <li>RTX 3080 Ti / 3080</li>
+                            <li>RTX 3070 Ti / 3070</li>
+                            <li>RTX 3060 Ti / 3060</li>
+                            <li>RTX 3050</li>
+                        </ul>
+                        <strong>GEFORCE GTX (бюджетный сегмент, без rtx)</strong
+                        >
+                        <ul>
+                            <li>GTX 1660 Super / 1660 Ti / 1660</li>
+                            <li>GTX 1650 Super / 1650</li>
+                            <li>GTX 1050 Ti / 1050</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <h4 class="category-title">AMD (Radeon RX)</h4>
+                    <div class="category-group">
+                        <strong>RADEON RX 7000-СЕРИИ (новое поколение)</strong>
+                        <ul>
+                            <li>RX 7900 XTX / 7900 XT / 7900 GRE</li>
+                            <li>RX 7800 XT</li>
+                            <li>RX 7700 XT</li>
+                            <li>RX 7600 XT / 7600</li>
+                        </ul>
+                        <strong>RADEON RX 6000-СЕРИИ</strong>
+                        <ul>
+                            <li>RX 6950 XT / 6900 XT</li>
+                            <li>RX 6800 XT / 6800</li>
+                            <li>RX 6750 XT / 6700 XT / 6700</li>
+                            <li>RX 6650 XT / 6600 XT / 6600</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <h4 class="category-title">Intel Arc (Новичок на рынке)</h4>
+                    <div class="category-group">
+                        <ul>
+                            <li>Arc A770</li>
+                            <li>Arc A750</li>
+                            <li>Arc A580</li>
+                            <li>Arc A380</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- процессоры -->
+            <div
+                class="columns"
+                data-category=".процессоры"
+                style="display: none;"
+            >
+                <div class="column">
+                    <h4 class="category-title highlight">Intel</h4>
+                    <ul>
+                        <li>Core i9</li>
+                        <li>Core i7</li>
+                        <li>Core i5</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4 class="category-title">AMD</h4>
+                    <ul>
+                        <li>Ryzen 9</li>
+                        <li>Ryzen 7</li>
+                        <li>Ryzen 5</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- материнские платы -->
+            <div
+                class="columns"
+                data-category=".материнские платы"
+                style="display: none;"
+            >
+                <div class="column">
+                    <h4 class="category-title highlight">Intel</h4>
+                    <ul>
+                        <li>Z790 / B760 / H610</li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4 class="category-title">AMD</h4>
+                    <ul>
+                        <li>X670 / B650 / A620</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- компьютеры -->
+            <div
+                class="columns"
+                data-category=".компьютеры"
+                style="display: none;"
+            >
+                <div class="column">
+                    <h4 class="category-title highlight">Игровые ПК</h4>
+                    <ul>
+                        <li>Бюджетные</li>
+                        <li>Средний сегмент</li>
+                        <li>Премиум</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- оперативная память -->
+            <div
+                class="columns"
+                data-category=".оперативная память"
+                style="display: none;"
+            >
+                <div class="column">
+                    <h4 class="category-title highlight">DDR5</h4>
+                    <ul>
+                        <li>5200 MHz</li>
+                        <li>6000 MHz</li>
+                    </ul>
+                    <h4 class="category-title">DDR4</h4>
+                    <ul>
+                        <li>3200 MHz</li>
+                        <li>3600 MHz</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
+    //информация появление
 
     document.addEventListener("click", toggleDropdown);
 
@@ -91,6 +365,53 @@
             }
         }
     }
+
+    //категории появление
+
+    const infoMenuModal = document.querySelector(".modal-overlay");
+
+    document.querySelector(".cataloge")?.addEventListener("click", showMenu);
+
+    function showMenu() {
+        if (infoMenuModal !== null && infoMenuModal.hasAttribute("style")) {
+            infoMenuModal.removeAttribute("style");
+        } else {
+            infoMenuModal?.setAttribute("style", "display: none;");
+        }
+    }
+
+    //категории смена
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const sidebarItems =
+            document.querySelectorAll<HTMLLIElement>(".sidebar ul li");
+        const allColumns = document.querySelectorAll<HTMLDivElement>(
+            ".modal-content .columns",
+        );
+
+        sidebarItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                // Снять .active со всех
+                sidebarItems.forEach((li) => li.classList.remove("active"));
+                // Добавить на текущий
+                item.classList.add("active");
+
+                const categoryName = item
+                    .querySelector("span:last-child")
+                    ?.textContent?.trim();
+                if (!categoryName) return;
+
+                // Скрыть все колонки
+                allColumns.forEach((col) => {
+                    if (col.dataset.category === categoryName) {
+                        col.style.display = "flex";
+                    } else {
+                        col.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
 </script>
 
 <style>
@@ -124,6 +445,7 @@
         display: flex;
         gap: 0.5rem;
         align-items: center;
+        text-transform: uppercase;
     }
 
     .main-nav ul {
@@ -233,5 +555,132 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .modal-overlay {
+        inset: 0;
+        background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+    }
+
+    .modal-window {
+        width: 100vw;
+        height: auto;
+        display: flex;
+    }
+
+    .sidebar {
+        border-right: 1px solid oklch(from var(--stroke) l c h);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar li {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 8px;
+        cursor: pointer;
+        color: oklch(from var(--text) l c h);
+        font-size: 20px;
+        transition: background 0.14s;
+        border-left: 2px solid transparent;
+    }
+
+    .sidebar li .icon {
+        width: 70px;
+        height: 68px;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar li.active,
+    .sidebar li:hover {
+        background: rgba(79, 74, 104, 0.11);
+        color: oklch(from var(--purple-text) l c h);
+    }
+
+    .sidebar li.active span {
+        color: oklch(from var(--purple-text) l c h);
+    }
+
+    .sidebar li .icon img {
+        width: 43px;
+        height: 50px;
+        /* filter: grayscale(1) brightness(1.2) drop-shadow(0 0 3px #b085e770); */
+    }
+
+    .sidebar li.active .icon img {
+        filter: none;
+    }
+
+    .modal-content {
+        flex: 1 1 auto;
+        padding: 44px 56px 44px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    .columns {
+        display: flex;
+        width: 100%;
+    }
+
+    .column {
+        min-width: 270px;
+        border-right: 1px dashed oklch(from var(--stroke) l c h);
+        padding: 0 2rem;
+    }
+
+    .category-title {
+        font-family: "JetBrainsMono";
+        font-size: 20px;
+        color: oklch(from var(--purple-text));
+        background: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: table;
+
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+    .category-group strong {
+        display: block;
+        font-size: 16px;
+        margin: 18px 0 6px 0;
+    }
+
+    .category-group ul {
+        padding-left: 14px;
+        margin: 0 0 2px 0;
+        list-style: none;
+    }
+
+    .category-group ul li {
+        margin-bottom: 3px;
     }
 </style>
