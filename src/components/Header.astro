@@ -391,9 +391,7 @@
 
         sidebarItems.forEach((item) => {
             item.addEventListener("click", () => {
-                // Снять .active со всех
                 sidebarItems.forEach((li) => li.classList.remove("active"));
-                // Добавить на текущий
                 item.classList.add("active");
 
                 const categoryName = item
@@ -401,7 +399,6 @@
                     ?.textContent?.trim();
                 if (!categoryName) return;
 
-                // Скрыть все колонки
                 allColumns.forEach((col) => {
                     if (col.dataset.category === categoryName) {
                         col.style.display = "flex";

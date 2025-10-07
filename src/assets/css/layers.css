@@ -1,6 +1,245 @@
-.products-container{
+.products-container {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+.reviews-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+}
+
+.reviews-section h2 {
+    max-width: 678px;
+}
+
+.reviews-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.review-container:nth-child(1n) {
+    margin-right: 40%;
+}
+
+.review-container:nth-child(2n) {
+    margin: 0 0 0 40%;
+}
+
+
+/* category */
+
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.div1 {
+    grid-row: span 2 / span 2;
+}
+
+.div6 {
+    grid-column-start: 2;
+}
+
+.div7 {
+    grid-column-start: 3;
+}
+
+.div8 {
+    grid-column-start: 4;
+}
+
+.div9 {
+    grid-column-start: 5;
+}
+
+.div10 {
+    grid-row-start: 3;
+}
+
+.div11 {
+    grid-row-start: 3;
+}
+
+.div12 {
+    grid-row-start: 3;
+}
+
+.div13 {
+    grid-column: span 2 / span 2;
+    grid-row-start: 3;
+}
+
+
+/* catalog */
+.top-container {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.top-left-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 38.125rem;
+    gap: 5rem;
+    padding: 2rem;
+
+    h2 {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.promo-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2rem;
+    min-width: 63rem;
+    min-height: 24.375rem;
+    /* height: 100%;
+    width: auto; */
+
+    background-image: url(/src/assets/images/PromoBanner.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.promo-banner h3 {
+    max-width: 24.5rem;
+    font-size: 1.75rem;
+    text-transform: uppercase;
+}
+
+.promo-banner p {
+    max-width: 22.6875rem;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.625rem;
+    font-family: "JetBrainsMono";
+}
+
+/* вопрос-ответ каталог */
+
+.faq-section{
+    max-width: 1270px;
+    margin: 0 auto;
+    position: relative;
+}
+.faq-section h4{
+    max-width: 116px;
+    transform: rotate(-90deg);
+    position: absolute;
+    z-index: 1;
+    left: -25px;
+    top: 278px;
+}
+
+.faq-container {
+    background-image: url(/src/assets/images/FQBg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: oklch(from var(--body-text)l c h);
+    padding: 28px 24px 20px 123px;
+    position: relative;
+    font-size: 20px;
+    letter-spacing: 0.02em;
+}
+
+.faq-container h3 {
+    font-size: 32px;
+    background-image: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    text-transform: uppercase;
+    max-width: 10rem;
+}
+
+.faq-list {
+    margin-top: 10px;
+}
+
+.faq-item {
+    border-bottom: 1px dashed oklch(from var(--light-stroke)l c h);
+    padding: 0;
+}
+
+.faq-question {
+    padding: 17px 0 17px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: color 0.16s;
+    text-transform: uppercase;
+}
+
+.faq-question:hover {
+    color: #a386c8;
+}
+
+.arrow {
+    margin-left: 18px;
+    transition: transform 0.2s;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow::after {
+    content: '';
+    display: block;
+    border: solid #dadada;
+    border-width: 0 2px 2px 0;
+    padding: 5px;
+    transform: rotate(45deg);
+    transition: border-color 0.2s;
+}
+
+.faq-item.open .arrow::after {
+    border-color: #a386c8;
+    transform: rotate(-135deg);
+}
+
+.faq-answer {
+    font-size: 15px;
+    padding: 0 3px 20px 0;
+    display: none;
+    animation: fadeIn .28s;
+    line-height: 1.5;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

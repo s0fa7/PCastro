@@ -1,0 +1,193 @@
+---
+import Layout from "../layouts/Layout.astro";
+import MainSection from "../components/MainSection.astro";
+import TheArticle from "../components/TheArticle.astro";
+import BigButton from "../components/BigButton.astro";
+import OrderButton from "../components/OrderButton.astro";
+import BrandCard from "../components/BrandCard.astro";
+import TehCard from "../components/TehCard.astro";
+import Footer from "../components/Footer.astro";
+import PopularList from "../components/PopularList.astro";
+import Review from "../components/Review.astro";
+import CategoryCard from "../components/CategoryCard.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "каталог", href: "#" },
+    { text: "процессоры", href: "#" },
+];
+
+const customArticles = [
+    {
+        id: 1,
+        title: "Как выбрать процессор по задачам",
+        body: "Если вы собираете компьютер для повседневной работы или учёбы, обратите внимание на модели с 2–4 ядрами, встроенной графикой и низким энергопотреблением. Для игр и стриминга подойдут решения с 6–12 ядрами и высокой тактовой частотой. Профессионалам, работающим с рендерингом, программированием или 3D-графикой, стоит выбрать процессоры с большим числом потоков и поддержкой многозадачности.",
+    },
+    {
+        id: 2,
+        title: "Процессоры Intel и AMD: в чём разница?",
+        body: "Intel традиционно славится высокой однопоточной производительностью, что особенно важно для геймеров. Линейки Core i3, i5, i7 и i9 охватывают все категории пользователей. AMD же делает акцент на многопоточности и соотношении цена/производительность — их процессоры Ryzen отлично показывают себя как в повседневных задачах, так и в тяжёлой работе. Кроме того, многие чипы AMD оснащены мощной встроенной графикой Vega.",
+    },
+    {
+        id: 3,
+        title: "BOX или OEM: какую комплектацию выбрать?",
+        body: "В нашем каталоге вы можете выбрать процессоры в комплектациях BOX и OEM. BOX-процессоры поставляются в фирменной упаковке и включают кулер — идеальный вариант для домашних сборок. OEM-версии дешевле, но предназначены для опытных пользователей, уже имеющих охлаждение и корпус. При выборе учитывайте ваши требования к охлаждению и бюджету.",
+    },
+    {
+        id: 4,
+        title: "Совместимость с материнской платой",
+        body: "Обратите внимание на сокет процессора — он должен совпадать с разъёмом на материнской плате. В нашем фильтре вы легко можете выбрать совместимые модели по сокету: LGA1200, AM4, AM5 и другие. Если вы не уверены в совместимости, наша служба поддержки поможет подобрать комплектующие.",
+    },
+];
+---
+
+<Layout>
+    <Header />
+    <div class="top-container">
+        <div class="top-left-container">
+            <Nav items={myPath} />
+            <div>
+                <h2>каталог</h2>
+                <p>
+                    Мы предлагаем только проверенные комплектующие и устройства,
+                    которые обеспечат стабильную работу в любых условиях:
+                    от простых офисных задач до сложных вычислений
+                    и ресурсоёмких процессов. В каталоге представлены
+                    процессоры, накопители, видеокарты и другое оборудование,
+                    подходящее как для персональных сборок, так и для крупных
+                    IT-проектов. Удобные фильтры помогут подобрать
+                    всё необходимое быстро и точно.
+                </p>
+            </div>
+        </div>
+        <div class="promo-banner">
+            <h3>ваш идеальный пк- в одном клике</h3>
+            <p>
+                Надежные сборки от SFR: для игр, работы и творчества. Все
+                комплектующие оригинальные. Поддержка - всегда на связи.
+            </p>
+        </div>
+    </div>
+    <section></section>
+    <section>
+        <PopularList />
+    </section>
+    <section>
+        <div class="faq-section">
+            <h4>.Intel///AMD</h4>
+            <div class="faq-container">
+                <h3>вопрос ответ</h3>
+                <div class="faq-list">
+                    <div class="faq-item" data-id="0">
+                        <div class="faq-question">
+                            какой выбрать процессор – intel или amd?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Оба бренда предлагают отличные процессоры для разных
+                            задач. Параметры и цена зависят от целей: для игр часто
+                            выбирают Intel, для задач с многозадачностью — AMD.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="1">
+                        <div class="faq-question">
+                            в чем разница между box и oem?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            <b>BOX</b> — заводская упаковка с кулером и гарантией от
+                            Intel/AMD.<br />
+                            <b>OEM</b> — без коробки и кулера, ставится в системные сборки,
+                            может иметь только магазинную гарантию.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="2">
+                        <div class="faq-question">
+                            сколько ядер нужно для комфортной работы?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Для офисных задач достаточно 4 ядер, для игр и работы с
+                            графикой — от 6 до 8 ядер и более.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="3">
+                        <div class="faq-question">
+                            У процессора есть встроенная графика?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Для офисных задач достаточно 4 ядер, для игр и работы с
+                            графикой — от 6 до 8 ядер и более.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="4">
+                        <div class="faq-question">
+                            Что важнее — частота или количество ядер?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Для офисных задач достаточно 4 ядер, для игр и работы с
+                            графикой — от 6 до 8 ядер и более.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="5">
+                        <div class="faq-question">
+                            Что такое сокет и как выбрать совместимую материнскую плату?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Для офисных задач достаточно 4 ядер, для игр и работы с
+                            графикой — от 6 до 8 ядер и более.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="6">
+                        <div class="faq-question">
+                            Поддерживает ли процессор разгон и как это влияет на производительность?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Для офисных задач достаточно 4 ядер, для игр и работы с
+                            графикой — от 6 до 8 ядер и более.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-id="7">
+                        <div class="faq-question">
+                            Какие процессоры лучше подходят для игр?
+                            <span class="arrow"></span>
+                        </div>
+                        <div class="faq-answer">
+                            Для офисных задач достаточно 4 ядер, для игр и работы с
+                            графикой — от 6 до 8 ядер и более.
+                        </div>
+                    </div>
+                    <!-- Остальные вопросы и ответы аналогично -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <TheArticle
+            mainTitle="Процессоры для любых задач — от офиса до гейминга"
+            tagText="о процессорах"
+            descriptionText="Современные процессоры — это сердце любого компьютера, от производительных игровых сборок до лёгких офисных систем. В каталоге представлены модели Intel и AMD различных поколений и серий: от базовых Celeron и Athlon до топовых Core i9 и Ryzen 9. Благодаря гибкой системе фильтров вы можете легко подобрать нужный процессор по числу ядер, сокету, встроенной графике и другим характеристикам."
+            articles={customArticles}
+            showFeatures={true}
+        />
+    </section>
+    <Footer />
+</Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const items = document.querySelectorAll<HTMLElement>(".faq-item");
+        items.forEach((item) => {
+            const question = item.querySelector(".faq-question");
+            question?.addEventListener("click", () => {
+                item.classList.toggle("open");
+            });
+        });
+    });
+</script>

@@ -1,0 +1,108 @@
+---
+import StarIcon from "../assets/images/return/StarIcon5.svg";
+interface ReviewProps {
+  rating: number;
+  author: string;
+  title: string;
+  text: string;
+  photos?: string[];
+}
+
+const { rating, author, title, text, photos = [] } = Astro.props;
+---
+
+<div class="review-container">
+  <div class="column">
+    <span class="author">{author}</span>
+    <div class="review-icon">
+      <StarIcon />
+      <span>{rating.toFixed(1)}</span>
+    </div>
+  </div>
+  <div class="column">
+    <h4>{title}</h4>
+    <p>{text}</p>
+  </div>
+  <div class="column last" id="photo-gallery">
+    {
+      photos
+        .slice(0, 3)
+        .map((photo: string, i: number) => (
+          <img
+            src={photo}
+            alt={`photo-${i}`}
+            class="photo-review"
+            onclick={`openGallery(${i})`}
+          />
+        ))
+    }
+  </div>
+</div>
+
+<style>
+  .review-container {
+    display: flex;
+
+    width: 858px;
+    height: 406px;
+    padding: 54px 35px 34px 24px;
+
+    background-image: url(/src/assets/images/ReviewBg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 1rem;
+    height: 100%;
+  }
+  .column:first-child {
+    max-width: 135px;
+  }
+  .author {
+    transform: rotate(-90deg);
+    text-transform: uppercase;
+    width: 110px;
+    position: relative;
+    top: 2rem;
+    left: -3rem;
+  }
+  .column:not(.column:last-child) {
+    border-right: 1px dashed #ffffff80;
+  }
+  .column:first-child {
+    padding: 0;
+    font-family: "JetBrainsMono";
+  }
+  .column h4 {
+    text-transform: uppercase;
+    font-size: 28px;
+    background-image: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+  .column p {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 120%;
+    font-family: "JetBrainsMono";
+  }
+
+  .photo-review {
+    width: 92px;
+    height: 92px;
+  }
+  .review-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    width: 71px;
+    height: 68px;
+    border: 1px dashed #ffffff80;
+  }
+</style>

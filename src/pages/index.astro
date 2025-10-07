@@ -8,6 +8,8 @@ import BrandCard from "../components/BrandCard.astro";
 import TehCard from "../components/TehCard.astro";
 import Footer from "../components/Footer.astro";
 import PopularList from "../components/PopularList.astro";
+import Review from "../components/Review.astro";
+import CategoryCard from "../components/CategoryCard.astro";
 
 const customArticles = [
     {
@@ -54,10 +56,106 @@ const customArticles = [
         />
     </section>
 
+    <section>
+        <div class="parent">
+            <div class="div1">
+                <CategoryCard
+                title="компьютеры"
+                count={26}
+                image="src/assets/images/catalog/pc.png"
+            />
+            </div>
+            <div class="div2">
+                <CategoryCard
+                    title="процессоры"
+                    count={26}
+                    image="src/assets/images/catalog/processor.png"
+                />
+            </div>
+            <div class="div3">
+                <CategoryCard
+                    title="видеокарты"
+                    count={26}
+                    image="src/assets/images/catalog/graphic-card.webp"
+                />
+            </div>
+            <div class="div4">
+                <CategoryCard
+                    title="материнские платы"
+                    count={26}
+                    image="src/assets/images/catalog/motherboard.png"
+                />
+            </div>
+            <div class="div5">
+                <CategoryCard
+                    title="оперативная память"
+                    count={26}
+                    image="src/assets/images/catalog/ram.png"
+                />
+            </div>
+            <div class="div6">
+                <CategoryCard
+                    title="ssd-диски"
+                    count={26}
+                    image="src/assets/images/catalog/ssd.png"
+                />
+            </div>
+            <div class="div7">
+                <CategoryCard
+                    title="hdd-диски"
+                    count={26}
+                    image="src/assets/images/catalog/hdd.png"
+                />
+            </div>
+            <div class="div8">
+                <CategoryCard
+                    title="блоки питания"
+                    count={26}
+                    image="src/assets/images/catalog/power-unit.png"
+                />
+            </div>
+            <div class="div9">
+                <CategoryCard
+                    title="корпуса"
+                    count={26}
+                    image="src/assets/images/catalog/pc-case.png"
+                />
+            </div>
+            <div class="div10">
+                <CategoryCard
+                    title="охлаждение процессора"
+                    count={26}
+                    image="src/assets/images/catalog/cpu-cooling.png"
+                />
+            </div>
+            <div class="div11">
+                <CategoryCard
+                    title="корпусные вентиляторы"
+                    count={26}
+                    image="src/assets/images/catalog/pc-case-cooling.png"
+                />
+            </div>
+            <div class="div12">
+                <CategoryCard
+                    title="моддинг пк"
+                    count={26}
+                    image="src/assets/images/catalog/pc-modding.webp"
+                />
+            </div>
+            <div class="div13">
+                <CategoryCard
+                    title="мониторы"
+                    count={26}
+                    image="src/assets/images/catalog/monitor.webp"
+                />
+            </div>
+        </div>
+    </section>
+
     <section class="brand-container">
         <div class="brands-tittle">
             <h2>бренды</h2>
-            <OrderButton text="смотреть все" />
+            <OrderButton text="смотреть все" class="" />
         </div>
         <div class="brands">
             <BrandCard
@@ -93,13 +191,64 @@ const customArticles = [
         </div>
     </section>
 
+    <section class="reviews-section">
+        <h2>отзывы о нас</h2>
+        <div class="reviews-container">
+            <Review
+                rating={5.0}
+                author="андрей В."
+                title="Отличный сервис и мощная сборка!"
+                text="Заказывал здесь кастомный ПК для работы с графикой и периодических игр — очень доволен! Помогли с подбором комплектующих, всё грамотно объяснили. Комп пришёл уже с установленной системой, протестирован, без лишнего софта. Работает тихо, стабильно и справляется даже с рендерингом на ура. Цены адекватные, сборка — на высшем уровне. Рекомендую!"
+                photos={[
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                ]}
+            />
+            <Review
+                rating={5.0}
+                author="петр а."
+                title="Сборка мечты за разумные деньги"
+                text="Долго выбирал, где заказать игровой ПК — остановился на этом магазине и не пожалел. Комплектующие все оригинальные, без подмен и серых поставок. Собрали быстро, всё аккуратно, кабель-менеджмент — как в лучших фото в Reddit. В играх — пушка, FPS стабильный. Огромное спасибо команде!"
+                photos={[
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                ]}
+            />
+            <Review
+                rating={5.0}
+                author="василий с."
+                title="Отличный магазин для апгрейда"
+                text="Покупал тут видеокарту и оперативку для апгрейда старого ПК. Консультанты помогли подобрать совместимые модели, всё приехало быстро и хорошо упаковано. Установил сам — полёт нормальный. Буду обращаться ещё, сервис на высоте."
+                photos={[
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                ]}
+            />
+            <Review
+                rating={5.0}
+                author="анатолий ф."
+                title="Серьёзный подход и быстрая доставка"
+                text="Заказал рабочую станцию для монтажа видео. Была нестандартная конфигурация, но всё учли и оперативно собрали. Приятно удивила тишина работы даже под нагрузкой. Видно, что собирают с умом и не экономят на охлаждении. Отдельный плюс — техподдержка всегда на связи."
+                photos={[
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                    "/src/assets/images/Review.png",
+                ]}
+            />
+        </div>
+        <OrderButton text="смотреть все" class="" />
+    </section>
+
     <section>
         <div class="brands-tittle">
             <div class="brands-tittle__btn">
                 <button class="btn active-btn">акции</button>
                 <button class="btn passive-btn">новости</button>
             </div>
-            <OrderButton text="смотреть все" />
+            <OrderButton text="смотреть все" class="" />
         </div>
         <div class="products-container">
             <TehCard
@@ -128,7 +277,6 @@ const customArticles = [
             />
         </div>
     </section>
-
     <Footer />
 </Layout>
 
@@ -168,5 +316,101 @@ const customArticles = [
     }
     .passive-btn {
         color: oklch(from var(--grey-text) l c h);
+    }
+
+    .review-container {
+        display: flex;
+
+        width: 858px;
+        height: 406px;
+        padding: 54px 35px 34px 24px;
+
+        background-image: url(/src/assets/images/ReviewBg.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 1rem;
+        height: 100%;
+    }
+    .column:first-child {
+        max-width: 135px;
+    }
+    .author {
+        transform: rotate(-90deg);
+        text-transform: uppercase;
+        width: 110px;
+        position: relative;
+        top: 2rem;
+        left: -3rem;
+    }
+    .column:not(.column:last-child) {
+        border-right: 1px dashed #ffffff80;
+    }
+    .column:first-child {
+        padding: 0;
+        font-family: "JetBrainsMono";
+    }
+    .column h4 {
+        text-transform: uppercase;
+        font-size: 28px;
+        background-image: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+    .column p {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 120%;
+        font-family: "JetBrainsMono";
+    }
+
+    .photo-review {
+        width: 92px;
+        height: 92px;
+    }
+    .review-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5rem;
+        width: 71px;
+        height: 68px;
+        border: 1px dashed #ffffff80;
+    }
+
+    .modal {
+        display: flex;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+    }
+    .hidden {
+        display: none;
     }
 </style>

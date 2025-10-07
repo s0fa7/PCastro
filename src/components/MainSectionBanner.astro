@@ -2,8 +2,8 @@
 
 import type { HTMLAttributes } from 'astro/types';
 import OrderButton from "./OrderButton.astro";
+import CookieBanner from './CookieBanner.astro';
 
-// Интерфейс для списка подпунктов
 interface ListItem {
   id: number;
   text: string;
@@ -200,4 +200,8 @@ const {
       width: 100%;
     }
   }
+
+  /* .cookie{
+    position: absolute;
+  } */
 </style>

@@ -2,6 +2,7 @@
 import Header from "./Header.astro";
 import PurpleTag from "./PurpleTag.astro";
 import BigButton from "./BigButton.astro";
+import CookieBanner from "./CookieBanner.astro";
 
 interface Props {
     background?: string;
@@ -40,6 +41,7 @@ const {
                     <p class="subtitle">{subtitle}</p>
                 </div>
             </div>
+            <CookieBanner classes="cookie active" />
             <BigButton
                 buttonText="сконфигурировать"
                 hrefPage="#"
@@ -170,9 +172,15 @@ const {
         border: 1px dashed hsla(0, 0%, 100%, 0.5);
     }
 
-    .config-btn{
+    .config-btn {
         position: absolute;
         bottom: 2%;
         right: 1%;
+    }
+
+    @media (max-width: 770px) {
+        .banner-info h2 {
+            font-size: 30px;
+        }
     }
 </style>

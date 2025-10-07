@@ -1,0 +1,78 @@
+---
+import BigButton from "./BigButton.astro";
+
+export interface Props {
+    classes: string;
+}
+
+const { classes } = Astro.props;
+---
+
+<div class="coookie-container active" class={classes}>
+    <p>
+        Продолжая пользоваться нашим сайтом, вы даете согласие на обработку
+        ваших файлов cookie. Вы можете отключить файлы cookie в настройках
+        браузера.
+    </p>
+    <button class="btn">
+        <BigButton buttonText="продожить" hrefPage="" classes="coookie-btn" />
+    </button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const cookieContainer = document.querySelector(
+            ".coookie-container",
+        ) as HTMLElement | null;
+        const button = cookieContainer?.querySelector(
+            ".coookie-btn",
+        ) as HTMLElement | null;
+
+        if (!cookieContainer || !button) return;
+
+        const accepted = localStorage.getItem("cookieAccepted");
+
+        if (accepted === "true") {
+            cookieContainer.classList.remove("active");
+        } else {
+            cookieContainer.classList.add("active");
+        }
+
+        button.addEventListener("click", () => {
+            cookieContainer.classList.remove("active");
+            localStorage.setItem("cookieAccepted", "true");
+        });
+    });
+</script>
+
+<style>
+    .coookie-container {
+        display: none;
+
+        padding: 1.5rem 2rem;
+        max-width: 890px;
+        position: absolute;
+        bottom: 12px;
+        right: 11px;
+        z-index: 1;
+
+        background-color: oklch(from var(--dark-card) l c h);
+        border: 1px solid oklch(from var(--stroke) l c h);
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    .coookie-container.active {
+        display: flex;
+        align-items: center;
+    }
+    .coookie-btn {
+        width: 228px;
+        height: auto;
+    }
+    @media (max-width: 770px) {
+        .coookie-container {
+            left: 11px;
+        }
+    }
+</style>
