@@ -12,7 +12,7 @@ export interface Props {
 const { imageSrc, caption, linkHref, altText = caption } = Astro.props;
 ---
 
-<div class="image-card">
+<div class="image-card angles">
     <img src={imageSrc} alt={altText} class="card-image" loading="lazy" />
     <div class="card-footer">
         <div class="card-interactive">

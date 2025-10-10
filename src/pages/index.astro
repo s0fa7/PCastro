@@ -56,14 +56,14 @@ const customArticles = [
         />
     </section>
 
-    <section>
+    <section class="category">
         <div class="parent">
             <div class="div1">
                 <CategoryCard
-                title="компьютеры"
-                count={26}
-                image="src/assets/images/catalog/pc.png"
-            />
+                    title="компьютеры"
+                    count={26}
+                    image="src/assets/images/catalog/pc.png"
+                />
             </div>
             <div class="div2">
                 <CategoryCard
@@ -114,6 +114,7 @@ const customArticles = [
                     image="src/assets/images/catalog/power-unit.png"
                 />
             </div>
+
             <div class="div9">
                 <CategoryCard
                     title="корпуса"
@@ -121,34 +122,37 @@ const customArticles = [
                     image="src/assets/images/catalog/pc-case.png"
                 />
             </div>
-            <div class="div10">
+            <div class="div10 third-row-item">
                 <CategoryCard
                     title="охлаждение процессора"
                     count={26}
                     image="src/assets/images/catalog/cpu-cooling.png"
                 />
             </div>
-            <div class="div11">
+            <div class="div11 third-row-item">
                 <CategoryCard
                     title="корпусные вентиляторы"
                     count={26}
                     image="src/assets/images/catalog/pc-case-cooling.png"
                 />
             </div>
-            <div class="div12">
+            <div class="div12 third-row-item">
                 <CategoryCard
                     title="моддинг пк"
                     count={26}
                     image="src/assets/images/catalog/pc-modding.webp"
                 />
             </div>
-            <div class="div13">
+            <div class="div13 third-row-item">
                 <CategoryCard
                     title="мониторы"
                     count={26}
                     image="src/assets/images/catalog/monitor.webp"
                 />
             </div>
+        </div>
+        <div id="toggleGridButton">
+            <OrderButton text="смотреть все" class="" />
         </div>
     </section>
 
@@ -279,6 +283,19 @@ const customArticles = [
     </section>
     <Footer />
 </Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = document.getElementById("toggleGridButton");
+        const thirdRowItems = document.querySelectorAll(".third-row-item");
+
+        toggleButton?.addEventListener("click", () => {
+            thirdRowItems.forEach((item) => {
+                item.classList.toggle("third-row-item");
+            });
+        });
+    });
+</script>
 
 <style>
     .btn-center {

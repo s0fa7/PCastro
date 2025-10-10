@@ -45,7 +45,7 @@ const myPath = [
                             Заполните форму и мы свяжемся с вами в течение 15
                             минут
                         </p>
-                        <div class="input-group">
+                        <div class="input-group angles-white">
                             <input
                                 type="text"
                                 id="name"
@@ -54,7 +54,7 @@ const myPath = [
                                 required
                             />
                         </div>
-                        <div class="input-group">
+                        <div class="input-group angles-white">
                             <input
                                 type="tel"
                                 id="phone"
@@ -64,7 +64,7 @@ const myPath = [
                                 required
                             />
                         </div>
-                        <div class="input-group">
+                        <div class="input-group angles-white">
                             <input
                                 type="email"
                                 id="email"
@@ -92,14 +92,14 @@ const myPath = [
                     </div>
                 </div>
             </div>
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.952766632737!2d37.58907627733693!3d55.79405807309959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549f8fa0542d3%3A0xa2f492a0e6afb13!2z0YPQuy4g0KHRg9GJ0ZHQstGB0LrQuNC5INCS0LDQuywgNSwg0YHRgtGALjIwLCDQnNC-0YHQutCy0LAsIDEyNzAxOA!5e0!3m2!1sru!2sru!4v1759511264334!5m2!1sru!2sru"
-                width="600"
-                height="450"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="angles-white map" >
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.952766632737!2d37.58907627733693!3d55.79405807309959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b549f8fa0542d3%3A0xa2f492a0e6afb13!2z0YPQuy4g0KHRg9GJ0ZHQstGB0LrQuNC5INCS0LDQuywgNSwg0YHRgtGALjIwLCDQnNC-0YHQutCy0LAsIDEyNzAxOA!5e0!3m2!1sru!2sru!4v1759511264334!5m2!1sru!2sru"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </section>
     <Footer />
@@ -188,9 +188,16 @@ const myPath = [
         justify-content: center;
         padding: 2.4rem;
     }
-    .contacts iframe{
+    .contacts .map{
         height: auto;
         width: 50%;
+        max-width: 622.5rem;
+        padding: 1.375rem 1.5rem;
+        border: solid 1px oklch(from var(--stroke) l c h);
+    }
+    .map iframe{
+        width: 100%;
+        height: 100%;
     }
     @media (max-width: 768px) {
         .contact-container{

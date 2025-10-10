@@ -1,4 +1,4 @@
-<footer>
+<footer class="purple-effect3 purple-effect4">
     <div class="footer-content">
         <div class="footer-col">
             <a href="#" class="logo">
@@ -10,7 +10,7 @@
                     <a href="#"> каталог</a>
                 </div>
                 <div class="menu-title">
-                    <a  href="#">конфигуратор пк</a>
+                    <a href="#">конфигуратор пк</a>
                     <nav>
                         <ul>
                             <li><a href="#">.компания</a></li>
@@ -28,12 +28,8 @@
 
         <div class="footer-col">
             <div class="contact-info">
-                <a href="tel:+74952660792"
-                    >+7 495 266 07 92</a
-                >
-                <a href="mailto:INFO@NAMECOMPANY.COM"
-                    >info@namecompany.com</a
-                >
+                <a href="tel:+74952660792">+7 495 266 07 92</a>
+                <a href="mailto:INFO@NAMECOMPANY.COM">info@namecompany.com</a>
             </div>
 
             <p class="address-info">
@@ -47,11 +43,9 @@
         </div>
     </div>
 
-    <div class="footer-bottom">
+    <div class="footer-bottom angles-white">
         <span class="year">2025</span>
-        <a href="#"
-            >политика обработки персональных данных</a
-        >
+        <a href="#">политика обработки персональных данных</a>
         <img class="privacy-icon" src="src/assets/icons/FooterIcon.svg" />
     </div>
 
@@ -63,34 +57,34 @@
             text-transform: uppercase;
         }
 
-        .footer-col{
+        .footer-col {
             display: flex;
             flex-direction: column;
             gap: 2.5rem;
         }
 
-        .footer-links-group{
+        .footer-links-group {
             display: flex;
             gap: 4rem;
         }
-        .footer-links-group ul{
+        .footer-links-group ul {
             list-style: none;
         }
 
-        .footer-content{
+        .footer-content {
             display: flex;
             justify-content: space-between;
             width: 90%;
             margin: 3rem auto 0 auto;
             padding-bottom: 5rem;
         }
-        .menu-title{
+        .menu-title {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
-        .menu-title a:hover{
-            color: oklch(from var(--purple-text)l c h);
+        .menu-title a:hover {
+            color: oklch(from var(--purple-text) l c h);
         }
 
         .footer-bottom {
@@ -102,31 +96,45 @@
             margin: 0 auto;
             padding: 2rem 0;
 
-            color: #D8EBEE66;
+            color: #d8ebee66;
             font-size: 14px;
-            border-top: 1px dashed #FFFFFF80;
+            border-top: 1px dashed #ffffff80;
         }
-        .footer-bottom a{
+        .footer-bottom a {
             text-transform: uppercase;
         }
-        .contact-info{
+        .contact-info {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
 
             font-family: "EuropeExt";
-            color: oklch(from var(--purple-text)l c h);
+            color: oklch(from var(--purple-text) l c h);
             font-size: 28px;
         }
-        .contact-info a:first-child{
+        .contact-info a:first-child {
             font-size: 68px;
-            color: oklch(from var(--text)l c h);
+            color: oklch(from var(--text) l c h);
         }
-        .address-info{
-            font-size: 20px
+        .address-info {
+            font-size: 20px;
         }
-        .working-hours{
-            color: #EAE3F066;
+        .working-hours {
+            color: #eae3f066;
+        }
+
+        .angles-white::before {
+            background:
+                conic-gradient(
+                        from 90deg at top var(--b) left var(--b),
+                        var(--_g) 0
+                    )
+                    0 0 / var(--_p),
+                conic-gradient(
+                        from 180deg at top var(--b) right var(--b),
+                        var(--_g)
+                    )
+                    100% 0 / var(--_p);
         }
     </style>
 </footer>

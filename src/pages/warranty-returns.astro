@@ -52,28 +52,28 @@ const customArticles = [
         <PurpleTag text="гарантия и вовзрат" />
         <div class="warranty-content">
             <div class="sidebar">
-                <button class="btn tab-btn active" data-index="1">
+                <button class="btn tab-btn angles-white active" data-index="1">
                     <img
                         src="src/assets/images/return/StarIcon1.png"
                         alt="иконка"
                     />
                     .Возврат товара надлежащего качества
                 </button>
-                <button class="btn tab-btn" data-index="2">
+                <button class="btn tab-btn angles-white" data-index="2">
                     <img
                         src="src/assets/images/return/StarIcon2.png"
                         alt="иконка"
                     />
                     .Возврат товара ненадлежащего качества
                 </button>
-                <button class="btn tab-btn" data-index="3">
+                <button class="btn tab-btn angles-white" data-index="3">
                     <img
                         src="src/assets/images/return/StarIcon3.png"
                         alt="иконка"
                     />
                     .Проверка качества и экспертиза
                 </button>
-                <button class="btn tab-btn" data-index="4">
+                <button class="btn tab-btn angles-white" data-index="4">
                     <img
                         src="src/assets/images/return/StarIcon4.png"
                         alt="иконка"
@@ -106,7 +106,7 @@ const customArticles = [
                             которым была произведена оплата.
                         </p>
                     </div>
-                    <OrderButton text="скачать заявление на возврат" />
+                    <OrderButton text="скачать заявление на возврат" class=""/>
                 </div>
                 <div id="content-2" class="content-block">
                     <p>
@@ -286,5 +286,12 @@ const customArticles = [
         width: 20px;
         color: oklch(from var(--grey-text) l c h);
         text-align: right;
+    }
+
+    .angles-white::before {
+    --c: #D8EBEE33;
+    }
+    .active.angles-white::before {
+    --c: #ffffff;
     }
 </style>

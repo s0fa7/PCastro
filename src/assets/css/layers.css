@@ -1,3 +1,108 @@
+/* углы */
+
+.angles {
+    position: relative;
+
+    padding-block: 1.25rem;
+}
+
+.angles::before {
+    position: absolute;
+    inset: -1px;
+
+    content: "";
+
+    --b: 1px;
+    /* thickness of the border */
+    --c: #474950;
+    /* color of the border */
+    --w: 20px;
+    /* width of border */
+
+    border: var(--b) solid #0000;
+    /* space for the border */
+    --_g: #0000 90deg, var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+        conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g) 0) 0 0 / var(--_p),
+        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+        conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
+        conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
+}
+.angles-white {
+    position: relative;
+
+    /* padding-block: 1.25rem; */
+}
+
+.angles-white::before {
+    position: absolute;
+    inset: -1px;
+
+    content: "";
+
+    --b: 1px;
+    /* thickness of the border */
+    --c: #ffffff;
+    /* color of the border */
+    --w: 10px;
+    /* width of border */
+
+    border: var(--b) solid #0000;
+    /* space for the border */
+    --_g: #0000 90deg, var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+        conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g) 0) 0 0 / var(--_p),
+        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+        conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
+        conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
+}
+
+/* purple-effect */
+
+.purple-effect3 {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; 
+}
+
+.purple-effect3::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -21%;
+  width: 60%;
+  height: 100%;
+  transform: rotate(90deg);
+  background-image: linear-gradient(90deg, #141119 0%, #A100FF00 48%, #141119 100%),url('../images/PurpleEffect1.png'); /* путь к твоему изображению */
+  background-position: 0 80%;
+  background-blend-mode: multiply;
+  opacity: 0.35;
+  z-index: -1; /* помещаем фон под текст */
+}
+
+.purple-effect4 {
+  position: relative;
+  z-index: 1;
+}
+
+.purple-effect4::before {
+  content: "";
+  position: absolute;
+  bottom: -60%;
+  right: -10%;
+  width: 80%;
+  height: 100%;
+  transform: rotate(335deg);
+  background-image: linear-gradient(90deg, #141119 0%, #14111900 49%, #141119 100%),
+  url('../images/PurpleEffect1.png'); /* путь к твоему изображению */
+  opacity: 0.35;
+  background-position: 0 70%;
+  z-index: -1; /* помещаем фон под текст */
+}
+
+
 .products-container {
     display: flex;
     gap: 2rem;
@@ -40,10 +145,14 @@
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
     gap: 2rem;
     max-width: 90%;
     margin: 0 auto;
+}
+
+.third-row-item {
+    display: none;
 }
 
 .div1 {
@@ -81,6 +190,13 @@
 .div13 {
     grid-column: span 2 / span 2;
     grid-row-start: 3;
+}
+
+.category{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
 }
 
 
@@ -135,12 +251,13 @@
 
 /* вопрос-ответ каталог */
 
-.faq-section{
+.faq-section {
     max-width: 1270px;
     margin: 0 auto;
     position: relative;
 }
-.faq-section h4{
+
+.faq-section h4 {
     max-width: 116px;
     transform: rotate(-90deg);
     position: absolute;

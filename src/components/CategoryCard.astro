@@ -1,14 +1,13 @@
----
-// Props для динамического наполнения
-const {
-    title = "МАТЕРИНСКИЕ ПЛАТЫ",
-    count = 26,
-    image = "/images/motherboard.jpg",
+<!-- ---
+ const {
+     title = "МАТЕРИНСКИЕ ПЛАТЫ",
+     count = 26,
+     image = "/images/motherboard.jpg",
     onClick = null,
-} = Astro.props;
+ } = Astro.props;
 ---
 
-<div class="card" onclick={onClick}>
+<div class="card angles" onclick={onClick}>
     <img src={image} alt="Материнская плата" />
     <div>
         <div class="card-title">{title}<sub>{count}</sub></div>
@@ -65,4 +64,119 @@ const {
     .card:hover .card-arrow {
         background: #5b5d6b;
     }
+</style> -->
+
+---
+import BtnArrow from "../assets/icons/product-card/btn-arrow.svg";
+
+interface Props{
+    title: string;
+    count: number;
+    image: string;
+}
+const { title, count, image } = Astro.props;
+---
+
+<div class="category-card-wrapper card-with-angles">
+  <div class="category-card">
+    <img src={image} alt=`${image}-фото` class="category-card__image" />
+    <div class="card-title">{title}<sub>{count}</sub></div>
+    <a href="#" class="btn category-card__link">
+      <BtnArrow />
+    </a>
+  </div>
+</div>
+
+<style>
+  .category-card-wrapper {
+    background-color: oklch(from #202128 l c h);
+
+    max-width: 320px;
+  }
+
+  .card-with-angles {
+    position: relative;
+
+    border: 1px solid oklch(from #323339 l c h);
+
+    padding-block: 1.25rem;
+
+    font-family: "JetBrainsMono", sans-serif;
+    letter-spacing: 0.28px;
+  }
+
+  .card-with-angles::before {
+    position: absolute;
+    inset: -1px;
+
+    content: "";
+
+    --b: 1px; /* thickness of the border */
+    --c: #474950; /* color of the border */
+    --w: 20px; /* width of border */
+
+    border: var(--b) solid #0000; /* space for the border */
+    --_g: #0000 90deg, var(--c) 0;
+    --_p: var(--w) var(--w) border-box no-repeat;
+    background:
+      conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g) 0) 0 0 / var(--_p),
+      conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p),
+      conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
+      conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
+  }
+
+  .category-card {
+    position: relative;
+
+    display: grid;
+    grid-template-areas:
+      "image image"
+      ". link"
+      "title title";
+    grid-template-columns: 1fr auto;
+
+    z-index: 2;
+  }
+
+  .card-title {
+    grid-area: title;
+
+    font-size: 18px;
+    letter-spacing: 2%;
+    color: oklch(from var(--white)l c h);
+    text-transform: uppercase;
+    padding: 0 23px;
+  }
+
+  sub {
+        font-size: 14px;
+        color: oklch(from var(--light-stroke)l c h);
+        margin: 4px;
+    }
+
+  .category-card__image {
+    grid-area: image;
+
+    justify-self: center;
+
+    width: 80%;
+    height: auto;
+  }
+
+  .category-card__link {
+    grid-area: link;
+
+    clip-path: polygon(0 20%, 95% 5%, 100% 0, 100% 100%, 95% 95%, 0 80%);
+
+    background-color: #16171c;
+
+    padding: 2rem 1rem;
+  }
+
+  .category-card__link svg {
+    fill: #ffffff;
+
+    width: 0.75rem;
+    height: auto;
+  }
 </style>
