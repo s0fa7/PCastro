@@ -29,6 +29,7 @@
         conic-gradient(from 0deg at bottom var(--b) left var(--b), var(--_g)) 0 100% / var(--_p),
         conic-gradient(from -90deg at bottom var(--b) right var(--b), var(--_g)) 100% 100% / var(--_p);
 }
+
 .angles-white {
     position: relative;
 
@@ -61,45 +62,93 @@
 
 /* purple-effect */
 
+.purple-effect1 {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.purple-effect1::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -24%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+    background-image: linear-gradient(90deg, #16171c 0%, #A100FF00 48%, #141119 100%), url('../images/PurpleEffect2.png');
+    /* путь к твоему изображению */
+    background-repeat: no-repeat;
+    opacity: 0.35;
+    z-index: -1;
+    /* помещаем фон под текст */
+}
+
+.purple-effect2 {
+    position: relative;
+    z-index: 1;
+    /* overflow: hidden; */
+}
+
+.purple-effect2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -35%;
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg);
+    background-image: linear-gradient(90deg, #16171c 0%, #A100FF00 48%, #141119 100%), url('../images/PurpleEffect2.png');
+    /* путь к твоему изображению */
+    background-repeat: no-repeat;
+    opacity: 0.35;
+    z-index: -1;
+    /* помещаем фон под текст */
+}
+
 .purple-effect3 {
-  position: relative;
-  z-index: 1;
-  overflow: hidden; 
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .purple-effect3::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -21%;
-  width: 60%;
-  height: 100%;
-  transform: rotate(90deg);
-  background-image: linear-gradient(90deg, #141119 0%, #A100FF00 48%, #141119 100%),url('../images/PurpleEffect1.png'); /* путь к твоему изображению */
-  background-position: 0 80%;
-  background-blend-mode: multiply;
-  opacity: 0.35;
-  z-index: -1; /* помещаем фон под текст */
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -21%;
+    width: 60%;
+    height: 100%;
+    transform: rotate(90deg);
+    background-image: linear-gradient(90deg, #141119 0%, #A100FF00 48%, #141119 100%), url('../images/PurpleEffect1.png');
+    /* путь к твоему изображению */
+    background-position: 0 80%;
+    background-blend-mode: multiply;
+    opacity: 0.35;
+    z-index: -1;
+    /* помещаем фон под текст */
 }
 
 .purple-effect4 {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .purple-effect4::before {
-  content: "";
-  position: absolute;
-  bottom: -60%;
-  right: -10%;
-  width: 80%;
-  height: 100%;
-  transform: rotate(335deg);
-  background-image: linear-gradient(90deg, #141119 0%, #14111900 49%, #141119 100%),
-  url('../images/PurpleEffect1.png'); /* путь к твоему изображению */
-  opacity: 0.35;
-  background-position: 0 70%;
-  z-index: -1; /* помещаем фон под текст */
+    content: "";
+    position: absolute;
+    bottom: -60%;
+    right: -10%;
+    width: 80%;
+    height: 100%;
+    transform: rotate(335deg);
+    background-image: linear-gradient(90deg, #141119 0%, #14111900 49%, #141119 100%),
+        url('../images/PurpleEffect1.png');
+    /* путь к твоему изображению */
+    opacity: 0.35;
+    background-position: 0 70%;
+    z-index: -1;
+    /* помещаем фон под текст */
 }
 
 
@@ -130,14 +179,13 @@
     width: 90%;
 }
 
-.review-container:nth-child(1n) {
-    margin-right: 40%;
+.review-container {
+    margin: 0 20% 0 0;
 }
 
-.review-container:nth-child(2n) {
-    margin: 0 0 0 40%;
+.review-container:nth-child(4n) {
+    margin: 0 0 0 20%;
 }
-
 
 /* category */
 
@@ -192,7 +240,7 @@
     grid-row-start: 3;
 }
 
-.category{
+.category {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -359,4 +407,147 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* категории товаров */
+
+.products-tittle {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.products-tittle .breadcrumbs-nav {
+    max-width: 400px;
+}
+
+.search-products {
+    position: relative;
+    text-transform: uppercase;
+}
+
+.search-products::after {
+    content: url("src/assets/icons/Search.svg");
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+
+    transform: translateY(-50%);
+
+    /* width: 1rem;
+    height: 1rem; */
+}
+
+.search-products input {
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    border: 1px solid oklch(from var(--stroke)l c h);
+    max-width: 12rem;
+    font-size: 16px;
+    border-radius: 0.1rem;
+    font-family: "JetBrainsMono";
+    text-transform: uppercase;
+}
+
+.search input::-webkit-search-cancel-button {
+    display: none;
+}
+
+
+select {
+    appearance: none;
+
+    @supports (appearance: base-select) {
+
+        &,
+        &::picker(select) {
+            appearance: base-select;
+        }
+    }
+}
+
+&::picker(select) {
+    padding: 0;
+    margin-top: 5px;
+    border: 2px solid hotpink;
+    background: white;
+    border-radius: 5px;
+    font-weight: 400;
+
+    opacity: 0;
+    height: 0;
+    overflow: clip;
+    transition: height 0.5s ease-out, opacity 0.5s ease-out, overlay 0.5s,
+        display 0.5s;
+
+    transition-behavior: allow-discrete;
+}
+
+&:open::picker(select) {
+    opacity: 1;
+    height: calc-size(auto, size);
+    overflow: auto;
+
+    @starting-style {
+        opacity: 0;
+        height: 0;
+    }
+}
+
+option {
+    padding: 10px;
+    border-top: 1px solid plum;
+    cursor: pointer;
+    transition-property: color, background;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+
+    &:where(:hover, :focus, :active) {
+        background: plum;
+        color: white;
+    }
+
+    &:checked {
+        background: violet;
+        color: white;
+    }
+
+    &::checkmark {
+        display: none;
+    }
+
+    &:first-child {
+        border: 0;
+    }
+}
+
+
+.products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.75rem;
+}
+
+.products-tittle select {
+    background-color: #ffffff00;
+    border: 1px solid oklch(from var(--stroke)l c h);
+    color: oklch(from var(--white)l c h);
+    font-family: "JetBrainsMono";
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
+    font-size: 16px;
+    border-radius: 0;
+}
+
+.products-tittle option {
+    background-color: oklch(from var(--card)l c h);
+    color: oklch(from var(--white)l c h);
+    border: 1px solid oklch(from var(--stroke)l c h);
+    font-size: 14px;
+    border: none;
+}
+
+.products-tittle option:hover {
+    background-color: oklch(from var(--purple)l c h);
 }

@@ -1,22 +1,25 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import MainSection from "../components/MainSection.astro";
 import TheArticle from "../components/TheArticle.astro";
-import BigButton from "../components/BigButton.astro";
-import OrderButton from "../components/OrderButton.astro";
-import BrandCard from "../components/BrandCard.astro";
-import TehCard from "../components/TehCard.astro";
 import Footer from "../components/Footer.astro";
 import PopularList from "../components/PopularList.astro";
-import Review from "../components/Review.astro";
-import CategoryCard from "../components/CategoryCard.astro";
+import ProductCard from "../components/ProductCard.astro";
 import Header from "../components/Header.astro";
 import Nav from "../components/Nav.astro";
+import OrderButton from "../components/OrderButton.astro";
+
+import GraphicCard from "../assets/images/products/product-card/graphic-card.png";
+import Ram from "../assets/images/products/product-card/ram.png";
 
 const myPath = [
     { text: "главное", href: "#" },
     { text: "каталог", href: "#" },
     { text: "процессоры", href: "#" },
+];
+const PathProducts = [
+    { text: "каталог", href: "#" },
+    { text: "процессоры", href: "#" },
+    { text: "intel", href: "#" },
 ];
 
 const customArticles = [
@@ -70,12 +73,122 @@ const customArticles = [
             </p>
         </div>
     </div>
-    <section></section>
+    <section>
+        <div>
+            <div></div>
+            <div class="products">
+                <div class="products-tittle">
+                    <Nav items={PathProducts} />
+                    <div class="search-products">
+                        <input type="search" placeholder="поиск"/>
+                    </div>
+                    <select name="">
+                        <option value="">сначала дешевле</option>
+                        <option value="">сначала дороже</option>
+                        <option value="">сначала популярнее</option>
+                    </select>
+                </div>
+                <div class="products-container">
+                    <ProductCard
+                        id="001"
+                        photoSrc={GraphicCard}
+                        photoAlt="Graphic card"
+                        productTitle="Видеокарта"
+                        productSpec="16Gb"
+                        price="140 000"
+                    >
+                        MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
+                    </ProductCard>
+                    <ProductCard
+                        id="002"
+                        photoSrc={Ram}
+                        photoAlt="RAM"
+                        productTitle="Оперативная память"
+                        productSpec="32Gb"
+                        price="140 000"
+                    >
+                        TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                    </ProductCard>
+                    <ProductCard
+                        id="003"
+                        photoSrc={GraphicCard}
+                        photoAlt="Graphic card"
+                        productTitle="Видеокарта"
+                        productSpec="16Gb"
+                        price="140 000"
+                    >
+                        MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
+                    </ProductCard>
+                    <ProductCard
+                        id="004"
+                        photoSrc={Ram}
+                        photoAlt="RAM"
+                        productTitle="Оперативная память"
+                        productSpec="32Gb"
+                        price="140 000"
+                    >
+                        TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                    </ProductCard>
+                    <ProductCard
+                        id="005"
+                        photoSrc={GraphicCard}
+                        photoAlt="Graphic card"
+                        productTitle="Видеокарта"
+                        productSpec="16Gb"
+                        price="140 000"
+                    >
+                        MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
+                    </ProductCard>
+                    <ProductCard
+                        id="006"
+                        photoSrc={Ram}
+                        photoAlt="RAM"
+                        productTitle="Оперативная память"
+                        productSpec="32Gb"
+                        price="140 000"
+                    >
+                        TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                    </ProductCard>
+                    <ProductCard
+                        id="007"
+                        photoSrc={GraphicCard}
+                        photoAlt="Graphic card"
+                        productTitle="Видеокарта"
+                        productSpec="16Gb"
+                        price="140 000"
+                    >
+                        MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
+                    </ProductCard>
+                    <ProductCard
+                        id="008"
+                        photoSrc={Ram}
+                        photoAlt="RAM"
+                        productTitle="Оперативная память"
+                        productSpec="32Gb"
+                        price="140 000"
+                    >
+                        TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                    </ProductCard>
+                    <ProductCard
+                        id="009"
+                        photoSrc={Ram}
+                        photoAlt="RAM"
+                        productTitle="Оперативная память"
+                        productSpec="32Gb"
+                        price="140 000"
+                    >
+                        TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                    </ProductCard>
+                </div>
+                <OrderButton text="показать все" class="" />
+            </div>
+        </div>
+    </section>
     <section>
         <PopularList />
     </section>
     <section>
-        <div class="faq-section">
+        <div class="faq-section purple-effect2">
             <h4>.Intel///AMD</h4>
             <div class="faq-container">
                 <h3>вопрос ответ</h3>
@@ -87,8 +200,9 @@ const customArticles = [
                         </div>
                         <div class="faq-answer">
                             Оба бренда предлагают отличные процессоры для разных
-                            задач. Параметры и цена зависят от целей: для игр часто
-                            выбирают Intel, для задач с многозадачностью — AMD.
+                            задач. Параметры и цена зависят от целей: для игр
+                            часто выбирают Intel, для задач с многозадачностью —
+                            AMD.
                         </div>
                     </div>
                     <div class="faq-item" data-id="1">
@@ -97,10 +211,10 @@ const customArticles = [
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            <b>BOX</b> — заводская упаковка с кулером и гарантией от
-                            Intel/AMD.<br />
-                            <b>OEM</b> — без коробки и кулера, ставится в системные сборки,
-                            может иметь только магазинную гарантию.
+                            <b>BOX</b> — заводская упаковка с кулером и гарантией
+                            от Intel/AMD.<br />
+                            <b>OEM</b> — без коробки и кулера, ставится в системные
+                            сборки, может иметь только магазинную гарантию.
                         </div>
                     </div>
                     <div class="faq-item" data-id="2">
@@ -109,8 +223,8 @@ const customArticles = [
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            Для офисных задач достаточно 4 ядер, для игр и работы с
-                            графикой — от 6 до 8 ядер и более.
+                            Для офисных задач достаточно 4 ядер, для игр и
+                            работы с графикой — от 6 до 8 ядер и более.
                         </div>
                     </div>
                     <div class="faq-item" data-id="3">
@@ -119,8 +233,8 @@ const customArticles = [
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            Для офисных задач достаточно 4 ядер, для игр и работы с
-                            графикой — от 6 до 8 ядер и более.
+                            Для офисных задач достаточно 4 ядер, для игр и
+                            работы с графикой — от 6 до 8 ядер и более.
                         </div>
                     </div>
                     <div class="faq-item" data-id="4">
@@ -129,28 +243,30 @@ const customArticles = [
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            Для офисных задач достаточно 4 ядер, для игр и работы с
-                            графикой — от 6 до 8 ядер и более.
+                            Для офисных задач достаточно 4 ядер, для игр и
+                            работы с графикой — от 6 до 8 ядер и более.
                         </div>
                     </div>
                     <div class="faq-item" data-id="5">
                         <div class="faq-question">
-                            Что такое сокет и как выбрать совместимую материнскую плату?
+                            Что такое сокет и как выбрать совместимую
+                            материнскую плату?
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            Для офисных задач достаточно 4 ядер, для игр и работы с
-                            графикой — от 6 до 8 ядер и более.
+                            Для офисных задач достаточно 4 ядер, для игр и
+                            работы с графикой — от 6 до 8 ядер и более.
                         </div>
                     </div>
                     <div class="faq-item" data-id="6">
                         <div class="faq-question">
-                            Поддерживает ли процессор разгон и как это влияет на производительность?
+                            Поддерживает ли процессор разгон и как это влияет на
+                            производительность?
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            Для офисных задач достаточно 4 ядер, для игр и работы с
-                            графикой — от 6 до 8 ядер и более.
+                            Для офисных задач достаточно 4 ядер, для игр и
+                            работы с графикой — от 6 до 8 ядер и более.
                         </div>
                     </div>
                     <div class="faq-item" data-id="7">
@@ -159,8 +275,8 @@ const customArticles = [
                             <span class="arrow"></span>
                         </div>
                         <div class="faq-answer">
-                            Для офисных задач достаточно 4 ядер, для игр и работы с
-                            графикой — от 6 до 8 ядер и более.
+                            Для офисных задач достаточно 4 ядер, для игр и
+                            работы с графикой — от 6 до 8 ядер и более.
                         </div>
                     </div>
                     <!-- Остальные вопросы и ответы аналогично -->

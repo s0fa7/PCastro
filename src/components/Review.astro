@@ -9,6 +9,9 @@ interface ReviewProps {
 }
 
 const { rating, author, title, text, photos = [] } = Astro.props;
+
+// Передаем массив всех фотографий как JSON-строку в data-атрибут div
+const photosJson = JSON.stringify(photos);
 ---
 
 <div class="review-container">
@@ -23,21 +26,110 @@ const { rating, author, title, text, photos = [] } = Astro.props;
     <h4>{title}</h4>
     <p>{text}</p>
   </div>
-  <div class="column last" id="photo-gallery">
+  <div class="column last photo-gallery-container" data-photos={photosJson}>
     {
+      // Показываем только первые 3 фотографии в превью
       photos
         .slice(0, 3)
         .map((photo: string, i: number) => (
+          // Класс photo-review используется для прослушивания кликов
           <img
             src={photo}
             alt={`photo-${i}`}
             class="photo-review angles-white"
-            onclick={`openGallery(${i})`}
+            data-index={i}
           />
         ))
     }
   </div>
 </div>
+
+
+<dialog class="photo-modal-component">
+  <div class="modal-content">
+    <button class="close-modal-btn" aria-label="Закрыть модальное окно">
+      &times;
+    </button>
+    <div class="full-gallery-grid-content">
+      </div>
+  </div>
+</dialog>
+
+<script>
+  // Логика клиентского скрипта с использованием TypeScript-синтаксиса
+
+  // НАХОДИМ ВСЕ КОМПОНЕНТЫ НА СТРАНИЦЕ
+  document.querySelectorAll('.review-container').forEach(container => {
+    const gallery = container.querySelector('.photo-gallery-container') as HTMLElement;
+    // Находим ближайший элемент dialog с классом photo-modal-component
+    const modal = container.nextElementSibling?.matches('.photo-modal-component') 
+      ? container.nextElementSibling as HTMLDialogElement 
+      : document.querySelector('.photo-modal-component') as HTMLDialogElement | null;
+    
+    // Элементы внутри модального окна
+    const fullGalleryContainer = modal?.querySelector('.full-gallery-grid-content') as HTMLElement;
+    const closeModalBtn = modal?.querySelector('.close-modal-btn');
+    
+    if (!gallery || !modal || !fullGalleryContainer) {
+      console.warn('Не удалось найти необходимые элементы для модального окна.');
+      return;
+    }
+
+    // Парсим JSON-строку с URL-адресами всех фотографий
+    const photosDataString = gallery.getAttribute('data-photos');
+    const photos: string[] = photosDataString ? JSON.parse(photosDataString) : [];
+
+    if (photos.length === 0) {
+      // Если нет фотографий, не добавляем слушатели
+      return;
+    }
+
+    /**
+     * Заполняет модальное окно всеми фотографиями из массива.
+     */
+    const populateModalGallery = () => {
+      fullGalleryContainer.innerHTML = ''; // Очищаем
+      
+      photos.forEach((photoUrl, index) => {
+        const photoElement = document.createElement('img');
+        photoElement.src = photoUrl;
+        photoElement.alt = `Photo ${index + 1}`;
+        photoElement.classList.add('modal-grid-photo');
+        
+        fullGalleryContainer.appendChild(photoElement);
+      });
+    };
+    
+    /**
+     * Открывает модальное окно.
+     */
+    const openModal = () => {
+      populateModalGallery(); // Заполняем модальное окно
+      modal.showModal();
+    };
+
+    // Обработчик кликов на миниатюры-превью в основном компоненте
+    gallery.addEventListener('click', (event) => {
+      const target = event.target as HTMLElement;
+      // Открываем модальное окно при клике на любую из миниатюр
+      if (target && target.classList.contains('photo-review')) {
+        openModal();
+      }
+    });
+
+    // Обработчик закрытия
+    closeModalBtn?.addEventListener('click', () => {
+      modal.close();
+    });
+
+    // Закрытие модального окна по клику вне его (стандартное поведение <dialog>)
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal.close();
+      }
+    });
+  });
+</script>
 
 <style>
   .review-container {
@@ -104,5 +196,70 @@ const { rating, author, title, text, photos = [] } = Astro.props;
     width: 71px;
     height: 68px;
     border: 1px dashed #ffffff80;
+  }
+
+
+  /* Стили для модального окна */
+  .photo-modal-component {
+    border: none;
+    padding: 0;
+    margin: auto;
+    width: 90vw;
+    max-height: 90vh;
+    background: #ffffff00;
+  }
+
+  /* Стили для backdrop */
+  .photo-modal-component::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  .modal-content {
+    position: relative;
+    padding: 20px;
+    background: #ffffff00;
+    max-height: 90vh;
+    overflow-y: auto; 
+  }
+
+  .close-modal-btn {
+    position: sticky; 
+    top: 0;
+    right: 0;
+    margin-left: auto;
+    display: block;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #9b9b9b;
+    z-index: 10;
+    padding: 0 5px 5px 5px;
+  }
+
+  .full-gallery-grid-content {
+    display: grid;
+    /* Отзывчивая сетка: от 150px до 1fr, максимум 3-4 столбца */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding-top: 5px; 
+  }
+
+  .modal-grid-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: zoom-in;
+  }
+
+  /* Стили для превью в компоненте */
+  .photo-review {
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  .photo-review:hover {
+    transform: scale(1.05);
   }
 </style>
