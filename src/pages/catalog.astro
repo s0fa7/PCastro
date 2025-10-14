@@ -10,6 +10,7 @@ import OrderButton from "../components/OrderButton.astro";
 
 import GraphicCard from "../assets/images/products/product-card/graphic-card.png";
 import Ram from "../assets/images/products/product-card/ram.png";
+import Cross from "../assets/icons/product-card/cross.svg";
 
 const myPath = [
     { text: "главное", href: "#" },
@@ -74,13 +75,131 @@ const customArticles = [
         </div>
     </div>
     <section>
-        <div>
-            <div></div>
+        <div class="product-catalog">
+            <div class="filter-container angles">
+                <div class="filter-header">
+                    <span>фильтр товаров //</span>
+                    <button class="reset-btn btn">
+                        <span>сбросить</span>
+                        <Cross />
+                    </button>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-label collapsible">категория</div>
+                    <div class="filter-list">
+                        <label class="checkbox-container">
+                            <input type="checkbox" /><span class="checkmark"
+                            ></span>компьютеры<sub>42</sub>
+                        </label>
+                        <label class="checkbox-container active">
+                            <input type="checkbox" checked /><span
+                                class="checkmark"></span>процессоры<sub>26</sub>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" /><span class="checkmark"
+                            ></span>видеокарты<sub>24</sub>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" /><span class="checkmark"
+                            ></span>материнские платы<sub>26</sub>
+                        </label>
+                        <!-- Добавьте остальные категории по аналогии -->
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-label collapsible">цена</div>
+                    <div class="filter-price">
+                        <input
+                            type="number"
+                            class="input-min"
+                            min="3210"
+                            max="132450"
+                            value="3210"
+                        />
+                        <div class="range-block">
+                            <input
+                                type="range"
+                                min="3210"
+                                max="132450"
+                                step="100"
+                                value="3210"
+                                class="range"
+                                id="range-min"
+                            />
+                            <input
+                                type="range"
+                                min="3210"
+                                max="132450"
+                                step="100"
+                                value="132450"
+                                class="range"
+                                id="range-max"
+                            />
+                            <div class="range-fill"></div>
+                        </div>
+                        <input
+                            type="number"
+                            class="input-max"
+                            min="3210"
+                            max="132450"
+                            value="132450"
+                        />
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-label collapsible">бренд</div>
+                    <div class="filter-list">
+                        <label class="checkbox-container">
+                            <input type="checkbox" /><span class="checkmark"
+                            ></span>amd<sub>12</sub>
+                        </label>
+                        <label class="checkbox-container active">
+                            <input type="checkbox" checked /><span
+                                class="checkmark"></span>intel<sub>21</sub>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-section">
+                    <div class="filter-label collapsible">сокет</div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-label collapsible">серия процессора</div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-label collapsible">модель</div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-label collapsible">количество ядер</div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-label collapsible">
+                        интегрированное графическое ядро
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <div class="filter-label collapsible">тип комплектации</div>
+                    <div class="filter-list">
+                        <label class="checkbox-container active">
+                            <input type="checkbox" checked /><span
+                                class="checkmark"></span>box
+                        </label>
+                        <label class="checkbox-container disabled">
+                            <input type="checkbox" disabled /><span
+                                class="checkmark"></span>oem
+                        </label>
+                    </div>
+                </div>
+            </div>
+
             <div class="products">
                 <div class="products-tittle">
                     <Nav items={PathProducts} />
                     <div class="search-products">
-                        <input type="search" placeholder="поиск"/>
+                        <input type="search" placeholder="поиск" />
                     </div>
                     <select name="">
                         <option value="">сначала дешевле</option>
@@ -88,7 +207,7 @@ const customArticles = [
                         <option value="">сначала популярнее</option>
                     </select>
                 </div>
-                <div class="products-container">
+                <div class="products-container purple-effect1">
                     <ProductCard
                         id="001"
                         photoSrc={GraphicCard}
@@ -96,6 +215,7 @@ const customArticles = [
                         productTitle="Видеокарта"
                         productSpec="16Gb"
                         price="140 000"
+                        isHeartVisible = {true}
                     >
                         MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
                     </ProductCard>
@@ -106,6 +226,8 @@ const customArticles = [
                         productTitle="Оперативная память"
                         productSpec="32Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
                     </ProductCard>
@@ -116,6 +238,7 @@ const customArticles = [
                         productTitle="Видеокарта"
                         productSpec="16Gb"
                         price="140 000"
+                        isHeartVisible = {true}
                     >
                         MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
                     </ProductCard>
@@ -126,6 +249,8 @@ const customArticles = [
                         productTitle="Оперативная память"
                         productSpec="32Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
                     </ProductCard>
@@ -136,6 +261,8 @@ const customArticles = [
                         productTitle="Видеокарта"
                         productSpec="16Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
                     </ProductCard>
@@ -146,6 +273,8 @@ const customArticles = [
                         productTitle="Оперативная память"
                         productSpec="32Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
                     </ProductCard>
@@ -156,6 +285,8 @@ const customArticles = [
                         productTitle="Видеокарта"
                         productSpec="16Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING TRIO OC
                     </ProductCard>
@@ -166,6 +297,8 @@ const customArticles = [
                         productTitle="Оперативная память"
                         productSpec="32Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
                     </ProductCard>
@@ -176,6 +309,8 @@ const customArticles = [
                         productTitle="Оперативная память"
                         productSpec="32Gb"
                         price="140 000"
+                        isBadgeVisible = {false}
+                        isHeartVisible = {true}
                     >
                         TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
                     </ProductCard>
@@ -297,6 +432,7 @@ const customArticles = [
 </Layout>
 
 <script>
+    // вопрос-ответ
     document.addEventListener("DOMContentLoaded", () => {
         const items = document.querySelectorAll<HTMLElement>(".faq-item");
         items.forEach((item) => {
@@ -306,4 +442,6 @@ const customArticles = [
             });
         });
     });
+
+    // фильтры
 </script>
