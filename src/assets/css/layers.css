@@ -187,6 +187,11 @@
     margin: 0 0 0 20%;
 }
 
+.card-reviews-container .review-container,
+.card-reviews-container .review-container:nth-child(4n) {
+    margin: 0;
+}
+
 /* category */
 
 

@@ -1,0 +1,774 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import PopularList from "../components/PopularList.astro";
+import PurpleTag from "../components/PurpleTag.astro";
+import Review from "../components/Review.astro";
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "каталог", href: "#" },
+    { text: "процессоры", href: "#" },
+    { text: "Процессор AMD Athlon 3 3000G OEM YD3000C6M2OFH", href: "#" },
+];
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <div class="product-card-info-container">
+        <div class="header-container">
+            <h2>Процессор AMD Athlon 3 3000G OEM YD3000C6M2OFH</h2>
+            <p>
+                //Процессор AMD Athlon 3000G — доступное решение для
+                повседневных задач и мультимедиа. Обладает встроенной графикой
+                Vega 3 и обеспечивает стабильную работу в офисных и домашних
+                конфигурациях.
+            </p>
+        </div>
+        <div class="info-card-container">
+            <div class="info-card-container__btns">
+                <button class="btn info-card-container__btn">
+                    <img
+                        src="src/assets/images/return/StarIcon3.png"
+                        alt="иконка"
+                    />
+                    Написать отзыв
+                </button>
+                <button class="btn info-card-container__btn">
+                    <img
+                        src="src/assets/images/return/StarIcon6.png"
+                        alt="иконка"
+                    />
+                    Поделиться
+                </button>
+            </div>
+            <div class="info-card-container__product angles-white">
+                <img
+                    width="556px"
+                    height="560px"
+                    src="/src/assets/images/product1.png"
+                    alt="процессор амд"
+                />
+                <div class="info-card-container__product-info">
+                    <h3>Процессор AMD Athlon 3 3000G OEM YD3000C6M2OFH</h3>
+                    <ul>
+                        <li>
+                            <span>доставка://</span>
+                            <span>2-4 дня</span>
+                        </li>
+                        <li>
+                            <span>Бренд://</span>
+                            <span>AMD</span>
+                        </li>
+                        <li>
+                            <span>Код производителя://</span>
+                            <span>YD3000C6M2OFH</span>
+                        </li>
+                        <li>
+                            <span>Серия процессора://</span>
+                            <span>Athlon</span>
+                        </li>
+                        <li>
+                            <span>Сокет://</span>
+                            <span>AM4</span>
+                        </li>
+                        <li>
+                            <span>модель://</span>
+                            <span>AMD Athlon 3 3000G</span>
+                        </li>
+                    </ul>
+                    <a href="#">Все характеристики</a>
+                    <p>
+                        данный Товар доступен для заказа на любимом вами
+                        маркетплейсе
+                    </p>
+                    <div class="deliviry-icon">
+                        <img src="/src/assets/images/signLogo1.png" alt="wb" />
+                        <img
+                            src="/src/assets/images/signLogo2.png"
+                            alt="ozon"
+                        />
+                        <img
+                            src="/src/assets/images/signLogo3.png"
+                            alt="yandex-market"
+                        />
+                    </div>
+                    <p>
+                        Пожалуйста, проверяйте описание товара на официальном
+                        сайте производителя. Внешний вид, комплектация и
+                        характеристики могут быть изменены производителем без
+                        предварительного уведомления.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section></section>
+    <section class="return-container">
+        <PurpleTag text="О товаре" />
+        <div class="warranty-content">
+            <div class="sidebar">
+                <button class="btn tab-btn angles-white active" data-index="1">
+                    <img
+                        src="src/assets/images/return/StarIcon1.png"
+                        alt="иконка"
+                    />
+                    .характеристики
+                </button>
+                <button class="btn tab-btn angles-white" data-index="2">
+                    <img
+                        src="src/assets/images/return/StarIcon2.png"
+                        alt="иконка"
+                    />
+                    .описание
+                </button>
+                <button class="btn tab-btn angles-white" data-index="3">
+                    <img
+                        src="src/assets/images/return/StarIcon3.png"
+                        alt="иконка"
+                    />
+                    .отзывы
+                </button>
+            </div>
+            <div class="content">
+                <div id="content-1" class="content-block active-content">
+                    <div class="feature-container">
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                        </ul>
+                        <div class="section-title">ядро и архитектура</div>
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                        </ul>
+                        <div class="section-title">ядро и архитектура</div>
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                        </ul>
+                        <div class="section-title">ядро и архитектура</div>
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                        </ul>
+                        <div class="section-title">ядро и архитектура</div>
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                        </ul>
+                        <div class="section-title">ядро и архитектура</div>
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                        </ul>
+                        <div class="section-title">ядро и архитектура</div>
+                        <ul class="feature">
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Бренд</div>
+                                <div class="feature-right">AMD</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">
+                                    Код производителя
+                                </div>
+                                <div class="feature-right">YD3000C6M2OFH</div>
+                            </li>
+                            <li>
+                                <div class="feature-left">Серия процессора</div>
+                                <div class="feature-right">Athlon</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="content-2" class="content-block">
+                    <p>
+                        Возврат товара ненадлежащего качества осуществляется в
+                        течение гарантийного срока или срока годности.
+                    </p>
+                    <p>
+                        Вы можете вернуть товар надлежащего качества в течение 7
+                        дней с момента покупки.
+                    </p>
+                    <p>Для этого необходимо:</p>
+                    <ol>
+                        <li>Обратиться в магазин SRF</li>
+                        <li>Заполнить заявление на возврат.</li>
+                        <li>
+                            Сохранить товарный вид, упаковку, комплектность.
+                        </li>
+                        <li>
+                            Приложить чек, гарантийный талон и другие документы.
+                        </li>
+                    </ol>
+                    <p>
+                        Если товар имеет следы использования, возврат может быть
+                        отклонён. Деньги возвращаются тем же способом, которым
+                        была произведена оплата.
+                    </p>
+                    <p>
+                        Если товар имеет следы использования, возврат может быть
+                        отклонён. Деньги возвращаются тем же способом, которым
+                        была произведена оплата. Если товар имеет следы
+                        использования, возврат может быть отклонён. Деньги
+                        возвращаются тем же способом, которым была произведена
+                        оплата. Если товар имеет следы использования, возврат
+                        может быть отклонён. Деньги возвращаются
+                        тем же способом, которым была произведена
+                        оплата.Если товар имеет следы использования, возврат
+                        может быть отклонён. Деньги возвращаются
+                        тем же способом, которым была произведена
+                        оплата.Если товар имеет следы использования, возврат
+                        может быть отклонён. Деньги возвращаются
+                        тем же способом, которым была произведена оплата.
+                    </p>
+                </div>
+                <div id="content-3" class="content-block">
+                    <div class="card-reviews-container">
+                        <Review
+                            rating={5.0}
+                            author="андрей В."
+                            title="Отличный сервис и мощная сборка!"
+                            text="Заказывал здесь кастомный ПК для работы с графикой и периодических игр — очень доволен! Помогли с подбором комплектующих, всё грамотно объяснили. Комп пришёл уже с установленной системой, протестирован, без лишнего софта. Работает тихо, стабильно и справляется даже с рендерингом на ура. Цены адекватные, сборка — на высшем уровне. Рекомендую!"
+                            photos={[
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                            ]}
+                        />
+                        <Review
+                            rating={5.0}
+                            author="петр а."
+                            title="Сборка мечты за разумные деньги"
+                            text="Долго выбирал, где заказать игровой ПК — остановился на этом магазине и не пожалел. Комплектующие все оригинальные, без подмен и серых поставок. Собрали быстро, всё аккуратно, кабель-менеджмент — как в лучших фото в Reddit. В играх — пушка, FPS стабильный. Огромное спасибо команде!"
+                            photos={[
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                            ]}
+                        />
+                        <Review
+                            rating={5.0}
+                            author="василий с."
+                            title="Отличный магазин для апгрейда"
+                            text="Покупал тут видеокарту и оперативку для апгрейда старого ПК. Консультанты помогли подобрать совместимые модели, всё приехало быстро и хорошо упаковано. Установил сам — полёт нормальный. Буду обращаться ещё, сервис на высоте."
+                            photos={[
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                            ]}
+                        />
+                        <Review
+                            rating={5.0}
+                            author="анатолий ф."
+                            title="Серьёзный подход и быстрая доставка"
+                            text="Заказал рабочую станцию для монтажа видео. Была нестандартная конфигурация, но всё учли и оперативно собрали. Приятно удивила тишина работы даже под нагрузкой. Видно, что собирают с умом и не экономят на охлаждении. Отдельный плюс — техподдержка всегда на связи."
+                            photos={[
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                                "/src/assets/images/Review.png",
+                            ]}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="purple-effect1 card-list-conntainer">
+        <h2>похожие товары</h2>
+        <PopularList />
+    </section>
+    <Footer />
+</Layout>
+
+<script>
+    // Обработчик клика по кнопке
+    function handleTabClick(event: MouseEvent): void {
+        const target = event.currentTarget as HTMLButtonElement | null;
+        if (!target) return;
+
+        // Снимаем активность со всех кнопок и блоков
+        document
+            .querySelectorAll<HTMLButtonElement>(".tab-btn")
+            .forEach((btn) => btn.classList.remove("active"));
+        document
+            .querySelectorAll<HTMLElement>(".content-block")
+            .forEach((block) => block.classList.remove("active-content"));
+
+        // Активируем текущую кнопку
+        target.classList.add("active");
+
+        // Берём data-index
+        const index = target.getAttribute("data-index");
+        if (!index) return;
+
+        // Находим нужный блок и активируем его
+        const content = document.getElementById(`content-${index}`);
+        if (content) {
+            content.classList.add("active-content");
+        }
+    }
+
+    // Назначаем обработчики
+    document
+        .querySelectorAll<HTMLButtonElement>(".tab-btn")
+        .forEach((btn) => btn.addEventListener("click", handleTabClick));
+</script>
+
+<style>
+    .product-card-info-container {
+        display: flex;
+        flex-direction: column;
+        gap: 3.75rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+        max-width: 73rem;
+        padding: 2rem;
+    }
+    .header-container h2 {
+        font-size: 50px;
+    }
+    .info-card-container__btns {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .info-card-container__btn {
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .info-card-container__btn img {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+    }
+    .info-card-container__product {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 21px 0;
+        border-top: 1px dashed oklch(from var(--light-stroke) l c h);
+        text-transform: uppercase;
+    }
+    .info-card-container__product.angles-white::before {
+        background:
+            conic-gradient(
+                    from 90deg at top var(--b) left var(--b),
+                    var(--_g) 0
+                )
+                0 0 / var(--_p),
+            conic-gradient(
+                    from 180deg at top var(--b) right var(--b),
+                    var(--_g)
+                )
+                100% 0 / var(--_p);
+    }
+    .info-card-container__product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 412px;
+    }
+    .info-card-container__product-info h3{
+        color: oklch(from var(--text) l c h);
+        font-size: 20px;
+    }
+    .info-card-container__product-info ul{
+        list-style: none;
+    }
+    .info-card-container__product-info li{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-family: "JetBrainsMono";
+    }
+    .info-card-container__product-info span:first-child{
+        color: oklch(from var(--light-stroke) l c h);
+    }
+    .info-card-container__product-info a{
+        text-transform: none;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 120%;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .info-card-container__product-info p{
+        font-family: "JetBrainsMono";
+        font-size: 14px;
+    }
+    .info-card-container__product-info p:last-child{
+        font-size: 12px;
+        line-height: 120%;
+        font-weight: 600;
+        color: oklch(from var(--grey-text) l c h);
+    }
+
+    .deliviry-icon {
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+    .deliviry-icon img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .return-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .warranty-header {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .warranty-header p {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.2;
+        max-width: 709px;
+        color: oklch(from var(--text) l c h);
+    }
+
+    .warranty-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .section-title {
+        text-transform: uppercase;
+        font-size: 20px;
+        background-image: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        margin: 2rem 0;
+    }
+
+    .feature-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 50rem;
+    }
+
+    @media (max-width: 800px) {
+        .feature-container {
+            flex-wrap: nowrap;
+            max-width: 1600px;
+            overflow: auto;
+        }
+    }
+
+    .feature {
+        display: block;
+        margin: 0;
+        padding: 0;
+        max-width: 709px;
+    }
+    .feature li {
+        display: block;
+        letter-spacing: -1ex;
+        margin: 5px 0;
+    }
+    .feature-left {
+        margin-right: -50%;
+        width: 49%;
+        vertical-align: top;
+        overflow: hidden;
+        display: inline-block;
+        letter-spacing: normal;
+        color: oklch(from var(--light-stroke) l c h);
+    }
+    .feature-left:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        margin: 0 -99% 0 3px;
+        vertical-align: baseline;
+        border-bottom: 1px dashed oklch(from var(--light-stroke) l c h);
+    }
+    .feature-right {
+        display: inline-block;
+        letter-spacing: normal;
+        padding-left: 3px;
+        margin-left: 50%;
+        width: 50%;
+        vertical-align: bottom;
+    }
+
+    .tab-btn {
+        padding: 16px 12px;
+        font-size: 16px;
+        font-family: "JetBrainsMono";
+        border: 1px dashed oklch(from var(--stroke) l c h);
+        color: oklch(from var(--grey-text) l c h);
+        text-transform: uppercase;
+        width: 100%;
+    }
+    .tab-btn img {
+        margin-right: 1rem;
+    }
+
+    .sidebar {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .tab-btn.active {
+        color: oklch(from var(--text) l c h);
+    }
+
+    .content {
+        flex: 1;
+        padding: 24px;
+    }
+
+    .content-block {
+        display: none;
+        animation: fade 0.3s ease-in-out;
+    }
+
+    .content-block.active-content {
+        display: block;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .content-block {
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 120%;
+
+        padding: 0 2rem;
+    }
+    .content-block__text {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: num;
+        margin: 0 0 0 35px;
+        padding: 15px 0 5px 0;
+    }
+    ol li {
+        position: relative;
+        margin: 0 0 0 0;
+        padding: 0 0 10px 0;
+    }
+    ol li:before {
+        content: "00" counter(num);
+        counter-increment: num;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        left: -32px;
+        width: 20px;
+        color: oklch(from var(--grey-text) l c h);
+        text-align: right;
+    }
+
+    .angles-white::before {
+        --c: #d8ebee33;
+    }
+    .active.angles-white::before {
+        --c: #ffffff;
+    }
+    .card-reviews-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+        margin: 0 auto;
+        width: 90%;
+    }
+    .card-list-conntainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .card-list-conntainer h2 {
+        background-image: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+    }
+</style>
