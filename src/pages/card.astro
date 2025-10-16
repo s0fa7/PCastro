@@ -6,6 +6,11 @@ import Nav from "../components/Nav.astro";
 import PopularList from "../components/PopularList.astro";
 import PurpleTag from "../components/PurpleTag.astro";
 import Review from "../components/Review.astro";
+import BigButton from "../components/BigButton.astro";
+import OrderButton from "../components/OrderButton.astro";
+
+import Cross from "../assets/icons/product-card/cross.svg";
+
 const myPath = [
     { text: "главное", href: "#" },
     { text: "каталог", href: "#" },
@@ -29,22 +34,109 @@ const myPath = [
         </div>
         <div class="info-card-container">
             <div class="info-card-container__btns">
-                <button class="btn info-card-container__btn">
+                <button class="btn info-card-container__btn review-btn">
                     <img
                         src="src/assets/images/return/StarIcon3.png"
                         alt="иконка"
                     />
                     Написать отзыв
                 </button>
-                <button class="btn info-card-container__btn">
+                <div class="overlay" id="overlay">
+                    <form
+                        class="review-form"
+                        action="#"
+                        method="post"
+                        enctype="multipart/form-data"
+                    >
+                        <button class="btn form-cross">
+                            <Cross width={32} height={32} />
+                        </button>
+                        <h3 class="review-form__title">
+                            Оставьте отзыв о товаре
+                        </h3>
+                        <p>
+                            Ваше мнение важно для нас и других покупателей.
+                            Поделитесь впечатлениями — это поможет сделать выбор
+                            тем, кто ещё сомневается.
+                        </p>
+
+                        <div class="review-forms">
+                            <!-- ФИО -->
+                            <div class="form-group">
+                                <input
+                                    type="text"
+                                    id="fullname"
+                                    name="fullname"
+                                    placeholder="ФИО"
+                                    required
+                                />
+                            </div>
+                            <!-- Комментарий -->
+                            <div class="form-group">
+                                <textarea
+                                    id="comment"
+                                    name="comment"
+                                    rows="4"
+                                    placeholder="комментарий"
+                                    required></textarea>
+                            </div>
+                            <!-- Фото -->
+                            <div class="form-group">
+                                <input
+                                    type="file"
+                                    id="photos"
+                                    name="photos[]"
+                                    accept="image/*"
+                                    multiple
+                                    style="display: none;"
+                                />
+                                <!-- Видимая "кнопка" -->
+                                <label
+                                    for="photos"
+                                    class="upload-label angles-white"
+                                >
+                                    <img
+                                        src="/src/assets/images/paperClip.png"
+                                        alt="Загрузить фото"
+                                        width="20px"
+                                        height="28px"
+                                    />
+                                </label>
+                                <label for="photos">Загрузить фотографии</label>
+                            </div>
+                            <div class="bottom-group">
+                                <p>
+                                    Нажимая на кнопку "отправить", Вы
+                                    соглашаетесь с
+                                    <a href="" class="purple-text">
+                                        Политикой конфиденциальности и обработку
+                                        персональных данных
+                                    </a>
+                                </p>
+                                <button type="submit" class="btn"
+                                    ><BigButton
+                                        buttonText="отправить"
+                                        classes=""
+                                        hrefPage=""
+                                    /></button
+                                >
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <button class="btn info-card-container__btn share-btn">
                     <img
                         src="src/assets/images/return/StarIcon6.png"
                         alt="иконка"
                     />
                     Поделиться
+                    <div class="share angles" style="display: none;">
+                        <img src="/src/assets/images/vk.png" alt="vk" />
+                        <img src="/src/assets/images/tg.png" alt="tg" />
+                    </div>
                 </button>
             </div>
-            <div class="info-card-container__product angles-white">
+            <div class="info-card-container__product">
                 <img
                     width="556px"
                     height="560px"
@@ -85,15 +177,24 @@ const myPath = [
                         маркетплейсе
                     </p>
                     <div class="deliviry-icon">
-                        <img src="/src/assets/images/signLogo1.png" alt="wb" />
-                        <img
-                            src="/src/assets/images/signLogo2.png"
-                            alt="ozon"
-                        />
-                        <img
-                            src="/src/assets/images/signLogo3.png"
-                            alt="yandex-market"
-                        />
+                        <a href="#"
+                            ><img
+                                src="/src/assets/images/signLogo1.png"
+                                alt="wb"
+                            /></a
+                        >
+                        <a href="#">
+                            <img
+                                src="/src/assets/images/signLogo2.png"
+                                alt="ozon"
+                            />
+                        </a>
+                        <a href="#">
+                            <img
+                                src="/src/assets/images/signLogo3.png"
+                                alt="yandex-market"
+                            />
+                        </a>
                     </div>
                     <p>
                         Пожалуйста, проверяйте описание товара на официальном
@@ -102,7 +203,70 @@ const myPath = [
                         предварительного уведомления.
                     </p>
                 </div>
+
+                <div class="price-card">
+                    <div class="price-card-top">
+                        <span>артикул</span>
+                        <span>1654208</span>
+                    </div>
+                    <div class="price-card-top-price">
+                        <span>2 920₽</span>
+                        <span>4 650₽</span>
+                    </div>
+                    <div class="price-card__status">• в наличии</div>
+                    <div class="cart-row">
+                        <div class="counter-wrap">
+                            <button class="btn" id="downBtn">-</button>
+                            <input
+                                class="counter-value"
+                                id="counterValue"
+                                type="text"
+                                value="1"
+                                readonly
+                            />
+                            <button class="btn" id="upBtn">+</button>
+                        </div>
+                        <BigButton
+                            buttonText="в корзину"
+                            classes="price-card__btn"
+                            hrefPage=""
+                        />
+                    </div>
+
+                    <ul>
+                        <li>
+                            <span>самовывоз://</span>
+                            <span>доставка://</span>
+                        </li>
+                        <li>
+                            <span>1-7 дней</span>
+                            <span>2-3 дней</span>
+                        </li>
+                    </ul>
+
+                    <div class="config-row">
+                        <OrderButton text="конфигуратор" class="" />
+                        <div class="summary">
+                            <span>итого</span>
+                            <span id="totalPrice"> 2 920₽ </span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </div>
+        <div class="product-img">
+            <img
+                width="112px"
+                height="112px"
+                src="/src/assets/images/product1.png"
+                alt="фото 1"
+            />
+            <img
+                width="112px"
+                height="112px"
+                src="/src/assets/images/product2.png"
+                alt="фото 2"
+            />
         </div>
     </div>
     <section></section>
@@ -461,6 +625,82 @@ const myPath = [
     document
         .querySelectorAll<HTMLButtonElement>(".tab-btn")
         .forEach((btn) => btn.addEventListener("click", handleTabClick));
+
+    //счётчик
+    const downBtn = document.getElementById("downBtn") as HTMLButtonElement;
+    const upBtn = document.getElementById("upBtn") as HTMLButtonElement;
+    const counterInput = document.getElementById(
+        "counterValue",
+    ) as HTMLInputElement;
+
+    // Увеличение значения
+    upBtn.addEventListener("click", () => {
+        let count = parseInt(counterInput.value, 10) || 0;
+        count++;
+        counterInput.value = String(count);
+        console.log("значение увеличино");
+    });
+
+    // Уменьшение значения (не меньше 0)
+    downBtn.addEventListener("click", () => {
+        let count = parseInt(counterInput.value, 10) || 0;
+        if (count > 0) {
+            count--;
+            counterInput.value = String(count);
+            console.log("значение уменьшено");
+        }
+    });
+
+    //кнопка поделиться
+    const shareBtn = document.querySelector(".share-btn") as HTMLButtonElement;
+    const shareWindow = shareBtn.querySelector(".share") as HTMLElement;
+
+    // Обработчик клика по кнопке
+    shareBtn.addEventListener("click", (event) => {
+        event.stopPropagation(); // чтобы клик по кнопке не считался "вне окна"
+
+        const isVisible = shareWindow.style.display === "block";
+        shareWindow.style.display = isVisible ? "none" : "block";
+    });
+
+    // Обработчик клика по документу (вне окна)
+    document.addEventListener("click", (event) => {
+        if (!shareBtn.contains(event.target as Node)) {
+            shareWindow.style.display = "none";
+        }
+    });
+
+    //форма отзыва
+    const reviewBtn = document.querySelector(".review-btn") as HTMLElement;
+    const reviewForm = document.querySelector(".review-form") as HTMLElement;
+    const formCloseBtn = document.querySelector(".form-cross") as HTMLElement;
+    const overlay = document.getElementById("overlay") as HTMLElement;
+
+    // Скрыть форму и фон
+    function hideForm() {
+        reviewForm.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+
+    // Показать форму и фон
+    function showForm() {
+        reviewForm.classList.add("active");
+        overlay.classList.add("active");
+    }
+
+    // Клик по кнопке — показать/спрятать
+    reviewBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isActive = reviewForm.classList.contains("active");
+        if (isActive) hideForm();
+        else showForm();
+    });
+
+    // Клик по фону — закрыть
+    overlay.addEventListener("click", hideForm);
+
+    // Клик по крестику — закрыть
+    formCloseBtn.addEventListener("click", hideForm);
 </script>
 
 <style>
@@ -493,7 +733,7 @@ const myPath = [
         text-transform: uppercase;
         font-family: "JetBrainsMono";
     }
-    .info-card-container__btn img {
+    .info-card-container__btn img:not(.share img) {
         width: 1rem;
         height: 1rem;
         margin-right: 0.5rem;
@@ -525,23 +765,23 @@ const myPath = [
         gap: 2rem;
         max-width: 412px;
     }
-    .info-card-container__product-info h3{
+    .info-card-container__product-info h3 {
         color: oklch(from var(--text) l c h);
         font-size: 20px;
     }
-    .info-card-container__product-info ul{
+    .info-card-container__product-info ul {
         list-style: none;
     }
-    .info-card-container__product-info li{
+    .info-card-container__product-info li {
         display: flex;
         justify-content: space-between;
         width: 100%;
         font-family: "JetBrainsMono";
     }
-    .info-card-container__product-info span:first-child{
+    .info-card-container__product-info span:first-child {
         color: oklch(from var(--light-stroke) l c h);
     }
-    .info-card-container__product-info a{
+    .info-card-container__product-info a {
         text-transform: none;
         font-size: 12px;
         font-weight: 600;
@@ -549,11 +789,11 @@ const myPath = [
         text-decoration: underline;
         cursor: pointer;
     }
-    .info-card-container__product-info p{
+    .info-card-container__product-info p {
         font-family: "JetBrainsMono";
         font-size: 14px;
     }
-    .info-card-container__product-info p:last-child{
+    .info-card-container__product-info p:last-child {
         font-size: 12px;
         line-height: 120%;
         font-weight: 600;
@@ -569,6 +809,95 @@ const myPath = [
     .deliviry-icon img {
         width: 40px;
         height: 40px;
+    }
+
+    .price-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background-image: url(src/assets/images/PriceBg.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        padding: 25px 45px;
+        min-width: 501px;
+    }
+    .price-card-top {
+        display: flex;
+        justify-content: space-between;
+    }
+    .price-card-top-price {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        text-transform: uppercase;
+        color: oklch(from var(--purple-text) l c h);
+        font-size: 32px;
+    }
+    .price-card-top-price span:last-child {
+        color: oklch(from var(--grey-text) l c h);
+        font-size: 20px;
+        text-decoration: line-through;
+    }
+    .price-card__status {
+        font-family: "JetBrainsMono";
+        color: oklch(from var(--purple-text) l c h);
+        text-transform: uppercase;
+    }
+    .cart-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .counter-wrap {
+        display: flex;
+        max-width: 50%;
+        border: 1px solid oklch(from var(--grey-text) l c h);
+        border-radius: 6px;
+        padding: 1rem 0;
+    }
+    .counter-wrap input {
+        max-width: 60px;
+        font-size: 28px;
+        text-align: center;
+        color: oklch(from var(--body-text) l c h);
+    }
+    .counter-wrap .btn {
+        width: 30px;
+        justify-content: center;
+    }
+    .price-card ul {
+        list-style: none;
+    }
+    .price-card li {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        font-family: "JetBrainsMono";
+    }
+    .price-card li span:last-child {
+        color: oklch(from var(--purple-text) l c h);
+    }
+    .config-row {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .summary {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        color: oklch(from var(--purple-text) l c h);
+        font-size: 28px;
+    }
+    .summary span:first-child {
+        color: oklch(from var(--body-text) l c h);
+        font-size: 16px;
+        font-family: "JetBrainsMono";
+    }
+    .product-img {
+        display: flex;
+        gap: 1.5rem;
     }
 
     .return-container {
@@ -770,5 +1099,126 @@ const myPath = [
         color: transparent;
         background-clip: text;
         -webkit-background-clip: text;
+    }
+    .info-card-container__btn {
+        position: relative;
+    }
+    .share {
+        padding: 0.85rem 1rem 0.5rem 1rem;
+        position: absolute;
+        top: 2.5rem;
+
+        background: oklch(from var(--card) l c h);
+        border: 1px dashed oklch(from var(--stroke) l c h);
+    }
+    .share img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* отзыв */
+    .review-form {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: 3.75rem;
+        max-width: 48rem;
+        position: relative;
+
+        background: oklch(from var(--dark-card) l c h);
+        border: 1px solid oklch(from var(--purple) l c h);
+    }
+    .review-form button:first-child {
+        fill: oklch(from var(--white) l c h);
+        transform: rotate(45deg);
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+    .review-form h3 {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    .review-forms {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .form-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea {
+        padding: 29px 24px;
+        background: oklch(from var(--dark-card) l c h);
+        border: 1px solid oklch(from var(--light-stroke) l c h);
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+        font-size: 12px;
+        width: 100%;
+    }
+    .upload-label {
+        width: 68px;
+        height: 68px;
+        padding: 13px;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .bottom-group {
+        display: flex;
+        align-items: center;
+    }
+    .bottom-group p {
+        font-size: 12px;
+        font-weight: 600;
+        font-family: "JetBrainsMono";
+    }
+    .bottom-group .purple-text {
+        color: oklch(from var(--purple-text) l c h);
+        text-decoration: underline;
+    }
+
+    /* Затемнение фона */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease;
+        z-index: 100;
+    }
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Форма (модальное окно) */
+    .review-form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.95);
+        z-index: 5;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .review-form.active {
+        opacity: 1;
+        visibility: visible;
     }
 </style>
