@@ -4,6 +4,15 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import TheArticle from "../components/TheArticle.astro";
+import BigButton from "../components/BigButton.astro";
+
+import Trash from "../assets/icons/trash.svg";
+import Printer from "../assets/icons/printer.svg";
+import Mail from "../assets/icons/mail.svg";
+import Save from "../assets/icons/save.svg";
+import Reset from "../assets/icons/reset.svg";
+import OrderButton from "../components/OrderButton.astro";
+import Cross from "../assets/icons/product-card/cross.svg";
 
 const myPath = [
     { text: "главное", href: "#" },
@@ -29,7 +38,475 @@ const customArticles = [
     <section>
         <div class="header">
             <h2>Конфигуратор</h2>
-            <p>// Создайте собственный компьютер под любые задачи: от офисной работы до мощного гейминга и профессионального рендеринга. В нашем конфигураторе вы можете выбрать корпус, процессор, видеокарту, оперативную память, систему охлаждения, накопители, блок питания и другие компоненты. Удобный визуальный интерфейс сразу показывает, как будет выглядеть ваша сборка. Комбинируйте детали, сравнивайте характеристики и получайте максимум производительности - всё в реальном времени и без лишних усилий.</p>
+            <p>
+                // Создайте собственный компьютер под любые задачи: от офисной
+                работы до мощного гейминга и профессионального рендеринга. В
+                нашем конфигураторе вы можете выбрать корпус, процессор,
+                видеокарту, оперативную память, систему охлаждения, накопители,
+                блок питания и другие компоненты. Удобный визуальный интерфейс
+                сразу показывает, как будет выглядеть ваша сборка. Комбинируйте
+                детали, сравнивайте характеристики и получайте максимум
+                производительности - всё в реальном времени и без лишних усилий.
+            </p>
+        </div>
+
+        <div class="configurator" role="region" aria-label="Конфигуратор ПК">
+            <div class="left">
+                <div>
+                    <div class="preview-label">внешний вид://</div>
+                    <div class="preview" aria-hidden="true">
+                        <img
+                            alt="case"
+                            width="500px"
+                            height="500px"
+                            src="/src/assets/images/castom/case.png"
+                        />
+                    </div>
+                </div>
+
+                <div class="params" aria-labelledby="params-heading">
+                    <h3>параметры сборки://</h3>
+                    <ul class="param-list">
+                        <li class="param-item">
+                            <span>корпус://</span>
+                            <span>
+                                MSI MAG FORGE M100A ARGB 306-7G20A21-809
+                            </span>
+                        </li>
+                        <li class="param-item">
+                            <span>процессор://</span>
+                            <span>
+                                Intel Celeron G5905 OEM CM8070104292115
+                            </span>
+                        </li>
+                        <li class="param-item">
+                            <span>Охлаждение://</span>
+                            <span> Кулер PCCooler GI-Paladin 400 PWM FAN </span>
+                        </li>
+                        <li class="param-item">
+                            <span>материнская плата://</span>
+                            <span> Colorful CH510M-K M.2 V20 </span>
+                        </li>
+                        <li class="param-item">
+                            <span>корпус://</span>
+                            <span>
+                                MSI MAG FORGE M100A ARGB 306-7G20A21-809
+                            </span>
+                        </li>
+                        <li class="param-item">
+                            <span>оперативная память://</span>
+                            <span>
+                                8 Gb 3200 MHz Apacer NOX RGB Black
+                                (AH4U08G32C28YNBAA-1)
+                            </span>
+                        </li>
+                        <li class="param-item">
+                            <span>видеокарта://</span>
+                            <span>
+                                AFox (AF710-2048D3L5) GeForce GT 710 2 GB
+                            </span>
+                        </li>
+                        <li class="param-item">
+                            <span>накопитель ssd 2280://</span>
+                            <span> Apacer 256 Gb AP256GAS2280P4UPRO-1 </span>
+                        </li>
+                        <li class="param-item">
+                            <span>накопитель hdd://</span>
+                            <span>
+                                Жесткий диск Seagate 4000 Gb (ST4000DM004)
+                            </span>
+                        </li>
+                        <li class="param-item">
+                            <span>блок питания://</span>
+                            <span> ExeGate 650W PC (EX259603RUS-PC) </span>
+                        </li>
+                        <li class="param-item">
+                            <span>накопитель ssd sata://</span>
+                            <span> Colorful 256 Gb SL500 256GB </span>
+                        </li>
+                    </ul>
+
+                    <div class="total-row" role="status" aria-live="polite">
+                        <span>Итого</span>
+                        <span class="price">29 320₽</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <div class="main-order">
+                        <button
+                            class="icon-btn trash-btn btn angles-white"
+                            title="Очистить сборку"
+                        >
+                            <Trash width={36} height={36} />
+                        </button>
+                        <button class="btn">
+                            <BigButton
+                                buttonText="Заказать сборку"
+                                hrefPage=""
+                                classes=""
+                            />
+                        </button>
+                    </div>
+
+                    <div
+                        class="small-actions"
+                        aria-label="Дополнительные действия"
+                    >
+                        <button class="btn" title="Печать">
+                            <Printer width={36} height={36} />
+                            <span>Печать</span>
+                        </button>
+
+                        <button class="btn" title="На почту">
+                            <Mail width={36} height={36} />
+                            <span>На почту</span>
+                        </button>
+
+                        <button class="btn btn-save" title="Сохранить">
+                            <Save width={36} height={36} />
+                            <span>Сохранить</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <h3>Комплектующие ПК//</h3>
+
+                <div
+                    class="components"
+                    role="list"
+                    aria-label="Список комплектующих"
+                >
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/pc-case.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>корпус</h4>
+                            </div>
+                            <div class="comp-left__products">
+                                <div class="comp-left__product">
+                                    <img
+                                        src="/src/assets/images/castom/case.png"
+                                        alt="корпус"
+                                    />
+                                    <div class="comp-left__product-info">
+                                        <span
+                                            >корпус MSI MAG FORGE M100A ARGB
+                                            306-7G20A21-809</span
+                                        >
+                                        <span>Артикул:// 1235426</span>
+                                    </div>
+                                </div>
+                                <div class="comp-left__product">
+                                    <img
+                                        src="/src/assets/images/castom/case.png"
+                                        alt="корпус"
+                                    />
+                                    <div class="comp-left__product-info">
+                                        <span
+                                            >корпус MSI MAG FORGE M100A ARGB
+                                            306-7G20A21-809</span
+                                        >
+                                        <span>Артикул:// 1235426</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comp-left__price">
+                                <span>2 520₽</span>
+                                <span>2 520₽</span>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <button class="btn-ghost btn" title="Редактировать">
+                                <Reset width={30} height={30} />
+                            </button>
+                            <button class="btn-ghost btn" title="Удалить">
+                                <Trash width={30} height={30} />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/pc-modding.webp"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>моддинк пк</h4>
+                            </div>
+                            <div class="comp-left__products">
+                                <div class="comp-left__product">
+                                    <img
+                                        src="/src/assets/images/castom/rectangle.png"
+                                        alt="корпус"
+                                    />
+                                    <div class="comp-left__product-info">
+                                        <span>FREEZE MOD WH0020 RGB</span>
+                                        <span>Артикул:// 1235426</span>
+                                    </div>
+                                </div>
+                                <div class="comp-left__product">
+                                    <img
+                                        src="/src/assets/images/castom/lenta.png"
+                                        alt="корпус"
+                                    />
+                                    <div class="comp-left__product-info">
+                                        <span>ARGB лента COOLMOON AL300</span>
+                                        <span>Артикул:// 1235426</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comp-left__price">
+                                <span>2 520₽</span>
+                                <span>2 520₽</span>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <button class="btn-ghost btn" title="Редактировать">
+                                <Reset width={30} height={30} />
+                            </button>
+                            <button class="btn-ghost btn" title="Удалить">
+                                <Trash width={30} height={30} />
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/processor.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>процессор</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/graphic-card.webp"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>видеокарта</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/motherboard.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>материнская плата</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/ram.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>оперативная память</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/ssd.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>диск ssd 2280</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/ssd.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>диск ssd sata</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/hdd.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>диск hdd</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/power-unit.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>блок питания</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/pc-case-cooling.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>корпусные вентиляторы</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/cpu-cooling.png"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>охлаждение процессора</h4>
+                            </div>
+                            <div class="comp-left__product">
+                                <img
+                                    src="/src/assets/images/castom/culer.png"
+                                    alt="корпус"
+                                />
+                                <div class="comp-left__product-info">
+                                    <span
+                                        >Кулер PCCooler GI-Paladin 400 PWM FAN</span
+                                    >
+                                    <span>Артикул:// 1235426</span>
+                                </div>
+                            </div>
+                            <span>4 270₽</span>
+                        </div>
+                        <div class="detail-actions">
+                            <button class="btn-ghost btn" title="Редактировать">
+                                <Reset width={30} height={30} />
+                            </button>
+                            <button class="btn-ghost btn" title="Удалить">
+                                <Trash width={30} height={30} />
+                            </button>
+                        </div>
+                    </div>
+                    <div class="comp-card" role="listitem">
+                        <div class="comp-left">
+                            <div class="comp-left-title">
+                                <div class="angles-white comp-left__category">
+                                    <img
+                                        src="/src/assets/images/catalog/monitor.webp"
+                                        alt="корпус"
+                                    />
+                                </div>
+                                <h4>мониторы</h4>
+                            </div>
+                        </div>
+                        <div class="detail-actions">
+                            <OrderButton text="выбрать" class="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay">
+        <div class="popup-reset">
+            <h4>Сбросить конфигурацию?</h4>
+            <p>
+                Текущая конфигурация будет сброшена, и выбранные комплектующие
+                будут потеряны.
+            </p>
+            <div class="popup-reset-btns">
+                <button class="btn popup-reset-btns__reset">
+                    <BigButton
+                        classes=""
+                        buttonText="да, сбросить"
+                        hrefPage=""
+                    />
+                </button>
+                <OrderButton text="отмена" class="" />
+            </div>
+        </div>
+        </div>
+        <div class="overlay">
+            <div class="popup-save">
+                <h4>сборка успешно сохранена</h4>
+                <p>скопируйте полученную ссылку</p>
+                <div class="angles-white copy-text">
+                    https://sfr.ru/assembly/0777r7h74r2a5qli0v96t05fpa/
+                </div>
+                <button class="popup-save__close btn">
+                    <Cross />
+                </button>
+            </div>
         </div>
     </section>
     <section>
@@ -44,14 +521,523 @@ const customArticles = [
     <Footer />
 </Layout>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const trashBtn =
+            document.querySelector<HTMLButtonElement>(".trash-btn");
+        const popupReset =
+            document.querySelector<HTMLDivElement>(".popup-reset");
+        const saveBtn = document.querySelector<HTMLButtonElement>(".btn-save");
+        const popupSave = document.querySelector<HTMLDivElement>(".popup-save");
+
+        // если нужно — глобальный overlay (будет создан при отсутствии подходящего)
+        const ensureGlobalOverlay = (): HTMLDivElement => {
+            let global =
+                document.querySelector<HTMLDivElement>("body > .overlay");
+            if (!global) {
+                global = document.createElement("div");
+                global.classList.add("overlay");
+                document.body.appendChild(global);
+            }
+            return global;
+        };
+
+        // для отслеживания, на какие overlay уже повешен handler
+        const overlaysWithHandler = new WeakSet<Element>();
+
+        // получает overlay, относящийся к popup:
+        // 1) если popup внутри `.overlay` — возвращаем этот ближайший ancestor
+        // 2) иначе возвращаем глобальный (создаём, если нужно)
+        const getOverlayFor = (popup: Element): HTMLDivElement => {
+            const ownOverlay = popup.closest<HTMLDivElement>(".overlay");
+            if (ownOverlay) return ownOverlay;
+            return ensureGlobalOverlay();
+        };
+
+        // вешаем обработчик закрытия на overlay один раз
+        const ensureOverlayHandler = (overlay: HTMLDivElement) => {
+            if (overlaysWithHandler.has(overlay)) return;
+            overlay.addEventListener("click", (e) => {
+                // если кликнули по самому фону (не по внутреннему попапу)
+                if (e.target === overlay) {
+                    // закрываем любой активный попап внутри этого overlay
+                    const activePopup = overlay.querySelector<HTMLElement>(
+                        ".popup-reset.active, .popup-save.active",
+                    );
+                    if (activePopup) {
+                        overlay.classList.remove("active");
+                        activePopup.classList.remove("active");
+                    }
+                }
+            });
+            overlaysWithHandler.add(overlay);
+        };
+
+        const openPopup = (popup: HTMLElement) => {
+            const overlay = getOverlayFor(popup);
+            overlay.classList.add("active");
+            popup.classList.add("active");
+            ensureOverlayHandler(overlay);
+        };
+
+        const closePopup = (popup: HTMLElement) => {
+            const overlay = getOverlayFor(popup);
+            overlay.classList.remove("active");
+            popup.classList.remove("active");
+        };
+
+        // === POPUP RESET ===
+        if (trashBtn && popupReset) {
+            trashBtn.addEventListener("click", () => openPopup(popupReset));
+
+            const cancelBtn = popupReset.querySelector<HTMLElement>(
+                ".order-button, .popup-reset-btns button:last-child",
+            );
+            cancelBtn?.addEventListener("click", () => closePopup(popupReset));
+        }
+
+        // === POPUP SAVE ===
+        if (saveBtn && popupSave) {
+            saveBtn.addEventListener("click", () => openPopup(popupSave));
+
+            const closeBtn =
+                popupSave.querySelector<HTMLButtonElement>(
+                    ".popup-save__close",
+                );
+            closeBtn?.addEventListener("click", () => closePopup(popupSave));
+
+            const copyBlock =
+                popupSave.querySelector<HTMLDivElement>(".copy-text");
+            copyBlock?.addEventListener("click", async () => {
+                const text = copyBlock.innerText.trim();
+                try {
+                    await navigator.clipboard.writeText(text);
+                    copyBlock.classList.add("copied");
+                    const original = text;
+                    copyBlock.innerText = "Скопировано!";
+                    setTimeout(() => {
+                        copyBlock.innerText = original;
+                        copyBlock.classList.remove("copied");
+                    }, 1500);
+                } catch (err) {
+                    console.error("Ошибка копирования:", err);
+                }
+            });
+        }
+
+        // === опционально: закрывать все попапы по Escape ===
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                // закрываем все активные попапы
+                const activePopups = document.querySelectorAll<HTMLElement>(
+                    ".popup-reset.active, .popup-save.active",
+                );
+                activePopups.forEach((p) => {
+                    const overlay = getOverlayFor(p);
+                    overlay.classList.remove("active");
+                    p.classList.remove("active");
+                });
+            }
+        });
+
+        //copy div
+        // const copyElements =
+        //     document.querySelectorAll<HTMLDivElement>(".copy-text");
+
+        // copyElements.forEach((el) => {
+        //     el.addEventListener("click", async () => {
+        //         const text = el.innerText.trim();
+
+        //         try {
+        //             await navigator.clipboard.writeText(text);
+
+        //             // визуальный отклик
+        //             el.classList.add("copied");
+        //             const originalText =
+        //                 el.getAttribute("data-original-text") || text;
+        //             el.setAttribute("data-original-text", originalText);
+        //             el.innerText = "Скопировано!";
+
+        //             setTimeout(() => {
+        //                 el.innerText = originalText;
+        //                 el.classList.remove("copied");
+        //             }, 1500);
+        //         } catch (err) {
+        //             console.error("Ошибка копирования:", err);
+        //         }
+        //     });
+        // });
+    });
+</script>
+
 <style>
-    .header{
+    .header {
         display: flex;
         width: 90%;
-        margin: 0 auto;
+        margin: 0 auto 1rem auto;
         justify-content: space-between;
     }
-    .header p{
+    .header p {
         max-width: 39rem;
+    }
+
+    .configurator {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        align-items: start;
+    }
+
+    /* LEFT COLUMN */
+    .left {
+        background: oklch(from var(--card) l c h);
+        padding: 30px 21px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .preview-label {
+        font-size: 20px;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+
+    .preview {
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* PARAMETERS */
+    .params {
+        background: transparent;
+        padding: 12px 6px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .params h3 {
+        font-size: 20px;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+    .param-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
+
+        font-family: "JetBrainsMono";
+        font-size: 14px;
+        text-transform: uppercase;
+        color: oklch(from var(--grey-text) l c h);
+    }
+    .param-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .param-item span:last-child {
+        max-width: 60%;
+        color: oklch(from var(--body-text) l c h);
+    }
+
+    /* TOTAL */
+    .total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+
+        font-size: 20px;
+        text-transform: uppercase;
+        color: oklch(from var(--grey-text) l c h);
+    }
+    .total-row span:last-child {
+        font-size: 28px;
+        color: oklch(from var(--purple-text) l c h);
+    }
+
+    /* ACTIONS */
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .main-order {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .icon-btn {
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        padding: 1rem;
+        cursor: pointer;
+        align-items: center;
+    }
+
+    .small-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+    }
+    .small-actions .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
+
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+
+    /* RIGHT COLUMN */
+    .right {
+        min-height: 560px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        min-width: 50rem;
+    }
+    .right h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .components {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* overflow: auto; */
+        padding-right: 6px;
+    }
+    .comp-card {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .comp-left {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 15px 24px;
+        width: 100%;
+        max-width: 576px;
+        background: oklch(from var(--card) l c h);
+    }
+    .comp-left-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .comp-left-title h4 {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .comp-left img {
+        width: 43px;
+        height: 50px;
+    }
+    .comp-left__category {
+        width: 68px;
+        height: 68px;
+        padding: 8px;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+    }
+    .comp-left__products {
+        display: flex;
+        flex-direction: column;
+    }
+    .comp-left__product {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .comp-left__product-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        max-width: 350px;
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .comp-left__price {
+        display: flex;
+        flex-direction: column;
+    }
+    .comp-left__product-info span:last-child {
+        color: oklch(from var(--grey-text) l c h);
+        font-size: 12px;
+    }
+    .detail-actions {
+        padding: 12px 25px;
+        background: oklch(from var(--card) l c h);
+
+        display: flex;
+        gap: 1rem;
+    }
+    .comp-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 6px;
+        background: linear-gradient(180deg, #111, #0b0b0d);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .comp-name {
+        font-size: 14px;
+    }
+    .comp-action {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    .btn-ghost {
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        padding: 1rem;
+        cursor: pointer;
+    }
+
+    /* icons small */
+    .svg {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+    }
+
+    /* pop up */
+
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .popup-reset {
+        background: oklch(from var(--dark-card) l c h);
+        box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
+        padding: 3.75rem;
+        margin: 0 auto;
+        max-width: 38.125rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 101;
+        pointer-events: none;
+    }
+    .popup-reset.active {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        pointer-events: all;
+    }
+    .popup-reset h4 {
+        color: oklch(from var(--white) l c h);
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    .popup-reset-btns {
+        display: flex;
+        justify-content: space-between;
+    }
+    .popup-reset-btns__reset.btn {
+        padding: 0;
+    }
+
+    .popup-save {
+        gap: 1.5rem;
+        position: relative;
+        top: 30%;
+        background: oklch(from var(--dark-card) l c h);
+        box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
+        font-family: "JetBrainsMono";
+        padding: 3.75rem 3.75rem 0;
+        margin: 0 auto;
+        max-width: 45rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .popup-save h4 {
+        color: oklch(from var(--white) l c h);
+        text-transform: uppercase;
+        font-size: 28px;
+        font-family: "EuropeExt";
+    }
+    .popup-save p {
+        color: oklch(from var(--grey-text) l c h);
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    .popup-save svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 1.5rem;
+        right: 12px;
+    }
+    .popup-save div {
+        padding: 29px 1rem;
+        border: 1px solid oklch(from var(--light-stroke) l c h);
+        width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 1440px) {
+        .header h2 {
+            font-size: 36px;
+        }
+    }
+    @media (max-width: 1024px) {
+        .configurator {
+            flex-direction: column;
+            align-items: center;
+        }
+        .right {
+            order: -1;
+            margin-left: 4rem;
+        }
+        .header {
+            flex-direction: column;
+        }
+        .header h2 {
+            font-size: 30px;
+        }
+        .popup-reset {
+            padding: 12px 24px;
+        }
+        .popup-save {
+            padding: 1.5rem 0.75rem 0;
+        }
     }
 </style>
