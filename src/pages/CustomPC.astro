@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import TheArticle from "../components/TheArticle.astro";
 import BigButton from "../components/BigButton.astro";
+import ProductCard from "../components/ProductCard.astro";
 
 import Trash from "../assets/icons/trash.svg";
 import Printer from "../assets/icons/printer.svg";
@@ -13,6 +14,8 @@ import Save from "../assets/icons/save.svg";
 import Reset from "../assets/icons/reset.svg";
 import OrderButton from "../components/OrderButton.astro";
 import Cross from "../assets/icons/product-card/cross.svg";
+import GraphicCard from "../assets/images/products/product-card/graphic-card.png";
+import Ram from "../assets/images/products/product-card/ram.png";
 
 const myPath = [
     { text: "главное", href: "#" },
@@ -29,6 +32,11 @@ const customArticles = [
         title: "",
         body: "Удобный интерфейс и пошаговая навигация — легко двигаться вперёд или возвращаться к предыдущим этапам для корректировок. Результат в цифрах и картинке — вы получите и визуальную модель компьютера, и список характеристик с ценой. Доступность для всех — будь вы новичок или опытный пользователь, сборка станет простой и понятной.",
     },
+];
+const PathProducts = [
+    { text: "каталог", href: "#" },
+    { text: "процессоры", href: "#" },
+    { text: "intel", href: "#" },
 ];
 ---
 
@@ -140,7 +148,7 @@ const customArticles = [
                         >
                             <Trash width={36} height={36} />
                         </button>
-                        <button class="btn">
+                        <button class="btn form-btn">
                             <BigButton
                                 buttonText="Заказать сборку"
                                 hrefPage=""
@@ -224,10 +232,14 @@ const customArticles = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <button class="btn-ghost btn" title="Редактировать">
+                            <button
+                                class="btn-ghost btn catalog-btn"
+                                title="Редактировать"
+                            >
                                 <Reset width={30} height={30} />
                             </button>
-                            <button class="btn-ghost btn" title="Удалить">
+                            <!-- здесь пока модалка с ошибкой -->
+                            <button class="btn-ghost btn error-btn" title="Удалить">
                                 <Trash width={30} height={30} />
                             </button>
                         </div>
@@ -292,7 +304,7 @@ const customArticles = [
                                 <h4>процессор</h4>
                             </div>
                         </div>
-                        <div class="detail-actions">
+                        <div class="detail-actions catalog-btn">
                             <OrderButton text="выбрать" class="" />
                         </div>
                     </div>
@@ -478,23 +490,23 @@ const customArticles = [
             </div>
         </div>
         <div class="overlay">
-        <div class="popup-reset">
-            <h4>Сбросить конфигурацию?</h4>
-            <p>
-                Текущая конфигурация будет сброшена, и выбранные комплектующие
-                будут потеряны.
-            </p>
-            <div class="popup-reset-btns">
-                <button class="btn popup-reset-btns__reset">
-                    <BigButton
-                        classes=""
-                        buttonText="да, сбросить"
-                        hrefPage=""
-                    />
-                </button>
-                <OrderButton text="отмена" class="" />
+            <div class="popup-reset">
+                <h4>Сбросить конфигурацию?</h4>
+                <p>
+                    Текущая конфигурация будет сброшена, и выбранные
+                    комплектующие будут потеряны.
+                </p>
+                <div class="popup-reset-btns">
+                    <button class="btn popup-reset-btns__reset">
+                        <BigButton
+                            classes=""
+                            buttonText="да, сбросить"
+                            hrefPage=""
+                        />
+                    </button>
+                    <OrderButton text="отмена" class="" />
+                </div>
             </div>
-        </div>
         </div>
         <div class="overlay">
             <div class="popup-save">
@@ -506,6 +518,393 @@ const customArticles = [
                 <button class="popup-save__close btn">
                     <Cross />
                 </button>
+            </div>
+        </div>
+        <div class="overlay">
+            <div class="popup-form">
+                <img
+                    src="/src/assets/images/castom/form-bg.png"
+                    alt="pc-bg"
+                    width="1365px"
+                    height="735px"
+                    class="form-bg"
+                />
+                <div class="contact-form-container angles">
+                    <button class="btn popup-form__close">
+                        <Cross />
+                    </button>
+                    <form class="contact-form">
+                        <h3>
+                            Оставьте свои данные и мы свяжемся с вами
+                            для дальнейшего оформления заказа
+                        </h3>
+                        <div class="input-group angles-white">
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Имя"
+                                required
+                            />
+                        </div>
+                        <div class="input-group angles-white">
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="+7(000) 000 00 00"
+                                title="Формат: +7(XXX) XXX-XX-XX"
+                                required
+                                pattern="/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/"
+                                minlength="11"
+                                maxlength="18"
+                            />
+                        </div>
+                        <div class="input-group angles-white">
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                                required
+                            />
+                        </div>
+                        <div class="input-group angles-white">
+                            <input
+                                type="text"
+                                id="map"
+                                name="map"
+                                placeholder="адрес доставки"
+                                required
+                            />
+                        </div>
+                    </form>
+                    <div class="contacts-bottom">
+                        <p>
+                            Нажимая на кнопку "отправить", Вы соглашаетесь с <span
+                                class="purple"
+                            >
+                                Политикой конфиденциальности и обработку
+                                персональных данных
+                            </span>
+                        </p>
+                        <BigButton
+                            buttonText="отправить"
+                            hrefPage="#"
+                            classes="contact-btn"
+                            type={"submit"}
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- кнопку повесила пока просто на корзину -->
+        <div class="overlay">
+            <div class="popup-error">
+                <h4>Обнаружены проблемы совместимости</h4>
+                <p>Следующие комплектующие несовместимы://</p>
+                <ul>
+                    <li>.MSI MAG B760M MORTAR II [DDR5, Wi-Fi]</li>
+                    <li>.16GB Kingston FURY Beast RGB [DDR4, 3200MHz, 2x8GB]</li>
+                </ul>
+                <p>Будет произведена автозамена на://</p>
+                <ul>
+                    <li>.16GB TEAMGROUP T-Force Delta RGB Black [DDR5, 6000MHz, 2x8GB]</li>
+                </ul>
+                <div class="popup-error__btns">
+                    <button class="btn">
+                        <BigButton
+                            classes=""
+                            buttonText="заменить"
+                            hrefPage=""
+                        />
+                    </button>
+                    <OrderButton text="выбрать другой" class="" />
+                </div>
+                <button class="popup-error__close btn">
+                    <Cross />
+                </button>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="overlay">
+            <div class="popup-choose">
+                <div class="product-catalog">
+                    <div class="filter-container angles">
+                        <div class="filter-header">
+                            <span>фильтр товаров //</span>
+                            <button class="reset-btn btn">
+                                <span>сбросить</span>
+                                <Cross />
+                            </button>
+                        </div>
+
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">
+                                категория
+                            </div>
+                            <div class="filter-list">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" /><span
+                                        class="checkmark"></span>компьютеры<sub
+                                        >42</sub
+                                    >
+                                </label>
+                                <label class="checkbox-container active">
+                                    <input type="checkbox" checked /><span
+                                        class="checkmark"></span>процессоры<sub
+                                        >26</sub
+                                    >
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" /><span
+                                        class="checkmark"></span>видеокарты<sub
+                                        >24</sub
+                                    >
+                                </label>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" /><span
+                                        class="checkmark"></span>материнские
+                                    платы<sub>26</sub>
+                                </label>
+                                <!-- Добавьте остальные категории по аналогии -->
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">цена</div>
+                            <div class="filter-price">
+                                <input
+                                    type="number"
+                                    class="input-min"
+                                    min="3210"
+                                    max="132450"
+                                    value="3210"
+                                />
+                                <div class="range-block">
+                                    <input
+                                        type="range"
+                                        min="3210"
+                                        max="132450"
+                                        step="100"
+                                        value="3210"
+                                        class="range"
+                                        id="range-min"
+                                    />
+                                    <input
+                                        type="range"
+                                        min="3210"
+                                        max="132450"
+                                        step="100"
+                                        value="132450"
+                                        class="range"
+                                        id="range-max"
+                                    />
+                                    <div class="range-fill"></div>
+                                </div>
+                                <input
+                                    type="number"
+                                    class="input-max"
+                                    min="3210"
+                                    max="132450"
+                                    value="132450"
+                                />
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">бренд</div>
+                            <div class="filter-list">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" /><span
+                                        class="checkmark"></span>amd<sub>12</sub
+                                    >
+                                </label>
+                                <label class="checkbox-container active">
+                                    <input type="checkbox" checked /><span
+                                        class="checkmark"></span>intel<sub
+                                        >21</sub
+                                    >
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">сокет</div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">
+                                серия процессора
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">модель</div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">
+                                количество ядер
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">
+                                интегрированное графическое ядро
+                            </div>
+                        </div>
+                        <div class="filter-section">
+                            <div class="filter-label collapsible">
+                                тип комплектации
+                            </div>
+                            <div class="filter-list">
+                                <label class="checkbox-container active">
+                                    <input type="checkbox" checked /><span
+                                        class="checkmark"></span>box
+                                </label>
+                                <label class="checkbox-container disabled">
+                                    <input type="checkbox" disabled /><span
+                                        class="checkmark"></span>oem
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="products">
+                        <div class="products-tittle">
+                            <Nav items={PathProducts} />
+                            <div class="search-products">
+                                <input type="search" placeholder="поиск" />
+                            </div>
+                            <select name="">
+                                <option value="">сначала дешевле</option>
+                                <option value="">сначала дороже</option>
+                                <option value="">сначала популярнее</option>
+                            </select>
+                            <button class="popup-choose-btn__close btn">
+                                <Cross />
+                            </button>
+                        </div>
+                        <div class="products-container">
+                            <ProductCard
+                                id="001"
+                                photoSrc={GraphicCard}
+                                photoAlt="Graphic card"
+                                productTitle="Видеокарта"
+                                productSpec="16Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
+                                TRIO OC
+                            </ProductCard>
+                            <ProductCard
+                                id="002"
+                                photoSrc={Ram}
+                                photoAlt="RAM"
+                                productTitle="Оперативная память"
+                                productSpec="32Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
+                                2x16GB]
+                            </ProductCard>
+                            <ProductCard
+                                id="003"
+                                photoSrc={GraphicCard}
+                                photoAlt="Graphic card"
+                                productTitle="Видеокарта"
+                                productSpec="16Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
+                                TRIO OC
+                            </ProductCard>
+                            <ProductCard
+                                id="004"
+                                photoSrc={Ram}
+                                photoAlt="RAM"
+                                productTitle="Оперативная память"
+                                productSpec="32Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
+                                2x16GB]
+                            </ProductCard>
+                            <ProductCard
+                                id="005"
+                                photoSrc={GraphicCard}
+                                photoAlt="Graphic card"
+                                productTitle="Видеокарта"
+                                productSpec="16Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
+                                TRIO OC
+                            </ProductCard>
+                            <ProductCard
+                                id="006"
+                                photoSrc={Ram}
+                                photoAlt="RAM"
+                                productTitle="Оперативная память"
+                                productSpec="32Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
+                                2x16GB]
+                            </ProductCard>
+                            <ProductCard
+                                id="007"
+                                photoSrc={GraphicCard}
+                                photoAlt="Graphic card"
+                                productTitle="Видеокарта"
+                                productSpec="16Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
+                                TRIO OC
+                            </ProductCard>
+                            <ProductCard
+                                id="008"
+                                photoSrc={Ram}
+                                photoAlt="RAM"
+                                productTitle="Оперативная память"
+                                productSpec="32Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
+                                2x16GB]
+                            </ProductCard>
+                            <ProductCard
+                                id="009"
+                                photoSrc={Ram}
+                                photoAlt="RAM"
+                                productTitle="Оперативная память"
+                                productSpec="32Gb"
+                                price="140 000"
+                                isBadgeVisible={false}
+                                isHeartVisible={true}
+                            >
+                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
+                                2x16GB]
+                            </ProductCard>
+                        </div>
+                        <OrderButton text="показать все" class="" />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -523,14 +922,29 @@ const customArticles = [
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        // кнопки/попапы
         const trashBtn =
             document.querySelector<HTMLButtonElement>(".trash-btn");
         const popupReset =
             document.querySelector<HTMLDivElement>(".popup-reset");
+
         const saveBtn = document.querySelector<HTMLButtonElement>(".btn-save");
         const popupSave = document.querySelector<HTMLDivElement>(".popup-save");
 
-        // если нужно — глобальный overlay (будет создан при отсутствии подходящего)
+        const formBtn = document.querySelector<HTMLButtonElement>(".form-btn");
+        const popupForm = document.querySelector<HTMLDivElement>(".popup-form");
+
+        const catalogBtn =
+            document.querySelector<HTMLButtonElement>(".catalog-btn");
+        const popupChoose =
+            document.querySelector<HTMLDivElement>(".popup-choose");
+
+        const errorBtn =
+            document.querySelector<HTMLButtonElement>(".error-btn");
+        const popupError =
+            document.querySelector<HTMLDivElement>(".popup-error");
+
+        // создание/получение глобального overlay (body > .overlay)
         const ensureGlobalOverlay = (): HTMLDivElement => {
             let global =
                 document.querySelector<HTMLDivElement>("body > .overlay");
@@ -542,63 +956,113 @@ const customArticles = [
             return global;
         };
 
-        // для отслеживания, на какие overlay уже повешен handler
+        // WeakSet для отслеживания overlay, на которые уже навешен handler
         const overlaysWithHandler = new WeakSet<Element>();
 
-        // получает overlay, относящийся к popup:
-        // 1) если popup внутри `.overlay` — возвращаем этот ближайший ancestor
-        // 2) иначе возвращаем глобальный (создаём, если нужно)
+        // Map для запоминания, что мы переместили (temporarily) popup внутрь глобального overlay:
+        const movedPopups = new WeakMap<
+            HTMLElement,
+            { parent: Node; nextSibling: Node | null }
+        >();
+
+        // возвращает overlay для popup: либо ближайший ancestor .overlay, либо глобальный
         const getOverlayFor = (popup: Element): HTMLDivElement => {
             const ownOverlay = popup.closest<HTMLDivElement>(".overlay");
-            if (ownOverlay) return ownOverlay;
-            return ensureGlobalOverlay();
+            return ownOverlay || ensureGlobalOverlay();
         };
 
-        // вешаем обработчик закрытия на overlay один раз
+        // добавляем обработчик клика по overlay (один раз)
         const ensureOverlayHandler = (overlay: HTMLDivElement) => {
             if (overlaysWithHandler.has(overlay)) return;
+
             overlay.addEventListener("click", (e) => {
-                // если кликнули по самому фону (не по внутреннему попапу)
                 if (e.target === overlay) {
-                    // закрываем любой активный попап внутри этого overlay
                     const activePopup = overlay.querySelector<HTMLElement>(
-                        ".popup-reset.active, .popup-save.active",
+                        ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
                     );
-                    if (activePopup) {
-                        overlay.classList.remove("active");
-                        activePopup.classList.remove("active");
-                    }
+                    if (activePopup) closePopup(activePopup);
                 }
             });
+
             overlaysWithHandler.add(overlay);
+        };
+
+        const ensurePopupInsideOverlay = (
+            popup: HTMLElement,
+            overlay: HTMLDivElement,
+        ) => {
+            const isInside = !!popup.closest(".overlay");
+            if (!isInside && overlay.parentElement === document.body) {
+                movedPopups.set(popup, {
+                    parent: popup.parentNode as Node,
+                    nextSibling: popup.nextSibling,
+                });
+                overlay.appendChild(popup);
+            }
+        };
+
+        const restorePopupPosition = (popup: HTMLElement) => {
+            const record = movedPopups.get(popup);
+            if (!record) return;
+            const { parent, nextSibling } = record;
+            if (nextSibling && (nextSibling as Node).parentNode === parent) {
+                parent.insertBefore(popup, nextSibling);
+            } else {
+                parent.appendChild(popup);
+            }
+            movedPopups.delete(popup);
         };
 
         const openPopup = (popup: HTMLElement) => {
             const overlay = getOverlayFor(popup);
+            ensurePopupInsideOverlay(popup, overlay);
             overlay.classList.add("active");
             popup.classList.add("active");
             ensureOverlayHandler(overlay);
+
+            const focusable = popup.querySelector<HTMLElement>(
+                "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
+            );
+            focusable?.focus();
         };
 
         const closePopup = (popup: HTMLElement) => {
             const overlay = getOverlayFor(popup);
             overlay.classList.remove("active");
             popup.classList.remove("active");
+            restorePopupPosition(popup);
         };
 
-        // === POPUP RESET ===
+        // --- POPUP RESET ---
         if (trashBtn && popupReset) {
-            trashBtn.addEventListener("click", () => openPopup(popupReset));
-
+            trashBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupReset);
+            });
             const cancelBtn = popupReset.querySelector<HTMLElement>(
                 ".order-button, .popup-reset-btns button:last-child",
             );
             cancelBtn?.addEventListener("click", () => closePopup(popupReset));
         }
 
-        // === POPUP SAVE ===
+        // --- POPUP ERROR ---
+        if (errorBtn && popupError) {
+            errorBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupError);
+            });
+            const cancelBtn = popupError.querySelector<HTMLElement>(
+                ".popup-error__close",
+            );
+            cancelBtn?.addEventListener("click", () => closePopup(popupError));
+        }
+
+        // --- POPUP SAVE ---
         if (saveBtn && popupSave) {
-            saveBtn.addEventListener("click", () => openPopup(popupSave));
+            saveBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupSave);
+            });
 
             const closeBtn =
                 popupSave.querySelector<HTMLButtonElement>(
@@ -608,35 +1072,92 @@ const customArticles = [
 
             const copyBlock =
                 popupSave.querySelector<HTMLDivElement>(".copy-text");
-            copyBlock?.addEventListener("click", async () => {
-                const text = copyBlock.innerText.trim();
-                try {
-                    await navigator.clipboard.writeText(text);
-                    copyBlock.classList.add("copied");
-                    const original = text;
-                    copyBlock.innerText = "Скопировано!";
-                    setTimeout(() => {
-                        copyBlock.innerText = original;
-                        copyBlock.classList.remove("copied");
-                    }, 1500);
-                } catch (err) {
-                    console.error("Ошибка копирования:", err);
-                }
-            });
+            if (copyBlock) {
+                copyBlock.addEventListener("click", async () => {
+                    const text = copyBlock.innerText.trim();
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        const original = text;
+                        copyBlock.classList.add("copied");
+                        copyBlock.innerText = "Скопировано!";
+                        setTimeout(() => {
+                            copyBlock.innerText = original;
+                            copyBlock.classList.remove("copied");
+                        }, 1500);
+                    } catch (err) {
+                        console.error("Ошибка копирования:", err);
+                    }
+                });
+            }
         }
 
-        // === опционально: закрывать все попапы по Escape ===
+        // --- POPUP FORM ---
+        if (formBtn && popupForm) {
+            formBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupForm);
+            });
+
+            const closeBtn =
+                popupForm.querySelector<HTMLButtonElement>(
+                    ".popup-form__close",
+                );
+            closeBtn?.addEventListener("click", () => closePopup(popupForm));
+
+            const cancelBtn = popupForm.querySelector<HTMLButtonElement>(
+                ".popup-form__cancel",
+            );
+            cancelBtn?.addEventListener("click", (e) => {
+                e.preventDefault();
+                closePopup(popupForm);
+            });
+
+            const innerForm = popupForm.querySelector<HTMLFormElement>("form");
+            if (innerForm) {
+                innerForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(innerForm);
+                    console.log("Submitting form via AJAX (simulated):");
+                    for (const [k, v] of formData.entries()) console.log(k, v);
+
+                    try {
+                        const submitBtn =
+                            innerForm.querySelector<HTMLButtonElement>(
+                                'button[type="submit"]',
+                            );
+                        submitBtn?.setAttribute("disabled", "true");
+                        setTimeout(() => {
+                            innerForm.reset();
+                            submitBtn?.removeAttribute("disabled");
+                            closePopup(popupForm);
+                        }, 700);
+                    } catch (err) {
+                        console.error("Ошибка отправки формы:", err);
+                    }
+                });
+            }
+        }
+
+        // --- POPUP CHOOSE ---
+        if (catalogBtn && popupChoose) {
+            catalogBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupChoose);
+            });
+
+            const closeBtn = popupChoose.querySelector<HTMLButtonElement>(
+                ".popup-choose-btn__close",
+            );
+            closeBtn?.addEventListener("click", () => closePopup(popupChoose));
+        }
+
+        // --- ESC ---
         document.addEventListener("keydown", (e) => {
             if (e.key === "Escape") {
-                // закрываем все активные попапы
                 const activePopups = document.querySelectorAll<HTMLElement>(
-                    ".popup-reset.active, .popup-save.active",
+                    ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
                 );
-                activePopups.forEach((p) => {
-                    const overlay = getOverlayFor(p);
-                    overlay.classList.remove("active");
-                    p.classList.remove("active");
-                });
+                activePopups.forEach((p) => closePopup(p));
             }
         });
 
@@ -972,13 +1493,14 @@ const customArticles = [
         padding: 0;
     }
 
-    .popup-save {
+    .popup-save,
+    .popup-error{
         gap: 1.5rem;
         position: relative;
         top: 30%;
         background: oklch(from var(--dark-card) l c h);
         box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
-        font-family: "JetBrainsMono";
+         
         padding: 3.75rem 3.75rem 0;
         margin: 0 auto;
         max-width: 45rem;
@@ -986,7 +1508,8 @@ const customArticles = [
         flex-direction: column;
         gap: 2rem;
     }
-    .popup-save h4 {
+    .popup-save h4,
+    .popup-error h4 {
         color: oklch(from var(--white) l c h);
         text-transform: uppercase;
         font-size: 28px;
@@ -997,7 +1520,21 @@ const customArticles = [
         text-transform: uppercase;
         font-size: 14px;
     }
-    .popup-save svg {
+    .popup-error p {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: "JetBrainsMono";
+    }
+    .popup-error ul{
+        list-style: url("../assets/icons/Hit.svg");
+    }
+    .popup-error li{
+        color: oklch(from var(--grey-text) l c h);
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .popup-save svg,
+    .popup-error svg {
         width: 32px;
         height: 32px;
         fill: #fff;
@@ -1010,6 +1547,115 @@ const customArticles = [
         padding: 29px 1rem;
         border: 1px solid oklch(from var(--light-stroke) l c h);
         width: 100%;
+    }
+    .popup-error__btns{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+
+    .popup-form {
+        position: relative;
+        top: 3%;
+        right: 0;
+        left: 0;
+        background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
+        padding: 3.75rem;
+        margin: 0 auto;
+        max-height: 50rem;
+        min-height: 48.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .form-bg {
+        transform: scale(-1, 1);
+        height: auto;
+        width: auto;
+    }
+    .contact-form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        max-width: 768px;
+        right: 10%;
+        top: 3%;
+        padding: 3.75rem;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+    }
+    .contacts-bottom {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contact-form-container svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 2%;
+        right: 2%;
+    }
+    input:not(.product-catalog input) {
+        background-color: oklch(from var(--card) l c h);
+        border: 1px solid oklch(from var(--light-stroke) l c h);
+        padding: 1.5rem;
+        width: 100%;
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        font-family: "JetBrainsMono";
+    }
+    .contact-form h3 {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    .contacts-bottom p {
+        max-width: 320px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    .contact-form p:first-child {
+        font-family: "EuropeExt";
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+
+    .purple {
+        color: oklch(from var(--purple-text) l c h);
+        text-decoration: underline;
+    }
+
+    .popup-choose {
+        padding: 1rem 5.25rem;
+        background-color: oklch(from var(--bg) l c h);
+        position: absolute;
+        z-index: 10;
+        top: 3%;
+        right: 0;
+        left: 0;
+
+        max-height: 90vh; /* важно — ограничиваем высоту в пределах окна */
+        overflow-y: auto; /* включаем вертикальную прокрутку */
+        overscroll-behavior: contain; /* чтобы при скролле не двигалось всё окно */
+    }
+    .popup-choose-btn__close svg {
+        width: 32px;
+        height: 32px;
+        fill: oklch(from var(--white) l c h);
+        transform: rotate(45deg);
     }
 
     /* Responsive */
@@ -1038,6 +1684,26 @@ const customArticles = [
         }
         .popup-save {
             padding: 1.5rem 0.75rem 0;
+        }
+        .popup-form {
+            flex-direction: column;
+            top: 7%;
+        }
+        .popup-form img {
+            order: 2;
+            transform: scale(1, 1);
+        }
+        .popup-form h3 {
+            font-size: 16px;
+        }
+        .contact-form-container {
+            left: 10%;
+        }
+        input {
+            font-size: 12px;
+        }
+        .contacts-bottom p {
+            font-size: 10px;
         }
     }
 </style>
