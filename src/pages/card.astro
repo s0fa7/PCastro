@@ -81,7 +81,7 @@ const myPath = [
                                     required></textarea>
                             </div>
                             <!-- Фото -->
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <input
                                     type="file"
                                     id="photos"
@@ -90,7 +90,7 @@ const myPath = [
                                     multiple
                                     style="display: none;"
                                 />
-                                <!-- Видимая "кнопка" -->
+                                
                                 <label
                                     for="photos"
                                     class="upload-label angles-white"
@@ -103,7 +103,32 @@ const myPath = [
                                     />
                                 </label>
                                 <label for="photos">Загрузить фотографии</label>
+                            </div> -->
+                            <div class="form-group">
+                                <div class="preview-container"></div>
+
+                                <input
+                                    type="file"
+                                    id="photos"
+                                    name="photos[]"
+                                    accept="image/*"
+                                    multiple
+                                    hidden
+                                />
+                                <label
+                                    for="photos"
+                                    class="upload-label angles-white"
+                                >
+                                    <img
+                                        src="/src/assets/images/paperClip.png"
+                                        alt="Загрузить фото"
+                                        width="20"
+                                        height="28"
+                                    />
+                                </label>
+                                <label for="photos">Загрузить фотографии</label>
                             </div>
+
                             <div class="bottom-group">
                                 <p>
                                     Нажимая на кнопку "отправить", Вы
@@ -696,11 +721,32 @@ const myPath = [
         else showForm();
     });
 
-    // Клик по фону — закрыть
-    overlay.addEventListener("click", hideForm);
-
     // Клик по крестику — закрыть
     formCloseBtn.addEventListener("click", hideForm);
+
+    const fileInput = document.getElementById("photos") as HTMLInputElement;
+    const previewContainer = document.querySelector(
+        ".preview-container",
+    ) as HTMLElement;
+
+    if (fileInput && previewContainer) {
+        fileInput.addEventListener("change", () => {
+            previewContainer.innerHTML = "";
+
+            if (!fileInput.files) return;
+
+            Array.from(fileInput.files).forEach((file) => {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = document.createElement("img");
+                    img.src = e.target?.result as string;
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            });
+        });
+    }
+    
 </script>
 
 <style>
@@ -1183,6 +1229,19 @@ const myPath = [
     .bottom-group .purple-text {
         color: oklch(from var(--purple-text) l c h);
         text-decoration: underline;
+    }
+    .preview-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .preview-container img {
+        width: 68px;
+        height: 68px;
+        object-fit: cover;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
     }
 
     /* Затемнение фона */

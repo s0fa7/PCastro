@@ -239,7 +239,10 @@ const PathProducts = [
                                 <Reset width={30} height={30} />
                             </button>
                             <!-- здесь пока модалка с ошибкой -->
-                            <button class="btn-ghost btn error-btn" title="Удалить">
+                            <button
+                                class="btn-ghost btn error-btn"
+                                title="Удалить"
+                            >
                                 <Trash width={30} height={30} />
                             </button>
                         </div>
@@ -605,11 +608,16 @@ const PathProducts = [
                 <p>Следующие комплектующие несовместимы://</p>
                 <ul>
                     <li>.MSI MAG B760M MORTAR II [DDR5, Wi-Fi]</li>
-                    <li>.16GB Kingston FURY Beast RGB [DDR4, 3200MHz, 2x8GB]</li>
+                    <li>
+                        .16GB Kingston FURY Beast RGB [DDR4, 3200MHz, 2x8GB]
+                    </li>
                 </ul>
                 <p>Будет произведена автозамена на://</p>
                 <ul>
-                    <li>.16GB TEAMGROUP T-Force Delta RGB Black [DDR5, 6000MHz, 2x8GB]</li>
+                    <li>
+                        .16GB TEAMGROUP T-Force Delta RGB Black [DDR5, 6000MHz,
+                        2x8GB]
+                    </li>
                 </ul>
                 <div class="popup-error__btns">
                     <button class="btn">
@@ -640,1070 +648,1214 @@ const PathProducts = [
                             </button>
                         </div>
 
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">
-                                категория
-                            </div>
-                            <div class="filter-list">
-                                <label class="checkbox-container">
-                                    <input type="checkbox" /><span
-                                        class="checkmark"></span>компьютеры<sub
-                                        >42</sub
-                                    >
-                                </label>
-                                <label class="checkbox-container active">
-                                    <input type="checkbox" checked /><span
-                                        class="checkmark"></span>процессоры<sub
-                                        >26</sub
-                                    >
-                                </label>
-                                <label class="checkbox-container">
-                                    <input type="checkbox" /><span
-                                        class="checkmark"></span>видеокарты<sub
-                                        >24</sub
-                                    >
-                                </label>
-                                <label class="checkbox-container">
-                                    <input type="checkbox" /><span
-                                        class="checkmark"></span>материнские
-                                    платы<sub>26</sub>
-                                </label>
-                                <!-- Добавьте остальные категории по аналогии -->
-                            </div>
-                        </div>
-
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">цена</div>
-                            <div class="filter-price">
-                                <input
-                                    type="number"
-                                    class="input-min"
-                                    min="3210"
-                                    max="132450"
-                                    value="3210"
-                                />
-                                <div class="range-block">
-                                    <input
-                                        type="range"
-                                        min="3210"
-                                        max="132450"
-                                        step="100"
-                                        value="3210"
-                                        class="range"
-                                        id="range-min"
-                                    />
-                                    <input
-                                        type="range"
-                                        min="3210"
-                                        max="132450"
-                                        step="100"
-                                        value="132450"
-                                        class="range"
-                                        id="range-max"
-                                    />
-                                    <div class="range-fill"></div>
+                        <div class="product-catalog">
+                            <div class="filter-container angles">
+                                <div class="filter-header">
+                                    <span>фильтр товаров //</span>
+                                    <button class="reset-btn btn">
+                                        <span>сбросить</span>
+                                        <Cross />
+                                    </button>
                                 </div>
-                                <input
-                                    type="number"
-                                    class="input-max"
-                                    min="3210"
-                                    max="132450"
-                                    value="132450"
-                                />
-                            </div>
-                        </div>
 
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">бренд</div>
-                            <div class="filter-list">
-                                <label class="checkbox-container">
-                                    <input type="checkbox" /><span
-                                        class="checkmark"></span>amd<sub>12</sub
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        категория
+                                    </div>
+                                    <div class="filter-list">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >компьютеры<sub>48</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >процессоры<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >видеокарты<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >материнские платы<sub>26</sub
+                                                ></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >оперативная память<sub>26</sub
+                                                ></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >диски ssd<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >диски ssd<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >диски hdd<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >блок питания<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >корпуса<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >охлаждение процессора<sub
+                                                    >26</sub
+                                                ></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >корпусные вентиляторы<sub
+                                                    >26</sub
+                                                ></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >моддинк пк<sub>26</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >мониторы<sub>26</sub></span
+                                            >
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        цена
+                                    </div>
+                                    <div class="price-row">
+                                        <input
+                                            type="number"
+                                            id="min-input"
+                                            min="3216"
+                                            max="132450"
+                                            step="100"
+                                            value="3216"
+                                            class="price-input"
+                                        />
+
+                                        <div class="slider-wrapper">
+                                            <div class="slider-track"></div>
+                                            <input
+                                                type="range"
+                                                min="0"
+                                                max="132450"
+                                                value="3216"
+                                                id="min-range"
+                                            />
+                                            <input
+                                                type="range"
+                                                min="0"
+                                                max="132450"
+                                                value="132450"
+                                                id="max-range"
+                                            />
+                                        </div>
+
+                                        <input
+                                            type="number"
+                                            id="max-input"
+                                            min="0"
+                                            max="132450"
+                                            step="100"
+                                            value="132450"
+                                            class="price-input"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        бренд
+                                    </div>
+                                    <div class="filter-list">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >amd<sub>21</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >intel<sub>21</sub></span
+                                            >
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        сокет
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        серия процессора
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        модель
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        количество ядер
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        интегрированное графическое ядро
+                                    </div>
+                                </div>
+                                <div class="filter-section">
+                                    <div class="filter-label collapsible">
+                                        тип комплектации
+                                    </div>
+                                    <div class="filter-list">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >BOX<sub>16</sub></span
+                                            >
+                                        </label>
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" />
+                                            <span class="checkmark"></span>
+                                            <span class="checkbox-label"
+                                                >OEM<sub>8</sub></span
+                                            >
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="products">
+                                <div class="products-tittle">
+                                    <Nav items={PathProducts} />
+                                    <div class="search-products">
+                                        <input
+                                            type="search"
+                                            placeholder="поиск"
+                                        />
+                                    </div>
+                                    <select name="">
+                                        <option value="">сначала дешевле</option
+                                        >
+                                        <option value="">сначала дороже</option>
+                                        <option value=""
+                                            >сначала популярнее</option
+                                        >
+                                    </select>
+                                    <button class="popup-choose-btn__close btn">
+                                        <Cross />
+                                    </button>
+                                </div>
+                                <div class="products-container">
+                                    <ProductCard
+                                        id="001"
+                                        photoSrc={GraphicCard}
+                                        photoAlt="Graphic card"
+                                        productTitle="Видеокарта"
+                                        productSpec="16Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
                                     >
-                                </label>
-                                <label class="checkbox-container active">
-                                    <input type="checkbox" checked /><span
-                                        class="checkmark"></span>intel<sub
-                                        >21</sub
+                                        MSI (G5080-16GTC) GeForce RTX 5080 16G
+                                        GAMING TRIO OC
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="002"
+                                        photoSrc={Ram}
+                                        photoAlt="RAM"
+                                        productTitle="Оперативная память"
+                                        productSpec="32Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
                                     >
-                                </label>
+                                        TEAMGROUP T-Force Delta RGB [DDR5,
+                                        6000MHz, 2x16GB]
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="003"
+                                        photoSrc={GraphicCard}
+                                        photoAlt="Graphic card"
+                                        productTitle="Видеокарта"
+                                        productSpec="16Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        MSI (G5080-16GTC) GeForce RTX 5080 16G
+                                        GAMING TRIO OC
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="004"
+                                        photoSrc={Ram}
+                                        photoAlt="RAM"
+                                        productTitle="Оперативная память"
+                                        productSpec="32Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        TEAMGROUP T-Force Delta RGB [DDR5,
+                                        6000MHz, 2x16GB]
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="005"
+                                        photoSrc={GraphicCard}
+                                        photoAlt="Graphic card"
+                                        productTitle="Видеокарта"
+                                        productSpec="16Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        MSI (G5080-16GTC) GeForce RTX 5080 16G
+                                        GAMING TRIO OC
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="006"
+                                        photoSrc={Ram}
+                                        photoAlt="RAM"
+                                        productTitle="Оперативная память"
+                                        productSpec="32Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        TEAMGROUP T-Force Delta RGB [DDR5,
+                                        6000MHz, 2x16GB]
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="007"
+                                        photoSrc={GraphicCard}
+                                        photoAlt="Graphic card"
+                                        productTitle="Видеокарта"
+                                        productSpec="16Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        MSI (G5080-16GTC) GeForce RTX 5080 16G
+                                        GAMING TRIO OC
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="008"
+                                        photoSrc={Ram}
+                                        photoAlt="RAM"
+                                        productTitle="Оперативная память"
+                                        productSpec="32Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        TEAMGROUP T-Force Delta RGB [DDR5,
+                                        6000MHz, 2x16GB]
+                                    </ProductCard>
+                                    <ProductCard
+                                        id="009"
+                                        photoSrc={Ram}
+                                        photoAlt="RAM"
+                                        productTitle="Оперативная память"
+                                        productSpec="32Gb"
+                                        price="140 000"
+                                        isBadgeVisible={false}
+                                        isHeartVisible={true}
+                                    >
+                                        TEAMGROUP T-Force Delta RGB [DDR5,
+                                        6000MHz, 2x16GB]
+                                    </ProductCard>
+                                </div>
+                                <OrderButton text="показать все" class="" />
                             </div>
                         </div>
-
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">сокет</div>
-                        </div>
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">
-                                серия процессора
-                            </div>
-                        </div>
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">модель</div>
-                        </div>
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">
-                                количество ядер
-                            </div>
-                        </div>
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">
-                                интегрированное графическое ядро
-                            </div>
-                        </div>
-                        <div class="filter-section">
-                            <div class="filter-label collapsible">
-                                тип комплектации
-                            </div>
-                            <div class="filter-list">
-                                <label class="checkbox-container active">
-                                    <input type="checkbox" checked /><span
-                                        class="checkmark"></span>box
-                                </label>
-                                <label class="checkbox-container disabled">
-                                    <input type="checkbox" disabled /><span
-                                        class="checkmark"></span>oem
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="products">
-                        <div class="products-tittle">
-                            <Nav items={PathProducts} />
-                            <div class="search-products">
-                                <input type="search" placeholder="поиск" />
-                            </div>
-                            <select name="">
-                                <option value="">сначала дешевле</option>
-                                <option value="">сначала дороже</option>
-                                <option value="">сначала популярнее</option>
-                            </select>
-                            <button class="popup-choose-btn__close btn">
-                                <Cross />
-                            </button>
-                        </div>
-                        <div class="products-container">
-                            <ProductCard
-                                id="001"
-                                photoSrc={GraphicCard}
-                                photoAlt="Graphic card"
-                                productTitle="Видеокарта"
-                                productSpec="16Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
-                                TRIO OC
-                            </ProductCard>
-                            <ProductCard
-                                id="002"
-                                photoSrc={Ram}
-                                photoAlt="RAM"
-                                productTitle="Оперативная память"
-                                productSpec="32Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
-                                2x16GB]
-                            </ProductCard>
-                            <ProductCard
-                                id="003"
-                                photoSrc={GraphicCard}
-                                photoAlt="Graphic card"
-                                productTitle="Видеокарта"
-                                productSpec="16Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
-                                TRIO OC
-                            </ProductCard>
-                            <ProductCard
-                                id="004"
-                                photoSrc={Ram}
-                                photoAlt="RAM"
-                                productTitle="Оперативная память"
-                                productSpec="32Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
-                                2x16GB]
-                            </ProductCard>
-                            <ProductCard
-                                id="005"
-                                photoSrc={GraphicCard}
-                                photoAlt="Graphic card"
-                                productTitle="Видеокарта"
-                                productSpec="16Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
-                                TRIO OC
-                            </ProductCard>
-                            <ProductCard
-                                id="006"
-                                photoSrc={Ram}
-                                photoAlt="RAM"
-                                productTitle="Оперативная память"
-                                productSpec="32Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
-                                2x16GB]
-                            </ProductCard>
-                            <ProductCard
-                                id="007"
-                                photoSrc={GraphicCard}
-                                photoAlt="Graphic card"
-                                productTitle="Видеокарта"
-                                productSpec="16Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                MSI (G5080-16GTC) GeForce RTX 5080 16G GAMING
-                                TRIO OC
-                            </ProductCard>
-                            <ProductCard
-                                id="008"
-                                photoSrc={Ram}
-                                photoAlt="RAM"
-                                productTitle="Оперативная память"
-                                productSpec="32Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
-                                2x16GB]
-                            </ProductCard>
-                            <ProductCard
-                                id="009"
-                                photoSrc={Ram}
-                                photoAlt="RAM"
-                                productTitle="Оперативная память"
-                                productSpec="32Gb"
-                                price="140 000"
-                                isBadgeVisible={false}
-                                isHeartVisible={true}
-                            >
-                                TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz,
-                                2x16GB]
-                            </ProductCard>
-                        </div>
-                        <OrderButton text="показать все" class="" />
                     </div>
                 </div>
             </div>
+            <section>
+                <TheArticle
+                    mainTitle="Онлайн-конфигуратор компьютера с визуальной сборкой — соберите идеальный ПК прямо на сайте"
+                    tagText="конфигуратор"
+                    descriptionText="Планируете собрать игровой, офисный или рабочий компьютер? Наш онлайн-конфигуратор позволит вам сделать это легко и наглядно. На первом шаге выберите корпус, затем — процессор, систему охлаждения, материнскую плату, оперативную память, видеокарту и другие комплектующие. Все выбранные элементы отображаются прямо на экране, чтобы вы могли заранее оценить внешний вид и компоновку будущего компьютера. Конфигуратор автоматически проверит совместимость деталей и предложит только подходящие варианты, избавляя вас от необходимости разбираться в технических нюансах."
+                    articles={customArticles}
+                    showFeatures={true}
+                />
+            </section>
+            <Footer />
         </div>
-    </section>
-    <section>
-        <TheArticle
-            mainTitle="Онлайн-конфигуратор компьютера с визуальной сборкой — соберите идеальный ПК прямо на сайте"
-            tagText="конфигуратор"
-            descriptionText="Планируете собрать игровой, офисный или рабочий компьютер? Наш онлайн-конфигуратор позволит вам сделать это легко и наглядно. На первом шаге выберите корпус, затем — процессор, систему охлаждения, материнскую плату, оперативную память, видеокарту и другие комплектующие. Все выбранные элементы отображаются прямо на экране, чтобы вы могли заранее оценить внешний вид и компоновку будущего компьютера. Конфигуратор автоматически проверит совместимость деталей и предложит только подходящие варианты, избавляя вас от необходимости разбираться в технических нюансах."
-            articles={customArticles}
-            showFeatures={true}
-        />
-    </section>
-    <Footer />
-</Layout>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        // кнопки/попапы
-        const trashBtn =
-            document.querySelector<HTMLButtonElement>(".trash-btn");
-        const popupReset =
-            document.querySelector<HTMLDivElement>(".popup-reset");
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // кнопки/попапы
+                const trashBtn =
+                    document.querySelector<HTMLButtonElement>(".trash-btn");
+                const popupReset =
+                    document.querySelector<HTMLDivElement>(".popup-reset");
 
-        const saveBtn = document.querySelector<HTMLButtonElement>(".btn-save");
-        const popupSave = document.querySelector<HTMLDivElement>(".popup-save");
+                const saveBtn =
+                    document.querySelector<HTMLButtonElement>(".btn-save");
+                const popupSave =
+                    document.querySelector<HTMLDivElement>(".popup-save");
 
-        const formBtn = document.querySelector<HTMLButtonElement>(".form-btn");
-        const popupForm = document.querySelector<HTMLDivElement>(".popup-form");
+                const formBtn =
+                    document.querySelector<HTMLButtonElement>(".form-btn");
+                const popupForm =
+                    document.querySelector<HTMLDivElement>(".popup-form");
 
-        const catalogBtn =
-            document.querySelector<HTMLButtonElement>(".catalog-btn");
-        const popupChoose =
-            document.querySelector<HTMLDivElement>(".popup-choose");
+                const catalogBtn =
+                    document.querySelector<HTMLButtonElement>(".catalog-btn");
+                const popupChoose =
+                    document.querySelector<HTMLDivElement>(".popup-choose");
 
-        const errorBtn =
-            document.querySelector<HTMLButtonElement>(".error-btn");
-        const popupError =
-            document.querySelector<HTMLDivElement>(".popup-error");
+                const errorBtn =
+                    document.querySelector<HTMLButtonElement>(".error-btn");
+                const popupError =
+                    document.querySelector<HTMLDivElement>(".popup-error");
 
-        // создание/получение глобального overlay (body > .overlay)
-        const ensureGlobalOverlay = (): HTMLDivElement => {
-            let global =
-                document.querySelector<HTMLDivElement>("body > .overlay");
-            if (!global) {
-                global = document.createElement("div");
-                global.classList.add("overlay");
-                document.body.appendChild(global);
-            }
-            return global;
-        };
+                // создание/получение глобального overlay (body > .overlay)
+                const ensureGlobalOverlay = (): HTMLDivElement => {
+                    let global =
+                        document.querySelector<HTMLDivElement>(
+                            "body > .overlay",
+                        );
+                    if (!global) {
+                        global = document.createElement("div");
+                        global.classList.add("overlay");
+                        document.body.appendChild(global);
+                    }
+                    return global;
+                };
 
-        // WeakSet для отслеживания overlay, на которые уже навешен handler
-        const overlaysWithHandler = new WeakSet<Element>();
+                // WeakSet для отслеживания overlay, на которые уже навешен handler
+                const overlaysWithHandler = new WeakSet<Element>();
 
-        // Map для запоминания, что мы переместили (temporarily) popup внутрь глобального overlay:
-        const movedPopups = new WeakMap<
-            HTMLElement,
-            { parent: Node; nextSibling: Node | null }
-        >();
+                // Map для запоминания, что мы переместили (temporarily) popup внутрь глобального overlay:
+                const movedPopups = new WeakMap<
+                    HTMLElement,
+                    { parent: Node; nextSibling: Node | null }
+                >();
 
-        // возвращает overlay для popup: либо ближайший ancestor .overlay, либо глобальный
-        const getOverlayFor = (popup: Element): HTMLDivElement => {
-            const ownOverlay = popup.closest<HTMLDivElement>(".overlay");
-            return ownOverlay || ensureGlobalOverlay();
-        };
+                // возвращает overlay для popup: либо ближайший ancestor .overlay, либо глобальный
+                const getOverlayFor = (popup: Element): HTMLDivElement => {
+                    const ownOverlay =
+                        popup.closest<HTMLDivElement>(".overlay");
+                    return ownOverlay || ensureGlobalOverlay();
+                };
 
-        // добавляем обработчик клика по overlay (один раз)
-        const ensureOverlayHandler = (overlay: HTMLDivElement) => {
-            if (overlaysWithHandler.has(overlay)) return;
+                // добавляем обработчик клика по overlay (один раз)
+                const ensureOverlayHandler = (overlay: HTMLDivElement) => {
+                    if (overlaysWithHandler.has(overlay)) return;
 
-            overlay.addEventListener("click", (e) => {
-                if (e.target === overlay) {
-                    const activePopup = overlay.querySelector<HTMLElement>(
-                        ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
+                    overlay.addEventListener("click", (e) => {
+                        if (e.target === overlay) {
+                            const activePopup =
+                                overlay.querySelector<HTMLElement>(
+                                    ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
+                                );
+                            if (activePopup) closePopup(activePopup);
+                        }
+                    });
+
+                    overlaysWithHandler.add(overlay);
+                };
+
+                const ensurePopupInsideOverlay = (
+                    popup: HTMLElement,
+                    overlay: HTMLDivElement,
+                ) => {
+                    const isInside = !!popup.closest(".overlay");
+                    if (!isInside && overlay.parentElement === document.body) {
+                        movedPopups.set(popup, {
+                            parent: popup.parentNode as Node,
+                            nextSibling: popup.nextSibling,
+                        });
+                        overlay.appendChild(popup);
+                    }
+                };
+
+                const restorePopupPosition = (popup: HTMLElement) => {
+                    const record = movedPopups.get(popup);
+                    if (!record) return;
+                    const { parent, nextSibling } = record;
+                    if (
+                        nextSibling &&
+                        (nextSibling as Node).parentNode === parent
+                    ) {
+                        parent.insertBefore(popup, nextSibling);
+                    } else {
+                        parent.appendChild(popup);
+                    }
+                    movedPopups.delete(popup);
+                };
+
+                const openPopup = (popup: HTMLElement) => {
+                    const overlay = getOverlayFor(popup);
+                    ensurePopupInsideOverlay(popup, overlay);
+                    overlay.classList.add("active");
+                    popup.classList.add("active");
+                    ensureOverlayHandler(overlay);
+
+                    const focusable = popup.querySelector<HTMLElement>(
+                        "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
                     );
-                    if (activePopup) closePopup(activePopup);
+                    focusable?.focus();
+                };
+
+                const closePopup = (popup: HTMLElement) => {
+                    const overlay = getOverlayFor(popup);
+                    overlay.classList.remove("active");
+                    popup.classList.remove("active");
+                    restorePopupPosition(popup);
+                };
+
+                // --- POPUP RESET ---
+                if (trashBtn && popupReset) {
+                    trashBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        openPopup(popupReset);
+                    });
+                    const cancelBtn = popupReset.querySelector<HTMLElement>(
+                        ".order-button, .popup-reset-btns button:last-child",
+                    );
+                    cancelBtn?.addEventListener("click", () =>
+                        closePopup(popupReset),
+                    );
                 }
-            });
 
-            overlaysWithHandler.add(overlay);
-        };
+                // --- POPUP ERROR ---
+                if (errorBtn && popupError) {
+                    errorBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        openPopup(popupError);
+                    });
+                    const cancelBtn = popupError.querySelector<HTMLElement>(
+                        ".popup-error__close",
+                    );
+                    cancelBtn?.addEventListener("click", () =>
+                        closePopup(popupError),
+                    );
+                }
 
-        const ensurePopupInsideOverlay = (
-            popup: HTMLElement,
-            overlay: HTMLDivElement,
-        ) => {
-            const isInside = !!popup.closest(".overlay");
-            if (!isInside && overlay.parentElement === document.body) {
-                movedPopups.set(popup, {
-                    parent: popup.parentNode as Node,
-                    nextSibling: popup.nextSibling,
-                });
-                overlay.appendChild(popup);
-            }
-        };
+                // --- POPUP SAVE ---
+                if (saveBtn && popupSave) {
+                    saveBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        openPopup(popupSave);
+                    });
 
-        const restorePopupPosition = (popup: HTMLElement) => {
-            const record = movedPopups.get(popup);
-            if (!record) return;
-            const { parent, nextSibling } = record;
-            if (nextSibling && (nextSibling as Node).parentNode === parent) {
-                parent.insertBefore(popup, nextSibling);
-            } else {
-                parent.appendChild(popup);
-            }
-            movedPopups.delete(popup);
-        };
+                    const closeBtn =
+                        popupSave.querySelector<HTMLButtonElement>(
+                            ".popup-save__close",
+                        );
+                    closeBtn?.addEventListener("click", () =>
+                        closePopup(popupSave),
+                    );
 
-        const openPopup = (popup: HTMLElement) => {
-            const overlay = getOverlayFor(popup);
-            ensurePopupInsideOverlay(popup, overlay);
-            overlay.classList.add("active");
-            popup.classList.add("active");
-            ensureOverlayHandler(overlay);
-
-            const focusable = popup.querySelector<HTMLElement>(
-                "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
-            );
-            focusable?.focus();
-        };
-
-        const closePopup = (popup: HTMLElement) => {
-            const overlay = getOverlayFor(popup);
-            overlay.classList.remove("active");
-            popup.classList.remove("active");
-            restorePopupPosition(popup);
-        };
-
-        // --- POPUP RESET ---
-        if (trashBtn && popupReset) {
-            trashBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupReset);
-            });
-            const cancelBtn = popupReset.querySelector<HTMLElement>(
-                ".order-button, .popup-reset-btns button:last-child",
-            );
-            cancelBtn?.addEventListener("click", () => closePopup(popupReset));
-        }
-
-        // --- POPUP ERROR ---
-        if (errorBtn && popupError) {
-            errorBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupError);
-            });
-            const cancelBtn = popupError.querySelector<HTMLElement>(
-                ".popup-error__close",
-            );
-            cancelBtn?.addEventListener("click", () => closePopup(popupError));
-        }
-
-        // --- POPUP SAVE ---
-        if (saveBtn && popupSave) {
-            saveBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupSave);
-            });
-
-            const closeBtn =
-                popupSave.querySelector<HTMLButtonElement>(
-                    ".popup-save__close",
-                );
-            closeBtn?.addEventListener("click", () => closePopup(popupSave));
-
-            const copyBlock =
-                popupSave.querySelector<HTMLDivElement>(".copy-text");
-            if (copyBlock) {
-                copyBlock.addEventListener("click", async () => {
-                    const text = copyBlock.innerText.trim();
-                    try {
-                        await navigator.clipboard.writeText(text);
-                        const original = text;
-                        copyBlock.classList.add("copied");
-                        copyBlock.innerText = "Скопировано!";
-                        setTimeout(() => {
-                            copyBlock.innerText = original;
-                            copyBlock.classList.remove("copied");
-                        }, 1500);
-                    } catch (err) {
-                        console.error("Ошибка копирования:", err);
+                    const copyBlock =
+                        popupSave.querySelector<HTMLDivElement>(".copy-text");
+                    if (copyBlock) {
+                        copyBlock.addEventListener("click", async () => {
+                            const text = copyBlock.innerText.trim();
+                            try {
+                                await navigator.clipboard.writeText(text);
+                                const original = text;
+                                copyBlock.classList.add("copied");
+                                copyBlock.innerText = "Скопировано!";
+                                setTimeout(() => {
+                                    copyBlock.innerText = original;
+                                    copyBlock.classList.remove("copied");
+                                }, 1500);
+                            } catch (err) {
+                                console.error("Ошибка копирования:", err);
+                            }
+                        });
                     }
-                });
-            }
-        }
+                }
 
-        // --- POPUP FORM ---
-        if (formBtn && popupForm) {
-            formBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupForm);
-            });
+                // --- POPUP FORM ---
+                if (formBtn && popupForm) {
+                    formBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        openPopup(popupForm);
+                    });
 
-            const closeBtn =
-                popupForm.querySelector<HTMLButtonElement>(
-                    ".popup-form__close",
-                );
-            closeBtn?.addEventListener("click", () => closePopup(popupForm));
+                    const closeBtn =
+                        popupForm.querySelector<HTMLButtonElement>(
+                            ".popup-form__close",
+                        );
+                    closeBtn?.addEventListener("click", () =>
+                        closePopup(popupForm),
+                    );
 
-            const cancelBtn = popupForm.querySelector<HTMLButtonElement>(
-                ".popup-form__cancel",
-            );
-            cancelBtn?.addEventListener("click", (e) => {
-                e.preventDefault();
-                closePopup(popupForm);
-            });
+                    const cancelBtn =
+                        popupForm.querySelector<HTMLButtonElement>(
+                            ".popup-form__cancel",
+                        );
+                    cancelBtn?.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        closePopup(popupForm);
+                    });
 
-            const innerForm = popupForm.querySelector<HTMLFormElement>("form");
-            if (innerForm) {
-                innerForm.addEventListener("submit", async (e) => {
-                    e.preventDefault();
-                    const formData = new FormData(innerForm);
-                    console.log("Submitting form via AJAX (simulated):");
-                    for (const [k, v] of formData.entries()) console.log(k, v);
-
-                    try {
-                        const submitBtn =
-                            innerForm.querySelector<HTMLButtonElement>(
-                                'button[type="submit"]',
+                    const innerForm =
+                        popupForm.querySelector<HTMLFormElement>("form");
+                    if (innerForm) {
+                        innerForm.addEventListener("submit", async (e) => {
+                            e.preventDefault();
+                            const formData = new FormData(innerForm);
+                            console.log(
+                                "Submitting form via AJAX (simulated):",
                             );
-                        submitBtn?.setAttribute("disabled", "true");
-                        setTimeout(() => {
-                            innerForm.reset();
-                            submitBtn?.removeAttribute("disabled");
-                            closePopup(popupForm);
-                        }, 700);
-                    } catch (err) {
-                        console.error("Ошибка отправки формы:", err);
+                            for (const [k, v] of formData.entries())
+                                console.log(k, v);
+
+                            try {
+                                const submitBtn =
+                                    innerForm.querySelector<HTMLButtonElement>(
+                                        'button[type="submit"]',
+                                    );
+                                submitBtn?.setAttribute("disabled", "true");
+                                setTimeout(() => {
+                                    innerForm.reset();
+                                    submitBtn?.removeAttribute("disabled");
+                                    closePopup(popupForm);
+                                }, 700);
+                            } catch (err) {
+                                console.error("Ошибка отправки формы:", err);
+                            }
+                        });
+                    }
+                }
+
+                // --- POPUP CHOOSE ---
+                if (catalogBtn && popupChoose) {
+                    catalogBtn.addEventListener("click", (e) => {
+                        e.preventDefault();
+                        openPopup(popupChoose);
+                    });
+
+                    const closeBtn =
+                        popupChoose.querySelector<HTMLButtonElement>(
+                            ".popup-choose-btn__close",
+                        );
+                    closeBtn?.addEventListener("click", () =>
+                        closePopup(popupChoose),
+                    );
+                }
+
+                // --- ESC ---
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") {
+                        const activePopups =
+                            document.querySelectorAll<HTMLElement>(
+                                ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
+                            );
+                        activePopups.forEach((p) => closePopup(p));
                     }
                 });
-            }
-        }
 
-        // --- POPUP CHOOSE ---
-        if (catalogBtn && popupChoose) {
-            catalogBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupChoose);
+                //copy div
+                // const copyElements =
+                //     document.querySelectorAll<HTMLDivElement>(".copy-text");
+
+                // copyElements.forEach((el) => {
+                //     el.addEventListener("click", async () => {
+                //         const text = el.innerText.trim();
+
+                //         try {
+                //             await navigator.clipboard.writeText(text);
+
+                //             // визуальный отклик
+                //             el.classList.add("copied");
+                //             const originalText =
+                //                 el.getAttribute("data-original-text") || text;
+                //             el.setAttribute("data-original-text", originalText);
+                //             el.innerText = "Скопировано!";
+
+                //             setTimeout(() => {
+                //                 el.innerText = originalText;
+                //                 el.classList.remove("copied");
+                //             }, 1500);
+                //         } catch (err) {
+                //             console.error("Ошибка копирования:", err);
+                //         }
+                //     });
+                // });
             });
+        </script>
 
-            const closeBtn = popupChoose.querySelector<HTMLButtonElement>(
-                ".popup-choose-btn__close",
-            );
-            closeBtn?.addEventListener("click", () => closePopup(popupChoose));
-        }
-
-        // --- ESC ---
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape") {
-                const activePopups = document.querySelectorAll<HTMLElement>(
-                    ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
-                );
-                activePopups.forEach((p) => closePopup(p));
+        <style>
+            .header {
+                display: flex;
+                width: 90%;
+                margin: 0 auto 1rem auto;
+                justify-content: space-between;
             }
-        });
+            .header p {
+                max-width: 39rem;
+            }
 
-        //copy div
-        // const copyElements =
-        //     document.querySelectorAll<HTMLDivElement>(".copy-text");
+            .configurator {
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                gap: 28px;
+                align-items: start;
+            }
 
-        // copyElements.forEach((el) => {
-        //     el.addEventListener("click", async () => {
-        //         const text = el.innerText.trim();
+            /* LEFT COLUMN */
+            .left {
+                background: oklch(from var(--card) l c h);
+                padding: 30px 21px;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
 
-        //         try {
-        //             await navigator.clipboard.writeText(text);
+            .preview-label {
+                font-size: 20px;
+                font-family: "JetBrainsMono";
+                text-transform: uppercase;
+            }
 
-        //             // визуальный отклик
-        //             el.classList.add("copied");
-        //             const originalText =
-        //                 el.getAttribute("data-original-text") || text;
-        //             el.setAttribute("data-original-text", originalText);
-        //             el.innerText = "Скопировано!";
+            .preview {
+                position: relative;
+                overflow: hidden;
 
-        //             setTimeout(() => {
-        //                 el.innerText = originalText;
-        //                 el.classList.remove("copied");
-        //             }, 1500);
-        //         } catch (err) {
-        //             console.error("Ошибка копирования:", err);
-        //         }
-        //     });
-        // });
-    });
-</script>
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
 
-<style>
-    .header {
-        display: flex;
-        width: 90%;
-        margin: 0 auto 1rem auto;
-        justify-content: space-between;
-    }
-    .header p {
-        max-width: 39rem;
-    }
+            /* PARAMETERS */
+            .params {
+                background: transparent;
+                padding: 12px 6px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+            .params h3 {
+                font-size: 20px;
+                font-family: "JetBrainsMono";
+                text-transform: uppercase;
+            }
+            .param-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
 
-    .configurator {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        gap: 28px;
-        align-items: start;
-    }
+                font-family: "JetBrainsMono";
+                font-size: 14px;
+                text-transform: uppercase;
+                color: oklch(from var(--grey-text) l c h);
+            }
+            .param-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            .param-item span:last-child {
+                max-width: 60%;
+                color: oklch(from var(--body-text) l c h);
+            }
 
-    /* LEFT COLUMN */
-    .left {
-        background: oklch(from var(--card) l c h);
-        padding: 30px 21px;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
+            /* TOTAL */
+            .total-row {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 1rem;
 
-    .preview-label {
-        font-size: 20px;
-        font-family: "JetBrainsMono";
-        text-transform: uppercase;
-    }
+                font-size: 20px;
+                text-transform: uppercase;
+                color: oklch(from var(--grey-text) l c h);
+            }
+            .total-row span:last-child {
+                font-size: 28px;
+                color: oklch(from var(--purple-text) l c h);
+            }
 
-    .preview {
-        position: relative;
-        overflow: hidden;
+            /* ACTIONS */
+            .actions {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .main-order {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .icon-btn {
+                border: 1px dashed oklch(from var(--light-stroke) l c h);
+                padding: 1rem;
+                cursor: pointer;
+                align-items: center;
+            }
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+            .small-actions {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                align-items: center;
+            }
+            .small-actions .btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                cursor: pointer;
 
-    /* PARAMETERS */
-    .params {
-        background: transparent;
-        padding: 12px 6px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    .params h3 {
-        font-size: 20px;
-        font-family: "JetBrainsMono";
-        text-transform: uppercase;
-    }
-    .param-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        width: 100%;
+                font-family: "JetBrainsMono";
+                text-transform: uppercase;
+            }
 
-        font-family: "JetBrainsMono";
-        font-size: 14px;
-        text-transform: uppercase;
-        color: oklch(from var(--grey-text) l c h);
-    }
-    .param-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-    }
-    .param-item span:last-child {
-        max-width: 60%;
-        color: oklch(from var(--body-text) l c h);
-    }
+            /* RIGHT COLUMN */
+            .right {
+                min-height: 560px;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                min-width: 50rem;
+            }
+            .right h3 {
+                font-size: 20px;
+                text-transform: uppercase;
+            }
+            .components {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                /* overflow: auto; */
+                padding-right: 6px;
+            }
+            .comp-card {
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .comp-left {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                padding: 15px 24px;
+                width: 100%;
+                max-width: 576px;
+                background: oklch(from var(--card) l c h);
+            }
+            .comp-left-title {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+            .comp-left-title h4 {
+                font-size: 20px;
+                text-transform: uppercase;
+                font-family: "JetBrainsMono";
+            }
+            .comp-left img {
+                width: 43px;
+                height: 50px;
+            }
+            .comp-left__category {
+                width: 68px;
+                height: 68px;
+                padding: 8px;
+                border: 1px dashed oklch(from var(--light-stroke) l c h);
+            }
+            .comp-left__products {
+                display: flex;
+                flex-direction: column;
+            }
+            .comp-left__product {
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+            }
+            .comp-left__product-info {
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                max-width: 350px;
+                text-transform: uppercase;
+                font-family: "JetBrainsMono";
+            }
+            .comp-left__price {
+                display: flex;
+                flex-direction: column;
+            }
+            .comp-left__product-info span:last-child {
+                color: oklch(from var(--grey-text) l c h);
+                font-size: 12px;
+            }
+            .detail-actions {
+                padding: 12px 25px;
+                background: oklch(from var(--card) l c h);
 
-    /* TOTAL */
-    .total-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 1rem;
+                display: flex;
+                gap: 1rem;
+            }
+            .comp-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 6px;
+                background: linear-gradient(180deg, #111, #0b0b0d);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(255, 255, 255, 0.03);
+            }
+            .comp-name {
+                font-size: 14px;
+            }
+            .comp-action {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+            }
+            .btn-ghost {
+                border: 1px dashed oklch(from var(--light-stroke) l c h);
+                padding: 1rem;
+                cursor: pointer;
+            }
 
-        font-size: 20px;
-        text-transform: uppercase;
-        color: oklch(from var(--grey-text) l c h);
-    }
-    .total-row span:last-child {
-        font-size: 28px;
-        color: oklch(from var(--purple-text) l c h);
-    }
+            /* icons small */
+            .svg {
+                width: 18px;
+                height: 18px;
+                display: inline-block;
+            }
 
-    /* ACTIONS */
-    .actions {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-    .main-order {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .icon-btn {
-        border: 1px dashed oklch(from var(--light-stroke) l c h);
-        padding: 1rem;
-        cursor: pointer;
-        align-items: center;
-    }
+            /* pop up */
 
-    .small-actions {
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        align-items: center;
-    }
-    .small-actions .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 12px;
-        cursor: pointer;
+            .overlay {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.6);
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease;
+                z-index: 10;
+            }
 
-        font-family: "JetBrainsMono";
-        text-transform: uppercase;
-    }
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
 
-    /* RIGHT COLUMN */
-    .right {
-        min-height: 560px;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        min-width: 50rem;
-    }
-    .right h3 {
-        font-size: 20px;
-        text-transform: uppercase;
-    }
-    .components {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        /* overflow: auto; */
-        padding-right: 6px;
-    }
-    .comp-card {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .comp-left {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        padding: 15px 24px;
-        width: 100%;
-        max-width: 576px;
-        background: oklch(from var(--card) l c h);
-    }
-    .comp-left-title {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-    .comp-left-title h4 {
-        font-size: 20px;
-        text-transform: uppercase;
-        font-family: "JetBrainsMono";
-    }
-    .comp-left img {
-        width: 43px;
-        height: 50px;
-    }
-    .comp-left__category {
-        width: 68px;
-        height: 68px;
-        padding: 8px;
-        border: 1px dashed oklch(from var(--light-stroke) l c h);
-    }
-    .comp-left__products {
-        display: flex;
-        flex-direction: column;
-    }
-    .comp-left__product {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-    }
-    .comp-left__product-info {
-        display: flex;
-        flex-direction: column;
-        font-size: 14px;
-        max-width: 350px;
-        text-transform: uppercase;
-        font-family: "JetBrainsMono";
-    }
-    .comp-left__price {
-        display: flex;
-        flex-direction: column;
-    }
-    .comp-left__product-info span:last-child {
-        color: oklch(from var(--grey-text) l c h);
-        font-size: 12px;
-    }
-    .detail-actions {
-        padding: 12px 25px;
-        background: oklch(from var(--card) l c h);
+            .popup-reset {
+                background: oklch(from var(--dark-card) l c h);
+                box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
+                padding: 3.75rem;
+                margin: 0 auto;
+                max-width: 38.125rem;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.9);
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 101;
+                pointer-events: none;
+            }
+            .popup-reset.active {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+                pointer-events: all;
+            }
+            .popup-reset h4 {
+                color: oklch(from var(--white) l c h);
+                text-transform: uppercase;
+                font-size: 20px;
+            }
+            .popup-reset-btns {
+                display: flex;
+                justify-content: space-between;
+            }
+            .popup-reset-btns__reset.btn {
+                padding: 0;
+            }
 
-        display: flex;
-        gap: 1rem;
-    }
-    .comp-icon {
-        width: 44px;
-        height: 44px;
-        border-radius: 6px;
-        background: linear-gradient(180deg, #111, #0b0b0d);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid rgba(255, 255, 255, 0.03);
-    }
-    .comp-name {
-        font-size: 14px;
-    }
-    .comp-action {
-        display: flex;
-        gap: 8px;
-        align-items: center;
-    }
-    .btn-ghost {
-        border: 1px dashed oklch(from var(--light-stroke) l c h);
-        padding: 1rem;
-        cursor: pointer;
-    }
+            .popup-save,
+            .popup-error {
+                gap: 1.5rem;
+                position: relative;
+                top: 30%;
+                background: oklch(from var(--dark-card) l c h);
+                box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
 
-    /* icons small */
-    .svg {
-        width: 18px;
-        height: 18px;
-        display: inline-block;
-    }
+                padding: 3.75rem 3.75rem 0;
+                margin: 0 auto;
+                max-width: 45rem;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .popup-save h4,
+            .popup-error h4 {
+                color: oklch(from var(--white) l c h);
+                text-transform: uppercase;
+                font-size: 28px;
+                font-family: "EuropeExt";
+            }
+            .popup-save p {
+                color: oklch(from var(--grey-text) l c h);
+                text-transform: uppercase;
+                font-size: 14px;
+            }
+            .popup-error p {
+                text-transform: uppercase;
+                font-size: 16px;
+                font-family: "JetBrainsMono";
+            }
+            .popup-error ul {
+                list-style: url("../assets/icons/Hit.svg");
+            }
+            .popup-error li {
+                color: oklch(from var(--grey-text) l c h);
+                text-transform: uppercase;
+                font-family: "JetBrainsMono";
+            }
+            .popup-save svg,
+            .popup-error svg {
+                width: 32px;
+                height: 32px;
+                fill: #fff;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 1.5rem;
+                right: 12px;
+            }
+            .popup-save div {
+                padding: 29px 1rem;
+                border: 1px solid oklch(from var(--light-stroke) l c h);
+                width: 100%;
+            }
+            .popup-error__btns {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+            }
 
-    /* pop up */
+            .popup-form {
+                position: relative;
+                top: 3%;
+                right: 0;
+                left: 0;
+                background-color: oklch(from var(--bg) l c h);
+                background-image: url(/src/assets/icons/main-pattern.svg);
+                background-repeat: repeat;
+                padding: 3.75rem;
+                margin: 0 auto;
+                max-height: 50rem;
+                min-height: 48.5rem;
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .form-bg {
+                transform: scale(-1, 1);
+                height: auto;
+                width: auto;
+            }
+            .contact-form-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                max-width: 768px;
+                right: 10%;
+                top: 3%;
+                padding: 3.75rem;
+                border: 1px dashed oklch(from var(--light-stroke) l c h);
+            }
+            .contacts-bottom {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .contact-form-container svg {
+                width: 32px;
+                height: 32px;
+                fill: #fff;
+                transform: rotate(45deg);
+                position: absolute;
+                top: 2%;
+                right: 2%;
+            }
+            input:not(.product-catalog input) {
+                background-color: oklch(from var(--card) l c h);
+                border: 1px solid oklch(from var(--light-stroke) l c h);
+                padding: 1.5rem;
+                width: 100%;
+                text-transform: uppercase;
+                font-family: "JetBrainsMono";
+            }
+            .contact-form {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+                font-family: "JetBrainsMono";
+            }
+            .contact-form h3 {
+                font-size: 28px;
+                text-transform: uppercase;
+            }
+            .contacts-bottom p {
+                max-width: 320px;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+            .contact-form p:first-child {
+                font-family: "EuropeExt";
+                font-size: 28px;
+                text-transform: uppercase;
+            }
 
-    .overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.6);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease;
-        z-index: 10;
-    }
+            .purple {
+                color: oklch(from var(--purple-text) l c h);
+                text-decoration: underline;
+            }
 
-    .overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
+            .popup-choose {
+                padding: 1rem 5.25rem;
+                background-color: oklch(from var(--bg) l c h);
+                position: absolute;
+                z-index: 10;
+                top: 3%;
+                right: 0;
+                left: 0;
 
-    .popup-reset {
-        background: oklch(from var(--dark-card) l c h);
-        box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
-        padding: 3.75rem;
-        margin: 0 auto;
-        max-width: 38.125rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0.9);
-        opacity: 0;
-        transition: all 0.3s ease;
-        z-index: 101;
-        pointer-events: none;
-    }
-    .popup-reset.active {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-        pointer-events: all;
-    }
-    .popup-reset h4 {
-        color: oklch(from var(--white) l c h);
-        text-transform: uppercase;
-        font-size: 20px;
-    }
-    .popup-reset-btns {
-        display: flex;
-        justify-content: space-between;
-    }
-    .popup-reset-btns__reset.btn {
-        padding: 0;
-    }
+                max-height: 90vh; /* важно — ограничиваем высоту в пределах окна */
+                overflow-y: auto; /* включаем вертикальную прокрутку */
+                overscroll-behavior: contain; /* чтобы при скролле не двигалось всё окно */
+            }
+            .popup-choose-btn__close svg {
+                width: 32px;
+                height: 32px;
+                fill: oklch(from var(--white) l c h);
+                transform: rotate(45deg);
+            }
 
-    .popup-save,
-    .popup-error{
-        gap: 1.5rem;
-        position: relative;
-        top: 30%;
-        background: oklch(from var(--dark-card) l c h);
-        box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
-         
-        padding: 3.75rem 3.75rem 0;
-        margin: 0 auto;
-        max-width: 45rem;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-    }
-    .popup-save h4,
-    .popup-error h4 {
-        color: oklch(from var(--white) l c h);
-        text-transform: uppercase;
-        font-size: 28px;
-        font-family: "EuropeExt";
-    }
-    .popup-save p {
-        color: oklch(from var(--grey-text) l c h);
-        text-transform: uppercase;
-        font-size: 14px;
-    }
-    .popup-error p {
-        text-transform: uppercase;
-        font-size: 16px;
-        font-family: "JetBrainsMono";
-    }
-    .popup-error ul{
-        list-style: url("../assets/icons/Hit.svg");
-    }
-    .popup-error li{
-        color: oklch(from var(--grey-text) l c h);
-        text-transform: uppercase;
-        font-family: "JetBrainsMono";
-    }
-    .popup-save svg,
-    .popup-error svg {
-        width: 32px;
-        height: 32px;
-        fill: #fff;
-        transform: rotate(45deg);
-        position: absolute;
-        top: 1.5rem;
-        right: 12px;
-    }
-    .popup-save div {
-        padding: 29px 1rem;
-        border: 1px solid oklch(from var(--light-stroke) l c h);
-        width: 100%;
-    }
-    .popup-error__btns{
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-    }
-
-
-    .popup-form {
-        position: relative;
-        top: 3%;
-        right: 0;
-        left: 0;
-        background-color: oklch(from var(--bg) l c h);
-        background-image: url(/src/assets/icons/main-pattern.svg);
-        background-repeat: repeat;
-        padding: 3.75rem;
-        margin: 0 auto;
-        max-height: 50rem;
-        min-height: 48.5rem;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-    }
-    .form-bg {
-        transform: scale(-1, 1);
-        height: auto;
-        width: auto;
-    }
-    .contact-form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        max-width: 768px;
-        right: 10%;
-        top: 3%;
-        padding: 3.75rem;
-        border: 1px dashed oklch(from var(--light-stroke) l c h);
-    }
-    .contacts-bottom {
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .contact-form-container svg {
-        width: 32px;
-        height: 32px;
-        fill: #fff;
-        transform: rotate(45deg);
-        position: absolute;
-        top: 2%;
-        right: 2%;
-    }
-    input:not(.product-catalog input) {
-        background-color: oklch(from var(--card) l c h);
-        border: 1px solid oklch(from var(--light-stroke) l c h);
-        padding: 1.5rem;
-        width: 100%;
-        text-transform: uppercase;
-        font-family: "JetBrainsMono";
-    }
-    .contact-form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-        font-family: "JetBrainsMono";
-    }
-    .contact-form h3 {
-        font-size: 28px;
-        text-transform: uppercase;
-    }
-    .contacts-bottom p {
-        max-width: 320px;
-        font-size: 12px;
-        font-weight: 600;
-        line-height: 1.2;
-    }
-    .contact-form p:first-child {
-        font-family: "EuropeExt";
-        font-size: 28px;
-        text-transform: uppercase;
-    }
-
-    .purple {
-        color: oklch(from var(--purple-text) l c h);
-        text-decoration: underline;
-    }
-
-    .popup-choose {
-        padding: 1rem 5.25rem;
-        background-color: oklch(from var(--bg) l c h);
-        position: absolute;
-        z-index: 10;
-        top: 3%;
-        right: 0;
-        left: 0;
-
-        max-height: 90vh; /* важно — ограничиваем высоту в пределах окна */
-        overflow-y: auto; /* включаем вертикальную прокрутку */
-        overscroll-behavior: contain; /* чтобы при скролле не двигалось всё окно */
-    }
-    .popup-choose-btn__close svg {
-        width: 32px;
-        height: 32px;
-        fill: oklch(from var(--white) l c h);
-        transform: rotate(45deg);
-    }
-
-    /* Responsive */
-    @media (max-width: 1440px) {
-        .header h2 {
-            font-size: 36px;
-        }
-    }
-    @media (max-width: 1024px) {
-        .configurator {
-            flex-direction: column;
-            align-items: center;
-        }
-        .right {
-            order: -1;
-            margin-left: 4rem;
-        }
-        .header {
-            flex-direction: column;
-        }
-        .header h2 {
-            font-size: 30px;
-        }
-        .popup-reset {
-            padding: 12px 24px;
-        }
-        .popup-save {
-            padding: 1.5rem 0.75rem 0;
-        }
-        .popup-form {
-            flex-direction: column;
-            top: 7%;
-        }
-        .popup-form img {
-            order: 2;
-            transform: scale(1, 1);
-        }
-        .popup-form h3 {
-            font-size: 16px;
-        }
-        .contact-form-container {
-            left: 10%;
-        }
-        input {
-            font-size: 12px;
-        }
-        .contacts-bottom p {
-            font-size: 10px;
-        }
-    }
-</style>
+            /* Responsive */
+            @media (max-width: 1440px) {
+                .header h2 {
+                    font-size: 36px;
+                }
+            }
+            @media (max-width: 1024px) {
+                .configurator {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .right {
+                    order: -1;
+                    margin-left: 4rem;
+                }
+                .header {
+                    flex-direction: column;
+                }
+                .header h2 {
+                    font-size: 30px;
+                }
+                .popup-reset {
+                    padding: 12px 24px;
+                }
+                .popup-save {
+                    padding: 1.5rem 0.75rem 0;
+                }
+                .popup-form {
+                    flex-direction: column;
+                    top: 7%;
+                }
+                .popup-form img {
+                    order: 2;
+                    transform: scale(1, 1);
+                }
+                .popup-form h3 {
+                    font-size: 16px;
+                }
+                .contact-form-container {
+                    left: 10%;
+                }
+                input {
+                    font-size: 12px;
+                }
+                .contacts-bottom p {
+                    font-size: 10px;
+                }
+            }
+        </style>
+    </section></Layout
+>

@@ -1,0 +1,56 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import BigButton from "../components/BigButton.astro";
+
+import Cross from "../assets/icons/product-card/cross.svg";
+
+const myPath = [
+    { text: "главное", href: "#" },
+    { text: "корзина", href: "#" },
+];
+---
+
+<Layout>
+    <Header />
+    <Nav items={myPath} />
+    <div class="header-container">
+        <div class="header-container__info">
+            <h2>корзина<sup>(2)</sup></h2>
+            <p>Здесь собраны все товары, которые вы выбрали для покупки. Проверьте состав заказа перед оформлением.</p>
+        </div>
+        <div  class="header-container__order">
+            <h3>оформление заказа</h3>
+            <span>Y44568RT</span>
+        </div>
+    </div>
+    <Footer/>
+</Layout>
+
+<style>
+    .header-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+    }
+    .header-container__info{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .header-container__info p{
+        max-width: 38.125rem;
+    }
+    .header-container__order{
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    .header-container__order span{
+        color: oklch(from var(--grey-text)l c h);
+    }
+</style>

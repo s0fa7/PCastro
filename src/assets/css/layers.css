@@ -643,7 +643,6 @@ option {
 
 .checkbox-container sub {
     font-size: 10px;
-    color: oklch(from var(--grey-text)l c h);
     padding: 0 0 0.25rem 0.25rem;
 }
 
@@ -662,17 +661,6 @@ option {
     margin-right: 7px;
     display: inline-block;
     transition: border 0.14s;
-}
-
-.checkbox-container input:checked~.checkmark {
-    border-color: oklch(from var(--purple)l c h);
-}
-
-.checkbox-container.active,
-.checkbox-container input:checked~.checkmark,
-.checkbox-container input:checked~span,
-.checkbox-container input:checked~sup {
-    color: oklch(from var(--purple-text)l c h);
 }
 
 .checkmark::after {
@@ -697,193 +685,107 @@ option {
     margin-bottom: 0;
 }
 
-/* PRICE FILTER */
-.filter-price {
+.checkbox-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    user-select: none;
+    color: oklch(from var(--grey-text)l c h);
+    text-transform: uppercase;
+}
+
+/* меняем цвет текста, когда чекбокс активен */
+.checkbox-container input:checked ~ .checkbox-label {
+  color: #9250b4;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+
+/* filter price */
+
+.price-row {
     display: flex;
     align-items: center;
-    margin: 10px 0 2px 0;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.input-min,
-.input-max {
-    max-width: 75px;
-    border: 1.2px solid oklch(from var(--light-stroke)l c h);
+.price-row input:first-child {
     color: oklch(from var(--grey-text)l c h);
-    font-family: inherit;
-    margin: 0 8px 0 0;
-    text-align: center;
 }
 
-.input-max {
-    margin-right: 0;
-    margin-left: 8px;
-    color: oklch(from var(--white)l c h);
-}
-
-.range-block {
-    position: relative;
-    height: 24px;
-    margin: 0 2px;
-    flex: 1 1 0;
-}
-
-.range {
-    cursor: pointer;
-    position: absolute;
-    pointer-events: all;
-    width: 100%;
-    height: 24px;
+/* Поля ввода */
+.price-input {
+    padding: 4px 8px;
+    border: 1px solid oklch(from var(--light-stroke)l c h);
+    border-radius: 2px;
     background: transparent;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Контейнер для слайдера */
+.slider-wrapper {
+    position: relative;
+    flex: 1;
+    height: 14px;
+}
+
+/* Трек: прозрачный с белой рамкой */
+.slider-track {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 2px;
+    transform: translateY(-50%);
+    background: transparent;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Активная часть */
+.slider-track::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    left: 0;
+    width: 0;
+    z-index: 0;
+    background: repeating-linear-gradient(120deg,
+            #b99be500 0 8px,
+            #9250b4 0 12px);
+    transition: left 0.15s, width 0.15s;
+}
+
+input[type="range"] {
+    position: absolute;
+    width: 100%;
+    height: 8px;
+    background: none;
+    pointer-events: none;
     -webkit-appearance: none;
     z-index: 2;
-
 }
 
-.range::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    appearance: none;
     width: 10px;
     height: 22px;
     background: linear-gradient(90deg, #9D4EDD 0%, #4A2069 100%);
     border-radius: 2px;
     border: 1px solid oklch(from var(--white)l c h);
+    transform: translateY(10%);
     cursor: pointer;
-    transition: 0.15s;
-    transform: translateY(-5px);
+    pointer-events: all;
+    transition: transform 0.5s;
 }
 
-.range::-webkit-slider-thumb:hover {
+input[type="range"]::-webkit-slider-thumb:hover {
     background: oklch(from var(--purple)l c h);
 }
-
-.range::-moz-range-thumb {
-    /* Firefox */
-    width: 10px;
-    height: 18px;
-    background: #c488e2;
-    border: 2px solid #b760de;
-    border-radius: 2px;
-}
-
-.range::-ms-thumb {
-    width: 10px;
-    height: 18px;
-    background: #c488e2;
-    border: 2px solid #b760de;
-}
-
-.range::-webkit-slider-runnable-track {
-    height: 14px;
-    background: #22202b;
-    border: 1px solid #D8EBEE;
-    background: repeating-linear-gradient(120deg,
-            #b99be500 0 8px,
-            #9250b4 0 12px);
-}
-
-.range::-ms-fill-lower,
-.range::-ms-fill-upper {
-    background: #22202b;
-}
-
-.range::-moz-range-track {
-    background: #22202b;
-    height: 4px;
-    border-radius: 2px;
-}
-
-.range-fill {
-    position: absolute;
-    height: 4px;
-    background: linear-gradient(90deg, #d8b4fe 0%, #b760de 100%);
-    border-radius: 2px;
-    top: 10px;
-    z-index: 1;
-}
-
-
-/* volue попытка 2 */
-
-/* .slider-container {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-  padding: 14px 0;
-  background: #232529;
-}
-.slider-value {
-  font-size: 2.2rem;
-  font-family: 'Consolas', monospace;
-  padding: 0 18px;
-  color: #ccd2e3;
-  border: 3px solid #42454b;
-  border-radius: 8px;
-  background: #232529;
-  min-width: 90px;
-  text-align: center;
-  opacity: 0.7;
-}
-
-.slider-value.max {
-  opacity: 1;
-}
-.slider-wrapper {
-  position: relative;
-  width: 400px;
-  height: 46px;
-}
-.slider-bar {
-  position: absolute;
-  left: 0; top: 0; right: 0; bottom: 0;
-  border: 3px solid #c9eaff;
-  border-radius: 8px;
-  background: transparent;
-}
-.slider-fill {
-  height: 100%;
-  transition: width 0.15s, left 0.15s;
-  background: repeating-linear-gradient(
-    120deg,
-    #b99be5 0 12px,
-    #9250b4 0 22px
-  );
-  border-left: 14px solid #753bc8;
-  border-right: 14px solid #b99be5;
-}
-
-.custom-range {
-  appearance: none;
-  width: calc(100% - 14px); 
-  height: 46px;
-  background: none;
-  outline: none;
-  position: absolute;
-}
-
-.custom-range::-webkit-slider-thumb {
-  appearance: none;
-  width: 32px;
-  height: 46px;
-  background: #9250b4;
-  border: 3px solid #c9eaff;
-  border-radius: 9px;
-}
-.custom-range::-moz-range-thumb {
-  width: 32px;
-  height: 46px;
-}
-.custom-range::-ms-thumb {
-  width: 32px;
-  height: 46px;
-}
-
-.custom-range::-webkit-slider-runnable-track,
-.custom-range::-moz-range-track,
-.custom-range::-ms-track {
-  height: 46px;
-}
-
-.custom-range:-moz-focusring{
-   outline: none;
-   border: none; 
-} */

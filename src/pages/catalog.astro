@@ -89,107 +89,133 @@ const customArticles = [
                     <div class="filter-label collapsible">категория</div>
                     <div class="filter-list">
                         <label class="checkbox-container">
-                            <input type="checkbox" /><span class="checkmark"
-                            ></span>компьютеры<sub>42</sub>
-                        </label>
-                        <label class="checkbox-container active">
-                            <input type="checkbox" checked /><span
-                                class="checkmark"></span>процессоры<sub>26</sub>
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">компьютеры<sub>48</sub></span>
                         </label>
                         <label class="checkbox-container">
-                            <input type="checkbox" /><span class="checkmark"
-                            ></span>видеокарты<sub>24</sub>
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">процессоры<sub>26</sub></span>
                         </label>
                         <label class="checkbox-container">
-                            <input type="checkbox" /><span class="checkmark"
-                            ></span>материнские платы<sub>26</sub>
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">видеокарты<sub>26</sub></span>
                         </label>
-                        <!-- Добавьте остальные категории по аналогии -->
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">материнские платы<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">оперативная память<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">диски ssd<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">диски ssd<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">диски hdd<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">блок питания<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">корпуса<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">охлаждение процессора<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">корпусные вентиляторы<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">моддинк пк<sub>26</sub></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">мониторы<sub>26</sub></span>
+                        </label>
                     </div>
                 </div>
 
                 <div class="filter-section">
                     <div class="filter-label collapsible">цена</div>
-                    <div class="filter-price">
+                    <div class="price-row">
                         <input
                             type="number"
-                            class="input-min"
-                            min="3210"
+                            id="min-input"
+                            min="3216"
                             max="132450"
-                            value="3210"
+                            step="100"
+                            value="3216"
+                            class="price-input"
                         />
-                        <div class="range-block">
+
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
                             <input
                                 type="range"
-                                min="3210"
+                                min="0"
                                 max="132450"
-                                step="100"
-                                value="3210"
-                                class="range"
-                                id="range-min"
+                                value="3216"
+                                id="min-range"
                             />
                             <input
                                 type="range"
-                                min="3210"
+                                min="0"
                                 max="132450"
-                                step="100"
                                 value="132450"
-                                class="range"
-                                id="range-max"
+                                id="max-range"
                             />
-                            <div class="range-fill"></div>
                         </div>
+
                         <input
                             type="number"
-                            class="input-max"
-                            min="3210"
+                            id="max-input"
+                            min="0"
                             max="132450"
+                            step="100"
                             value="132450"
+                            class="price-input"
                         />
                     </div>
                 </div>
-
-                <!-- <div class="slider-container">
-                    <div class="slider-value min">0</div>
-                    <div class="slider-wrapper">
-                        <div class="slider-bar">
-                            <div
-                                class="slider-fill"
-                                [style.left.%]="getLeftFillPercent(minValue)"
-                                [style.width.%]="getWidthFillPercent()"
-                            >
-                            </div>
-                        </div>
-                        <input
-                            type="range"
-                            class="custom-range"
-                            [min]="min"
-                            [max]="max"
-                            [(ngModel)]="minValue"
-                            (input)="onMinChange()"
-                        />
-                        <input
-                            type="range"
-                            class="custom-range"
-                            [min]="min"
-                            [max]="max"
-                            [(ngModel)]="maxValue"
-                            (input)="onMaxChange()"
-                        />
-                    </div>
-                    <div class="slider-value max">34567</div>
-                </div> -->
 
                 <div class="filter-section">
                     <div class="filter-label collapsible">бренд</div>
                     <div class="filter-list">
                         <label class="checkbox-container">
-                            <input type="checkbox" /><span class="checkmark"
-                            ></span>amd<sub>12</sub>
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">amd<sub>21</sub></span>
                         </label>
-                        <label class="checkbox-container active">
-                            <input type="checkbox" checked /><span
-                                class="checkmark"></span>intel<sub>21</sub>
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">intel<sub>21</sub></span>
                         </label>
                     </div>
                 </div>
@@ -214,13 +240,15 @@ const customArticles = [
                 <div class="filter-section">
                     <div class="filter-label collapsible">тип комплектации</div>
                     <div class="filter-list">
-                        <label class="checkbox-container active">
-                            <input type="checkbox" checked /><span
-                                class="checkmark"></span>box
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">BOX<sub>16</sub></span>
                         </label>
-                        <label class="checkbox-container disabled">
-                            <input type="checkbox" disabled /><span
-                                class="checkmark"></span>oem
+                        <label class="checkbox-container">
+                            <input type="checkbox" />
+                            <span class="checkmark"></span>
+                            <span class="checkbox-label">OEM<sub>8</sub></span>
                         </label>
                     </div>
                 </div>
@@ -475,4 +503,124 @@ const customArticles = [
     });
 
     // фильтры
+    const minRange = document.getElementById("min-range") as HTMLInputElement;
+    const maxRange = document.getElementById("max-range") as HTMLInputElement;
+    const minInput = document.getElementById("min-input") as HTMLInputElement;
+    const maxInput = document.getElementById("max-input") as HTMLInputElement;
+    const track = document.querySelector(".slider-track") as HTMLDivElement;
+    const trackBefore = track as HTMLElement;
+
+    const MIN_GAP = 500;
+
+    /**
+     * Обновление положения полосатого диапазона (::before)
+     */
+    function updateTrack(): void {
+        const min = parseInt(minRange.value);
+        const max = parseInt(maxRange.value);
+        const maxLimit = parseInt(minRange.max);
+
+        const leftPercent = (min / maxLimit) * 100;
+        const rightPercent = (max / maxLimit) * 100;
+        const width = rightPercent - leftPercent;
+
+        // обновляем стили псевдоэлемента через CSS-переменные
+        trackBefore.style.setProperty("--range-left", `${leftPercent}%`);
+        trackBefore.style.setProperty("--range-width", `${width}%`);
+
+        // анимация через прямой доступ к ::before
+        (trackBefore as any).style.setProperty("--left", `${leftPercent}%`);
+        (trackBefore as any).style.setProperty("--width", `${width}%`);
+
+        // применяем через inline-стили (CSSOM для ::before нельзя напрямую)
+        (
+            trackBefore.querySelector("::before") as HTMLElement | null
+        )?.style?.setProperty("left", `${leftPercent}%`);
+    }
+
+    /**
+     * Синхронизация инпутов и ползунков
+     */
+    function syncValues(fromInput: boolean): void {
+        let minVal = fromInput
+            ? parseInt(minInput.value)
+            : parseInt(minRange.value);
+        let maxVal = fromInput
+            ? parseInt(maxInput.value)
+            : parseInt(maxRange.value);
+
+        if (maxVal - minVal < MIN_GAP) {
+            if (fromInput) {
+                if (document.activeElement === minInput) {
+                    minVal = maxVal - MIN_GAP;
+                    minInput.value = String(minVal);
+                } else {
+                    maxVal = minVal + MIN_GAP;
+                    maxInput.value = String(maxVal);
+                }
+            } else {
+                if (document.activeElement === minRange) {
+                    minRange.value = String(maxVal - MIN_GAP);
+                } else {
+                    maxRange.value = String(minVal + MIN_GAP);
+                }
+            }
+        }
+
+        if (fromInput) {
+            minRange.value = String(minVal);
+            maxRange.value = String(maxVal);
+        } else {
+            minInput.value = minRange.value;
+            maxInput.value = maxRange.value;
+        }
+
+        updateBeforeGradient();
+    }
+
+    /**
+     * Устанавливаем inline-стили для псевдоэлемента через CSS переменные
+     */
+    function updateBeforeGradient() {
+        const min = parseInt(minRange.value);
+        const max = parseInt(maxRange.value);
+        const maxLimit = parseInt(minRange.max);
+
+        const leftPercent = (min / maxLimit) * 100;
+        const rightPercent = (max / maxLimit) * 100;
+        const widthPercent = rightPercent - leftPercent;
+
+        (track as HTMLElement).style.setProperty(
+            "--before-left",
+            `${leftPercent}%`,
+        );
+        (track as HTMLElement).style.setProperty(
+            "--before-width",
+            `${widthPercent}%`,
+        );
+
+        const styleEl = document.getElementById(
+            "dynamic-style",
+        ) as HTMLStyleElement | null;
+        const css = `
+    .slider-track::before {
+      left: ${leftPercent}%;
+      width: ${widthPercent}%;
+    }
+  `;
+        if (styleEl) styleEl.textContent = css;
+        else {
+            const style = document.createElement("style");
+            style.id = "dynamic-style";
+            style.textContent = css;
+            document.head.appendChild(style);
+        }
+    }
+
+    minRange.addEventListener("input", () => syncValues(false));
+    maxRange.addEventListener("input", () => syncValues(false));
+    minInput.addEventListener("input", () => syncValues(true));
+    maxInput.addEventListener("input", () => syncValues(true));
+
+    updateBeforeGradient();
 </script>
