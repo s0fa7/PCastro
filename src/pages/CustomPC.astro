@@ -640,13 +640,6 @@ const PathProducts = [
             <div class="popup-choose">
                 <div class="product-catalog">
                     <div class="filter-container angles">
-                        <div class="filter-header">
-                            <span>фильтр товаров //</span>
-                            <button class="reset-btn btn">
-                                <span>сбросить</span>
-                                <Cross />
-                            </button>
-                        </div>
 
                         <div class="product-catalog">
                             <div class="filter-container angles">
@@ -1312,6 +1305,149 @@ const PathProducts = [
                     }
                 });
 
+                // фильтры
+                const minRange = document.getElementById(
+                    "min-range",
+                ) as HTMLInputElement;
+                const maxRange = document.getElementById(
+                    "max-range",
+                ) as HTMLInputElement;
+                const minInput = document.getElementById(
+                    "min-input",
+                ) as HTMLInputElement;
+                const maxInput = document.getElementById(
+                    "max-input",
+                ) as HTMLInputElement;
+                const track = document.querySelector(
+                    ".slider-track",
+                ) as HTMLDivElement;
+                const trackBefore = track as HTMLElement;
+
+                const MIN_GAP = 500;
+
+                /**
+                 * Обновление положения полосатого диапазона (::before)
+                 */
+                function updateTrack(): void {
+                    const min = parseInt(minRange.value);
+                    const max = parseInt(maxRange.value);
+                    const maxLimit = parseInt(minRange.max);
+
+                    const leftPercent = (min / maxLimit) * 100;
+                    const rightPercent = (max / maxLimit) * 100;
+                    const width = rightPercent - leftPercent;
+
+                    // обновляем стили псевдоэлемента через CSS-переменные
+                    trackBefore.style.setProperty(
+                        "--range-left",
+                        `${leftPercent}%`,
+                    );
+                    trackBefore.style.setProperty("--range-width", `${width}%`);
+
+                    // анимация через прямой доступ к ::before
+                    (trackBefore as any).style.setProperty(
+                        "--left",
+                        `${leftPercent}%`,
+                    );
+                    (trackBefore as any).style.setProperty(
+                        "--width",
+                        `${width}%`,
+                    );
+
+                    // применяем через inline-стили (CSSOM для ::before нельзя напрямую)
+                    (
+                        trackBefore.querySelector(
+                            "::before",
+                        ) as HTMLElement | null
+                    )?.style?.setProperty("left", `${leftPercent}%`);
+                }
+
+                /**
+                 * Синхронизация инпутов и ползунков
+                 */
+                function syncValues(fromInput: boolean): void {
+                    let minVal = fromInput
+                        ? parseInt(minInput.value)
+                        : parseInt(minRange.value);
+                    let maxVal = fromInput
+                        ? parseInt(maxInput.value)
+                        : parseInt(maxRange.value);
+
+                    if (maxVal - minVal < MIN_GAP) {
+                        if (fromInput) {
+                            if (document.activeElement === minInput) {
+                                minVal = maxVal - MIN_GAP;
+                                minInput.value = String(minVal);
+                            } else {
+                                maxVal = minVal + MIN_GAP;
+                                maxInput.value = String(maxVal);
+                            }
+                        } else {
+                            if (document.activeElement === minRange) {
+                                minRange.value = String(maxVal - MIN_GAP);
+                            } else {
+                                maxRange.value = String(minVal + MIN_GAP);
+                            }
+                        }
+                    }
+
+                    if (fromInput) {
+                        minRange.value = String(minVal);
+                        maxRange.value = String(maxVal);
+                    } else {
+                        minInput.value = minRange.value;
+                        maxInput.value = maxRange.value;
+                    }
+
+                    updateBeforeGradient();
+                }
+
+                /**
+                 * Устанавливаем inline-стили для псевдоэлемента через CSS переменные
+                 */
+                function updateBeforeGradient() {
+                    const min = parseInt(minRange.value);
+                    const max = parseInt(maxRange.value);
+                    const maxLimit = parseInt(minRange.max);
+
+                    const leftPercent = (min / maxLimit) * 100;
+                    const rightPercent = (max / maxLimit) * 100;
+                    const widthPercent = rightPercent - leftPercent;
+
+                    (track as HTMLElement).style.setProperty(
+                        "--before-left",
+                        `${leftPercent}%`,
+                    );
+                    (track as HTMLElement).style.setProperty(
+                        "--before-width",
+                        `${widthPercent}%`,
+                    );
+
+                    const styleEl = document.getElementById(
+                        "dynamic-style",
+                    ) as HTMLStyleElement | null;
+                    const css = `
+    .slider-track::before {
+      left: ${leftPercent}%;
+      width: ${widthPercent}%;
+    }
+  `;
+                    if (styleEl) styleEl.textContent = css;
+                    else {
+                        const style = document.createElement("style");
+                        style.id = "dynamic-style";
+                        style.textContent = css;
+                        document.head.appendChild(style);
+                    }
+                }
+
+                minRange.addEventListener("input", () => syncValues(false));
+                maxRange.addEventListener("input", () => syncValues(false));
+                minInput.addEventListener("input", () => syncValues(true));
+                maxInput.addEventListener("input", () => syncValues(true));
+
+                updateBeforeGradient();
+
                 //copy div
                 // const copyElements =
                 //     document.querySelectorAll<HTMLDivElement>(".copy-text");
@@ -1422,6 +1558,7 @@ const PathProducts = [
             .param-item span:last-child {
                 max-width: 60%;
                 color: oklch(from var(--body-text) l c h);
+                text-align: right;
             }
 
             /* TOTAL */
