@@ -740,6 +740,7 @@ const myPath = [
                 reader.onload = (e) => {
                     const img = document.createElement("img");
                     img.src = e.target?.result as string;
+                    // img.classList.add("preview-container-img");
                     previewContainer.appendChild(img);
                 };
                 reader.readAsDataURL(file);
@@ -1237,7 +1238,7 @@ const myPath = [
         align-items: center;
     }
 
-    .preview-container img {
+    .preview-container :global(img) {
         width: 68px;
         height: 68px;
         object-fit: cover;

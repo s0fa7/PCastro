@@ -512,9 +512,6 @@ const customArticles = [
 
     const MIN_GAP = 500;
 
-    /**
-     * Обновление положения полосатого диапазона (::before)
-     */
     function updateTrack(): void {
         const min = parseInt(minRange.value);
         const max = parseInt(maxRange.value);
@@ -524,23 +521,17 @@ const customArticles = [
         const rightPercent = (max / maxLimit) * 100;
         const width = rightPercent - leftPercent;
 
-        // обновляем стили псевдоэлемента через CSS-переменные
         trackBefore.style.setProperty("--range-left", `${leftPercent}%`);
         trackBefore.style.setProperty("--range-width", `${width}%`);
 
-        // анимация через прямой доступ к ::before
         (trackBefore as any).style.setProperty("--left", `${leftPercent}%`);
         (trackBefore as any).style.setProperty("--width", `${width}%`);
 
-        // применяем через inline-стили (CSSOM для ::before нельзя напрямую)
         (
             trackBefore.querySelector("::before") as HTMLElement | null
         )?.style?.setProperty("left", `${leftPercent}%`);
     }
 
-    /**
-     * Синхронизация инпутов и ползунков
-     */
     function syncValues(fromInput: boolean): void {
         let minVal = fromInput
             ? parseInt(minInput.value)
@@ -578,9 +569,6 @@ const customArticles = [
         updateBeforeGradient();
     }
 
-    /**
-     * Устанавливаем inline-стили для псевдоэлемента через CSS переменные
-     */
     function updateBeforeGradient() {
         const min = parseInt(minRange.value);
         const max = parseInt(maxRange.value);

@@ -1,0 +1,194 @@
+---
+import Trash from "../assets/icons/trash.svg";
+export interface Props {
+    index?: number;
+    image?: string;
+    article?: string;
+    name?: string;
+    pickupDays?: string;
+    deliveryDays?: string;
+    price?: number;
+}
+
+const {
+    index = 1,
+    image,
+    article,
+    name,
+    pickupDays,
+    deliveryDays,
+    price = 12850,
+} = Astro.props;
+---
+
+<div class="basket-container" data-index={index} data-price={price}>
+    <span class="basket-container-row__index"
+        >{index.toString().padStart(3, "0")}</span
+    >
+    <div class="basket-container-row right">
+        <img src={image} alt="Product Image" class="" />
+        <div class="basket-container-row__article">
+            <span>Артикул</span>
+            <span class="">{article}</span>
+        </div>
+    </div>
+
+    <div class="basket-container-row">
+        <div class="basket-container-row__info">
+            <h5>{name}</h5>
+            <ul>
+                <li>
+                    <span>Самовывоз://</span>
+                    <span>{pickupDays}</span>
+                </li>
+                <li>
+                    <span>доставка://</span>
+                    <span>{deliveryDays}</span>
+                </li>
+                <li>
+                    <div class="counter">
+                        <button id={`dec-${index}`} class="btn"> − </button>
+                        <span id={`count-${index}`} class="">1</span>
+                        <button id={`inc-${index}`} class="btn"> + </button>
+                    </div>
+                    <span>{price.toLocaleString()}₽</span>
+                </li>
+            </ul>
+        </div>
+        <div class="basket-container-row-interactive">
+            <button class="btn">
+                <Trash width={24} height={24} />
+            </button>
+            <span id={`total-${index}`} class="">
+                {price.toLocaleString()}₽
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Получаем контейнер карточки
+    const card = document.currentScript?.parentElement as HTMLElement | null;
+    if (!card) return;
+
+    // Извлекаем данные из атрибутов
+    const price = Number(card.dataset.price);
+    const idx = Number(card.dataset.index);
+
+    const dec = document.getElementById(
+        `dec-${idx}`,
+    ) as HTMLButtonElement | null;
+    const inc = document.getElementById(
+        `inc-${idx}`,
+    ) as HTMLButtonElement | null;
+    const countEl = document.getElementById(
+        `count-${idx}`,
+    ) as HTMLElement | null;
+    const totalEl = document.getElementById(
+        `total-${idx}`,
+    ) as HTMLElement | null;
+
+    let count = 1;
+
+    const updateTotal = (): void => {
+        if (totalEl)
+            totalEl.textContent = (count * price).toLocaleString() + "₽";
+    };
+
+    inc?.addEventListener("click", () => {
+        count++;
+        if (countEl) countEl.textContent = count.toString();
+        updateTotal();
+    });
+
+    dec?.addEventListener("click", () => {
+        if (count > 1) {
+            count--;
+            if (countEl) countEl.textContent = count.toString();
+            updateTotal();
+        }
+    });
+</script>
+
+<style>
+    .basket-container {
+        display: flex;
+        background-image: url("../assets/images/BasketBg.png");
+        background-repeat: no-repeat;
+        min-width: 698px;
+        min-height: 302px;
+        position: relative;
+        padding: 2rem 3.5rem;
+    }
+    .basket-container-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px dashed oklch(from var(--grey-text) l c h);
+        padding: 0 2rem 0 0;
+    }
+    .basket-container-row:last-child {
+        padding: 0 0 0 2rem;
+        border-right: none;
+        max-width: 350px;
+    }
+    .basket-container-row__index {
+        font-family: "JetBrainsMono";
+        color: oklch(from var(--grey-text) l c h);
+        font-size: 12px;
+        position: absolute;
+        top: 5px;
+        left: 16px;
+    }
+    .basket-container-row__article {
+        display: flex;
+        width: 100%;
+        gap: 1.5rem;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+    .basket-container-row-interactive {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .basket-container-row__info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+    .basket-container-row__info h5 {
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .basket-container-row__info ul {
+        list-style: none;
+    }
+    .basket-container-row__info li {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0.5rem 0;
+    }
+    .basket-container-row-interactive span {
+        color: oklch(from var(--purple-text) l c h);
+        font-size: 20px;
+    }
+    .basket-container-row-interactive .btn {
+        padding: 0;
+    }
+    .counter{
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        border: 1px solid oklch(from var(--light-stroke) l c h);
+        padding: 8px 9px;
+        .btn{
+            padding: 0;
+        }
+    }
+</style>
