@@ -1,30 +1,30 @@
 <footer class="purple-effect3 purple-effect4">
     <div class="footer-content">
-        <div class="footer-col">
-            <a href="#" class="logo">
-                <img src="src/assets/Srf.svg" />
-            </a>
-            <div class="footer-links-group">
-                <div class="cataloge">
-                    <img src="/src/assets/icons/Catalog.svg" />
-                    <a href="#"> каталог</a>
-                </div>
-                <div class="menu-title">
-                    <a href="#">конфигуратор пк</a>
-                    <nav>
-                        <ul>
-                            <li><a href="#">.компания</a></li>
-                            <li><a href="#">.отзывы</a></li>
-                            <li><a href="#">.доставка и оплата</a></li>
-                            <li><a href="#">.гарантия и возврат</a></li>
-                            <li><a href="#">.новости</a></li>
-                            <li><a href="#">.акции</a></li>
-                            <li><a href="#">.контакты</a></li>
-                        </ul>
-                    </nav>
-                </div>
+        <!-- <div class="footer-col"> -->
+        <a href="#" class="logo">
+            <img src="src/assets/Srf.svg" />
+        </a>
+        <div class="footer-links-group">
+            <div class="cataloge">
+                <img src="/src/assets/icons/Catalog.svg" />
+                <a href="#"> каталог</a>
+            </div>
+            <div class="menu-title">
+                <a href="#">конфигуратор пк</a>
+                <nav>
+                    <ul>
+                        <li><a href="#">.компания</a></li>
+                        <li><a href="#">.отзывы</a></li>
+                        <li><a href="#">.доставка и оплата</a></li>
+                        <li><a href="#">.гарантия и возврат</a></li>
+                        <li><a href="#">.новости</a></li>
+                        <li><a href="#">.акции</a></li>
+                        <li><a href="#">.контакты</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
+        <!-- </div> -->
 
         <div class="footer-col">
             <div class="contact-info">
@@ -48,93 +48,141 @@
         <a href="#">политика обработки персональных данных</a>
         <img class="privacy-icon" src="src/assets/icons/FooterIcon.svg" />
     </div>
+</footer>
+<style>
+    footer {
+        font-family: "JetBrainsMono";
+        display: flex;
+        flex-direction: column;
+        text-transform: uppercase;
+    }
 
-    <style>
-        footer {
-            font-family: "JetBrainsMono";
-            display: flex;
-            flex-direction: column;
-            text-transform: uppercase;
-        }
+    .footer-col {
+        grid-area: 1 / 2 / 3 / 3;
+    }
 
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
+    .footer-links-group {
+        display: flex;
+        gap: 4rem;
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    .footer-links-group ul {
+        list-style: none;
+    }
 
-        .footer-links-group {
-            display: flex;
-            gap: 4rem;
-        }
-        .footer-links-group ul {
-            list-style: none;
-        }
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 3.375rem 1rem 5rem;
+    }
+    .logo {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    .menu-title {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .menu-title a:hover {
+        color: oklch(from var(--purple-text) l c h);
+    }
 
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 90%;
+        margin: 0 auto;
+        padding: 2rem 0;
+
+        color: #d8ebee66;
+        font-size: 14px;
+        border-top: 1px dashed #ffffff80;
+    }
+    .footer-bottom a {
+        text-transform: uppercase;
+    }
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        font-family: "EuropeExt";
+        color: oklch(from var(--purple-text) l c h);
+        font-size: 28px;
+    }
+    .contact-info a:first-child {
+        font-size: 68px;
+        color: oklch(from var(--text) l c h);
+    }
+    .address-info {
+        font-size: 20px;
+    }
+    .working-hours {
+        color: #eae3f066;
+    }
+
+    .angles-white::before {
+        background:
+            conic-gradient(
+                    from 90deg at top var(--b) left var(--b),
+                    var(--_g) 0
+                )
+                0 0 / var(--_p),
+            conic-gradient(
+                    from 180deg at top var(--b) right var(--b),
+                    var(--_g)
+                )
+                100% 0 / var(--_p);
+    }
+    @media (max-width: 1024px) {
         .footer-content {
-            display: flex;
-            justify-content: space-between;
-            width: 90%;
-            margin: 3rem auto 0 auto;
-            padding-bottom: 5rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
-        .menu-title {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .footer-col {
+            grid-area: 2 / 1 / 3 / 2;
         }
-        .menu-title a:hover {
-            color: oklch(from var(--purple-text) l c h);
-        }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            width: 90%;
-            margin: 0 auto;
-            padding: 2rem 0;
-
-            color: #d8ebee66;
+        .footer-links-group {
+            grid-area: 3 / 1 / 4 / 2;
             font-size: 14px;
-            border-top: 1px dashed #ffffff80;
         }
-        .footer-bottom a {
-            text-transform: uppercase;
+        .logo {
+            height: 35px;
+            width: auto;
         }
         .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-
-            font-family: "EuropeExt";
-            color: oklch(from var(--purple-text) l c h);
-            font-size: 28px;
+            font-size: 16px;
         }
         .contact-info a:first-child {
-            font-size: 68px;
-            color: oklch(from var(--text) l c h);
+            font-size: 22px;
         }
         .address-info {
-            font-size: 20px;
+            font-size: 18px;
         }
         .working-hours {
-            color: #eae3f066;
+            font-size: 14px;
         }
-
-        .angles-white::before {
-            background:
-                conic-gradient(
-                        from 90deg at top var(--b) left var(--b),
-                        var(--_g) 0
-                    )
-                    0 0 / var(--_p),
-                conic-gradient(
-                        from 180deg at top var(--b) right var(--b),
-                        var(--_g)
-                    )
-                    100% 0 / var(--_p);
+        .footer-bottom {
+            font-size: 10px;
         }
-    </style>
-</footer>
+        .privacy-icon {
+            width: 18px;
+            height: 18px;
+        }
+        .purple-effect4::before {
+            right: -12%;
+            bottom: 0;
+            width: 100%;
+            transform: rotate(-90deg);
+            background-position: 0 100%;
+        }
+        .purple-effect3::after {
+            top: 50%;
+            width: 100%;
+            height: 100%;
+            background-position: 90% 30%;
+         }
+    }
+</style>

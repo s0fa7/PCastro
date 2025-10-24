@@ -168,6 +168,7 @@ const myPath = [
     .favorite-products {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 2rem;
         width: 100%;
         margin: 0 auto;
@@ -194,5 +195,20 @@ const myPath = [
     }
     .favorite-result__info span:last-child {
         color: oklch(from var(--purple-text) l c h);
+    }
+    @media (max-width: 1024px) {
+        .favorite-header h2{
+            font-size: 30px;
+        }
+        .favorite-header sup{
+            font-size: 20px;
+        }
+        .favorite-header p{
+            font-size: 14px;
+        }
+        .favorite-container {
+            align-items: center;
+        }
+
     }
 </style>

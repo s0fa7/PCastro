@@ -1,23 +1,26 @@
 ---
 import Phone from "../assets/icons/phone.svg";
 import Menu from "../assets/icons/Menu.svg";
-// import Close from "../assets/icons/Close.svg";
 ---
 
 <header class="header-container">
     <div class="header-content">
-        <a href="tel:8800219333" class="phone-menu" aria-label="Позвоните нам">
-            <Phone width={17} height={17} />
-        </a>
         <div class="header-nav">
+            <a
+                href="tel:8800219333"
+                class="phone-menu"
+                aria-label="Позвоните нам"
+            >
+                <Phone width={17} height={17} />
+            </a>
             <a href="#" class="logo">
                 <img src="src/assets/Srf.svg" />
             </a>
-            <button type="button" class="btn cataloge desktop-only">
+            <button type="button" class="btn cataloge">
                 <img src="/src/assets/icons/Catalog.svg" />
                 <span>каталог</span>
             </button>
-            <nav class="main-nav desktop-only">
+            <nav class="main-nav">
                 <ul>
                     <li><a href="#">.компания</a></li>
                     <li><a href="#">.акции</a></li>
@@ -42,13 +45,13 @@ import Menu from "../assets/icons/Menu.svg";
                     <li><a href="#">.контакты</a></li>
                 </ul>
             </nav>
-            <a href="#" class="configurator-button desktop-only">
+            <a href="#" class="configurator-button">
                 конфигуратор пк
                 <span class="arrow-icon">»</span>
             </a>
         </div>
 
-        <div class="user-controls desktop-only">
+        <div class="user-controls">
             <div class="search">
                 <input type="search" placeholder="поиск" />
             </div>
@@ -68,11 +71,11 @@ import Menu from "../assets/icons/Menu.svg";
                 <img src="/src/assets/icons/OneArrowButton.svg" />
             </span>
         </div>
-        <button type="button" class="burger phone-menu" id="burger">
-            <Menu width={17} height={17} class="burger-icon-svg" />
-        </button>
+        <div class="burger phone-menu">
+            <Menu width={17} height={17} />
+        </div>
     </div>
-    <div class="mobile-menu" id="mobile-menu">
+    <div class="mobbile-menu">
         <ul>
             <li>
                 <button type="button" class="btn cataloge">
@@ -398,7 +401,6 @@ import Menu from "../assets/icons/Menu.svg";
 </div>
 
 <script>
-    
     //информация появление
 
     document.addEventListener("click", toggleDropdown);
@@ -431,32 +433,15 @@ import Menu from "../assets/icons/Menu.svg";
 
     //категории появление
 
-    const infoMenuModal = document.querySelector(".modal-overlay") as HTMLDivElement | null;
-    
+    const infoMenuModal = document.querySelector(".modal-overlay");
 
     document.querySelector(".cataloge")?.addEventListener("click", showMenu);
 
-    function showMenu(): void {
-        if (infoMenuModal && headerContainer) { // Проверяем оба элемента
-            // Определяем, скрыто ли модальное окно. 
-            // Если style.display === 'none', то оно скрыто.
-            // Если style.display не 'none', то оно видимо (или пусто, что означает видимость по CSS).
-            const isModalHidden = infoMenuModal.style.display === 'none';
-
-            if (isModalHidden) {
-                // Если скрыто, показываем его
-                infoMenuModal.style.display = 'flex'; // Устанавливаем display в flex
-                
-                // Рассчитываем позицию под шапкой
-                const headerRect: DOMRect = headerContainer.getBoundingClientRect();
-                const headerBottom: number = headerRect.bottom;
-                
-                infoMenuModal.style.top = `${headerBottom}px`;
-                infoMenuModal.style.height = `calc(100vh - ${headerBottom}px)`;
-            } else {
-                // Если показано, скрываем его
-                infoMenuModal.style.display = 'none';
-            }
+    function showMenu() {
+        if (infoMenuModal !== null && infoMenuModal.hasAttribute("style")) {
+            infoMenuModal.removeAttribute("style");
+        } else {
+            infoMenuModal?.setAttribute("style", "display: none;");
         }
     }
 
@@ -489,68 +474,15 @@ import Menu from "../assets/icons/Menu.svg";
             });
         });
     });
-
-    // Mobile menu functionality
-    const burgerButton = document.getElementById(
-        "burger",
-    ) as HTMLButtonElement | null;
-    const mobileMenu = document.getElementById(
-        "mobile-menu",
-    ) as HTMLDivElement | null;
-    const headerContainer = document.querySelector(
-        ".header-container",
-    ) as HTMLElement | null;
-
-    // SVG-строки для иконок
-    const menuIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><rect x="3" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
-<rect x="15" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
-<rect x="15" y="15" width="6" height="6" rx="3" fill="#9D4EDD"/>
-<rect x="3" y="15" width="6" height="6" rx="3" fill="#9D4EDD"/></svg>`;
-    const closeIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><g clip-path="url(#clip0_944_7643)">
-<path d="M4.5664 3.99998L9.74841 8.51035C10.1915 8.89604 10.4427 9.45705 10.4352 10.0445L10.4134 11.752C10.407 12.2495 10.2155 12.7268 9.87607 13.0906L5.35182 17.941" stroke="#B860FF" stroke-width="2"/>
-<path d="M19.543 3.99998L14.361 8.51035C13.9178 8.89604 13.6667 9.45705 13.6742 10.0445L13.696 11.752C13.7023 12.2495 13.8939 12.7268 14.2333 13.0906L18.7575 17.941" stroke="#B860FF" stroke-width="2"/>
-</g>
-<defs>
-<clipPath id="clip0_944_7643">
-<rect width="24" height="24" fill="white"/>
-</clipPath>
-</defs></svg>`;
-
-    // Устанавливаем начальную иконку
-    if (burgerButton) {
-        burgerButton.innerHTML = menuIconHtml;
-    }
-
-    burgerButton?.addEventListener("click", () => {
-        if (mobileMenu && burgerButton && headerContainer) {
-            const headerRect: DOMRect = headerContainer.getBoundingClientRect();
-            const headerBottom: number = headerRect.bottom; // Низ шапки относительно viewport
-
-            mobileMenu.style.top = `${headerBottom}px`;
-
-            mobileMenu.classList.toggle("active");
-            if (mobileMenu.classList.contains("active")) {
-                burgerButton.innerHTML = closeIconHtml; // Показываем крестик
-                document.body.style.overflow = "hidden"; // Запрещаем прокрутку основного контента
-            } else {
-                burgerButton.innerHTML = menuIconHtml; // Показываем иконку меню
-                document.body.style.overflow = ""; // Разрешаем прокрутку
-            }
-        }
-    });
 </script>
 
 <style>
     .header-container {
         width: 100%;
+
         font-family: "JetBrainsMono", sans-serif;
         font-size: 16px;
         text-transform: uppercase;
-        position: relative;
-        top: auto;
-        left: auto;
-        z-index: 3; /* Шапка всегда сверху, пока не прокрутится */
-        border-bottom: 1px solid oklch(from var(--stroke) l c h); /* Добавляем тонкую линию под шапкой */
     }
 
     .header-content {
@@ -666,7 +598,6 @@ import Menu from "../assets/icons/Menu.svg";
         gap: 0.5rem;
         align-items: center;
         padding: 0;
-        text-transform: uppercase;
     }
 
     .info-menu {
@@ -695,14 +626,15 @@ import Menu from "../assets/icons/Menu.svg";
     }
 
     .modal-overlay {
-        position: absolute; 
-        left: 0;
+        inset: 0;
         background-color: oklch(from var(--bg) l c h);
         background-image: url(/src/assets/icons/main-pattern.svg);
         background-repeat: repeat;
-        z-index: 10;
+        position: relative;
+        z-index: 2;
         display: flex;
-        overflow-y: auto; 
+        align-items: stretch;
+        justify-content: center;
     }
 
     .modal-window {
@@ -831,99 +763,26 @@ import Menu from "../assets/icons/Menu.svg";
         background-repeat: no-repeat;
     }
 
-    /* Mobile-specific styles */
-    .burger,
-    .phone-menu {
-        display: none; /* Скрываем бургер-кнопку по умолчанию */
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
+    /* mobile */
+    .mobbile-menu {
+        display: none;
     }
-
-    .mobile-menu {
-        display: none; /* Скрываем мобильное меню по умолчанию */
-        position: fixed; /* Позиционируем поверх контента */
-        padding: 33px 40px;
-        left: 0;
-        width: 100%;
-        background-color: oklch(from var(--bg) l c h); /* Пример цвета фона */
-        background-image: url(/src/assets/icons/main-pattern.svg); /* Повторяем паттерн фона */
-        background-repeat: repeat;
-        overflow-y: auto;
-        flex-direction: column;
-        transition: transform 0.3s ease-in-out; /* Анимация появления/скрытия */
-        transform: translateX(100%); /* Изначально скрыто за экраном */
-    }
-
-    .mobile-menu.active {
-        display: flex;
-        transform: translateX(0);
-    }
-
-    .mobile-menu ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 1rem;
-        border-bottom: 1px dashed oklch(from var(--light-stroke) l c h);
-        margin-bottom: 1rem;
-        gap: 1rem;
-        font-size: 20px;
-        list-style: none;
-    }
-
-    .mobile-menu .search input {
-        width: 100%;
-        max-width: none;
-    }
-
-    /* Mobile media query */
     @media (max-width: 1024px) {
-        .desktop-only {
-            display: none;
-        }
-
-        .header-content {
-            padding: 2rem;
-        }
-
-        .header-nav {
-            width: auto;
-            justify-content: space-between;
-        }
-
-        .header-nav .phone-menu {
+        .mobbile-menu.active {
             display: block;
         }
-
-        .user-controls .phone-number {
-            display: none;
+        .mobbile-menu {
+            display: flex;
+            flex-direction: column;
         }
-
-        .burger {
-            display: block;
-            z-index: 5;
-        }
-
-        .header-container .phone-menu,
-        .header-container .logo {
-            display: block;
-        }
-
-        .header-container .logo {
-            margin-left: 1rem;
-        }
-        .search[data-astro-cid-3ef6ksr2]::before {
-            left: 0;
-            top: 37%;
-        }
-        .search input::placeholder {
-            color: oklch(from var(--body-text) l c h);
+        .mobbile-menu ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
             font-size: 20px;
-        }
-        .btn.cataloge {
-            padding: 0;
+            list-style: none;
+            padding-bottom: 1rem;
         }
     }
 </style>

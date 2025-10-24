@@ -8,6 +8,10 @@ import StagesOfWork from "../components/StagesOfWork.astro";
 import DifferenceCard from "../components/DifferenceCard.astro";
 import BigButton from "../components/BigButton.astro";
 
+import Arrow from "../assets/icons/product-card/btn-arrow.svg";
+import StarIcon1 from "../assets/icons/StarIcon1.svg";
+import StarIcon2 from "../assets/icons/StarIcon2.svg";
+import StarIcon3 from "../assets/icons/StarIcon3.svg";
 const stages = [
     {
         number: 1,
@@ -50,6 +54,159 @@ const myPath = [
 <Layout>
     <Header />
     <Nav items={myPath} />
+    <section>
+        <div class="main-banner-container">
+            <div class="main-banner-container-top">
+                <div class="main-banner-info">
+                    <PurpleTag text="о компании" />
+                    <div class="main-banner-info__text">
+                        <h2>Сборка ПК на заказ</h2>
+                        <p>
+                            // Мы не просто собираем компьютеры — мы создаём
+                            надёжные и эстетичные решения, которые работают
+                            идеально с первого включения. В наших системах
+                            каждая деталь имеет значение: от воздушного потока
+                            до подсветки, от скорости загрузки до стабильности
+                            при нагрузках. Мы подбираем компоненты
+                            не по принципу «что подешевле», а с учётом баланса
+                            мощности, долговечности и целей клиента.
+                        </p>
+                    </div>
+                </div>
+                <div class="carousel-wrapper">
+                    <div class="carousel-container">
+                        <div class="carousel-slider">
+                            <div class="carousel-item" data-item-id="1">
+                                <div class="item-header">
+                                    <img
+                                        src="src/assets/images/catalog/PCFull.png"
+                                        alt="Компьютер"
+                                    />
+                                </div>
+                                <div class="item-details">
+                                    <h3 class="item-title">компьютеры</h3>
+                                    <div class="detail-text">
+                                        <ul>
+                                            <li>
+                                                <span>Доступные цены</span>
+                                                <span>от 4 650₽</span>
+                                            </li>
+                                            <li>
+                                                <span>Быстрая доставка</span>
+                                                <span>от 1 дня</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-item-id="2">
+                                <div class="item-header">
+                                    <img
+                                        src="src/assets/images/catalog/graphic-card.webp"
+                                        alt="видеокарты"
+                                    />
+                                </div>
+                                <div class="item-details">
+                                    <h3 class="item-title">видеокарты</h3>
+                                    <div class="detail-text">
+                                        <ul>
+                                            <li>
+                                                <span>Доступные цены</span>
+                                                <span>от 4 650₽</span>
+                                            </li>
+                                            <li>
+                                                <span>Быстрая доставка</span>
+                                                <span>от 1 дня</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-item-id="3">
+                                <div class="item-header">
+                                    <img
+                                        src="src/assets/images/catalog/pc-case-cooling.png"
+                                        alt="корпусные вентиляторы"
+                                    />
+                                </div>
+                                <div class="item-details">
+                                    <h3 class="item-title">
+                                        корпусные вентиляторы
+                                    </h3>
+                                    <div class="detail-text">
+                                        <ul>
+                                            <li>
+                                                <span>Доступные цены</span>
+                                                <span>от 4 650₽</span>
+                                            </li>
+                                            <li>
+                                                <span>Быстрая доставка</span>
+                                                <span>от 1 дня</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item" data-item-id="4">
+                                <div class="item-header">
+                                    <img
+                                        src="src/assets/images/catalog/processor.png"
+                                        alt="процессоры"
+                                    />
+                                </div>
+                                <div class="item-details">
+                                    <h3 class="item-title">процессоры</h3>
+                                    <div class="detail-text">
+                                        <ul>
+                                            <li>
+                                                <span>Доступные цены</span>
+                                                <span>от 4 650₽</span>
+                                            </li>
+                                            <li>
+                                                <span>Быстрая доставка</span>
+                                                <span>от 1 дня</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-navigation">
+                        <button class="nav-arrow prev btn">
+                            <Arrow width={20} height={16} />
+                        </button>
+                        <button class="nav-arrow next btn">
+                            <Arrow width={20} height={16} />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="main-banner-container-bottom angles-white">
+                <div class="main-banner-container-bottom__props">
+                    <div class="props-icon angles-white">
+                        <StarIcon1 width={30} height={29} />
+                    </div>
+                    <p>
+                        Высококачественные комплектующие от проверенных
+                        производителей
+                    </p>
+                </div>
+                <div class="main-banner-container-bottom__props angles-white">
+                    <div class="props-icon angles-white">
+                        <StarIcon2 width={30} height={29} />
+                    </div>
+                    <p>Индивидуальная сборка ПК под потребности клиента</p>
+                </div>
+                <div class="main-banner-container-bottom__props angles-white">
+                    <div class="props-icon angles-white">
+                        <StarIcon3 width={30} height={29} />
+                    </div>
+                    <p>Гарантия на комплектующие и собранные ПК</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="article-container purple-effect2">
         <div class="article-row">
             <h2>Мы верим, что компьютер должен работать без компромиссов</h2>
@@ -91,7 +248,7 @@ const myPath = [
     <section>
         <StagesOfWork stages={stages} startFrom={1} />
     </section>
-    <section class="difference">
+    <section class="difference purple-effect1">
         <h2>Что отличает нас от других сборщиков</h2>
         <div class="difference-container">
             <DifferenceCard
@@ -253,7 +410,179 @@ const myPath = [
     <Footer />
 </Layout>
 
+<script>
+    // app.ts
+
+    class Carousel {
+        private carouselSlider: HTMLElement;
+        private carouselItems: NodeListOf<HTMLElement>;
+        private prevButton: HTMLButtonElement;
+        private nextButton: HTMLButtonElement;
+        private currentIndex: number;
+        private totalItems: number;
+
+        constructor(containerSelector: string) {
+            const container =
+                document.querySelector<HTMLElement>(containerSelector);
+            if (!container) {
+                throw new Error("Carousel container not found");
+            }
+
+            this.carouselSlider =
+                container.querySelector<HTMLElement>(".carousel-slider")!;
+            this.carouselItems =
+                container.querySelectorAll<HTMLElement>(".carousel-item");
+            this.prevButton = document.querySelector<HTMLButtonElement>(
+                ".carousel-navigation .nav-arrow.prev",
+            )!; // Изменили селектор, т.к. кнопки теперь вне контейнера карусели
+            this.nextButton = document.querySelector<HTMLButtonElement>(
+                ".carousel-navigation .nav-arrow.next",
+            )!; // Изменили селектор
+
+            this.totalItems = this.carouselItems.length;
+            this.currentIndex = 0;
+
+            this.init();
+        }
+
+        private init(): void {
+            this.updateCarousel();
+            this.addEventListeners();
+        }
+
+        private addEventListeners(): void {
+            this.prevButton.addEventListener("click", () => this.goToPrev());
+            this.nextButton.addEventListener("click", () => this.goToNext());
+        }
+
+        private goToPrev(): void {
+            this.currentIndex =
+                (this.currentIndex - 1 + this.totalItems) % this.totalItems;
+            this.updateCarousel();
+        }
+
+        private goToNext(): void {
+            this.currentIndex = (this.currentIndex + 1) % this.totalItems;
+            this.updateCarousel();
+        }
+
+        private updateCarousel(): void {
+            const offsetXStep = parseFloat(
+                getComputedStyle(document.documentElement).getPropertyValue(
+                    "--offset-x-step",
+                ),
+            );
+            const offsetYStep = parseFloat(
+                getComputedStyle(document.documentElement).getPropertyValue(
+                    "--offset-y-step",
+                ),
+            );
+            const baseZIndex = parseFloat(
+                getComputedStyle(document.documentElement).getPropertyValue(
+                    "--base-z-index",
+                ),
+            );
+
+            this.carouselItems.forEach((item, index) => {
+                item.classList.remove("active");
+
+                if (index === this.currentIndex) {
+                    // Активный элемент
+                    item.classList.add("active");
+                    item.style.transform = `translate(0px, 0px)`; // Активный элемент без смещения
+                    item.style.zIndex = `${baseZIndex + this.totalItems}`; // Самый высокий z-index
+                } else {
+                    // Неактивные элементы
+                    // Рассчитываем смещение относительно активного элемента
+                    // Элементы, идущие после активного, должны быть смещены вправо-вниз и находиться под ним.
+                    // Элементы, идущие до активного, должны быть смещены вправо-вниз, но находиться над ними.
+
+                    let offsetIndex;
+                    if (index > this.currentIndex) {
+                        offsetIndex = index - this.currentIndex; // Если элемент после активного
+                    } else {
+                        offsetIndex =
+                            this.totalItems - this.currentIndex + index; // Если элемент до активного (переходит в конец стопки)
+                    }
+
+                    const translateX = offsetIndex * offsetXStep;
+                    const translateY = offsetIndex * offsetYStep;
+
+                    item.style.transform = `translate(${translateX}px, ${translateY}px)`;
+                    item.style.zIndex = `${baseZIndex - offsetIndex}`; // Чем дальше, тем ниже z-index
+                }
+            });
+        }
+    }
+
+    // Инициализация карусели при загрузке DOM
+    document.addEventListener("DOMContentLoaded", () => {
+        try {
+            new Carousel(".carousel-container");
+        } catch (error) {
+            console.error("Failed to initialize carousel:", error);
+        }
+    });
+</script>
+
 <style>
+    /* main banner */
+
+    .main-banner-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 3rem;
+        margin: 1rem;
+
+        background-image: url(/src/assets/images/PurpleBannerBg.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .main-banner-container-top {
+        display: flex;
+        justify-content: center;
+    }
+    .main-banner-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 0 0 3.5rem 3.625rem;
+    }
+    .main-banner-container-bottom {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        border-top: 1px dashed oklch(from var(--light-stroke) l c h);
+        padding-top: 1.5rem;
+    }
+    .main-banner-container-bottom.angles-white::before{
+        z-index: 1;
+        background: conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g) 0) 0 0 / var(--_p),
+        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p);
+         
+    }
+    .main-banner-container-bottom__props {
+        display: flex;
+        gap: 1.5rem;
+        max-width: 25%;
+    }
+    .main-banner-container-bottom__props p {
+        max-width: 70%;
+    }
+    .props-icon {
+        width: 70px;
+        padding: 1rem;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .props-icon.angles-white{
+        z-index: 1;
+    }
+
     .article-container {
         display: flex;
         justify-content: space-evenly;
@@ -509,7 +838,7 @@ const myPath = [
         gap: 2rem;
         position: relative;
     }
-    .form img{
+    .form img {
         position: absolute;
     }
     .form-bg {
@@ -540,7 +869,7 @@ const myPath = [
         top: 2%;
         right: 2%;
     }
-    .contact-form-container p{
+    .contact-form-container p {
         max-width: 26rem;
     }
     input:not(.product-catalog input) {
@@ -576,5 +905,161 @@ const myPath = [
     .purple {
         color: oklch(from var(--purple-text) l c h);
         text-decoration: underline;
+    }
+
+    /* карусель */
+    :root {
+        --item-width: 300px;
+        --item-active-width: 350px;
+        --item-min-height: 250px;
+        --item-active-height: 400px;
+        --offset-x-step: 112px; /* Устанавливаем 112px вправо */
+        --offset-y-step: 66px; /* Устанавливаем 66px вниз */
+        --base-z-index: 10;
+    }
+
+    /* Новая обертка для всего блока */
+    .carousel-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        margin: 1rem;
+    }
+
+    .carousel-container {
+        position: relative;
+        /* Увеличим ширину и высоту контейнера, чтобы все карточки были видны с новым смещением */
+        width: calc(
+            var(--item-active-width) + (var(--offset-x-step) * 3)
+        ); /* 3 смещения для 4 карточек */
+        height: calc(
+            var(--item-active-height) + (var(--offset-y-step) * 3)
+        ); /* 3 смещения для 4 карточек */
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow: visible;
+    }
+
+    .carousel-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .carousel-item {
+        position: absolute;
+        background-color: var(--bg);
+        padding: 20px;
+        width: var(--item-width);
+        min-height: var(--item-min-height);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid transparent;
+        left: 0;
+        top: 0;
+        pointer-events: none;
+    }
+
+    .carousel-item.active {
+        width: var(--item-active-width);
+        min-height: var(--item-active-height);
+        z-index: var(--base-z-index);
+        padding-bottom: 4rem;
+        pointer-events: auto;
+    }
+
+    /* Градиентная рамка для активного элемента */
+    .carousel-item.active::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        z-index: -1;
+    }
+
+    .item-header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .item-header img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+
+    .item-details {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 3.375rem;
+        max-height: 0;
+        transition:
+            max-height 0.5s ease-out,
+            opacity 0.3s ease-out;
+        opacity: 0;
+        text-transform: uppercase;
+    }
+
+    .carousel-item.active .item-details {
+        max-height: 200px;
+        opacity: 1;
+    }
+
+    .item-title {
+        color: oklch(from var(--white) l c h);
+    }
+
+    .detail-text {
+        font-size: 14px;
+        color: oklch(from var(--grey-text) l c h);
+        font-family: "JetBrainsMono";
+        ul {
+            list-style: none;
+        }
+        li {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+    }
+
+    .carousel-navigation {
+        display: flex;
+        gap: 20px;
+        z-index: 20;
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .nav-arrow svg {
+        fill: oklch(from var(--white) l c h);
+        stroke: oklch(from var(--white) l c h);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .nav-arrow:hover svg {
+        fill: oklch(from var(--purple-text) l c h);
+        stroke: oklch(from var(--purple-text) l c h);
+    }
+    .prev {
+        transform: rotate(180deg);
     }
 </style>

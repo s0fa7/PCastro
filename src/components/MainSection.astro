@@ -4,6 +4,10 @@ import PurpleTag from "./PurpleTag.astro";
 import BigButton from "./BigButton.astro";
 import CookieBanner from "./CookieBanner.astro";
 
+import StarIcon1 from "../assets/icons/StarIcon1.svg"
+import StarIcon2 from "../assets/icons/StarIcon2.svg"
+import StarIcon3 from "../assets/icons/StarIcon3.svg"
+
 interface Props {
     background?: string;
     purpleBoxText?: string;
@@ -52,33 +56,21 @@ const {
             <div class="right-top">{rightTopText}</div>
             <div class="features">
                 <div class="feature">
-                    <div class="angles-white">
-                        <img
-                            class="feature-icon angles-white"
-                            src="/src/assets/icons/StarIcon1.svg"
-                            alt="icon"
-                        />
-                    </div>
+                        <div class="feature-icon angles-white">
+                            <StarIcon1 width={30} height={30}/>
+                        </div>
                     <span>{text1}</span>
                 </div>
                 <div class="feature">
-                    <div class="angles-white">
-                        <img
-                            class="feature-icon angles-white"
-                            src="/src/assets/icons/StarIcon2.svg"
-                            alt="icon"
-                        />
-                    </div>
+                    <div class="feature-icon angles-white">
+                            <StarIcon2 width={30} height={30}/>
+                        </div>
                     <span>{text2}</span>
                 </div>
                 <div class="feature">
-                    <div class="angles-white">
-                        <img
-                            class="feature-icon angles-white"
-                            src="/src/assets/icons/StarIcon3.svg"
-                            alt="icon"
-                        />
-                    </div>
+                    <div class="feature-icon angles-white">
+                            <StarIcon3 width={30} height={30}/>
+                        </div>
                     <span>{text3}</span>
                 </div>
             </div>
@@ -88,9 +80,9 @@ const {
 
 <style>
     .main-section {
-        background-image: url(../assets/images/BgElements.png);
+        /* background-image: url(../assets/images/BgElements.png);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: cover; */
 
         height: 1014px;
         max-width: 1919px;
@@ -176,7 +168,10 @@ const {
         width: 70px;
         height: 70px;
         border: 1px dashed hsla(0, 0%, 100%, 0.5);
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
     }
 
     .config-btn {

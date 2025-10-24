@@ -88,6 +88,7 @@ const {
     gap: 5rem;
     justify-content: flex-start;
     align-items: flex-start;
+    padding: 1rem;
   }
   .header-tittle__info {
     display: flex;
@@ -129,7 +130,42 @@ const {
 
   .angles-white::before {
     background:
-        conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g) 0) 0 0 / var(--_p),
-        conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100% 0 / var(--_p);
-}
+      conic-gradient(from 90deg at top var(--b) left var(--b), var(--_g) 0) 0 0 /
+        var(--_p),
+      conic-gradient(from 180deg at top var(--b) right var(--b), var(--_g)) 100%
+        0 / var(--_p);
+  }
+
+  @media (max-width: 1024px){
+    header{
+      padding-bottom: 2.25rem;
+    }
+    .header-tittle{
+      flex-direction: column;
+      gap: 2.25rem;
+    }
+    .header-tittle__info{
+      gap: 2rem;
+    }
+    .header-tittle__info h2{
+      font-size: 24px;
+    }
+    .header-tittle__info p{
+      font-size: 14px;
+    }
+    .articles{
+      flex-direction: column;
+      align-items: center;
+    }
+    .article{
+      width: 100%;
+      padding: 0 1rem;
+    }
+    .article h3{
+      font-size: 20px;
+    }
+    .article p{
+      font-size: 14px;
+    }
+  }
 </style>
