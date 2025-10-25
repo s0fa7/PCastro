@@ -39,10 +39,6 @@ const { buttonText, hrefPage, classes, ...attrs } = Astro.props;
         color: oklch(from var(--bg) l c h);
     }
 
-    /* .cyber-button:hover {
-        box-shadow: 0 5px 20px oklch(from var(--purple) l c h);
-    } */
-
     .icon-container {
         background-image: url(src/assets/icons/BtnBgBlack.svg);
         background-repeat: no-repeat;
@@ -58,5 +54,13 @@ const { buttonText, hrefPage, classes, ...attrs } = Astro.props;
     }
     .icon-container span{
         color: oklch(from var(--purple) l c h);
+    }
+    @media (max-width: 1024px) {
+        .cyber-button{
+            padding: 1rem;
+        }
+        .cyber-button span {
+            font-size: 12px;
+        }
     }
 </style>

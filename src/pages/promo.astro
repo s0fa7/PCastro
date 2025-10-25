@@ -124,15 +124,6 @@ const customArticles = [
 
         color: oklch(from var(--text) l c h);
     }
-    @media (max-width: 850px) {
-        .news-tittle {
-            flex-direction: column;
-            text-align: left;
-        }
-        .news-tittle p {
-            text-align: left;
-        }
-    }
     .news-tittle p {
         max-width: 38.125rem;
         font-weight: 600;
@@ -145,5 +136,24 @@ const customArticles = [
         flex-wrap: wrap;
         justify-content: space-evenly;
         gap: 1rem;
+    }
+    @media (max-width: 1024px) {
+        .news{
+            gap: 2rem;
+            margin: 1rem auto;
+        }
+        .news-tittle {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .news-tittle h2{
+            font-size: 30px;
+        }
+        .news-tittle p {
+            text-align: start;
+        }
+        .news-cards{
+            justify-content: center;
+        }
     }
 </style>

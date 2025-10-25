@@ -91,17 +91,6 @@
   .btn:hover {
     text-decoration: none;
   }
-
-  /* .btn-primary {
-    background-color: oklch(from var(--rose-600) l c h);
-
-    transition: background-color 0.2s ease-in-out;
-  }
-
-  .btn-primary:hover {
-    background-color: oklch(from var(--rose-500) l c h);
-  } */
-
   input {
     border: none;
 
@@ -122,4 +111,10 @@
     font-size: 0.875rem;
     font-weight: 500;
   }
+
+   @media (max-width: 1024px) {
+    section{
+      margin: 3.75rem 0;
+    }
+   }
 }

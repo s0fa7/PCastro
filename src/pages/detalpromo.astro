@@ -153,7 +153,7 @@ const myPath = [
     .article-container p {
         font-family: "JetBrainsMono";
         font-size: 16px;
-        font-size: 600;
+        font-weight: 600;
         line-height: 120%;
     }
 
@@ -210,5 +210,42 @@ const myPath = [
         flex-direction: column;
         max-width: 40%;
         gap: 3rem;
+    }
+    @media (max-width: 1024px) {
+        h2 {
+            font-size: 24px;
+            padding: 1rem;
+            margin: 0 auto;
+        }
+        .article-container h3{
+            font-size: 20px;
+        }
+        .article-container{
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
+        .article,
+        .article.article.middle {
+            flex-direction: column;
+            padding: 1rem;
+            align-items: flex-start;
+        }
+        .article img,
+        .article-caption,
+        .article-bottom {
+            width: 90%;
+            max-width: 90%;
+            gap: 1.5rem;
+        }
+        .article-bottom{
+            padding: 1rem 2rem 1rem;
+            ul{
+                padding: 0 0 0 1rem;
+            }
+        }
+        .article-container li,
+        .article-container p {
+            font-size: 14px;
+        }
     }
 </style>

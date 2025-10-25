@@ -106,7 +106,7 @@ const customArticles = [
                             которым была произведена оплата.
                         </p>
                     </div>
-                    <OrderButton text="скачать заявление на возврат" class=""/>
+                    <OrderButton text="скачать заявление на возврат" class="" />
                 </div>
                 <div id="content-2" class="content-block">
                     <p>
@@ -258,7 +258,7 @@ const customArticles = [
 
         padding: 0 2rem;
     }
-    .content-block__text{
+    .content-block__text {
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -289,9 +289,46 @@ const customArticles = [
     }
 
     .angles-white::before {
-    --c: #D8EBEE33;
+        --c: #d8ebee33;
     }
     .active.angles-white::before {
-    --c: #ffffff;
+        --c: #ffffff;
+    }
+
+    @media (max-width: 1024px) {
+        .warranty-header{
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        .warranty-header h2{
+            font-size: 30px;
+        }
+        .warranty-content{
+            flex-direction: column;
+        }
+        .sidebar{
+            flex-direction: row;
+            overflow: scroll;
+            gap: 1rem;
+        }
+        .tab-btn{
+            font-size: 14px;
+            padding: 12px 14px;
+        }
+        .tab-btn img{
+            width: 24px;
+            height: 24px;
+        }
+        .content{
+            padding: 25px 0;
+        }
+        .content-block{
+            padding: 0;
+        }
+        .content-block__text p,
+        .label,
+        .warranty-header p{
+            font-size: 14px;
+        }
     }
 </style>

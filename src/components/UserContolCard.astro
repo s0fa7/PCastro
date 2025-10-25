@@ -19,7 +19,7 @@ const {
         <p class="card-description">{description}</p>
     </div>
 
-    <OrderButton text="перейти в каталог" />
+    <OrderButton text="перейти в каталог" class="card-btn" />
 </div>
 
 <style>
@@ -45,7 +45,7 @@ const {
     }
 
     .card-image {
-        width: 160px; 
+        width: 160px;
         height: 160px;
     }
 
@@ -53,7 +53,7 @@ const {
         font-size: 46px;
     }
 
-    .card-caption{
+    .card-caption {
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -70,5 +70,39 @@ const {
         max-width: 710px;
         font-weight: 600;
         font-family: "JetBrainsMono";
+    }
+    @media (max-width: 1024px) {
+        .card-content {
+            gap: 1.2rem;
+            max-height: 281px;
+            max-width: 400px;
+            padding: 24px 0;
+        }
+        .card-image {
+            width: 54px;
+            height: 54px;
+        }
+        .card-title {
+            font-size: 16px;
+        }
+        .card-caption {
+            gap: 10px;
+        }
+        .card-subtitle {
+            font-size: 14px;
+        }
+        .card-description{
+            font-size: 10px;
+            max-width: 264px;
+        }
+        .card-btn{
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 1024px) {
+        .card-content {
+            max-width: 290px;
+            padding: 19px 0;
+        }
     }
 </style>
