@@ -26,7 +26,7 @@ const { buttonText, hrefPage, classes, ...attrs } = Astro.props;
         height: auto;
         max-width: 358px;
 
-        padding: 1.6rem; 
+        padding: 1.6rem;
         background-image: url(src/assets/icons/BigBtnBackground.svg);
         background-repeat: no-repeat;
         background-size: contain;
@@ -40,27 +40,42 @@ const { buttonText, hrefPage, classes, ...attrs } = Astro.props;
     }
 
     .icon-container {
-        background-image: url(src/assets/icons/BtnBgBlack.svg);
+        /* background-image: url(src/assets/icons/BtnBgBlack.svg);
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: cover; */
 
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         width: 54px;
         height: 54px;
         padding: 1rem;
+        clip-path: polygon(
+            20% 0,
+            80% 0,
+            100% 20%,
+            100% 80%,
+            80% 100%,
+            20% 100%,
+            0 80%,
+            0 20%
+        );
+        background: oklch(from var(--bg) l c h);
     }
-    .icon-container span{
+    .icon-container span {
         color: oklch(from var(--purple) l c h);
     }
     @media (max-width: 1024px) {
-        .cyber-button{
+        .cyber-button {
             padding: 1rem;
         }
         .cyber-button span {
             font-size: 12px;
+        }
+        .icon-container {
+            width: 2rem;
+            height: 2rem;
         }
     }
 </style>

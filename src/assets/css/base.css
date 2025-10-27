@@ -96,6 +96,7 @@
 
     font-family: "EuropeExt", sans-serif;
     font-size: inherit;
+    color: oklch(from var(--white) l c h);
 
     background-color: transparent;
   }
@@ -115,6 +116,9 @@
    @media (max-width: 1024px) {
     section{
       margin: 3.75rem 0;
+    }
+    h2{
+      font-size: 30px;
     }
    }
 }

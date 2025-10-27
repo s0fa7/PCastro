@@ -130,7 +130,6 @@ const {
     .basket-container-row:last-child {
         padding: 0 0 0 2rem;
         border-right: none;
-        max-width: 350px;
     }
     .basket-container-row__index {
         font-family: "JetBrainsMono";
@@ -163,6 +162,7 @@ const {
     .basket-container-row__info h5 {
         font-size: 20px;
         text-transform: uppercase;
+        max-width: 350px;
     }
     .basket-container-row__info ul {
         list-style: none;
@@ -189,6 +189,38 @@ const {
         padding: 8px 9px;
         .btn{
             padding: 0;
+        }
+    }
+    @media (max-width: 1024px) {
+        .basket-container{
+            max-width: 100%;
+            min-width: 0;
+            min-height: 18,875rem;
+            padding: 20px 16px;
+        }
+        .basket-container-row__info h5{
+            font-size: 10px;
+        }
+        .basket-container-row-interactive span{
+            font-size: 12px;
+        }
+        .basket-container-row__info,
+        .basket-container-row__index,
+        .basket-container-row__article{
+            font-size: 8px;
+        }
+        .basket-container-row-interactive svg{
+            width: 12px;
+            height: 12px;
+        }
+        .basket-container-row{
+            padding: 0 1rem 0 2px;
+        }
+        .basket-container-row:last-child{
+            padding: 0 0 0 0.5rem;
+        }
+        .basket-container-row img{
+            width: 100%;
         }
     }
 </style>

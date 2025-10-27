@@ -424,6 +424,16 @@ const myPath = [
         color: oklch(from var(--purple-text) l c h);
         text-decoration: underline;
     }
+    .order-form option {
+        background-color: oklch(from var(--card) l c h);
+        color: oklch(from var(--white) l c h);
+        border: 1px solid oklch(from var(--stroke) l c h);
+        font-size: 14px;
+        border: none;
+    }
+    .order-form option:hover {
+        background-color: oklch(from var(--purple) l c h);
+    }
     /* ---------- MEDIA ---------- */
     @media (max-width: 1100px) {
         .container {
@@ -435,13 +445,63 @@ const myPath = [
             border-right: none;
         }
     }
-    @media (max-width: 620px) {
+    @media (max-width: 1024px) {
+        .header-container {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0 1rem;
+            gap: 2rem;
+        }
+        .header-container__info {
+        }
+        .header-container__info sup {
+            font-size: 20px;
+        }
+        .header-container__info p,
+        .cart-head,
+        .optionals span,
+        .contacts-block p,
+        .summary-row {
+            font-size: 14px;
+        }
+        .header-container__order {
+            font-size: 22px;
+        }
         .container {
             padding: 4px;
         }
         .cart,
         .order-form {
             padding: 10px;
+        }
+        .optionals label,
+        .order-bottom__info {
+            font-size: 10px;
+        }
+        .optionals {
+            gap: 14px;
+        }
+        .contacts-block h4,
+        .summary-row__total h4 {
+            font-size: 16px;
+        }
+        .contacts-info,
+        .order-form label {
+            font-size: 12px;
+        }
+        .order-form input,
+        .order-form textarea,
+        .order-form select {
+            padding: 18px 16px;
+        }
+        .delivery-methods{
+            gap: 1.5rem;
+        }
+        .delivery-method{
+            gap: 0.5rem;
+        }
+        .summary-row__price{
+            font-size: 22px;
         }
     }
 </style>

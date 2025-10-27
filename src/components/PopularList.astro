@@ -61,6 +61,11 @@ import Ram from "../assets/images/products/product-card/ram.png";
     padding-inline: 1rem;
   }
 
+  @media (width < 768px) {
+    .popular-list {
+      grid-template-columns: none;
+    }
+  }
   @media (width >= 768px) {
     .popular-list {
       grid-template-columns: repeat(2, 1fr);

@@ -29,29 +29,25 @@ const photosJson = JSON.stringify(photos);
   <div class="column last photo-gallery-container" data-photos={photosJson}>
     {
       // Показываем только первые 3 фотографии в превью
-      photos
-        .slice(0, 3)
-        .map((photo: string, i: number) => (
-          // Класс photo-review используется для прослушивания кликов
-          <img
-            src={photo}
-            alt={`photo-${i}`}
-            class="photo-review angles-white"
-            data-index={i}
-          />
-        ))
+      photos.slice(0, 3).map((photo: string, i: number) => (
+        // Класс photo-review используется для прослушивания кликов
+        <img
+          src={photo}
+          alt={`photo-${i}`}
+          class="photo-review angles-white"
+          data-index={i}
+        />
+      ))
     }
   </div>
 </div>
-
 
 <dialog class="photo-modal-component">
   <div class="modal-content">
     <button class="close-modal-btn" aria-label="Закрыть модальное окно">
       &times;
     </button>
-    <div class="full-gallery-grid-content">
-      </div>
+    <div class="full-gallery-grid-content"></div>
   </div>
 </dialog>
 
@@ -59,25 +55,37 @@ const photosJson = JSON.stringify(photos);
   // Логика клиентского скрипта с использованием TypeScript-синтаксиса
 
   // НАХОДИМ ВСЕ КОМПОНЕНТЫ НА СТРАНИЦЕ
-  document.querySelectorAll('.review-container').forEach(container => {
-    const gallery = container.querySelector('.photo-gallery-container') as HTMLElement;
+  document.querySelectorAll(".review-container").forEach((container) => {
+    const gallery = container.querySelector(
+      ".photo-gallery-container",
+    ) as HTMLElement;
     // Находим ближайший элемент dialog с классом photo-modal-component
-    const modal = container.nextElementSibling?.matches('.photo-modal-component') 
-      ? container.nextElementSibling as HTMLDialogElement 
-      : document.querySelector('.photo-modal-component') as HTMLDialogElement | null;
-    
+    const modal = container.nextElementSibling?.matches(
+      ".photo-modal-component",
+    )
+      ? (container.nextElementSibling as HTMLDialogElement)
+      : (document.querySelector(
+          ".photo-modal-component",
+        ) as HTMLDialogElement | null);
+
     // Элементы внутри модального окна
-    const fullGalleryContainer = modal?.querySelector('.full-gallery-grid-content') as HTMLElement;
-    const closeModalBtn = modal?.querySelector('.close-modal-btn');
-    
+    const fullGalleryContainer = modal?.querySelector(
+      ".full-gallery-grid-content",
+    ) as HTMLElement;
+    const closeModalBtn = modal?.querySelector(".close-modal-btn");
+
     if (!gallery || !modal || !fullGalleryContainer) {
-      console.warn('Не удалось найти необходимые элементы для модального окна.');
+      console.warn(
+        "Не удалось найти необходимые элементы для модального окна.",
+      );
       return;
     }
 
     // Парсим JSON-строку с URL-адресами всех фотографий
-    const photosDataString = gallery.getAttribute('data-photos');
-    const photos: string[] = photosDataString ? JSON.parse(photosDataString) : [];
+    const photosDataString = gallery.getAttribute("data-photos");
+    const photos: string[] = photosDataString
+      ? JSON.parse(photosDataString)
+      : [];
 
     if (photos.length === 0) {
       // Если нет фотографий, не добавляем слушатели
@@ -88,18 +96,18 @@ const photosJson = JSON.stringify(photos);
      * Заполняет модальное окно всеми фотографиями из массива.
      */
     const populateModalGallery = () => {
-      fullGalleryContainer.innerHTML = ''; // Очищаем
-      
+      fullGalleryContainer.innerHTML = ""; // Очищаем
+
       photos.forEach((photoUrl, index) => {
-        const photoElement = document.createElement('img');
+        const photoElement = document.createElement("img");
         photoElement.src = photoUrl;
         photoElement.alt = `Photo ${index + 1}`;
-        photoElement.classList.add('modal-grid-photo');
-        
+        photoElement.classList.add("modal-grid-photo");
+
         fullGalleryContainer.appendChild(photoElement);
       });
     };
-    
+
     /**
      * Открывает модальное окно.
      */
@@ -109,21 +117,21 @@ const photosJson = JSON.stringify(photos);
     };
 
     // Обработчик кликов на миниатюры-превью в основном компоненте
-    gallery.addEventListener('click', (event) => {
+    gallery.addEventListener("click", (event) => {
       const target = event.target as HTMLElement;
       // Открываем модальное окно при клике на любую из миниатюр
-      if (target && target.classList.contains('photo-review')) {
+      if (target && target.classList.contains("photo-review")) {
         openModal();
       }
     });
 
     // Обработчик закрытия
-    closeModalBtn?.addEventListener('click', () => {
+    closeModalBtn?.addEventListener("click", () => {
       modal.close();
     });
 
     // Закрытие модального окна по клику вне его (стандартное поведение <dialog>)
-    modal.addEventListener('click', (event) => {
+    modal.addEventListener("click", (event) => {
       if (event.target === modal) {
         modal.close();
       }
@@ -198,7 +206,6 @@ const photosJson = JSON.stringify(photos);
     border: 1px dashed #ffffff80;
   }
 
-
   /* Стили для модального окна */
   .photo-modal-component {
     border: none;
@@ -219,11 +226,11 @@ const photosJson = JSON.stringify(photos);
     padding: 20px;
     background: #ffffff00;
     max-height: 90vh;
-    overflow-y: auto; 
+    overflow-y: auto;
   }
 
   .close-modal-btn {
-    position: sticky; 
+    position: sticky;
     top: 0;
     right: 0;
     margin-left: auto;
@@ -242,7 +249,7 @@ const photosJson = JSON.stringify(photos);
     /* Отзывчивая сетка: от 150px до 1fr, максимум 3-4 столбца */
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
-    padding-top: 5px; 
+    padding-top: 5px;
   }
 
   .modal-grid-photo {
@@ -261,5 +268,56 @@ const photosJson = JSON.stringify(photos);
 
   .photo-review:hover {
     transform: scale(1.05);
+  }
+  @media (max-width: 375px) {
+    .price-card {
+      max-width: none;
+      width: 313px;
+      height: 452px;
+      padding: 50px 20px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .review-container {
+      width: 100%;
+      height: 276px;
+      padding: 28px 10px 21px 12px;
+      background-position: left;
+    }
+    .author {
+      font-size: 10px;
+      width: 80px;
+      top: 0.25rem;
+      left: -1.8rem;
+    }
+    .review-icon {
+      width: 26px;
+      height: 25px;
+      font-size: 8px;
+      padding: 2px;
+    }
+    .review-icon svg {
+      width: 7.5px;
+      height: 7.5px;
+    }
+    .column {
+      padding: 0 10px;
+    }
+    .column:nth-child(2) {
+      overflow-y: scroll;
+    }
+    .column.last {
+      justify-content: flex-end;
+    }
+    .column h4 {
+      font-size: 16px;
+    }
+    .column p {
+      font-size: 10px;
+    }
+    .photo-review {
+      width: 40px;
+      height: 40px;
+    }
   }
 </style>
