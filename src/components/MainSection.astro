@@ -4,9 +4,9 @@ import PurpleTag from "./PurpleTag.astro";
 import BigButton from "./BigButton.astro";
 import CookieBanner from "./CookieBanner.astro";
 
-import StarIcon1 from "../assets/icons/StarIcon1.svg"
-import StarIcon2 from "../assets/icons/StarIcon2.svg"
-import StarIcon3 from "../assets/icons/StarIcon3.svg"
+import StarIcon1 from "../assets/icons/StarIcon1.svg";
+import StarIcon2 from "../assets/icons/StarIcon2.svg";
+import StarIcon3 from "../assets/icons/StarIcon3.svg";
 
 interface Props {
     background?: string;
@@ -36,7 +36,7 @@ const {
     <div class="configurator">
         <div
             class="left"
-            style={`background-image: url(${background}); background-size: cover; background-position: center;`}
+            style={`background-image: url(${background}); background-size: contain; background-position: top; background-repeat: no-repeat;`}
         >
             <div class="banner-info">
                 <PurpleTag text={purpleBoxText} />
@@ -56,21 +56,21 @@ const {
             <div class="right-top">{rightTopText}</div>
             <div class="features">
                 <div class="feature">
-                        <div class="feature-icon angles-white">
-                            <StarIcon1 width={30} height={30}/>
-                        </div>
+                    <div class="feature-icon angles-white">
+                        <StarIcon1 width={30} height={30} />
+                    </div>
                     <span>{text1}</span>
                 </div>
                 <div class="feature">
                     <div class="feature-icon angles-white">
-                            <StarIcon2 width={30} height={30}/>
-                        </div>
+                        <StarIcon2 width={30} height={30} />
+                    </div>
                     <span>{text2}</span>
                 </div>
                 <div class="feature">
                     <div class="feature-icon angles-white">
-                            <StarIcon3 width={30} height={30}/>
-                        </div>
+                        <StarIcon3 width={30} height={30} />
+                    </div>
                     <span>{text3}</span>
                 </div>
             </div>
@@ -180,7 +180,25 @@ const {
         right: 1%;
     }
 
-    @media (max-width: 770px) {
+    @media (max-width: 1710px) {
+        .config-btn {
+            bottom: 10%;
+        }
+    }
+    @media (max-width: 1560px) {
+        .main-section{
+            height: 800px;
+        }
+        .config-btn {
+            right: 5%;
+        }
+    }
+    @media (max-width: 1365px) {
+        .main-section{
+            height: 600px;
+        }
+    }
+    @media (max-width: 1024px) {
         .banner-info h2 {
             font-size: 30px;
         }

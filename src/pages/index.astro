@@ -317,7 +317,7 @@ const customArticles = [
         align-items: center;
         margin: 0 5rem;
     }
-    
+
     .brands {
         display: flex;
         gap: 2rem;
@@ -425,5 +425,20 @@ const customArticles = [
     }
     .hidden {
         display: none;
+    }
+    @media (max-width: 1024px) {
+        .brands {
+            overflow: scroll;
+        }
+        .reviews-container {
+            flex-direction: row;
+            overflow: scroll;
+        }
+        .brands-tittle {
+            margin: 1rem;
+        }
+        .brands-tittle__btn button {
+            font-size: 30px;
+        }
     }
 </style>

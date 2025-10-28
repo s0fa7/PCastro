@@ -245,10 +245,10 @@ const photosJson = JSON.stringify(photos);
   }
 
   .full-gallery-grid-content {
-    display: grid;
-    /* Отзывчивая сетка: от 150px до 1fr, максимум 3-4 столбца */
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    overflow: scroll;
     padding-top: 5px;
   }
 

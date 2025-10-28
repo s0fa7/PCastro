@@ -1062,4 +1062,30 @@ const myPath = [
     .prev {
         transform: rotate(180deg);
     }
+    @media (max-width: 1024px) {
+        .main-banner-info__text p{
+            font-size: 14px;
+            max-width: 319px;
+        }
+        .main-banner-container{
+            padding: 12px;
+        }
+        .main-banner-container-top,
+        .main-banner-container-bottom{
+            flex-direction: column;
+        }
+        .main-banner-info{
+            padding: 0;
+        }
+        .carousel-wrapper{
+            margin: 0;
+            padding: 1rem 3rem;
+        }
+        .main-banner-container-bottom{
+            padding-left: 2rem;
+        }
+        .main-banner-container-bottom__props{
+            max-width: 100%; 
+        }
+    }
 </style>

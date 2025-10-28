@@ -59,7 +59,7 @@ const PathProducts = [
         </div>
 
         <div class="configurator" role="region" aria-label="Конфигуратор ПК">
-            <div class="left">
+            <div class="left angles">
                 <div>
                     <div class="preview-label">внешний вид://</div>
                     <div class="preview" aria-hidden="true">
@@ -212,33 +212,35 @@ const PathProducts = [
                                         <span>Артикул:// 1235426</span>
                                     </div>
                                 </div>
-                                <div class="comp-left__product">
-                                    <img
-                                        src="/src/assets/images/castom/case.png"
-                                        alt="корпус"
-                                    />
-                                    <div class="comp-left__product-info">
-                                        <span
-                                            >корпус MSI MAG FORGE M100A ARGB
-                                            306-7G20A21-809</span
+                                <div class="comp-left__product-infbtn">
+                                    <span>2 520₽</span>
+                                    <div class="detail-actions">
+                                        <button
+                                            class="btn-ghost btn catalog-btn"
+                                            title="Редактировать"
                                         >
-                                        <span>Артикул:// 1235426</span>
+                                            <Reset width={30} height={30} />
+                                        </button>
+                                        <button
+                                            class="btn-ghost btn error-btn"
+                                            title="Удалить"
+                                        >
+                                            <Trash width={30} height={30} />
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                             <div class="comp-left__price">
                                 <span>2 520₽</span>
-                                <span>2 520₽</span>
                             </div>
                         </div>
-                        <div class="detail-actions">
+                        <div class="detail-actions selected">
                             <button
                                 class="btn-ghost btn catalog-btn"
                                 title="Редактировать"
                             >
                                 <Reset width={30} height={30} />
                             </button>
-                            <!-- здесь пока модалка с ошибкой -->
                             <button
                                 class="btn-ghost btn error-btn"
                                 title="Удалить"
@@ -270,6 +272,23 @@ const PathProducts = [
                                         <span>Артикул:// 1235426</span>
                                     </div>
                                 </div>
+                                <div class="comp-left__product-infbtn">
+                                    <span>2 520₽</span>
+                                    <div class="detail-actions">
+                                        <button
+                                            class="btn-ghost btn catalog-btn"
+                                            title="Редактировать"
+                                        >
+                                            <Reset width={30} height={30} />
+                                        </button>
+                                        <button
+                                            class="btn-ghost btn error-btn"
+                                            title="Удалить"
+                                        >
+                                            <Trash width={30} height={30} />
+                                        </button>
+                                    </div>
+                                </div>
                                 <div class="comp-left__product">
                                     <img
                                         src="/src/assets/images/castom/lenta.png"
@@ -280,13 +299,30 @@ const PathProducts = [
                                         <span>Артикул:// 1235426</span>
                                     </div>
                                 </div>
+                                <div class="comp-left__product-infbtn">
+                                    <span>2 520₽</span>
+                                    <div class="detail-actions">
+                                        <button
+                                            class="btn-ghost btn catalog-btn"
+                                            title="Редактировать"
+                                        >
+                                            <Reset width={30} height={30} />
+                                        </button>
+                                        <button
+                                            class="btn-ghost btn error-btn"
+                                            title="Удалить"
+                                        >
+                                            <Trash width={30} height={30} />
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="comp-left__price">
                                 <span>2 520₽</span>
                                 <span>2 520₽</span>
                             </div>
                         </div>
-                        <div class="detail-actions">
+                        <div class="detail-actions selected">
                             <button class="btn-ghost btn" title="Редактировать">
                                 <Reset width={30} height={30} />
                             </button>
@@ -462,9 +498,28 @@ const PathProducts = [
                                     <span>Артикул:// 1235426</span>
                                 </div>
                             </div>
-                            <span>4 270₽</span>
+                            <div class="comp-left__product-infbtn">
+                                <span>2 520₽</span>
+                                <div class="detail-actions">
+                                    <button
+                                        class="btn-ghost btn catalog-btn"
+                                        title="Редактировать"
+                                    >
+                                        <Reset width={30} height={30} />
+                                    </button>
+                                    <button
+                                        class="btn-ghost btn error-btn"
+                                        title="Удалить"
+                                    >
+                                        <Trash width={30} height={30} />
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="comp-left__price">
+                                <span>4 270₽</span>
+                            </div>
                         </div>
-                        <div class="detail-actions">
+                        <div class="detail-actions selected">
                             <button class="btn-ghost btn" title="Редактировать">
                                 <Reset width={30} height={30} />
                             </button>
@@ -640,7 +695,6 @@ const PathProducts = [
             <div class="popup-choose">
                 <div class="product-catalog">
                     <div class="filter-container angles">
-
                         <div class="product-catalog">
                             <div class="filter-container angles">
                                 <div class="filter-header">
@@ -1024,975 +1078,1091 @@ const PathProducts = [
                     </div>
                 </div>
             </div>
-            <section>
-                <TheArticle
-                    mainTitle="Онлайн-конфигуратор компьютера с визуальной сборкой — соберите идеальный ПК прямо на сайте"
-                    tagText="конфигуратор"
-                    descriptionText="Планируете собрать игровой, офисный или рабочий компьютер? Наш онлайн-конфигуратор позволит вам сделать это легко и наглядно. На первом шаге выберите корпус, затем — процессор, систему охлаждения, материнскую плату, оперативную память, видеокарту и другие комплектующие. Все выбранные элементы отображаются прямо на экране, чтобы вы могли заранее оценить внешний вид и компоновку будущего компьютера. Конфигуратор автоматически проверит совместимость деталей и предложит только подходящие варианты, избавляя вас от необходимости разбираться в технических нюансах."
-                    articles={customArticles}
-                    showFeatures={true}
-                />
-            </section>
-            <Footer />
         </div>
+    </section>
+    <section>
+        <TheArticle
+            mainTitle="Онлайн-конфигуратор компьютера с визуальной сборкой — соберите идеальный ПК прямо на сайте"
+            tagText="конфигуратор"
+            descriptionText="Планируете собрать игровой, офисный или рабочий компьютер? Наш онлайн-конфигуратор позволит вам сделать это легко и наглядно. На первом шаге выберите корпус, затем — процессор, систему охлаждения, материнскую плату, оперативную память, видеокарту и другие комплектующие. Все выбранные элементы отображаются прямо на экране, чтобы вы могли заранее оценить внешний вид и компоновку будущего компьютера. Конфигуратор автоматически проверит совместимость деталей и предложит только подходящие варианты, избавляя вас от необходимости разбираться в технических нюансах."
+            articles={customArticles}
+            showFeatures={true}
+        />
+    </section>
+    <Footer />
+</Layout>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", () => {
-                // кнопки/попапы
-                const trashBtn =
-                    document.querySelector<HTMLButtonElement>(".trash-btn");
-                const popupReset =
-                    document.querySelector<HTMLDivElement>(".popup-reset");
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // кнопки/попапы
+        const trashBtn =
+            document.querySelector<HTMLButtonElement>(".trash-btn");
+        const popupReset =
+            document.querySelector<HTMLDivElement>(".popup-reset");
 
-                const saveBtn =
-                    document.querySelector<HTMLButtonElement>(".btn-save");
-                const popupSave =
-                    document.querySelector<HTMLDivElement>(".popup-save");
+        const saveBtn = document.querySelector<HTMLButtonElement>(".btn-save");
+        const popupSave = document.querySelector<HTMLDivElement>(".popup-save");
 
-                const formBtn =
-                    document.querySelector<HTMLButtonElement>(".form-btn");
-                const popupForm =
-                    document.querySelector<HTMLDivElement>(".popup-form");
+        const formBtn = document.querySelector<HTMLButtonElement>(".form-btn");
+        const popupForm = document.querySelector<HTMLDivElement>(".popup-form");
 
-                const catalogBtn =
-                    document.querySelector<HTMLButtonElement>(".catalog-btn");
-                const popupChoose =
-                    document.querySelector<HTMLDivElement>(".popup-choose");
+        const catalogBtn =
+            document.querySelector<HTMLButtonElement>(".catalog-btn");
+        const popupChoose =
+            document.querySelector<HTMLDivElement>(".popup-choose");
 
-                const errorBtn =
-                    document.querySelector<HTMLButtonElement>(".error-btn");
-                const popupError =
-                    document.querySelector<HTMLDivElement>(".popup-error");
+        const errorBtn =
+            document.querySelector<HTMLButtonElement>(".error-btn");
+        const popupError =
+            document.querySelector<HTMLDivElement>(".popup-error");
 
-                // создание/получение глобального overlay (body > .overlay)
-                const ensureGlobalOverlay = (): HTMLDivElement => {
-                    let global =
-                        document.querySelector<HTMLDivElement>(
-                            "body > .overlay",
-                        );
-                    if (!global) {
-                        global = document.createElement("div");
-                        global.classList.add("overlay");
-                        document.body.appendChild(global);
-                    }
-                    return global;
-                };
+        // создание/получение глобального overlay (body > .overlay)
+        const ensureGlobalOverlay = (): HTMLDivElement => {
+            let global =
+                document.querySelector<HTMLDivElement>("body > .overlay");
+            if (!global) {
+                global = document.createElement("div");
+                global.classList.add("overlay");
+                document.body.appendChild(global);
+            }
+            return global;
+        };
 
-                // WeakSet для отслеживания overlay, на которые уже навешен handler
-                const overlaysWithHandler = new WeakSet<Element>();
+        // WeakSet для отслеживания overlay, на которые уже навешен handler
+        const overlaysWithHandler = new WeakSet<Element>();
 
-                // Map для запоминания, что мы переместили (temporarily) popup внутрь глобального overlay:
-                const movedPopups = new WeakMap<
-                    HTMLElement,
-                    { parent: Node; nextSibling: Node | null }
-                >();
+        // Map для запоминания, что мы переместили (temporarily) popup внутрь глобального overlay:
+        const movedPopups = new WeakMap<
+            HTMLElement,
+            { parent: Node; nextSibling: Node | null }
+        >();
 
-                // возвращает overlay для popup: либо ближайший ancestor .overlay, либо глобальный
-                const getOverlayFor = (popup: Element): HTMLDivElement => {
-                    const ownOverlay =
-                        popup.closest<HTMLDivElement>(".overlay");
-                    return ownOverlay || ensureGlobalOverlay();
-                };
+        // возвращает overlay для popup: либо ближайший ancestor .overlay, либо глобальный
+        const getOverlayFor = (popup: Element): HTMLDivElement => {
+            const ownOverlay = popup.closest<HTMLDivElement>(".overlay");
+            return ownOverlay || ensureGlobalOverlay();
+        };
 
-                // добавляем обработчик клика по overlay (один раз)
-                const ensureOverlayHandler = (overlay: HTMLDivElement) => {
-                    if (overlaysWithHandler.has(overlay)) return;
+        // добавляем обработчик клика по overlay (один раз)
+        const ensureOverlayHandler = (overlay: HTMLDivElement) => {
+            if (overlaysWithHandler.has(overlay)) return;
 
-                    overlay.addEventListener("click", (e) => {
-                        if (e.target === overlay) {
-                            const activePopup =
-                                overlay.querySelector<HTMLElement>(
-                                    ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
-                                );
-                            if (activePopup) closePopup(activePopup);
-                        }
-                    });
-
-                    overlaysWithHandler.add(overlay);
-                };
-
-                const ensurePopupInsideOverlay = (
-                    popup: HTMLElement,
-                    overlay: HTMLDivElement,
-                ) => {
-                    const isInside = !!popup.closest(".overlay");
-                    if (!isInside && overlay.parentElement === document.body) {
-                        movedPopups.set(popup, {
-                            parent: popup.parentNode as Node,
-                            nextSibling: popup.nextSibling,
-                        });
-                        overlay.appendChild(popup);
-                    }
-                };
-
-                const restorePopupPosition = (popup: HTMLElement) => {
-                    const record = movedPopups.get(popup);
-                    if (!record) return;
-                    const { parent, nextSibling } = record;
-                    if (
-                        nextSibling &&
-                        (nextSibling as Node).parentNode === parent
-                    ) {
-                        parent.insertBefore(popup, nextSibling);
-                    } else {
-                        parent.appendChild(popup);
-                    }
-                    movedPopups.delete(popup);
-                };
-
-                const openPopup = (popup: HTMLElement) => {
-                    const overlay = getOverlayFor(popup);
-                    ensurePopupInsideOverlay(popup, overlay);
-                    overlay.classList.add("active");
-                    popup.classList.add("active");
-                    ensureOverlayHandler(overlay);
-
-                    const focusable = popup.querySelector<HTMLElement>(
-                        "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
+            overlay.addEventListener("click", (e) => {
+                if (e.target === overlay) {
+                    const activePopup = overlay.querySelector<HTMLElement>(
+                        ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
                     );
-                    focusable?.focus();
-                };
-
-                const closePopup = (popup: HTMLElement) => {
-                    const overlay = getOverlayFor(popup);
-                    overlay.classList.remove("active");
-                    popup.classList.remove("active");
-                    restorePopupPosition(popup);
-                };
-
-                // --- POPUP RESET ---
-                if (trashBtn && popupReset) {
-                    trashBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        openPopup(popupReset);
-                    });
-                    const cancelBtn = popupReset.querySelector<HTMLElement>(
-                        ".order-button, .popup-reset-btns button:last-child",
-                    );
-                    cancelBtn?.addEventListener("click", () =>
-                        closePopup(popupReset),
-                    );
+                    if (activePopup) closePopup(activePopup);
                 }
+            });
 
-                // --- POPUP ERROR ---
-                if (errorBtn && popupError) {
-                    errorBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        openPopup(popupError);
-                    });
-                    const cancelBtn = popupError.querySelector<HTMLElement>(
-                        ".popup-error__close",
-                    );
-                    cancelBtn?.addEventListener("click", () =>
-                        closePopup(popupError),
-                    );
-                }
+            overlaysWithHandler.add(overlay);
+        };
 
-                // --- POPUP SAVE ---
-                if (saveBtn && popupSave) {
-                    saveBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        openPopup(popupSave);
-                    });
+        const ensurePopupInsideOverlay = (
+            popup: HTMLElement,
+            overlay: HTMLDivElement,
+        ) => {
+            const isInside = !!popup.closest(".overlay");
+            if (!isInside && overlay.parentElement === document.body) {
+                movedPopups.set(popup, {
+                    parent: popup.parentNode as Node,
+                    nextSibling: popup.nextSibling,
+                });
+                overlay.appendChild(popup);
+            }
+        };
 
-                    const closeBtn =
-                        popupSave.querySelector<HTMLButtonElement>(
-                            ".popup-save__close",
-                        );
-                    closeBtn?.addEventListener("click", () =>
-                        closePopup(popupSave),
-                    );
+        const restorePopupPosition = (popup: HTMLElement) => {
+            const record = movedPopups.get(popup);
+            if (!record) return;
+            const { parent, nextSibling } = record;
+            if (nextSibling && (nextSibling as Node).parentNode === parent) {
+                parent.insertBefore(popup, nextSibling);
+            } else {
+                parent.appendChild(popup);
+            }
+            movedPopups.delete(popup);
+        };
 
-                    const copyBlock =
-                        popupSave.querySelector<HTMLDivElement>(".copy-text");
-                    if (copyBlock) {
-                        copyBlock.addEventListener("click", async () => {
-                            const text = copyBlock.innerText.trim();
-                            try {
-                                await navigator.clipboard.writeText(text);
-                                const original = text;
-                                copyBlock.classList.add("copied");
-                                copyBlock.innerText = "Скопировано!";
-                                setTimeout(() => {
-                                    copyBlock.innerText = original;
-                                    copyBlock.classList.remove("copied");
-                                }, 1500);
-                            } catch (err) {
-                                console.error("Ошибка копирования:", err);
-                            }
-                        });
-                    }
-                }
+        const openPopup = (popup: HTMLElement) => {
+            const overlay = getOverlayFor(popup);
+            ensurePopupInsideOverlay(popup, overlay);
+            overlay.classList.add("active");
+            popup.classList.add("active");
+            ensureOverlayHandler(overlay);
 
-                // --- POPUP FORM ---
-                if (formBtn && popupForm) {
-                    formBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        openPopup(popupForm);
-                    });
+            const focusable = popup.querySelector<HTMLElement>(
+                "button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])",
+            );
+            focusable?.focus();
+        };
 
-                    const closeBtn =
-                        popupForm.querySelector<HTMLButtonElement>(
-                            ".popup-form__close",
-                        );
-                    closeBtn?.addEventListener("click", () =>
-                        closePopup(popupForm),
-                    );
+        const closePopup = (popup: HTMLElement) => {
+            const overlay = getOverlayFor(popup);
+            overlay.classList.remove("active");
+            popup.classList.remove("active");
+            restorePopupPosition(popup);
+        };
 
-                    const cancelBtn =
-                        popupForm.querySelector<HTMLButtonElement>(
-                            ".popup-form__cancel",
-                        );
-                    cancelBtn?.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        closePopup(popupForm);
-                    });
+        // --- POPUP RESET ---
+        if (trashBtn && popupReset) {
+            trashBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupReset);
+            });
+            const cancelBtn = popupReset.querySelector<HTMLElement>(
+                ".order-button, .popup-reset-btns button:last-child",
+            );
+            cancelBtn?.addEventListener("click", () => closePopup(popupReset));
+        }
 
-                    const innerForm =
-                        popupForm.querySelector<HTMLFormElement>("form");
-                    if (innerForm) {
-                        innerForm.addEventListener("submit", async (e) => {
-                            e.preventDefault();
-                            const formData = new FormData(innerForm);
-                            console.log(
-                                "Submitting form via AJAX (simulated):",
-                            );
-                            for (const [k, v] of formData.entries())
-                                console.log(k, v);
+        // --- POPUP ERROR ---
+        if (errorBtn && popupError) {
+            errorBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupError);
+            });
+            const cancelBtn = popupError.querySelector<HTMLElement>(
+                ".popup-error__close",
+            );
+            cancelBtn?.addEventListener("click", () => closePopup(popupError));
+        }
 
-                            try {
-                                const submitBtn =
-                                    innerForm.querySelector<HTMLButtonElement>(
-                                        'button[type="submit"]',
-                                    );
-                                submitBtn?.setAttribute("disabled", "true");
-                                setTimeout(() => {
-                                    innerForm.reset();
-                                    submitBtn?.removeAttribute("disabled");
-                                    closePopup(popupForm);
-                                }, 700);
-                            } catch (err) {
-                                console.error("Ошибка отправки формы:", err);
-                            }
-                        });
-                    }
-                }
+        // --- POPUP SAVE ---
+        if (saveBtn && popupSave) {
+            saveBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupSave);
+            });
 
-                // --- POPUP CHOOSE ---
-                if (catalogBtn && popupChoose) {
-                    catalogBtn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        openPopup(popupChoose);
-                    });
+            const closeBtn =
+                popupSave.querySelector<HTMLButtonElement>(
+                    ".popup-save__close",
+                );
+            closeBtn?.addEventListener("click", () => closePopup(popupSave));
 
-                    const closeBtn =
-                        popupChoose.querySelector<HTMLButtonElement>(
-                            ".popup-choose-btn__close",
-                        );
-                    closeBtn?.addEventListener("click", () =>
-                        closePopup(popupChoose),
-                    );
-                }
-
-                // --- ESC ---
-                document.addEventListener("keydown", (e) => {
-                    if (e.key === "Escape") {
-                        const activePopups =
-                            document.querySelectorAll<HTMLElement>(
-                                ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
-                            );
-                        activePopups.forEach((p) => closePopup(p));
+            const copyBlock =
+                popupSave.querySelector<HTMLDivElement>(".copy-text");
+            if (copyBlock) {
+                copyBlock.addEventListener("click", async () => {
+                    const text = copyBlock.innerText.trim();
+                    try {
+                        await navigator.clipboard.writeText(text);
+                        const original = text;
+                        copyBlock.classList.add("copied");
+                        copyBlock.innerText = "Скопировано!";
+                        setTimeout(() => {
+                            copyBlock.innerText = original;
+                            copyBlock.classList.remove("copied");
+                        }, 1500);
+                    } catch (err) {
+                        console.error("Ошибка копирования:", err);
                     }
                 });
+            }
+        }
 
-                // фильтры
-                const minRange = document.getElementById(
-                    "min-range",
-                ) as HTMLInputElement;
-                const maxRange = document.getElementById(
-                    "max-range",
-                ) as HTMLInputElement;
-                const minInput = document.getElementById(
-                    "min-input",
-                ) as HTMLInputElement;
-                const maxInput = document.getElementById(
-                    "max-input",
-                ) as HTMLInputElement;
-                const track = document.querySelector(
-                    ".slider-track",
-                ) as HTMLDivElement;
-                const trackBefore = track as HTMLElement;
+        // --- POPUP FORM ---
+        if (formBtn && popupForm) {
+            formBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupForm);
+            });
 
-                const MIN_GAP = 500;
+            const closeBtn =
+                popupForm.querySelector<HTMLButtonElement>(
+                    ".popup-form__close",
+                );
+            closeBtn?.addEventListener("click", () => closePopup(popupForm));
 
-                /**
-                 * Обновление положения полосатого диапазона (::before)
-                 */
-                function updateTrack(): void {
-                    const min = parseInt(minRange.value);
-                    const max = parseInt(maxRange.value);
-                    const maxLimit = parseInt(minRange.max);
+            const cancelBtn = popupForm.querySelector<HTMLButtonElement>(
+                ".popup-form__cancel",
+            );
+            cancelBtn?.addEventListener("click", (e) => {
+                e.preventDefault();
+                closePopup(popupForm);
+            });
 
-                    const leftPercent = (min / maxLimit) * 100;
-                    const rightPercent = (max / maxLimit) * 100;
-                    const width = rightPercent - leftPercent;
+            const innerForm = popupForm.querySelector<HTMLFormElement>("form");
+            if (innerForm) {
+                innerForm.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const formData = new FormData(innerForm);
+                    console.log("Submitting form via AJAX (simulated):");
+                    for (const [k, v] of formData.entries()) console.log(k, v);
 
-                    // обновляем стили псевдоэлемента через CSS-переменные
-                    trackBefore.style.setProperty(
-                        "--range-left",
-                        `${leftPercent}%`,
-                    );
-                    trackBefore.style.setProperty("--range-width", `${width}%`);
-
-                    // анимация через прямой доступ к ::before
-                    (trackBefore as any).style.setProperty(
-                        "--left",
-                        `${leftPercent}%`,
-                    );
-                    (trackBefore as any).style.setProperty(
-                        "--width",
-                        `${width}%`,
-                    );
-
-                    // применяем через inline-стили (CSSOM для ::before нельзя напрямую)
-                    (
-                        trackBefore.querySelector(
-                            "::before",
-                        ) as HTMLElement | null
-                    )?.style?.setProperty("left", `${leftPercent}%`);
-                }
-
-                /**
-                 * Синхронизация инпутов и ползунков
-                 */
-                function syncValues(fromInput: boolean): void {
-                    let minVal = fromInput
-                        ? parseInt(minInput.value)
-                        : parseInt(minRange.value);
-                    let maxVal = fromInput
-                        ? parseInt(maxInput.value)
-                        : parseInt(maxRange.value);
-
-                    if (maxVal - minVal < MIN_GAP) {
-                        if (fromInput) {
-                            if (document.activeElement === minInput) {
-                                minVal = maxVal - MIN_GAP;
-                                minInput.value = String(minVal);
-                            } else {
-                                maxVal = minVal + MIN_GAP;
-                                maxInput.value = String(maxVal);
-                            }
-                        } else {
-                            if (document.activeElement === minRange) {
-                                minRange.value = String(maxVal - MIN_GAP);
-                            } else {
-                                maxRange.value = String(minVal + MIN_GAP);
-                            }
-                        }
+                    try {
+                        const submitBtn =
+                            innerForm.querySelector<HTMLButtonElement>(
+                                'button[type="submit"]',
+                            );
+                        submitBtn?.setAttribute("disabled", "true");
+                        setTimeout(() => {
+                            innerForm.reset();
+                            submitBtn?.removeAttribute("disabled");
+                            closePopup(popupForm);
+                        }, 700);
+                    } catch (err) {
+                        console.error("Ошибка отправки формы:", err);
                     }
+                });
+            }
+        }
 
-                    if (fromInput) {
-                        minRange.value = String(minVal);
-                        maxRange.value = String(maxVal);
+        // --- POPUP CHOOSE ---
+        if (catalogBtn && popupChoose) {
+            catalogBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                openPopup(popupChoose);
+            });
+
+            const closeBtn = popupChoose.querySelector<HTMLButtonElement>(
+                ".popup-choose-btn__close",
+            );
+            closeBtn?.addEventListener("click", () => closePopup(popupChoose));
+        }
+
+        // --- ESC ---
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                const activePopups = document.querySelectorAll<HTMLElement>(
+                    ".popup-reset.active, .popup-save.active, .popup-form.active, .popup-choose.active",
+                );
+                activePopups.forEach((p) => closePopup(p));
+            }
+        });
+
+        // фильтры
+        const minRange = document.getElementById(
+            "min-range",
+        ) as HTMLInputElement;
+        const maxRange = document.getElementById(
+            "max-range",
+        ) as HTMLInputElement;
+        const minInput = document.getElementById(
+            "min-input",
+        ) as HTMLInputElement;
+        const maxInput = document.getElementById(
+            "max-input",
+        ) as HTMLInputElement;
+        const track = document.querySelector(".slider-track") as HTMLDivElement;
+        const trackBefore = track as HTMLElement;
+
+        const MIN_GAP = 500;
+
+        /**
+         * Обновление положения полосатого диапазона (::before)
+         */
+        function updateTrack(): void {
+            const min = parseInt(minRange.value);
+            const max = parseInt(maxRange.value);
+            const maxLimit = parseInt(minRange.max);
+
+            const leftPercent = (min / maxLimit) * 100;
+            const rightPercent = (max / maxLimit) * 100;
+            const width = rightPercent - leftPercent;
+
+            // обновляем стили псевдоэлемента через CSS-переменные
+            trackBefore.style.setProperty("--range-left", `${leftPercent}%`);
+            trackBefore.style.setProperty("--range-width", `${width}%`);
+
+            // анимация через прямой доступ к ::before
+            (trackBefore as any).style.setProperty("--left", `${leftPercent}%`);
+            (trackBefore as any).style.setProperty("--width", `${width}%`);
+
+            // применяем через inline-стили (CSSOM для ::before нельзя напрямую)
+            (
+                trackBefore.querySelector("::before") as HTMLElement | null
+            )?.style?.setProperty("left", `${leftPercent}%`);
+        }
+
+        /**
+         * Синхронизация инпутов и ползунков
+         */
+        function syncValues(fromInput: boolean): void {
+            let minVal = fromInput
+                ? parseInt(minInput.value)
+                : parseInt(minRange.value);
+            let maxVal = fromInput
+                ? parseInt(maxInput.value)
+                : parseInt(maxRange.value);
+
+            if (maxVal - minVal < MIN_GAP) {
+                if (fromInput) {
+                    if (document.activeElement === minInput) {
+                        minVal = maxVal - MIN_GAP;
+                        minInput.value = String(minVal);
                     } else {
-                        minInput.value = minRange.value;
-                        maxInput.value = maxRange.value;
+                        maxVal = minVal + MIN_GAP;
+                        maxInput.value = String(maxVal);
                     }
-
-                    updateBeforeGradient();
+                } else {
+                    if (document.activeElement === minRange) {
+                        minRange.value = String(maxVal - MIN_GAP);
+                    } else {
+                        maxRange.value = String(minVal + MIN_GAP);
+                    }
                 }
+            }
 
-                /**
-                 * Устанавливаем inline-стили для псевдоэлемента через CSS переменные
-                 */
-                function updateBeforeGradient() {
-                    const min = parseInt(minRange.value);
-                    const max = parseInt(maxRange.value);
-                    const maxLimit = parseInt(minRange.max);
+            if (fromInput) {
+                minRange.value = String(minVal);
+                maxRange.value = String(maxVal);
+            } else {
+                minInput.value = minRange.value;
+                maxInput.value = maxRange.value;
+            }
 
-                    const leftPercent = (min / maxLimit) * 100;
-                    const rightPercent = (max / maxLimit) * 100;
-                    const widthPercent = rightPercent - leftPercent;
+            updateBeforeGradient();
+        }
 
-                    (track as HTMLElement).style.setProperty(
-                        "--before-left",
-                        `${leftPercent}%`,
-                    );
-                    (track as HTMLElement).style.setProperty(
-                        "--before-width",
-                        `${widthPercent}%`,
-                    );
+        /**
+         * Устанавливаем inline-стили для псевдоэлемента через CSS переменные
+         */
+        function updateBeforeGradient() {
+            const min = parseInt(minRange.value);
+            const max = parseInt(maxRange.value);
+            const maxLimit = parseInt(minRange.max);
 
-                    const styleEl = document.getElementById(
-                        "dynamic-style",
-                    ) as HTMLStyleElement | null;
-                    const css = `
+            const leftPercent = (min / maxLimit) * 100;
+            const rightPercent = (max / maxLimit) * 100;
+            const widthPercent = rightPercent - leftPercent;
+
+            (track as HTMLElement).style.setProperty(
+                "--before-left",
+                `${leftPercent}%`,
+            );
+            (track as HTMLElement).style.setProperty(
+                "--before-width",
+                `${widthPercent}%`,
+            );
+
+            const styleEl = document.getElementById(
+                "dynamic-style",
+            ) as HTMLStyleElement | null;
+            const css = `
     .slider-track::before {
       left: ${leftPercent}%;
       width: ${widthPercent}%;
     }
   `;
-                    if (styleEl) styleEl.textContent = css;
-                    else {
-                        const style = document.createElement("style");
-                        style.id = "dynamic-style";
-                        style.textContent = css;
-                        document.head.appendChild(style);
-                    }
-                }
+            if (styleEl) styleEl.textContent = css;
+            else {
+                const style = document.createElement("style");
+                style.id = "dynamic-style";
+                style.textContent = css;
+                document.head.appendChild(style);
+            }
+        }
 
-                minRange.addEventListener("input", () => syncValues(false));
-                maxRange.addEventListener("input", () => syncValues(false));
-                minInput.addEventListener("input", () => syncValues(true));
-                maxInput.addEventListener("input", () => syncValues(true));
+        minRange.addEventListener("input", () => syncValues(false));
+        maxRange.addEventListener("input", () => syncValues(false));
+        minInput.addEventListener("input", () => syncValues(true));
+        maxInput.addEventListener("input", () => syncValues(true));
 
-                updateBeforeGradient();
+        updateBeforeGradient();
+    });
+</script>
 
-                //copy div
-                // const copyElements =
-                //     document.querySelectorAll<HTMLDivElement>(".copy-text");
+<style>
+    .header {
+        display: flex;
+        width: 90%;
+        margin: 0 auto 1rem auto;
+        justify-content: space-between;
+    }
+    .header p {
+        max-width: 39rem;
+    }
 
-                // copyElements.forEach((el) => {
-                //     el.addEventListener("click", async () => {
-                //         const text = el.innerText.trim();
+    .configurator {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        gap: 28px;
+        align-items: start;
+    }
 
-                //         try {
-                //             await navigator.clipboard.writeText(text);
+    /* LEFT COLUMN */
+    .left {
+        background: oklch(from var(--card) l c h);
+        padding: 30px 21px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .left.angles::before {
+        z-index: -5;
+        --b: 5px;
+    }
 
-                //             // визуальный отклик
-                //             el.classList.add("copied");
-                //             const originalText =
-                //                 el.getAttribute("data-original-text") || text;
-                //             el.setAttribute("data-original-text", originalText);
-                //             el.innerText = "Скопировано!";
+    .preview-label {
+        font-size: 20px;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
 
-                //             setTimeout(() => {
-                //                 el.innerText = originalText;
-                //                 el.classList.remove("copied");
-                //             }, 1500);
-                //         } catch (err) {
-                //             console.error("Ошибка копирования:", err);
-                //         }
-                //     });
-                // });
-            });
-        </script>
+    .preview {
+        position: relative;
+        overflow: hidden;
 
-        <style>
-            .header {
-                display: flex;
-                width: 90%;
-                margin: 0 auto 1rem auto;
-                justify-content: space-between;
-            }
-            .header p {
-                max-width: 39rem;
-            }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .preview img {
+        width: 100%;
+        height: auto;
+    }
 
-            .configurator {
-                margin: 0 auto;
-                display: flex;
-                justify-content: center;
-                gap: 28px;
-                align-items: start;
-            }
+    /* PARAMETERS */
+    .params {
+        background: transparent;
+        padding: 12px 6px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .params h3 {
+        font-size: 20px;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+    .param-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        width: 100%;
 
-            /* LEFT COLUMN */
-            .left {
-                background: oklch(from var(--card) l c h);
-                padding: 30px 21px;
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-            }
+        font-family: "JetBrainsMono";
+        font-size: 14px;
+        text-transform: uppercase;
+        color: oklch(from var(--grey-text) l c h);
+    }
+    .param-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .param-item span:last-child {
+        max-width: 60%;
+        color: oklch(from var(--body-text) l c h);
+        text-align: right;
+    }
 
-            .preview-label {
-                font-size: 20px;
-                font-family: "JetBrainsMono";
-                text-transform: uppercase;
-            }
+    /* TOTAL */
+    .total-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
 
-            .preview {
-                position: relative;
-                overflow: hidden;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .total-row span:last-child {
+        font-size: 28px;
+        color: oklch(from var(--purple-text) l c h);
+    }
 
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+    /* ACTIONS */
+    .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .main-order {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .icon-btn {
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        padding: 1rem;
+        cursor: pointer;
+        align-items: center;
+    }
 
-            /* PARAMETERS */
-            .params {
-                background: transparent;
-                padding: 12px 6px;
-                border-radius: 10px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-            .params h3 {
-                font-size: 20px;
-                font-family: "JetBrainsMono";
-                text-transform: uppercase;
-            }
-            .param-list {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-                width: 100%;
+    .small-actions {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        align-items: center;
+    }
+    .small-actions .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        cursor: pointer;
 
-                font-family: "JetBrainsMono";
-                font-size: 14px;
-                text-transform: uppercase;
-                color: oklch(from var(--grey-text) l c h);
-            }
-            .param-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-            }
-            .param-item span:last-child {
-                max-width: 60%;
-                color: oklch(from var(--body-text) l c h);
-                text-align: right;
-            }
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
 
-            /* TOTAL */
-            .total-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 1rem;
+    /* RIGHT COLUMN */
+    .right {
+        min-height: 560px;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        min-width: 51rem;
+    }
+    .right h3 {
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+    .components {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* overflow: auto; */
+        padding-right: 6px;
+    }
+    .comp-card {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .comp-left {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 24px;
+        width: 100%;
+        /* min-width: 49.5rem; */
+        background: oklch(from var(--card) l c h);
+    }
+    .comp-left-title {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .comp-left-title h4 {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .comp-left img {
+        width: 43px;
+        height: 50px;
+    }
+    .comp-left__category {
+        width: 68px;
+        height: 68px;
+        padding: 8px;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+    }
+    .comp-left__products {
+        display: flex;
+        flex-direction: column;
+    }
+    .comp-left__product {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .comp-left__product-info {
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        max-width: 350px;
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .comp-left__price {
+        display: flex;
+        flex-direction: column;
+        min-width: 91px;
+    }
+    .comp-left__product-info span:last-child {
+        color: oklch(from var(--grey-text) l c h);
+        font-size: 12px;
+    }
+    .detail-actions {
+        padding: 20px 38px;
+        background: oklch(from var(--card) l c h);
 
-                font-size: 20px;
-                text-transform: uppercase;
-                color: oklch(from var(--grey-text) l c h);
-            }
-            .total-row span:last-child {
-                font-size: 28px;
-                color: oklch(from var(--purple-text) l c h);
-            }
+        display: flex;
+        gap: 1rem;
+    }
+    .selected {
+        padding: 11px 20px;
+    }
+    .comp-left__product-infbtn {
+        display: none;
+    }
+    .comp-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 6px;
+        background: linear-gradient(180deg, #111, #0b0b0d);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .comp-name {
+        font-size: 14px;
+    }
+    .comp-action {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    .btn-ghost {
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        padding: 1rem;
+        cursor: pointer;
+    }
 
-            /* ACTIONS */
-            .actions {
-                display: flex;
-                flex-direction: column;
-                gap: 12px;
-            }
-            .main-order {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .icon-btn {
-                border: 1px dashed oklch(from var(--light-stroke) l c h);
-                padding: 1rem;
-                cursor: pointer;
-                align-items: center;
-            }
+    /* icons small */
+    .svg {
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+    }
 
-            .small-actions {
-                display: flex;
-                justify-content: space-between;
-                gap: 10px;
-                align-items: center;
-            }
-            .small-actions .btn {
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                cursor: pointer;
+    /* pop up */
 
-                font-family: "JetBrainsMono";
-                text-transform: uppercase;
-            }
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+    }
 
-            /* RIGHT COLUMN */
-            .right {
-                min-height: 560px;
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-                min-width: 50rem;
-            }
-            .right h3 {
-                font-size: 20px;
-                text-transform: uppercase;
-            }
-            .components {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                /* overflow: auto; */
-                padding-right: 6px;
-            }
-            .comp-card {
-                display: flex;
-                gap: 2rem;
-                align-items: center;
-                justify-content: space-between;
-            }
-            .comp-left {
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                padding: 15px 24px;
-                width: 100%;
-                max-width: 576px;
-                background: oklch(from var(--card) l c h);
-            }
-            .comp-left-title {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-            .comp-left-title h4 {
-                font-size: 20px;
-                text-transform: uppercase;
-                font-family: "JetBrainsMono";
-            }
-            .comp-left img {
-                width: 43px;
-                height: 50px;
-            }
-            .comp-left__category {
-                width: 68px;
-                height: 68px;
-                padding: 8px;
-                border: 1px dashed oklch(from var(--light-stroke) l c h);
-            }
-            .comp-left__products {
-                display: flex;
-                flex-direction: column;
-            }
-            .comp-left__product {
-                display: flex;
-                gap: 1rem;
-                align-items: center;
-            }
-            .comp-left__product-info {
-                display: flex;
-                flex-direction: column;
-                font-size: 14px;
-                max-width: 350px;
-                text-transform: uppercase;
-                font-family: "JetBrainsMono";
-            }
-            .comp-left__price {
-                display: flex;
-                flex-direction: column;
-            }
-            .comp-left__product-info span:last-child {
-                color: oklch(from var(--grey-text) l c h);
-                font-size: 12px;
-            }
-            .detail-actions {
-                padding: 12px 25px;
-                background: oklch(from var(--card) l c h);
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
 
-                display: flex;
-                gap: 1rem;
-            }
-            .comp-icon {
-                width: 44px;
-                height: 44px;
-                border-radius: 6px;
-                background: linear-gradient(180deg, #111, #0b0b0d);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border: 1px solid rgba(255, 255, 255, 0.03);
-            }
-            .comp-name {
-                font-size: 14px;
-            }
-            .comp-action {
-                display: flex;
-                gap: 8px;
-                align-items: center;
-            }
-            .btn-ghost {
-                border: 1px dashed oklch(from var(--light-stroke) l c h);
-                padding: 1rem;
-                cursor: pointer;
-            }
+    .popup-reset {
+        background: oklch(from var(--dark-card) l c h);
+        box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
+        padding: 3.75rem;
+        margin: 0 auto;
+        max-width: 38.125rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 101;
+        pointer-events: none;
+    }
+    .popup-reset.active {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        pointer-events: all;
+    }
+    .popup-reset h4 {
+        color: oklch(from var(--white) l c h);
+        text-transform: uppercase;
+        font-size: 20px;
+    }
+    .popup-reset-btns {
+        display: flex;
+        justify-content: space-between;
+    }
+    .popup-reset-btns__reset.btn {
+        padding: 0;
+    }
 
-            /* icons small */
-            .svg {
+    .popup-save,
+    .popup-error {
+        gap: 1.5rem;
+        position: relative;
+        top: 30%;
+        background: oklch(from var(--dark-card) l c h);
+        box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
+
+        padding: 3.75rem 3.75rem 0;
+        margin: 0 auto;
+        max-width: 45rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .popup-save h4,
+    .popup-error h4 {
+        color: oklch(from var(--white) l c h);
+        text-transform: uppercase;
+        font-size: 28px;
+        font-family: "EuropeExt";
+    }
+    .popup-save p {
+        color: oklch(from var(--grey-text) l c h);
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+    .popup-error p {
+        text-transform: uppercase;
+        font-size: 16px;
+        font-family: "JetBrainsMono";
+    }
+    .popup-error ul {
+        list-style: url("../assets/icons/Hit.svg");
+    }
+    .popup-error li {
+        color: oklch(from var(--grey-text) l c h);
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .popup-save svg,
+    .popup-error svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 1.5rem;
+        right: 12px;
+    }
+    .popup-save div {
+        padding: 29px 1rem;
+        border: 1px solid oklch(from var(--light-stroke) l c h);
+        width: 100%;
+    }
+    .popup-error__btns {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .popup-form {
+        position: relative;
+        top: 3%;
+        right: 0;
+        left: 0;
+        background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
+        padding: 3.75rem;
+        margin: 0 auto;
+        max-height: 50rem;
+        min-height: 48.5rem;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+    }
+    .form-bg {
+        transform: scale(-1, 1);
+        height: auto;
+        width: auto;
+    }
+    .contact-form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        max-width: 768px;
+        right: 10%;
+        top: 3%;
+        padding: 3.75rem;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+    }
+    .contacts-bottom {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .contact-form-container svg {
+        width: 32px;
+        height: 32px;
+        fill: #fff;
+        transform: rotate(45deg);
+        position: absolute;
+        top: 2%;
+        right: 2%;
+    }
+    input:not(.product-catalog input) {
+        background-color: oklch(from var(--card) l c h);
+        border: 1px solid oklch(from var(--light-stroke) l c h);
+        padding: 1.5rem;
+        width: 100%;
+        text-transform: uppercase;
+        font-family: "JetBrainsMono";
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        font-family: "JetBrainsMono";
+    }
+    .contact-form h3 {
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+    .contacts-bottom p {
+        max-width: 320px;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+    .contact-form p:first-child {
+        font-family: "EuropeExt";
+        font-size: 28px;
+        text-transform: uppercase;
+    }
+
+    .purple {
+        color: oklch(from var(--purple-text) l c h);
+        text-decoration: underline;
+    }
+
+    .popup-choose {
+        padding: 1rem 5.25rem;
+        background-color: oklch(from var(--bg) l c h);
+        position: absolute;
+        z-index: 10;
+        top: 3%;
+        right: 0;
+        left: 0;
+
+        max-height: 90vh; /* важно — ограничиваем высоту в пределах окна */
+        overflow-y: auto; /* включаем вертикальную прокрутку */
+        overscroll-behavior: contain; /* чтобы при скролле не двигалось всё окно */
+    }
+    .popup-choose-btn__close svg {
+        width: 32px;
+        height: 32px;
+        fill: oklch(from var(--white) l c h);
+        transform: rotate(45deg);
+    }
+
+    /* Responsive */
+    @media (max-width: 1440px) {
+        .header h2 {
+            font-size: 36px;
+        }
+        .left {
+            max-width: 30%;
+        }
+        .right {
+            min-width: 0;
+        }
+        .small-actions {
+            flex-wrap: wrap;
+        }
+    }
+    @media (max-width: 1024px) {
+        .configurator {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .left {
+            max-width: 100%;
+            width: 90%;
+            margin: 1rem;
+        }
+        .params h3,
+        .filter-header span,
+        .popup-error p,
+        .popup-error li,
+        .popup-reset p {
+            font-size: 14px;
+        }
+        .param-list {
+            font-size: 12px;
+        }
+        .total-row,
+        .right h3,
+        .popup-save h4 {
+            font-size: 16px;
+        }
+        .total-row span:last-child {
+            font-size: 22px;
+        }
+        .icon-btn {
+            width: 48px;
+            height: 48px;
+            padding: 15px;
+        }
+        .icon-btn img {
+            width: 18px;
+            height: 18px;
+        }
+        .main-order .btn:last-child {
+            padding: 0;
+        }
+        .small-actions .btn,
+        .popup-save p {
+            font-size: 12px;
+        }
+        .small-actions .btn svg {
+            width: 16px;
+            height: 16px;
+        }
+        .right {
+            order: -1;
+            padding: 0 1rem;
+            width: 100%;
+        }
+        .comp-card {
+            gap: 0;
+        }
+        .comp-left {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0.5rem;
+        }
+        .comp-left__category {
+            width: 3rem;
+            height: 3rem;
+            padding: 10px;
+        }
+        .comp-left__category img {
+            width: 100%;
+            height: auto;
+        }
+        .comp-left__category.angles-white::before {
+            z-index: 1;
+        }
+        .comp-left__products {
+            width: 100%;
+        }
+        .comp-left__product {
+            padding-top: 12px;
+            border-top: 1px dashed oklch(from var(--light-stroke) l c h);
+            margin-top: 12px;
+            width: 100%;
+        }
+        .comp-left-title {
+            gap: 0.2rem;
+        }
+        .comp-left-title h4 {
+            font-size: 18px;
+        }
+        .comp-left__price,
+        .selected {
+            display: none;
+        }
+        .comp-card {
+            background: oklch(from var(--card) l c h);
+        }
+        .comp-left__product-infbtn {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .comp-left__product-infbtn .detail-actions {
+            padding: 0;
+        }
+        .comp-left__product-infbtn .btn-ghost {
+            padding: 9px;
+            svg {
                 width: 18px;
                 height: 18px;
-                display: inline-block;
             }
-
-            /* pop up */
-
-            .overlay {
-                position: fixed;
-                inset: 0;
-                background: rgba(0, 0, 0, 0.6);
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease;
-                z-index: 10;
-            }
-
-            .overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .popup-reset {
-                background: oklch(from var(--dark-card) l c h);
-                box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
-                padding: 3.75rem;
-                margin: 0 auto;
-                max-width: 38.125rem;
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(0.9);
-                opacity: 0;
-                transition: all 0.3s ease;
-                z-index: 101;
-                pointer-events: none;
-            }
-            .popup-reset.active {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-                pointer-events: all;
-            }
-            .popup-reset h4 {
-                color: oklch(from var(--white) l c h);
-                text-transform: uppercase;
-                font-size: 20px;
-            }
-            .popup-reset-btns {
-                display: flex;
-                justify-content: space-between;
-            }
-            .popup-reset-btns__reset.btn {
-                padding: 0;
-            }
-
-            .popup-save,
-            .popup-error {
-                gap: 1.5rem;
-                position: relative;
-                top: 30%;
-                background: oklch(from var(--dark-card) l c h);
-                box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
-
-                padding: 3.75rem 3.75rem 0;
-                margin: 0 auto;
-                max-width: 45rem;
-                display: flex;
-                flex-direction: column;
-                gap: 2rem;
-            }
-            .popup-save h4,
-            .popup-error h4 {
-                color: oklch(from var(--white) l c h);
-                text-transform: uppercase;
-                font-size: 28px;
-                font-family: "EuropeExt";
-            }
-            .popup-save p {
-                color: oklch(from var(--grey-text) l c h);
-                text-transform: uppercase;
-                font-size: 14px;
-            }
-            .popup-error p {
-                text-transform: uppercase;
-                font-size: 16px;
-                font-family: "JetBrainsMono";
-            }
-            .popup-error ul {
-                list-style: url("../assets/icons/Hit.svg");
-            }
-            .popup-error li {
-                color: oklch(from var(--grey-text) l c h);
-                text-transform: uppercase;
-                font-family: "JetBrainsMono";
-            }
-            .popup-save svg,
-            .popup-error svg {
-                width: 32px;
-                height: 32px;
-                fill: #fff;
-                transform: rotate(45deg);
-                position: absolute;
-                top: 1.5rem;
-                right: 12px;
-            }
-            .popup-save div {
-                padding: 29px 1rem;
-                border: 1px solid oklch(from var(--light-stroke) l c h);
-                width: 100%;
-            }
-            .popup-error__btns {
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .popup-form {
-                position: relative;
-                top: 3%;
-                right: 0;
-                left: 0;
-                background-color: oklch(from var(--bg) l c h);
-                background-image: url(/src/assets/icons/main-pattern.svg);
-                background-repeat: repeat;
-                padding: 3.75rem;
-                margin: 0 auto;
-                max-height: 50rem;
-                min-height: 48.5rem;
-                display: flex;
-                justify-content: center;
-                gap: 2rem;
-            }
-            .form-bg {
-                transform: scale(-1, 1);
-                height: auto;
-                width: auto;
-            }
-            .contact-form-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                max-width: 768px;
-                right: 10%;
-                top: 3%;
-                padding: 3.75rem;
-                border: 1px dashed oklch(from var(--light-stroke) l c h);
-            }
-            .contacts-bottom {
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .contact-form-container svg {
-                width: 32px;
-                height: 32px;
-                fill: #fff;
-                transform: rotate(45deg);
-                position: absolute;
-                top: 2%;
-                right: 2%;
-            }
-            input:not(.product-catalog input) {
-                background-color: oklch(from var(--card) l c h);
-                border: 1px solid oklch(from var(--light-stroke) l c h);
-                padding: 1.5rem;
-                width: 100%;
-                text-transform: uppercase;
-                font-family: "JetBrainsMono";
-            }
-            .contact-form {
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-                font-family: "JetBrainsMono";
-            }
-            .contact-form h3 {
-                font-size: 28px;
-                text-transform: uppercase;
-            }
-            .contacts-bottom p {
-                max-width: 320px;
-                font-size: 12px;
-                font-weight: 600;
-                line-height: 1.2;
-            }
-            .contact-form p:first-child {
-                font-family: "EuropeExt";
-                font-size: 28px;
-                text-transform: uppercase;
-            }
-
-            .purple {
-                color: oklch(from var(--purple-text) l c h);
-                text-decoration: underline;
-            }
-
-            .popup-choose {
-                padding: 1rem 5.25rem;
-                background-color: oklch(from var(--bg) l c h);
-                position: absolute;
-                z-index: 10;
-                top: 3%;
-                right: 0;
-                left: 0;
-
-                max-height: 90vh; /* важно — ограничиваем высоту в пределах окна */
-                overflow-y: auto; /* включаем вертикальную прокрутку */
-                overscroll-behavior: contain; /* чтобы при скролле не двигалось всё окно */
-            }
-            .popup-choose-btn__close svg {
-                width: 32px;
-                height: 32px;
-                fill: oklch(from var(--white) l c h);
-                transform: rotate(45deg);
-            }
-
-            /* Responsive */
-            @media (max-width: 1440px) {
-                .header h2 {
-                    font-size: 36px;
-                }
-            }
-            @media (max-width: 1024px) {
-                .configurator {
-                    flex-direction: column;
-                    align-items: center;
-                }
-                .right {
-                    order: -1;
-                    margin-left: 4rem;
-                }
-                .header {
-                    flex-direction: column;
-                }
-                .header h2 {
-                    font-size: 30px;
-                }
-                .popup-reset {
-                    padding: 12px 24px;
-                }
-                .popup-save {
-                    padding: 1.5rem 0.75rem 0;
-                }
-                .popup-form {
-                    flex-direction: column;
-                    top: 7%;
-                }
-                .popup-form img {
-                    order: 2;
-                    transform: scale(1, 1);
-                }
-                .popup-form h3 {
-                    font-size: 16px;
-                }
-                .contact-form-container {
-                    left: 10%;
-                }
-                input {
-                    font-size: 12px;
-                }
-                .contacts-bottom p {
-                    font-size: 10px;
-                }
-            }
-        </style>
-    </section></Layout
+        }
+        .detail-actions {
+            padding: 0.5rem;
+        }
+        .header {
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1rem 0;
+            padding: 0 1rem;
+        }
+        .header h2 {
+            font-size: 30px;
+        }
+        .popup-reset {
+            padding: 12px 24px;
+        }
+        .popup-save {
+            padding: 1.5rem 0.75rem 0;
+            gap: 1rem;
+            top: 40%;
+        }
+        .popup-form {
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 23px 16px;
+        }
+        .popup-form img {
+            transform: scale(1, 1);
+        }
+        .popup-form h3,
+        .popup-error h4,
+        .popup-reset h4 {
+            font-size: 16px;
+        }
+        .contact-form-container {
+            left: 3%;
+            right: 3%;
+            padding: 2rem 1rem;
+            gap: 1rem;
+        }
+        input,
+        .products-tittle select {
+            font-size: 12px;
+        }
+        .contacts-bottom p {
+            font-size: 10px;
+        }
+        .filter-container {
+            padding: 17px 24px;
+            margin: 0;
+        }
+        .products-tittle {
+            justify-content: space-between;
+            margin-top: 1rem;
+        }
+        .filter-section,
+        .reset-btn {
+            display: none;
+        }
+        .popup-choose-btn__close {
+            padding: 0;
+        }
+        .popup-error {
+            gap: 1rem;
+        }
+        .popup-reset{
+            padding: 1.4rem 0.75rem;
+        }
+        .popup-save div{
+            padding: 1rem 0.75rem;
+        }
+        .copy-text{
+            overflow-x: scroll;
+            font-size: 12px;
+        }
+    }
+    @media (max-width: 375px) {
+        .header h2 {
+        font-size: 28px;
+        }
+        .contact-btn {
+            padding: 0.8rem;
+            gap: 1rem;
+        }
+        .detail-actions,
+        .comp-left{
+            padding: 0.2rem;
+        }
+        .popup-save {
+            margin : 0.2rem;
+        }
+    }
+</style>
 >
