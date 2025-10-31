@@ -63,450 +63,467 @@ import Menu from "../assets/icons/Menu.svg";
                     <img src="/src/assets/icons/heart.svg" alt="favorite" />
                 </a>
             </div>
+            <div class="phone-catalog-wrapper">
+                <button type="button" class="btn phone-catalog">
+                    <span class="phone-number cataloge">
+                        <a href="#">+7 495 266 07 92</a>
+                        <img src="/src/assets/icons/OneArrowButton.svg" />
+                    </span>
+                    <div class="phone-menu-bottom" style="display: none">
+                        <ul>
+                            <li>новости</li>
+                            <li>Доставка и оплата</li>
+                            <li>Гарантия и возврат</li>
+                        </ul>
+                    </div>
+                </button>
+            </div>
+            <button type="button" class="burger phone-menu" id="burger">
+                <Menu width={17} height={17} class="burger-icon-svg" />
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li>
+                    <button type="button" class="btn cataloge">
+                        <img src="/src/assets/icons/Catalog.svg" />
+                        <span>каталог</span>
+                    </button>
+                </li>
+                <li><a href="">компания</a></li>
+                <li><a href="">Акции</a></li>
+                <li>
+                    <button type="button" class="btn info-catalog">
+                        <span>.информация</span>
+                        <img src="/src/assets/icons/OneArrowButton.svg" />
+                    </button>
+                </li>
+                <li><a href="">Контакты</a></li>
+                <li><a href="">Конфигуратор ПК</a></li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="">
+                        <div>
+                            <img
+                                src="/src/assets/icons/shopping-bag.svg"
+                                alt="basket"
+                            />
+                            <span>Корзина</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div>
+                            <img
+                                src="/src/assets/icons/heart.svg"
+                                alt="favorite"
+                            />
+                            <span>избранное</span>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <div class="search">
+                        <input type="search" placeholder="поиск" />
+                    </div>
+                </li>
+            </ul>
             <span class="phone-number cataloge">
                 <a href="#">+7 495 266 07 92</a>
                 <img src="/src/assets/icons/OneArrowButton.svg" />
             </span>
         </div>
-        <button type="button" class="burger phone-menu" id="burger">
-            <Menu width={17} height={17} class="burger-icon-svg" />
-        </button>
     </div>
-    <div class="mobile-menu" id="mobile-menu">
-        <ul>
-            <li>
-                <button type="button" class="btn cataloge">
-                    <img src="/src/assets/icons/Catalog.svg" />
-                    <span>каталог</span>
-                </button>
-            </li>
-            <li><a href="">компания</a></li>
-            <li><a href="">Акции</a></li>
-            <li>
-                <button type="button" class="btn info-catalog">
-                    <span>.информация</span>
-                    <img src="/src/assets/icons/OneArrowButton.svg" />
-                </button>
-            </li>
-            <li><a href="">Контакты</a></li>
-            <li><a href="">Конфигуратор ПК</a></li>
-        </ul>
-        <ul>
-            <li>
-                <a href="">
-                    <div>
-                        <img
-                            src="/src/assets/icons/shopping-bag.svg"
-                            alt="basket"
-                        />
-                        <span>Корзина</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <div>
-                        <img src="/src/assets/icons/heart.svg" alt="favorite" />
-                        <span>избранное</span>
-                    </div>
-                </a>
-            </li>
-            <li>
-                <div class="search">
-                    <input type="search" placeholder="поиск" />
-                </div>
-            </li>
-        </ul>
-        <span class="phone-number cataloge">
-            <a href="#">+7 495 266 07 92</a>
-            <img src="/src/assets/icons/OneArrowButton.svg" />
-        </span>
-    </div>
-</header>
-<div class="modal-overlay purple-effect4" style="display: none">
-    <div class="modal-window">
-        <aside class="sidebar">
-            <ul>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/pc.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.компьютеры</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/processor.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.процессоры</span>
-                </li>
-                <li class="active">
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/pc.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.видеокарты</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/motherboard.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.материнские платы</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/ram.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.оперативная память</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/ssd.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.диски ssd</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/hdd.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.диски hdd</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/power-unit.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.блок питания</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/pc-case.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.корпуса</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/cpu-cooling.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.охлаждение процессора</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/pc-case-cooling.png"
-                            alt=""
-                        /></span
-                    >
-                    <span>.корпусные вентиляторы</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/pc-modding.webp"
-                            alt=""
-                        /></span
-                    >
-                    <span>.моддинг пк</span>
-                </li>
-                <li>
-                    <span class="icon angles-white"
-                        ><img
-                            src="/src/assets/images/catalog/monitor.webp"
-                            alt=""
-                        /></span
-                    >
-                    <span>.мониторы</span>
-                </li>
-            </ul>
-        </aside>
-
-        <div class="modal-content">
-            <!-- видеокарты -->
-            <div class="columns" data-category=".видеокарты">
-                <div class="column">
-                    <h4 class="category-title highlight">
-                        NVIDIA (GeForce RTX / GTX)
-                    </h4>
-                    <div class="category-group">
-                        <strong>GEFORCE RTX 40-СЕРИИ (новое поколение)</strong>
-                        <ul>
-                            <li>RTX 4090</li>
-                            <li>RTX 4080 Super / 4080</li>
-                            <li>
-                                RTX 4070 Ti Super / 4070 Ti / 4070 Super / 4070
-                            </li>
-                            <li>RTX 4060 Ti / 4060</li>
-                        </ul>
-                        <strong
-                            >GEFORCE RTX 30-СЕРИИ (предыдущее поколение)</strong
+    <div class="modal-overlay purple-effect4" style="display: none">
+        <div class="modal-window">
+            <aside class="sidebar">
+                <ul>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/pc.png"
+                                alt=""
+                            /></span
                         >
-                        <ul>
-                            <li>RTX 3090 Ti / 3090</li>
-                            <li>RTX 3080 Ti / 3080</li>
-                            <li>RTX 3070 Ti / 3070</li>
-                            <li>RTX 3060 Ti / 3060</li>
-                            <li>RTX 3050</li>
-                        </ul>
-                        <strong>GEFORCE GTX (бюджетный сегмент, без rtx)</strong
+                        <span>.компьютеры</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/processor.png"
+                                alt=""
+                            /></span
                         >
+                        <span>.процессоры</span>
+                    </li>
+                    <li class="active">
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/pc.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.видеокарты</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/motherboard.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.материнские платы</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/ram.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.оперативная память</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/ssd.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.диски ssd</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/hdd.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.диски hdd</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/power-unit.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.блок питания</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/pc-case.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.корпуса</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/cpu-cooling.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.охлаждение процессора</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/pc-case-cooling.png"
+                                alt=""
+                            /></span
+                        >
+                        <span>.корпусные вентиляторы</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/pc-modding.webp"
+                                alt=""
+                            /></span
+                        >
+                        <span>.моддинг пк</span>
+                    </li>
+                    <li>
+                        <span class="icon angles-white"
+                            ><img
+                                src="/src/assets/images/catalog/monitor.webp"
+                                alt=""
+                            /></span
+                        >
+                        <span>.мониторы</span>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="modal-content">
+                <!-- видеокарты -->
+                <div class="columns" data-category=".видеокарты">
+                    <div class="column">
+                        <h4 class="category-title highlight">
+                            NVIDIA (GeForce RTX / GTX)
+                        </h4>
+                        <div class="category-group">
+                            <strong
+                                >GEFORCE RTX 40-СЕРИИ (новое поколение)</strong
+                            >
+                            <ul>
+                                <li>RTX 4090</li>
+                                <li>RTX 4080 Super / 4080</li>
+                                <li>
+                                    RTX 4070 Ti Super / 4070 Ti / 4070 Super /
+                                    4070
+                                </li>
+                                <li>RTX 4060 Ti / 4060</li>
+                            </ul>
+                            <strong
+                                >GEFORCE RTX 30-СЕРИИ (предыдущее поколение)</strong
+                            >
+                            <ul>
+                                <li>RTX 3090 Ti / 3090</li>
+                                <li>RTX 3080 Ti / 3080</li>
+                                <li>RTX 3070 Ti / 3070</li>
+                                <li>RTX 3060 Ti / 3060</li>
+                                <li>RTX 3050</li>
+                            </ul>
+                            <strong
+                                >GEFORCE GTX (бюджетный сегмент, без rtx)</strong
+                            >
+                            <ul>
+                                <li>GTX 1660 Super / 1660 Ti / 1660</li>
+                                <li>GTX 1650 Super / 1650</li>
+                                <li>GTX 1050 Ti / 1050</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4 class="category-title">AMD (Radeon RX)</h4>
+                        <div class="category-group">
+                            <strong
+                                >RADEON RX 7000-СЕРИИ (новое поколение)</strong
+                            >
+                            <ul>
+                                <li>RX 7900 XTX / 7900 XT / 7900 GRE</li>
+                                <li>RX 7800 XT</li>
+                                <li>RX 7700 XT</li>
+                                <li>RX 7600 XT / 7600</li>
+                            </ul>
+                            <strong>RADEON RX 6000-СЕРИИ</strong>
+                            <ul>
+                                <li>RX 6950 XT / 6900 XT</li>
+                                <li>RX 6800 XT / 6800</li>
+                                <li>RX 6750 XT / 6700 XT / 6700</li>
+                                <li>RX 6650 XT / 6600 XT / 6600</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h4 class="category-title">
+                            Intel Arc (Новичок на рынке)
+                        </h4>
+                        <div class="category-group">
+                            <ul>
+                                <li>Arc A770</li>
+                                <li>Arc A750</li>
+                                <li>Arc A580</li>
+                                <li>Arc A380</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- процессоры -->
+                <div
+                    class="columns"
+                    data-category=".процессоры"
+                    style="display: none;"
+                >
+                    <div class="column">
+                        <h4 class="category-title highlight">Intel</h4>
                         <ul>
-                            <li>GTX 1660 Super / 1660 Ti / 1660</li>
-                            <li>GTX 1650 Super / 1650</li>
-                            <li>GTX 1050 Ti / 1050</li>
+                            <li>Core i9</li>
+                            <li>Core i7</li>
+                            <li>Core i5</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <h4 class="category-title">AMD</h4>
+                        <ul>
+                            <li>Ryzen 9</li>
+                            <li>Ryzen 7</li>
+                            <li>Ryzen 5</li>
                         </ul>
                     </div>
                 </div>
-                <div class="column">
-                    <h4 class="category-title">AMD (Radeon RX)</h4>
-                    <div class="category-group">
-                        <strong>RADEON RX 7000-СЕРИИ (новое поколение)</strong>
+
+                <!-- материнские платы -->
+                <div
+                    class="columns"
+                    data-category=".материнские платы"
+                    style="display: none;"
+                >
+                    <div class="column">
+                        <h4 class="category-title highlight">Intel</h4>
                         <ul>
-                            <li>RX 7900 XTX / 7900 XT / 7900 GRE</li>
-                            <li>RX 7800 XT</li>
-                            <li>RX 7700 XT</li>
-                            <li>RX 7600 XT / 7600</li>
+                            <li>Z790 / B760 / H610</li>
                         </ul>
-                        <strong>RADEON RX 6000-СЕРИИ</strong>
+                    </div>
+                    <div class="column">
+                        <h4 class="category-title">AMD</h4>
                         <ul>
-                            <li>RX 6950 XT / 6900 XT</li>
-                            <li>RX 6800 XT / 6800</li>
-                            <li>RX 6750 XT / 6700 XT / 6700</li>
-                            <li>RX 6650 XT / 6600 XT / 6600</li>
+                            <li>X670 / B650 / A620</li>
                         </ul>
                     </div>
                 </div>
-                <div class="column">
-                    <h4 class="category-title">Intel Arc (Новичок на рынке)</h4>
-                    <div class="category-group">
+
+                <!-- компьютеры -->
+                <div
+                    class="columns"
+                    data-category=".компьютеры"
+                    style="display: none;"
+                >
+                    <div class="column">
+                        <h4 class="category-title highlight">Игровые ПК</h4>
                         <ul>
-                            <li>Arc A770</li>
-                            <li>Arc A750</li>
-                            <li>Arc A580</li>
-                            <li>Arc A380</li>
+                            <li>Бюджетные</li>
+                            <li>Средний сегмент</li>
+                            <li>Премиум</li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <!-- процессоры -->
-            <div
-                class="columns"
-                data-category=".процессоры"
-                style="display: none;"
-            >
-                <div class="column">
-                    <h4 class="category-title highlight">Intel</h4>
-                    <ul>
-                        <li>Core i9</li>
-                        <li>Core i7</li>
-                        <li>Core i5</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h4 class="category-title">AMD</h4>
-                    <ul>
-                        <li>Ryzen 9</li>
-                        <li>Ryzen 7</li>
-                        <li>Ryzen 5</li>
-                    </ul>
-                </div>
-            </div>
 
-            <!-- материнские платы -->
-            <div
-                class="columns"
-                data-category=".материнские платы"
-                style="display: none;"
-            >
-                <div class="column">
-                    <h4 class="category-title highlight">Intel</h4>
-                    <ul>
-                        <li>Z790 / B760 / H610</li>
-                    </ul>
-                </div>
-                <div class="column">
-                    <h4 class="category-title">AMD</h4>
-                    <ul>
-                        <li>X670 / B650 / A620</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- компьютеры -->
-            <div
-                class="columns"
-                data-category=".компьютеры"
-                style="display: none;"
-            >
-                <div class="column">
-                    <h4 class="category-title highlight">Игровые ПК</h4>
-                    <ul>
-                        <li>Бюджетные</li>
-                        <li>Средний сегмент</li>
-                        <li>Премиум</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- оперативная память -->
-            <div
-                class="columns"
-                data-category=".оперативная память"
-                style="display: none;"
-            >
-                <div class="column">
-                    <h4 class="category-title highlight">DDR5</h4>
-                    <ul>
-                        <li>5200 MHz</li>
-                        <li>6000 MHz</li>
-                    </ul>
-                    <h4 class="category-title">DDR4</h4>
-                    <ul>
-                        <li>3200 MHz</li>
-                        <li>3600 MHz</li>
-                    </ul>
+                <!-- оперативная память -->
+                <div
+                    class="columns"
+                    data-category=".оперативная память"
+                    style="display: none;"
+                >
+                    <div class="column">
+                        <h4 class="category-title highlight">DDR5</h4>
+                        <ul>
+                            <li>5200 MHz</li>
+                            <li>6000 MHz</li>
+                        </ul>
+                        <h4 class="category-title">DDR4</h4>
+                        <ul>
+                            <li>3200 MHz</li>
+                            <li>3600 MHz</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    
-    //информация появление
+    <script>
+        //информация появление
 
-    document.addEventListener("click", toggleDropdown);
+        document.addEventListener("click", toggleDropdown);
 
-    function toggleDropdown(e: MouseEvent): void {
-        toggle(e, ".info-catalog", ".info-menu");
-    }
+        function toggleDropdown(e: MouseEvent): void {
+            toggle(e, ".info-catalog", ".info-menu");
+            toggle(e, ".phone-catalog", ".phone-menu-bottom");
+        }
 
-    function toggle(
-        e: MouseEvent,
-        watchedElementClass: string,
-        toggledElementClass: string,
-    ): void {
-        const watchedElement = document.querySelector(watchedElementClass);
-        const toggledElement = document.querySelector(toggledElementClass);
+        function toggle(
+            e: MouseEvent,
+            watchedElementClass: string,
+            toggledElementClass: string,
+        ): void {
+            const watchedElement = document.querySelector(watchedElementClass);
+            const toggledElement = document.querySelector(toggledElementClass);
 
-        console.log(watchedElement);
+            if (!watchedElement || !toggledElement) return;
 
-        if (toggledElement !== null) {
-            if (
-                watchedElement?.contains(e.target as Node) &&
-                toggledElement.hasAttribute("style")
-            ) {
-                toggledElement.removeAttribute("style");
+            if (watchedElement.contains(e.target as Node)) {
+                const isHidden = toggledElement
+                    .getAttribute("style")
+                    ?.includes("none");
+                toggledElement.setAttribute(
+                    "style",
+                    isHidden ? "display: block;" : "display: none;",
+                );
             } else {
                 toggledElement.setAttribute("style", "display: none;");
             }
         }
-    }
 
-    //категории появление
+        //категории появление
 
-    const infoMenuModal = document.querySelector(".modal-overlay") as HTMLDivElement | null;
-    
+        const infoMenuModal = document.querySelector(
+            ".modal-overlay",
+        ) as HTMLDivElement | null;
 
-    document.querySelector(".cataloge")?.addEventListener("click", showMenu);
+        document
+            .querySelector(".cataloge")
+            ?.addEventListener("click", showMenu);
 
-    function showMenu(): void {
-        if (infoMenuModal && headerContainer) { // Проверяем оба элемента
-            // Определяем, скрыто ли модальное окно. 
-            // Если style.display === 'none', то оно скрыто.
-            // Если style.display не 'none', то оно видимо (или пусто, что означает видимость по CSS).
-            const isModalHidden = infoMenuModal.style.display === 'none';
+        function showMenu(): void {
+            if (infoMenuModal && headerContainer) {
+                const isModalHidden = infoMenuModal.style.display === "none";
 
-            if (isModalHidden) {
-                // Если скрыто, показываем его
-                infoMenuModal.style.display = 'flex'; // Устанавливаем display в flex
-                
-                // Рассчитываем позицию под шапкой
-                const headerRect: DOMRect = headerContainer.getBoundingClientRect();
-                const headerBottom: number = headerRect.bottom;
-                
-                infoMenuModal.style.top = `${headerBottom}px`;
-                infoMenuModal.style.height = `calc(100vh - ${headerBottom}px)`;
-            } else {
-                // Если показано, скрываем его
-                infoMenuModal.style.display = 'none';
+                if (isModalHidden) {
+                    infoMenuModal.style.display = "flex"; 
+                    const headerRect: DOMRect =
+                        headerContainer.getBoundingClientRect();
+                    const headerBottom: number = headerRect.bottom;
+
+                    infoMenuModal.style.top = `${headerBottom}px`;
+                    infoMenuModal.style.height = `calc(100vh - ${headerBottom}px)`;
+                } else {
+                    infoMenuModal.style.display = "none";
+                }
             }
         }
-    }
 
-    //категории смена
+        //категории смена
 
-    document.addEventListener("DOMContentLoaded", () => {
-        const sidebarItems =
-            document.querySelectorAll<HTMLLIElement>(".sidebar ul li");
-        const allColumns = document.querySelectorAll<HTMLDivElement>(
-            ".modal-content .columns",
-        );
+        document.addEventListener("DOMContentLoaded", () => {
+            const sidebarItems =
+                document.querySelectorAll<HTMLLIElement>(".sidebar ul li");
+            const allColumns = document.querySelectorAll<HTMLDivElement>(
+                ".modal-content .columns",
+            );
 
-        sidebarItems.forEach((item) => {
-            item.addEventListener("click", () => {
-                sidebarItems.forEach((li) => li.classList.remove("active"));
-                item.classList.add("active");
+            sidebarItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    sidebarItems.forEach((li) => li.classList.remove("active"));
+                    item.classList.add("active");
 
-                const categoryName = item
-                    .querySelector("span:last-child")
-                    ?.textContent?.trim();
-                if (!categoryName) return;
+                    const categoryName = item
+                        .querySelector("span:last-child")
+                        ?.textContent?.trim();
+                    if (!categoryName) return;
 
-                allColumns.forEach((col) => {
-                    if (col.dataset.category === categoryName) {
-                        col.style.display = "flex";
-                    } else {
-                        col.style.display = "none";
-                    }
+                    allColumns.forEach((col) => {
+                        if (col.dataset.category === categoryName) {
+                            col.style.display = "flex";
+                        } else {
+                            col.style.display = "none";
+                        }
+                    });
                 });
             });
         });
-    });
 
-    // Mobile menu functionality
-    const burgerButton = document.getElementById(
-        "burger",
-    ) as HTMLButtonElement | null;
-    const mobileMenu = document.getElementById(
-        "mobile-menu",
-    ) as HTMLDivElement | null;
-    const headerContainer = document.querySelector(
-        ".header-container",
-    ) as HTMLElement | null;
+        const burgerButton = document.getElementById(
+            "burger",
+        ) as HTMLButtonElement | null;
+        const mobileMenu = document.getElementById(
+            "mobile-menu",
+        ) as HTMLDivElement | null;
+        const headerContainer = document.querySelector(
+            ".header-container",
+        ) as HTMLElement | null;
 
-    // SVG-строки для иконок
-    const menuIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><rect x="3" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
+        const menuIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><rect x="3" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
 <rect x="15" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
 <rect x="15" y="15" width="6" height="6" rx="3" fill="#9D4EDD"/>
 <rect x="3" y="15" width="6" height="6" rx="3" fill="#9D4EDD"/></svg>`;
-    const closeIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><g clip-path="url(#clip0_944_7643)">
+        const closeIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><g clip-path="url(#clip0_944_7643)">
 <path d="M4.5664 3.99998L9.74841 8.51035C10.1915 8.89604 10.4427 9.45705 10.4352 10.0445L10.4134 11.752C10.407 12.2495 10.2155 12.7268 9.87607 13.0906L5.35182 17.941" stroke="#B860FF" stroke-width="2"/>
 <path d="M19.543 3.99998L14.361 8.51035C13.9178 8.89604 13.6667 9.45705 13.6742 10.0445L13.696 11.752C13.7023 12.2495 13.8939 12.7268 14.2333 13.0906L18.7575 17.941" stroke="#B860FF" stroke-width="2"/>
 </g>
@@ -516,414 +533,420 @@ import Menu from "../assets/icons/Menu.svg";
 </clipPath>
 </defs></svg>`;
 
-    // Устанавливаем начальную иконку
-    if (burgerButton) {
-        burgerButton.innerHTML = menuIconHtml;
-    }
+        if (burgerButton) {
+            burgerButton.innerHTML = menuIconHtml;
+        }
 
-    burgerButton?.addEventListener("click", () => {
-        if (mobileMenu && burgerButton && headerContainer) {
-            const headerRect: DOMRect = headerContainer.getBoundingClientRect();
-            const headerBottom: number = headerRect.bottom; // Низ шапки относительно viewport
+        burgerButton?.addEventListener("click", () => {
+            if (mobileMenu && burgerButton && headerContainer) {
+                const headerRect: DOMRect =
+                    headerContainer.getBoundingClientRect();
+                const headerBottom: number = headerRect.bottom;
 
-            mobileMenu.style.top = `${headerBottom}px`;
+                mobileMenu.style.top = `${headerBottom}px`;
 
-            mobileMenu.classList.toggle("active");
-            if (mobileMenu.classList.contains("active")) {
-                burgerButton.innerHTML = closeIconHtml; // Показываем крестик
-                document.body.style.overflow = "hidden"; // Запрещаем прокрутку основного контента
-            } else {
-                burgerButton.innerHTML = menuIconHtml; // Показываем иконку меню
-                document.body.style.overflow = ""; // Разрешаем прокрутку
+                mobileMenu.classList.toggle("active");
+                if (mobileMenu.classList.contains("active")) {
+                    burgerButton.innerHTML = closeIconHtml; 
+                    document.body.style.overflow = "hidden"; 
+                } else {
+                    burgerButton.innerHTML = menuIconHtml; 
+                    document.body.style.overflow = ""; 
+                }
             }
-        }
-    });
-</script>
+        });
+    </script>
 
-<style>
-    .header-container {
-        width: 100%;
-        font-family: "JetBrainsMono", sans-serif;
-        font-size: 16px;
-        text-transform: uppercase;
-        position: relative;
-        top: auto;
-        left: auto;
-        z-index: 3; /* Шапка всегда сверху, пока не прокрутится */
-        border-bottom: 1px solid oklch(from var(--stroke) l c h); /* Добавляем тонкую линию под шапкой */
-    }
-
-    .header-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 107.25rem;
-        margin: 0 auto;
-        padding: 22px 0;
-    }
-
-    .header-nav {
-        max-width: 1305px;
-        width: 70%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-
-    .cataloge {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        text-transform: uppercase;
-    }
-
-    .main-nav ul {
-        list-style: none;
-        display: flex;
-        align-items: center;
-        gap: 2rem;
-    }
-
-    .main-nav a {
-        text-decoration: none;
-    }
-
-    .main-nav li:hover {
-        color: oklch(from var(--purple-text) l c h);
-        transition: color 0.3s;
-    }
-
-    .configurator-button {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-    }
-
-    .arrow-icon {
-        margin-left: 5px;
-        font-weight: bold;
-        color: oklch(from var(--purple-text) l c h);
-    }
-
-    .user-controls {
-        display: flex;
-        align-items: center;
-        gap: 3rem;
-        font-size: 14px;
-    }
-
-    .user-controls img {
-        cursor: pointer;
-        display: block;
-        align-items: center;
-    }
-
-    .search {
-        position: relative;
-        text-transform: uppercase;
-    }
-
-    .search::before {
-        content: url("../assets/icons/Search.svg");
-        position: absolute;
-        top: 50%;
-        left: 0.5rem;
-
-        transform: translateY(-50%);
-
-        width: 1rem;
-        height: 1rem;
-    }
-
-    .search input {
-        padding: 0.25rem 0.5rem 0.25rem 2rem;
-        max-width: 6rem;
-        font-size: 16px;
-        border-radius: 0.1rem;
-        font-family: "JetBrainsMono";
-        text-transform: uppercase;
-    }
-
-    .search input::-webkit-search-cancel-button {
-        display: none;
-    }
-
-    .user-collection {
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-    }
-
-    .info-catalog-wrapper {
-        position: relative;
-    }
-    .info-catalog-wrapper span {
-        text-transform: uppercase;
-    }
-    .info-catalog {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        padding: 0;
-        text-transform: uppercase;
-    }
-
-    .info-menu {
-        position: absolute;
-        z-index: 3;
-        padding: 1rem 2rem;
-        min-width: 14.8125rem;
-
-        color: oklch(from var(--body-text) l c h);
-        background-color: oklch(from var(--bg) l c h);
-        background-image: url(/src/assets/icons/main-pattern.svg);
-        background-repeat: repeat;
-        text-transform: uppercase;
-        ul {
-            list-style: none;
-        }
-    }
-    .info-menu ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    body.modal-open {
-        overflow: hidden;
-    }
-
-    .modal-overlay {
-        position: absolute; 
-        left: 0;
-        background-color: oklch(from var(--bg) l c h);
-        background-image: url(/src/assets/icons/main-pattern.svg);
-        background-repeat: repeat;
-        z-index: 10;
-        display: flex;
-        overflow-y: auto; 
-    }
-
-    .modal-window {
-        width: 100vw;
-        height: auto;
-        display: flex;
-    }
-
-    .sidebar {
-        border-right: 1px solid oklch(from var(--stroke) l c h);
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-    }
-
-    .sidebar ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .sidebar li {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 12px 8px;
-        cursor: pointer;
-        color: oklch(from var(--text) l c h);
-        font-size: 20px;
-        transition: background 0.14s;
-        border-left: 2px solid transparent;
-    }
-
-    .sidebar li .icon {
-        width: 70px;
-        height: 68px;
-        border: 1px dashed oklch(from var(--light-stroke) l c h);
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .sidebar li.active,
-    .sidebar li:hover {
-        background: rgba(79, 74, 104, 0.11);
-        color: oklch(from var(--purple-text) l c h);
-    }
-
-    .sidebar li.active span {
-        color: oklch(from var(--purple-text) l c h);
-    }
-
-    .sidebar li .icon img {
-        width: 43px;
-        height: 50px;
-        /* filter: grayscale(1) brightness(1.2) drop-shadow(0 0 3px #b085e770); */
-    }
-
-    .sidebar li.active .icon img {
-        filter: none;
-    }
-
-    .modal-content {
-        flex: 1 1 auto;
-        padding: 44px 56px 44px 56px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        overflow-y: auto;
-    }
-
-    .columns {
-        display: flex;
-        width: 100%;
-    }
-
-    .column {
-        min-width: 270px;
-        border-right: 1px dashed oklch(from var(--stroke) l c h);
-        padding: 0 2rem;
-    }
-
-    .category-title {
-        font-family: "JetBrainsMono";
-        font-size: 20px;
-        color: oklch(from var(--purple-text));
-        background: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: table;
-
-        margin-bottom: 16px;
-        text-transform: uppercase;
-    }
-
-    .category-group strong {
-        display: block;
-        font-size: 16px;
-        margin: 18px 0 6px 0;
-    }
-
-    .category-group ul {
-        padding-left: 14px;
-        margin: 0 0 2px 0;
-        list-style: none;
-    }
-
-    .category-group ul li {
-        margin-bottom: 3px;
-    }
-
-    .purple-effect4 {
-        overflow: hidden;
-    }
-
-    .purple-effect4::before {
-        bottom: 0;
-        top: -20%;
-        right: -20%;
-        width: 80%;
-        height: 100%;
-        transform: rotate(220deg);
-        background-position: 0 70%;
-        background-repeat: no-repeat;
-    }
-
-    /* Mobile-specific styles */
-    .burger,
-    .phone-menu {
-        display: none; /* Скрываем бургер-кнопку по умолчанию */
-        background: none;
-        border: none;
-        padding: 0;
-        cursor: pointer;
-    }
-
-    .mobile-menu {
-        display: none; /* Скрываем мобильное меню по умолчанию */
-        position: fixed; /* Позиционируем поверх контента */
-        padding: 33px 40px;
-        left: 0;
-        width: 100%;
-        background-color: oklch(from var(--bg) l c h); /* Пример цвета фона */
-        background-image: url(/src/assets/icons/main-pattern.svg); /* Повторяем паттерн фона */
-        background-repeat: repeat;
-        overflow-y: auto;
-        flex-direction: column;
-        transition: transform 0.3s ease-in-out; /* Анимация появления/скрытия */
-        transform: translateX(100%); /* Изначально скрыто за экраном */
-    }
-
-    .mobile-menu.active {
-        display: flex;
-        transform: translateX(0);
-    }
-
-    .mobile-menu ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-bottom: 1rem;
-        border-bottom: 1px dashed oklch(from var(--light-stroke) l c h);
-        margin-bottom: 1rem;
-        gap: 1rem;
-        font-size: 20px;
-        list-style: none;
-    }
-
-    .mobile-menu .search input {
-        width: 100%;
-        max-width: none;
-    }
-
-    /* Mobile media query */
-    @media (max-width: 1024px) {
-        .desktop-only {
-            display: none;
+    <style>
+        .header-container {
+            width: 100%;
+            font-family: "JetBrainsMono", sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            position: relative;
+            top: auto;
+            left: auto;
+            z-index: 3; /* Шапка всегда сверху, пока не прокрутится */
+            border-bottom: 1px solid oklch(from var(--stroke) l c h); /* Добавляем тонкую линию под шапкой */
         }
 
         .header-content {
-            padding: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 107.25rem;
+            margin: 0 auto;
+            padding: 22px 0;
         }
 
         .header-nav {
-            width: auto;
-            justify-content: space-between;
+            max-width: 1305px;
+            width: 70%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
         }
 
-        .header-nav .phone-menu {
+        .cataloge {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            text-transform: uppercase;
+        }
+
+        .main-nav ul:not(.info-menu ul) {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+        }
+
+        .main-nav li:hover {
+            color: oklch(from var(--purple-text) l c h);
+            transition: color 0.3s;
+        }
+
+        .configurator-button {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .arrow-icon {
+            margin-left: 5px;
+            font-weight: bold;
+            color: oklch(from var(--purple-text) l c h);
+        }
+
+        .user-controls {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            font-size: 14px;
+        }
+
+        .user-controls img {
+            cursor: pointer;
             display: block;
+            align-items: center;
         }
 
-        .user-controls .phone-number {
+        .search {
+            position: relative;
+            text-transform: uppercase;
+        }
+
+        .search::before {
+            content: url("../assets/icons/Search.svg");
+            position: absolute;
+            top: 35%;
+            left: 0.5rem;
+
+            transform: translateY(-50%);
+
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .search input {
+            padding: 0 0.5rem 0 2rem;
+            max-width: 6rem;
+            font-size: 16px;
+            border-radius: 0.1rem;
+            font-family: "JetBrainsMono";
+            text-transform: uppercase;
+        }
+
+        .search input::-webkit-search-cancel-button {
             display: none;
         }
 
-        .burger {
-            display: block;
-            z-index: 5;
+        .user-collection {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
         }
 
-        .header-container .phone-menu,
-        .header-container .logo {
-            display: block;
+        .info-catalog-wrapper {
+            position: relative;
         }
-
-        .header-container .logo {
-            margin-left: 1rem;
+        .info-catalog-wrapper span {
+            text-transform: uppercase;
         }
-        .search[data-astro-cid-3ef6ksr2]::before {
-            left: 0;
-            top: 37%;
-        }
-        .search input::placeholder {
-            color: oklch(from var(--body-text) l c h);
-            font-size: 20px;
-        }
-        .btn.cataloge {
+        .info-catalog {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
             padding: 0;
+            text-transform: uppercase;
         }
-    }
-</style>
+
+        .phone-menu-bottom {
+            top: 100%;
+            right: 0;
+        }
+        .info-menu,
+        .phone-menu-bottom {
+            position: absolute;
+            z-index: 3;
+            padding: 0.5rem 1rem;
+            min-width: 14.8125rem;
+
+            color: oklch(from var(--body-text) l c h);
+            background-color: oklch(from var(--bg) l c h);
+            background-image: url(/src/assets/icons/main-pattern.svg);
+            background-repeat: repeat;
+            text-transform: uppercase;
+            ul {
+                list-style: none;
+            }
+        }
+        .info-menu ul,
+        .phone-menu-bottom ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        .modal-overlay {
+            position: absolute;
+            left: 0;
+            background-color: oklch(from var(--bg) l c h);
+            background-image: url(/src/assets/icons/main-pattern.svg);
+            background-repeat: repeat;
+            z-index: 10;
+            display: flex;
+            overflow-y: auto;
+        }
+
+        .modal-window {
+            width: 100vw;
+            height: auto;
+            display: flex;
+        }
+
+        .sidebar {
+            border-right: 1px solid oklch(from var(--stroke) l c h);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 8px;
+            cursor: pointer;
+            color: oklch(from var(--text) l c h);
+            font-size: 20px;
+            transition: background 0.14s;
+            border-left: 2px solid transparent;
+        }
+
+        .sidebar li .icon {
+            width: 70px;
+            height: 68px;
+            border: 1px dashed oklch(from var(--light-stroke) l c h);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar li.active,
+        .sidebar li:hover {
+            background: rgba(79, 74, 104, 0.11);
+            color: oklch(from var(--purple-text) l c h);
+        }
+
+        .sidebar li.active span {
+            color: oklch(from var(--purple-text) l c h);
+        }
+
+        .sidebar li .icon img {
+            width: 43px;
+            height: 50px;
+            /* filter: grayscale(1) brightness(1.2) drop-shadow(0 0 3px #b085e770); */
+        }
+
+        .sidebar li.active .icon img {
+            filter: none;
+        }
+
+        .modal-content {
+            flex: 1 1 auto;
+            padding: 44px 56px 44px 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            overflow-y: auto;
+        }
+
+        .columns {
+            display: flex;
+            width: 100%;
+        }
+
+        .column {
+            min-width: 270px;
+            border-right: 1px dashed oklch(from var(--stroke) l c h);
+            padding: 0 2rem;
+        }
+
+        .category-title {
+            font-family: "JetBrainsMono";
+            font-size: 20px;
+            color: oklch(from var(--purple-text));
+            background: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: table;
+
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        .category-group strong {
+            display: block;
+            font-size: 16px;
+            margin: 18px 0 6px 0;
+        }
+
+        .category-group ul {
+            padding-left: 14px;
+            margin: 0 0 2px 0;
+            list-style: none;
+        }
+
+        .category-group ul li {
+            margin-bottom: 3px;
+        }
+
+        .purple-effect4 {
+            overflow: hidden;
+        }
+
+        .purple-effect4::before {
+            bottom: 0;
+            top: -20%;
+            right: -20%;
+            width: 80%;
+            height: 100%;
+            transform: rotate(220deg);
+            background-position: 0 70%;
+            background-repeat: no-repeat;
+        }
+
+        .burger,
+        .phone-menu {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            padding: 33px 40px;
+            left: 0;
+            width: 100%;
+            background-color: oklch(from var(--bg) l c h);
+            background-image: url(/src/assets/icons/main-pattern.svg);
+            background-repeat: repeat;
+            overflow-y: auto;
+            flex-direction: column;
+            transition: transform 0.3s ease-in-out;
+            transform: translateX(100%);
+        }
+
+        .mobile-menu.active {
+            display: flex;
+            transform: translateX(0);
+        }
+
+        .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed oklch(from var(--light-stroke) l c h);
+            margin-bottom: 1rem;
+            gap: 1rem;
+            font-size: 20px;
+            list-style: none;
+        }
+
+        .mobile-menu .search input {
+            width: 100%;
+            max-width: none;
+        }
+
+        /* Mobile media query */
+        @media (max-width: 1024px) {
+            .desktop-only {
+                display: none;
+            }
+
+            .header-content {
+                padding: 2rem;
+            }
+
+            .header-nav {
+                width: auto;
+                justify-content: space-between;
+            }
+
+            .header-nav .phone-menu {
+                display: block;
+            }
+
+            .user-controls .phone-number {
+                display: none;
+            }
+
+            .burger {
+                display: block;
+                z-index: 5;
+            }
+
+            .header-container .phone-menu,
+            .header-container .logo {
+                display: block;
+            }
+
+            .header-container .logo {
+                margin-left: 1rem;
+            }
+            .search[data-astro-cid-3ef6ksr2]::before {
+                left: 0;
+                top: 37%;
+            }
+            .search input::placeholder {
+                color: oklch(from var(--body-text) l c h);
+                font-size: 20px;
+            }
+            .btn.cataloge {
+                padding: 0;
+            }
+        }
+    </style>
+</header>

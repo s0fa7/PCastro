@@ -95,116 +95,144 @@ const customArticles = [
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">компьютеры<sub>48</sub></span>
+                            <span class="checkbox-label"
+                                >компьютеры<sub>48</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">процессоры<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >процессоры<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">видеокарты<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >видеокарты<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">материнские платы<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >материнские платы<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">оперативная память<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >оперативная память<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">диски ssd<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >диски ssd<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">диски ssd<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >диски ssd<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">диски hdd<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >диски hdd<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">блок питания<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >блок питания<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">корпуса<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >корпуса<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">охлаждение процессора<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >охлаждение процессора<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">корпусные вентиляторы<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >корпусные вентиляторы<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">моддинк пк<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >моддинк пк<sub>26</sub></span
+                            >
                         </label>
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">мониторы<sub>26</sub></span>
+                            <span class="checkbox-label"
+                                >мониторы<sub>26</sub></span
+                            >
                         </label>
                     </div>
                 </div>
 
                 <div class="filter-section">
                     <div class="filter-label collapsible">цена</div>
-                    <div class="price-row">
-                        <input
-                            type="number"
-                            id="min-input"
-                            min="3216"
-                            max="132450"
-                            step="100"
-                            value="3216"
-                            class="price-input"
-                        />
-
-                        <div class="slider-wrapper">
-                            <div class="slider-track"></div>
+                    <div class="filter-list">
+                        <div class="price-row">
                             <input
-                                type="range"
-                                min="0"
+                                type="number"
+                                id="min-input"
+                                min="3216"
                                 max="132450"
+                                step="100"
                                 value="3216"
-                                id="min-range"
+                                class="price-input"
                             />
+                            <div class="slider-wrapper">
+                                <div class="slider-track"></div>
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="132450"
+                                    value="3216"
+                                    id="min-range"
+                                />
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="132450"
+                                    value="132450"
+                                    id="max-range"
+                                />
+                            </div>
                             <input
-                                type="range"
+                                type="number"
+                                id="max-input"
                                 min="0"
                                 max="132450"
+                                step="100"
                                 value="132450"
-                                id="max-range"
+                                class="price-input"
                             />
                         </div>
-
-                        <input
-                            type="number"
-                            id="max-input"
-                            min="0"
-                            max="132450"
-                            step="100"
-                            value="132450"
-                            class="price-input"
-                        />
                     </div>
                 </div>
 
@@ -219,7 +247,9 @@ const customArticles = [
                         <label class="checkbox-container">
                             <input type="checkbox" />
                             <span class="checkmark"></span>
-                            <span class="checkbox-label">intel<sub>21</sub></span>
+                            <span class="checkbox-label"
+                                >intel<sub>21</sub></span
+                            >
                         </label>
                     </div>
                 </div>
@@ -260,7 +290,7 @@ const customArticles = [
 
             <div class="products">
                 <div class="products-tittle">
-                    <Nav items={PathProducts}/>
+                    <Nav items={PathProducts} />
                     <div class="search-products">
                         <input type="search" placeholder="поиск" />
                     </div>
@@ -377,8 +407,52 @@ const customArticles = [
                     >
                         TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
                     </ProductCard>
+                    <div class="hidden">
+                        <ProductCard
+                            id="010"
+                            photoSrc={Ram}
+                            photoAlt="RAM"
+                            productTitle="Оперативная память"
+                            productSpec="32Gb"
+                            price="140 000"
+                            isBadgeVisible={false}
+                            isHeartVisible={true}
+                        >
+                            TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                        </ProductCard>
+                    </div>
+                    <div class="hidden">
+                        <ProductCard
+                            id="011"
+                            photoSrc={Ram}
+                            photoAlt="RAM"
+                            productTitle="Оперативная память"
+                            productSpec="32Gb"
+                            price="140 000"
+                            isBadgeVisible={false}
+                            isHeartVisible={true}
+                        >
+                            TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                        </ProductCard>
+                    </div>
+                    <div class="hidden">
+                        <ProductCard
+                            id="012"
+                            photoSrc={Ram}
+                            photoAlt="RAM"
+                            productTitle="Оперативная память"
+                            productSpec="32Gb"
+                            price="140 000"
+                            isBadgeVisible={false}
+                            isHeartVisible={true}
+                        >
+                            TEAMGROUP T-Force Delta RGB [DDR5, 6000MHz, 2x16GB]
+                        </ProductCard>
+                    </div>
                 </div>
-                <OrderButton text="показать все" class="" />
+                <div class="show-btn">
+                    <OrderButton text="показать все" classes="" />
+                </div>
             </div>
         </div>
     </section>
@@ -495,8 +569,8 @@ const customArticles = [
 </Layout>
 
 <script>
-    // вопрос-ответ
     document.addEventListener("DOMContentLoaded", () => {
+        // вопрос-ответ
         const items = document.querySelectorAll<HTMLElement>(".faq-item");
         items.forEach((item) => {
             const question = item.querySelector(".faq-question");
@@ -504,9 +578,26 @@ const customArticles = [
                 item.classList.toggle("open");
             });
         });
+        // показать всё
+        const section = document.querySelector(".products");
+        if (!section) {
+            return;
+        }
+
+        const showBtn = section.querySelector(".show-btn");
+        if (!showBtn) return;
+
+        const hiddenCards = section.querySelectorAll(
+            ".products-container .hidden",
+        );
+
+        showBtn.addEventListener("click", () => {
+            hiddenCards.forEach((card) => card.classList.remove("hidden"));
+            (showBtn as HTMLElement).classList.add("hidden");
+        });
     });
 
-    // фильтры
+    // фильтры цен
     const minRange = document.getElementById("min-range") as HTMLInputElement;
     const maxRange = document.getElementById("max-range") as HTMLInputElement;
     const minInput = document.getElementById("min-input") as HTMLInputElement;
@@ -615,4 +706,79 @@ const customArticles = [
     maxInput.addEventListener("input", () => syncValues(true));
 
     updateBeforeGradient();
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // фильтры адаптации
+        const container = document.querySelector(".filter-container");
+        if (!container) return;
+
+        const filtrBtn = container.querySelector(
+            ".filtr-btn",
+        ) as HTMLElement | null;
+        const resetBtn = container.querySelector(
+            ".reset-btn",
+        ) as HTMLElement | null;
+        const filterSections = container.querySelectorAll(".filter-section");
+
+        if (!filtrBtn) return;
+
+        let isOpen = false;
+
+        filtrBtn.addEventListener("click", () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                filterSections.forEach((section) => {
+                    (section as HTMLElement).style.display = "flex";
+                });
+
+                filtrBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24">
+                <g clip-path="url(#clip0_944_7643)">
+                <path d="M4.5664 3.99998L9.74841 8.51035C10.1915 8.89604 10.4427 9.45705 10.4352 10.0445L10.4134 11.752C10.407 12.2495 10.2155 12.7268 9.87607 13.0906L5.35182 17.941" stroke="#B860FF" stroke-width="2"/>
+                <path d="M19.543 3.99998L14.361 8.51035C13.9178 8.89604 13.6667 9.45705 13.6742 10.0445L13.696 11.752C13.7023 12.2495 13.8939 12.7268 14.2333 13.0906L18.7575 17.941" stroke="#B860FF" stroke-width="2"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_944_7643">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>`;
+            } else {
+                filterSections.forEach((section) => {
+                    (section as HTMLElement).style.display = "none";
+                });
+
+                if (resetBtn) (resetBtn as HTMLElement).style.display = "none";
+
+                filtrBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 15 16">
+                <path d="M13.6367 16H10.9092V14.667H13.6367V16ZM10.9092 14.667H9.5459V14H0V12.667H9.5459V12H10.9092V14.667ZM15 14.667H13.6367V12H15V14.667ZM13.6367 12H10.9092V10.667H13.6367V12ZM4.09082 10.667H1.36328V9.33301H4.09082V10.667ZM1.36328 9.33301H0V6.66699H1.36328V9.33301ZM5.4541 9.33301H4.09082V6.66699H5.4541V9.33301ZM15 8.66699H6.81836V7.33301H15V8.66699ZM4.09082 6.66699H1.36328V5.33301H4.09082V6.66699ZM10.2275 5.33301H7.5V4H10.2275V5.33301ZM7.5 4H6.13672V3.33301H0V2H6.13672V1.33301H7.5V4ZM11.5908 4H10.2275V1.33301H11.5908V4ZM15 3.33301H12.9541V2H15V3.33301ZM10.2275 1.33301H7.5V0H10.2275V1.33301Z" fill="#B860FF"/>
+                </svg>`;
+            }
+        });
+        //подфильтры
+        const sections = document.querySelectorAll(".filter-section");
+
+        sections.forEach((section) => {
+            const label = section.querySelector(".filter-label");
+            if (!label) return;
+
+            const content = Array.from(section.children).filter(
+                (el) => !el.classList.contains("filter-label"),
+            ) as HTMLElement[];
+
+            if (content.length > 0) {
+                label.addEventListener("click", () => {
+                    const isVisible = content[0].style.display !== "none";
+
+                    if (isVisible) {
+                        content.forEach((el) => (el.style.display = "none"));
+                        section.classList.remove("open");
+                    } else {
+                        content.forEach((el) => (el.style.display = ""));
+                        section.classList.add("open");
+                    }
+                });
+            }
+        });
+    });
 </script>

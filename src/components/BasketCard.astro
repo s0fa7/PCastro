@@ -8,10 +8,12 @@ export interface Props {
     pickupDays?: string;
     deliveryDays?: string;
     price?: number;
+    initial?: number;
 }
 
 const {
-    index = 1,
+    index = 0,
+    initial = 1,
     image,
     article,
     name,
@@ -46,10 +48,10 @@ const {
                     <span>{deliveryDays}</span>
                 </li>
                 <li>
-                    <div class="counter">
-                        <button id={`dec-${index}`} class="btn"> − </button>
-                        <span id={`count-${index}`} class="">1</span>
-                        <button id={`inc-${index}`} class="btn"> + </button>
+                    <div class="counter" id={`counter-${index}`}>
+                        <button id={`dec-${index}`} class="btn">−</button>
+                        <span id={`count-${index}`}>{initial}</span>
+                        <button id={`inc-${index}`} class="btn">+</button>
                     </div>
                     <span>{price.toLocaleString()}₽</span>
                 </li>
@@ -67,46 +69,34 @@ const {
 </div>
 
 <script>
-    // Получаем контейнер карточки
-    const card = document.currentScript?.parentElement as HTMLElement | null;
-    if (!card) return;
+    document.querySelectorAll('[id^="counter-"]').forEach((counterEl) => {
+        const index = counterEl.id.split("-")[1];
 
-    // Извлекаем данные из атрибутов
-    const price = Number(card.dataset.price);
-    const idx = Number(card.dataset.index);
+        const decBtn = document.getElementById(
+            `dec-${index}`,
+        ) as HTMLButtonElement;
+        const incBtn = document.getElementById(
+            `inc-${index}`,
+        ) as HTMLButtonElement;
+        const countSpan = document.getElementById(
+            `count-${index}`,
+        ) as HTMLSpanElement;
 
-    const dec = document.getElementById(
-        `dec-${idx}`,
-    ) as HTMLButtonElement | null;
-    const inc = document.getElementById(
-        `inc-${idx}`,
-    ) as HTMLButtonElement | null;
-    const countEl = document.getElementById(
-        `count-${idx}`,
-    ) as HTMLElement | null;
-    const totalEl = document.getElementById(
-        `total-${idx}`,
-    ) as HTMLElement | null;
+        if (!decBtn || !incBtn || !countSpan) return;
 
-    let count = 1;
+        let count = parseInt(countSpan.textContent || "1");
 
-    const updateTotal = (): void => {
-        if (totalEl)
-            totalEl.textContent = (count * price).toLocaleString() + "₽";
-    };
+        incBtn.addEventListener("click", () => {
+            count++;
+            countSpan.textContent = String(count);
+        });
 
-    inc?.addEventListener("click", () => {
-        count++;
-        if (countEl) countEl.textContent = count.toString();
-        updateTotal();
-    });
-
-    dec?.addEventListener("click", () => {
-        if (count > 1) {
-            count--;
-            if (countEl) countEl.textContent = count.toString();
-            updateTotal();
-        }
+        decBtn.addEventListener("click", () => {
+            if (count > 1) {
+                count--;
+                countSpan.textContent = String(count);
+            }
+        });
     });
 </script>
 
@@ -181,45 +171,45 @@ const {
     .basket-container-row-interactive .btn {
         padding: 0;
     }
-    .counter{
+    .counter {
         display: flex;
         gap: 0.5rem;
         align-items: center;
         border: 1px solid oklch(from var(--light-stroke) l c h);
         padding: 8px 9px;
-        .btn{
+        .btn {
             padding: 0;
         }
     }
     @media (max-width: 1024px) {
-        .basket-container{
+        .basket-container {
             max-width: 100%;
             min-width: 0;
-            min-height: 18,875rem;
+            min-height: 18, 875rem;
             padding: 20px 16px;
         }
-        .basket-container-row__info h5{
+        .basket-container-row__info h5 {
             font-size: 10px;
         }
-        .basket-container-row-interactive span{
+        .basket-container-row-interactive span {
             font-size: 12px;
         }
         .basket-container-row__info,
         .basket-container-row__index,
-        .basket-container-row__article{
+        .basket-container-row__article {
             font-size: 8px;
         }
-        .basket-container-row-interactive svg{
+        .basket-container-row-interactive svg {
             width: 12px;
             height: 12px;
         }
-        .basket-container-row{
+        .basket-container-row {
             padding: 0 1rem 0 2px;
         }
-        .basket-container-row:last-child{
+        .basket-container-row:last-child {
             padding: 0 0 0 0.5rem;
         }
-        .basket-container-row img{
+        .basket-container-row img {
             width: 100%;
         }
     }

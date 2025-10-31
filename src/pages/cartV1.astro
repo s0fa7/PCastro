@@ -33,7 +33,6 @@ const myPath = [
             </div>
         </div>
         <div class="container">
-            <!-- Cart Section -->
             <div class="cart">
                 <div class="cart-head">
                     <a href="#">&lt;&lt; вернуться к покупкам</a>
@@ -42,27 +41,27 @@ const myPath = [
                         <span>очистить корзину </span>
                     </button>
                 </div>
-                <!-- cards -->
-                <BasketCard
-                    index={1}
-                    image="src/assets/images/products/product-card/intel.png"
-                    article="1654208"
-                    name="Intel Core i3 10100F OEM CM8070104291318"
-                    pickupDays="30 июля"
-                    deliveryDays="8 августа"
-                    price={9300}
-                />
-                <BasketCard
-                    index={2}
-                    image="src/assets/images/products/product-card/videographic.png"
-                    article="1654208"
-                    name="Видеокарта Gainward (NE75070019K9-GB2050T) GeForce RTX 5070 12GB PYTHON III"
-                    pickupDays="30 июля"
-                    deliveryDays="8 августа"
-                    price={12850}
-                />
+                <div class="basket-cards">
+                    <BasketCard
+                        index={1}
+                        image="src/assets/images/products/product-card/intel.png"
+                        article="1654208"
+                        name="Intel Core i3 10100F OEM CM8070104291318"
+                        pickupDays="30 июля"
+                        deliveryDays="8 августа"
+                        price={9300}
+                    />
+                    <BasketCard
+                        index={2}
+                        image="src/assets/images/products/product-card/videographic.png"
+                        article="1654208"
+                        name="Видеокарта Gainward (NE75070019K9-GB2050T) GeForce RTX 5070 12GB PYTHON III"
+                        pickupDays="30 июля"
+                        deliveryDays="8 августа"
+                        price={12850}
+                    />
+                </div>
 
-                <!-- Optionals -->
                 <div class="optionals">
                     <span>дополнительно://</span>
                     <label>
@@ -80,7 +79,6 @@ const myPath = [
                         сборка пк
                     </label>
                 </div>
-                <!-- Contacts Help -->
                 <div class="contacts-block angles">
                     <h4>Возникли сложности с оформлением заказа?</h4>
                     <p>
@@ -97,7 +95,6 @@ const myPath = [
                     </div>
                 </div>
             </div>
-            <!-- Order Form -->
             <form class="order-form">
                 <div class="cart-head">
                     <div>ДАННЫЕ ПОКУПАТЕЛЯ</div>
@@ -135,7 +132,7 @@ const myPath = [
                         <span>от 290 ₽</span>
                         <span>8 августа</span>
                     </div>
-                    <div class="delivery-method selected">
+                    <div class="delivery-method">
                         <span>Самовывоз из пукта выдачи</span>
                         <span>бесплатно</span>
                         <span>30 июля</span>
@@ -202,14 +199,19 @@ const myPath = [
     .header-container__order span {
         color: oklch(from var(--grey-text) l c h);
     }
-
-    /* корзина */
     .container {
         max-width: 1751px;
         margin: 0 auto;
         padding: 40px 0;
         display: flex;
         gap: 40px;
+    }
+
+    .basket-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        overflow-y: auto;
     }
 
     .cart,
@@ -413,6 +415,7 @@ const myPath = [
 
     .order-bottom {
         display: flex;
+        justify-content: space-between;
         align-items: center;
     }
     .order-bottom__info {
@@ -434,7 +437,6 @@ const myPath = [
     .order-form option:hover {
         background-color: oklch(from var(--purple) l c h);
     }
-    /* ---------- MEDIA ---------- */
     @media (max-width: 1100px) {
         .container {
             flex-direction: column;
@@ -470,6 +472,10 @@ const myPath = [
         .container {
             padding: 4px;
         }
+        .basket-cards {
+            overflow: visible;
+            gap: 0.5rem;
+        }
         .cart,
         .order-form {
             padding: 10px;
@@ -494,13 +500,13 @@ const myPath = [
         .order-form select {
             padding: 18px 16px;
         }
-        .delivery-methods{
+        .delivery-methods {
             gap: 1.5rem;
         }
-        .delivery-method{
+        .delivery-method {
             gap: 0.5rem;
         }
-        .summary-row__price{
+        .summary-row__price {
             font-size: 22px;
         }
     }

@@ -122,9 +122,65 @@ const myPath = [
             >
                 Intel Core i3 10105F OEM CM8070104291323
             </ProductCard>
+            <div class="hidden">
+                <ProductCard
+                    id="009"
+                    photoSrc={Intel}
+                    photoAlt="Intel Celeron"
+                    productTitle="процессор"
+                    productSpec="2 ядра"
+                    price="2 920"
+                    isBadgeVisible={false}
+                    isHeartVisible={true}
+                >
+                    Intel Celeron G5905 OEM
+                </ProductCard>
+            </div>
+            <div class="hidden">
+                <ProductCard
+                    id="010"
+                    photoSrc={Intel}
+                    photoAlt="Intel Celeron"
+                    productTitle="процессор"
+                    productSpec="4 ядра"
+                    price="4 120"
+                    isBadgeVisible={true}
+                    isHeartVisible={true}
+                >
+                    Intel Core i3 12100F OEM
+                </ProductCard>
+            </div>
+            <div class="hidden">
+                <ProductCard
+                    id="011"
+                    photoSrc={Intel}
+                    photoAlt="Intel Celeron"
+                    productTitle="процессор"
+                    productSpec="4 ядра"
+                    price="4 550"
+                    isBadgeVisible={false}
+                    isHeartVisible={true}
+                    >Intel Core i3 10105F OEM CM8070104291323
+                </ProductCard>
+            </div>
+
+            <div class="hidden">
+                <ProductCard
+                    id="012"
+                    photoSrc={Intel}
+                    photoAlt="Intel Celeron"
+                    productTitle="процессор"
+                    productSpec="4 ядра"
+                    price="4 650"
+                    isBadgeVisible={false}
+                    isHeartVisible={true}
+                >
+                    Intel Core i3 10105F OEM CM8070104291323
+                </ProductCard>
+            </div>
         </div>
         <div class="favorite-btn">
-            <OrderButton text="показать все" class=""/>
+            <OrderButton text="показать все" classes="" />
         </div>
         <div class="favorite-result angles">
             <p>у вас в избранном 8 товаров</p>
@@ -142,6 +198,27 @@ const myPath = [
     <Footer />
 </Layout>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const section = document.querySelector(".favorite-container");
+        if (!section) {
+            return;
+        }
+
+        const showBtn = section.querySelector(".favorite-btn");
+        if (!showBtn) return;
+
+        const hiddenCards = section.querySelectorAll(
+            ".favorite-products .hidden",
+        );
+
+        showBtn.addEventListener("click", () => {
+            hiddenCards.forEach((card) => card.classList.remove("hidden"));
+            (showBtn as HTMLElement).classList.add("hidden");
+        });
+    });
+</script>
+
 <style>
     .favorite-container {
         display: flex;
@@ -156,7 +233,7 @@ const myPath = [
         gap: 1.5rem;
         max-width: 100%;
     }
-    sup{
+    sup {
         font-size: 32px;
     }
     .favorite-header p {
@@ -198,18 +275,17 @@ const myPath = [
         color: oklch(from var(--purple-text) l c h);
     }
     @media (max-width: 1024px) {
-        .favorite-header h2{
+        .favorite-header h2 {
             font-size: 30px;
         }
-        .favorite-header sup{
+        .favorite-header sup {
             font-size: 20px;
         }
-        .favorite-header p{
+        .favorite-header p {
             font-size: 14px;
         }
         .favorite-container {
             align-items: center;
         }
-
     }
 </style>

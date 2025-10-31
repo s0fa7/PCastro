@@ -40,7 +40,7 @@
 .angles-white::before {
     position: absolute;
     inset: -1px;
-    z-index: -10;
+    z-index: 3;
 
     content: "";
 
@@ -398,6 +398,21 @@
 
     .promo-banner p {
         font-size: 10px;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .promo-banner {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        padding: 10px;
+        margin-top: 0.5rem;
+    }
+
+    .top-left-container {
+        padding: 0.5rem;
     }
 }
 
@@ -577,7 +592,11 @@
 }
 
 .products-tittle .breadcrumbs-nav {
-    max-width: 400px;
+    max-width: 250px;
+
+    ol {
+        padding: 0;
+    }
 }
 
 .search-products {
@@ -714,6 +733,11 @@ option {
     .product-catalog {
         flex-direction: column;
         align-items: stretch;
+    }
+}
+@media (max-width: 1024px) {
+    .products{
+        gap: 2.5rem;
     }
 }
 
@@ -935,7 +959,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     background: oklch(from var(--purple)l c h);
 }
 
-
 .filtr-btn {
     display: none;
 }
@@ -953,6 +976,8 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
     .filter-container {
         padding: 1.5rem 1rem;
+        margin: 0 1rem;
+        min-width: 0;
     }
 
     .filter-header {
@@ -962,5 +987,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
     .products-tittle {
         justify-content: space-between;
         padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 }

@@ -93,8 +93,34 @@ const customArticles = [
                 linkHref="#"
                 altText="скидка"
             />
+            <div class="hidden">
+                <TehCard
+                    imageSrc="/src/assets/images/TehCard2.png"
+                    caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                    linkHref="#"
+                    altText="скидка"
+                />
+            </div>
+            <div class="hidden">
+                <TehCard
+                    imageSrc="/src/assets/images/TehCard2.png"
+                    caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                    linkHref="#"
+                    altText="скидка"
+                />
+            </div>
+            <div class="hidden">
+                <TehCard
+                    imageSrc="/src/assets/images/TehCard2.png"
+                    caption="скидка -20% наВидеокарты NVIDIA GeForce RTX 40 SUPER"
+                    linkHref="#"
+                    altText="скидка"
+                />
+            </div>
         </div>
-        <OrderButton text="смотреть все" class=""/>
+        <div class="show-btn">
+            <OrderButton text="смотреть все" classes="" />
+        </div>
     </section>
     <section class="purple-effect1">
         <TheArticle
@@ -107,6 +133,25 @@ const customArticles = [
     </section>
     <Footer />
 </Layout>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const section = document.querySelector(".news");
+        if (!section) {
+            return;
+        }
+
+        const showBtn = section.querySelector(".show-btn");
+        if (!showBtn) return;
+
+        const hiddenCards = section.querySelectorAll(".news-cards .hidden");
+
+        showBtn.addEventListener("click", () => {
+            hiddenCards.forEach((card) => card.classList.remove("hidden"));
+            (showBtn as HTMLElement).classList.add("hidden");
+        });
+    });
+</script>
 
 <style>
     .news {
@@ -138,7 +183,7 @@ const customArticles = [
         gap: 1rem;
     }
     @media (max-width: 1024px) {
-        .news{
+        .news {
             gap: 2rem;
             margin: 1rem auto;
         }
@@ -146,13 +191,13 @@ const customArticles = [
             flex-direction: column;
             gap: 1.5rem;
         }
-        .news-tittle h2{
+        .news-tittle h2 {
             font-size: 30px;
         }
         .news-tittle p {
             text-align: start;
         }
-        .news-cards{
+        .news-cards {
             justify-content: center;
         }
     }

@@ -113,6 +113,10 @@
     font-weight: 500;
   }
 
+  .hidden{
+    display: none;
+  }
+
    @media (max-width: 1024px) {
     section{
       margin: 3.75rem 0;

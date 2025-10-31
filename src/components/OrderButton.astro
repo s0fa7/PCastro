@@ -3,16 +3,14 @@ import BtnIcon from "../assets/icons/product-card/btn-arrow.svg";
 
 interface Props {
   text: string;
-  class: string;
+  classes: string;
 }
-const {
-  text="заказать", 
-} = Astro.props;
+const { classes, text = "заказать"} = Astro.props;
 ---
 
 <div class="btn-with-label">
   <span class="label">{text}</span>
-  <button class="btn order-btn">
+  <button class=`btn order-btn ${classes}`>
     <BtnIcon />
   </button>
 </div>
