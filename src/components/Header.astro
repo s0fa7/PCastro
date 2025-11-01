@@ -71,32 +71,384 @@ import Menu from "../assets/icons/Menu.svg";
                     </span>
                     <div class="phone-menu-bottom" style="display: none">
                         <ul>
+                            <li>первый номер</li>
+                            <li>ещё какая-то информация</li>
+                        </ul>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <button type="button" class="burger phone-menu" id="burger">
+            <Menu width={17} height={17} class="burger-icon-svg" />
+        </button>
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li>
+                    <button type="button" class="btn mobbile-cataloge cataloge">
+                        <img src="/src/assets/icons/Catalog.svg" />
+                        <span>каталог</span>
+                    </button>
+                    <div class="mobbile-product-cataloge hidden">
+                        <ul>
+                            <li>
+                                <div class="mobbile-catologe-item">
+                                    <span class="icon angles-white"
+                                        ><img
+                                            src="/src/assets/images/catalog/pc.png"
+                                            alt=""
+                                        /></span
+                                    >
+                                    <span>.компьютеры</span>
+                                </div>
+                                <div class="mobbile-catologe-item-info">
+                                    <h4 class="category-title highlight">
+                                        NVIDIA (GeForce RTX / GTX)
+                                    </h4>
+                                    <div class="category-group">
+                                        <strong
+                                            >GEFORCE RTX 40-СЕРИИ (новое
+                                            поколение)</strong
+                                        >
+                                        <ul>
+                                            <li>RTX 4090</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="mobbile-catologe-item">
+                                    <span class="icon angles-white"
+                                        ><img
+                                            src="/src/assets/images/catalog/processor.png"
+                                            alt=""
+                                        /></span
+                                    >
+                                    <span>.процессоры</span>
+                                </div>
+                                <div class="mobbile-catologe-item-info">
+                                    <h4 class="category-title highlight">
+                                        NVIDIA (GeForce RTX / GTX)
+                                    </h4>
+                                    <div class="category-group">
+                                        <strong
+                                            >GEFORCE RTX 40-СЕРИИ (новое
+                                            поколение)</strong
+                                        >
+                                        <ul>
+                                            <li>RTX 4090</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="active">
+                                <div class="mobbile-catologe-item">
+                                    <span class="icon angles-white"
+                                        ><img
+                                            src="/src/assets/images/catalog/pc.png"
+                                            alt=""
+                                        /></span
+                                    >
+                                    <span>.видеокарты</span>
+                                </div>
+                                <div class="mobbile-catologe-item-info">
+                                    <h4 class="category-title highlight">
+                                        NVIDIA (GeForce RTX / GTX)
+                                    </h4>
+                                    <div class="category-group">
+                                        <strong
+                                            >GEFORCE RTX 40-СЕРИИ (новое
+                                            поколение)</strong
+                                        >
+                                        <ul>
+                                            <li>RTX 4090</li>
+                                            <li>RTX 4080 Super / 4080</li>
+                                            <li>
+                                                RTX 4070 Ti Super / 4070 Ti /
+                                                4070 Super / 4070
+                                            </li>
+                                            <li>RTX 4060 Ti / 4060</li>
+                                        </ul>
+                                        <strong
+                                            >GEFORCE RTX 30-СЕРИИ (предыдущее
+                                            поколение)</strong
+                                        >
+                                        <ul>
+                                            <li>RTX 3090 Ti / 3090</li>
+                                            <li>RTX 3080 Ti / 3080</li>
+                                            <li>RTX 3070 Ti / 3070</li>
+                                            <li>RTX 3060 Ti / 3060</li>
+                                            <li>RTX 3050</li>
+                                        </ul>
+                                        <strong
+                                            >GEFORCE GTX (бюджетный сегмент, без
+                                            rtx)</strong
+                                        >
+                                        <ul>
+                                            <li>
+                                                GTX 1660 Super / 1660 Ti / 1660
+                                            </li>
+                                            <li>GTX 1650 Super / 1650</li>
+                                            <li>GTX 1050 Ti / 1050</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/motherboard.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.материнские платы</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/ram.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.оперативная память</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/ssd.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.диски ssd</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/hdd.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.диски hdd</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/power-unit.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.блок питания</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/pc-case.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.корпуса</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/cpu-cooling.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.охлаждение процессора</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/pc-case-cooling.png"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.корпусные вентиляторы</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/pc-modding.webp"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.моддинг пк</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="mobbile-catologe-item">
+                                        <span class="icon angles-white"
+                                            ><img
+                                                src="/src/assets/images/catalog/monitor.webp"
+                                                alt=""
+                                            /></span
+                                        >
+                                        <span>.мониторы</span>
+                                    </div>
+                                    <div class="mobbile-catologe-item-info">
+                                        <h4 class="category-title highlight">
+                                            NVIDIA (GeForce RTX / GTX)
+                                        </h4>
+                                        <div class="category-group">
+                                            <strong
+                                                >GEFORCE RTX 40-СЕРИИ (новое
+                                                поколение)</strong
+                                            >
+                                            <ul>
+                                                <li>RTX 4090</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="">компания</a></li>
+                <li><a href="">Акции</a></li>
+                <li>
+                    <button
+                        type="button"
+                        class="btn mobbile-info-catalog info-catalog"
+                    >
+                        <span>информация</span>
+                        <img src="/src/assets/icons/OneArrowButton.svg" />
+                    </button>
+                    <div class="mobbile-info-menu hidden">
+                        <ul>
                             <li>новости</li>
                             <li>Доставка и оплата</li>
                             <li>Гарантия и возврат</li>
                         </ul>
                     </div>
-                </button>
-            </div>
-            <button type="button" class="burger phone-menu" id="burger">
-                <Menu width={17} height={17} class="burger-icon-svg" />
-            </button>
-        </div>
-        <div class="mobile-menu" id="mobile-menu">
-            <ul>
-                <li>
-                    <button type="button" class="btn cataloge">
-                        <img src="/src/assets/icons/Catalog.svg" />
-                        <span>каталог</span>
-                    </button>
-                </li>
-                <li><a href="">компания</a></li>
-                <li><a href="">Акции</a></li>
-                <li>
-                    <button type="button" class="btn info-catalog">
-                        <span>.информация</span>
-                        <img src="/src/assets/icons/OneArrowButton.svg" />
-                    </button>
                 </li>
                 <li><a href="">Контакты</a></li>
                 <li><a href="">Конфигуратор ПК</a></li>
@@ -130,10 +482,18 @@ import Menu from "../assets/icons/Menu.svg";
                     </div>
                 </li>
             </ul>
-            <span class="phone-number cataloge">
-                <a href="#">+7 495 266 07 92</a>
-                <img src="/src/assets/icons/OneArrowButton.svg" />
-            </span>
+            <div>
+                <button class="mobbile-phone-number cataloge btn">
+                    <a href="#">+7 495 266 07 92</a>
+                    <img src="/src/assets/icons/OneArrowButton.svg" />
+                </button>
+                <div class="mobbile-phone-menu-bottom hidden">
+                    <ul>
+                        <li>первый номер</li>
+                        <li>ещё какая-то информация</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal-overlay purple-effect4" style="display: none">
@@ -417,113 +777,112 @@ import Menu from "../assets/icons/Menu.svg";
             </div>
         </div>
     </div>
+</header>
 
-    <script>
-        //информация появление
+<script>
+    //информация появление
 
-        document.addEventListener("click", toggleDropdown);
+    document.addEventListener("click", toggleDropdown);
 
-        function toggleDropdown(e: MouseEvent): void {
-            toggle(e, ".info-catalog", ".info-menu");
-            toggle(e, ".phone-catalog", ".phone-menu-bottom");
-        }
+    function toggleDropdown(e: MouseEvent): void {
+        toggle(e, ".info-catalog", ".info-menu");
+        toggle(e, ".phone-catalog", ".phone-menu-bottom");
+    }
 
-        function toggle(
-            e: MouseEvent,
-            watchedElementClass: string,
-            toggledElementClass: string,
-        ): void {
-            const watchedElement = document.querySelector(watchedElementClass);
-            const toggledElement = document.querySelector(toggledElementClass);
+    function toggle(
+        e: MouseEvent,
+        watchedElementClass: string,
+        toggledElementClass: string,
+    ): void {
+        const watchedElement = document.querySelector(watchedElementClass);
+        const toggledElement = document.querySelector(toggledElementClass);
 
-            if (!watchedElement || !toggledElement) return;
+        if (!watchedElement || !toggledElement) return;
 
-            if (watchedElement.contains(e.target as Node)) {
-                const isHidden = toggledElement
-                    .getAttribute("style")
-                    ?.includes("none");
-                toggledElement.setAttribute(
-                    "style",
-                    isHidden ? "display: block;" : "display: none;",
-                );
-            } else {
-                toggledElement.setAttribute("style", "display: none;");
-            }
-        }
-
-        //категории появление
-
-        const infoMenuModal = document.querySelector(
-            ".modal-overlay",
-        ) as HTMLDivElement | null;
-
-        document
-            .querySelector(".cataloge")
-            ?.addEventListener("click", showMenu);
-
-        function showMenu(): void {
-            if (infoMenuModal && headerContainer) {
-                const isModalHidden = infoMenuModal.style.display === "none";
-
-                if (isModalHidden) {
-                    infoMenuModal.style.display = "flex"; 
-                    const headerRect: DOMRect =
-                        headerContainer.getBoundingClientRect();
-                    const headerBottom: number = headerRect.bottom;
-
-                    infoMenuModal.style.top = `${headerBottom}px`;
-                    infoMenuModal.style.height = `calc(100vh - ${headerBottom}px)`;
-                } else {
-                    infoMenuModal.style.display = "none";
-                }
-            }
-        }
-
-        //категории смена
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const sidebarItems =
-                document.querySelectorAll<HTMLLIElement>(".sidebar ul li");
-            const allColumns = document.querySelectorAll<HTMLDivElement>(
-                ".modal-content .columns",
+        if (watchedElement.contains(e.target as Node)) {
+            const isHidden = toggledElement
+                .getAttribute("style")
+                ?.includes("none");
+            toggledElement.setAttribute(
+                "style",
+                isHidden ? "display: block;" : "display: none;",
             );
+        } else {
+            toggledElement.setAttribute("style", "display: none;");
+        }
+    }
 
-            sidebarItems.forEach((item) => {
-                item.addEventListener("click", () => {
-                    sidebarItems.forEach((li) => li.classList.remove("active"));
-                    item.classList.add("active");
+    //категории появление
 
-                    const categoryName = item
-                        .querySelector("span:last-child")
-                        ?.textContent?.trim();
-                    if (!categoryName) return;
+    const infoMenuModal = document.querySelector(
+        ".modal-overlay",
+    ) as HTMLDivElement | null;
 
-                    allColumns.forEach((col) => {
-                        if (col.dataset.category === categoryName) {
-                            col.style.display = "flex";
-                        } else {
-                            col.style.display = "none";
-                        }
-                    });
+    document.querySelector(".cataloge")?.addEventListener("click", showMenu);
+
+    function showMenu(): void {
+        if (infoMenuModal && headerContainer) {
+            const isModalHidden = infoMenuModal.style.display === "none";
+
+            if (isModalHidden) {
+                infoMenuModal.style.display = "flex";
+                const headerRect: DOMRect =
+                    headerContainer.getBoundingClientRect();
+                const headerBottom: number = headerRect.bottom;
+
+                infoMenuModal.style.top = `${headerBottom}px`;
+                infoMenuModal.style.height = `calc(100vh - ${headerBottom}px)`;
+            } else {
+                infoMenuModal.style.display = "none";
+            }
+        }
+    }
+
+    //категории смена
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const sidebarItems =
+            document.querySelectorAll<HTMLLIElement>(".sidebar ul li");
+        const allColumns = document.querySelectorAll<HTMLDivElement>(
+            ".modal-content .columns",
+        );
+
+        sidebarItems.forEach((item) => {
+            item.addEventListener("click", () => {
+                sidebarItems.forEach((li) => li.classList.remove("active"));
+                item.classList.add("active");
+
+                const categoryName = item
+                    .querySelector("span:last-child")
+                    ?.textContent?.trim();
+                if (!categoryName) return;
+
+                allColumns.forEach((col) => {
+                    if (col.dataset.category === categoryName) {
+                        col.style.display = "flex";
+                    } else {
+                        col.style.display = "none";
+                    }
                 });
             });
         });
+    });
 
-        const burgerButton = document.getElementById(
-            "burger",
-        ) as HTMLButtonElement | null;
-        const mobileMenu = document.getElementById(
-            "mobile-menu",
-        ) as HTMLDivElement | null;
-        const headerContainer = document.querySelector(
-            ".header-container",
-        ) as HTMLElement | null;
+    const burgerButton = document.getElementById(
+        "burger",
+    ) as HTMLButtonElement | null;
+    const mobileMenu = document.getElementById(
+        "mobile-menu",
+    ) as HTMLDivElement | null;
+    const headerContainer = document.querySelector(
+        ".header-container",
+    ) as HTMLElement | null;
 
-        const menuIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><rect x="3" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
+    const menuIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><rect x="3" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
 <rect x="15" y="3" width="6" height="6" rx="3" fill="#9D4EDD"/>
 <rect x="15" y="15" width="6" height="6" rx="3" fill="#9D4EDD"/>
 <rect x="3" y="15" width="6" height="6" rx="3" fill="#9D4EDD"/></svg>`;
-        const closeIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><g clip-path="url(#clip0_944_7643)">
+    const closeIconHtml: string = `<svg width="24" height="24" viewBox="0 0 24 24" class="burger-icon-svg"><g clip-path="url(#clip0_944_7643)">
 <path d="M4.5664 3.99998L9.74841 8.51035C10.1915 8.89604 10.4427 9.45705 10.4352 10.0445L10.4134 11.752C10.407 12.2495 10.2155 12.7268 9.87607 13.0906L5.35182 17.941" stroke="#B860FF" stroke-width="2"/>
 <path d="M19.543 3.99998L14.361 8.51035C13.9178 8.89604 13.6667 9.45705 13.6742 10.0445L13.696 11.752C13.7023 12.2495 13.8939 12.7268 14.2333 13.0906L18.7575 17.941" stroke="#B860FF" stroke-width="2"/>
 </g>
@@ -533,420 +892,629 @@ import Menu from "../assets/icons/Menu.svg";
 </clipPath>
 </defs></svg>`;
 
-        if (burgerButton) {
-            burgerButton.innerHTML = menuIconHtml;
+    if (burgerButton) {
+        burgerButton.innerHTML = menuIconHtml;
+    }
+
+    burgerButton?.addEventListener("click", () => {
+        if (mobileMenu && burgerButton && headerContainer) {
+            const headerRect: DOMRect = headerContainer.getBoundingClientRect();
+            const headerBottom: number = headerRect.bottom;
+
+            mobileMenu.style.top = `${headerBottom}px`;
+
+            mobileMenu.classList.toggle("active");
+            if (mobileMenu.classList.contains("active")) {
+                burgerButton.innerHTML = closeIconHtml;
+                document.body.style.overflow = "hidden";
+            } else {
+                burgerButton.innerHTML = menuIconHtml;
+                document.body.style.overflow = "";
+            }
+        }
+    });
+
+    // мобильные подменю
+    const setupMenuToggle = (
+        triggerSelector: string,
+        menuSelector: string,
+    ): void => {
+        const trigger = document.querySelector(
+            triggerSelector,
+        ) as HTMLElement | null;
+        const menu = document.querySelector(menuSelector) as HTMLElement | null;
+
+        if (trigger && menu) {
+            trigger.addEventListener("click", (event: MouseEvent) => {
+                event.preventDefault();
+
+                menu.classList.toggle("hidden");
+            });
+        } else {
+            if (!trigger) {
+                console.warn(
+                    `[Debug] ОШИБКА: Триггер не найден: ${triggerSelector}`,
+                );
+            }
+            if (!menu) {
+                console.warn(
+                    `[Debug] ОШИБКА: Меню не найдено: ${menuSelector}`,
+                );
+            }
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setupMenuToggle(".mobbile-cataloge", ".mobbile-product-cataloge");
+        setupMenuToggle(".mobbile-phone-number", ".mobbile-phone-menu-bottom");
+        setupMenuToggle(".mobbile-info-catalog", ".mobbile-info-menu");
+    });
+
+    // мобильный каталог переключение
+    document.addEventListener("DOMContentLoaded", () => {
+        // Находим все родительские 'li' элементы
+        // (Предполагаем, что они все в одном 'ul')
+        const allListItems = document.querySelectorAll<HTMLLIElement>(
+            ".mobbile-catologe-item",
+        );
+        const parentUl =
+            allListItems.length > 0 ? allListItems[0].closest("ul") : null;
+
+        if (!parentUl) {
+            console.warn("Не удалось найти список UL для каталога.");
+            return;
         }
 
-        burgerButton?.addEventListener("click", () => {
-            if (mobileMenu && burgerButton && headerContainer) {
-                const headerRect: DOMRect =
-                    headerContainer.getBoundingClientRect();
-                const headerBottom: number = headerRect.bottom;
+        const allLis = parentUl.querySelectorAll<HTMLLIElement>(":scope > li");
 
-                mobileMenu.style.top = `${headerBottom}px`;
+        // --- 1. Инициализация (скрываем все неактивные) ---
 
-                mobileMenu.classList.toggle("active");
-                if (mobileMenu.classList.contains("active")) {
-                    burgerButton.innerHTML = closeIconHtml; 
-                    document.body.style.overflow = "hidden"; 
-                } else {
-                    burgerButton.innerHTML = menuIconHtml; 
-                    document.body.style.overflow = ""; 
-                }
+        allLis.forEach((li) => {
+            const submenu = li.querySelector<HTMLElement>(
+                ".mobbile-catologe-item-info",
+            );
+            if (!submenu) return; // Пропускаем 'li' без подменю (как у "блока питания")
+
+            if (li.classList.contains("active")) {
+                // Если активен по умолчанию (как "видеокарты"),
+                // принудительно его показываем
+                submenu.style.display = "block";
+            } else {
+                // Если не активен, принудительно его скрываем
+                submenu.style.display = "none";
             }
         });
-    </script>
 
-    <style>
-        .header-container {
-            width: 100%;
-            font-family: "JetBrainsMono", sans-serif;
-            font-size: 16px;
-            text-transform: uppercase;
-            position: relative;
-            top: auto;
-            left: auto;
-            z-index: 3; /* Шапка всегда сверху, пока не прокрутится */
-            border-bottom: 1px solid oklch(from var(--stroke) l c h); /* Добавляем тонкую линию под шапкой */
-        }
+        // --- 2. Настройка кликов (логика аккордеона) ---
 
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 107.25rem;
-            margin: 0 auto;
-            padding: 22px 0;
-        }
+        allLis.forEach((currentLi) => {
+            const trigger = currentLi.querySelector<HTMLElement>(
+                ".mobbile-catologe-item",
+            );
+            const currentSubmenu = currentLi.querySelector<HTMLElement>(
+                ".mobbile-catologe-item-info",
+            );
 
-        .header-nav {
-            max-width: 1305px;
-            width: 70%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-        }
+            // Вешаем клик только на 'li', у которых есть и триггер, и подменю
+            if (!trigger || !currentSubmenu) {
+                return;
+            }
 
-        .cataloge {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            text-transform: uppercase;
-        }
+            trigger.addEventListener("click", (event: MouseEvent) => {
+                event.preventDefault();
 
-        .main-nav ul:not(.info-menu ul) {
+                // Проверяем, был ли этот элемент УЖЕ активен
+                const wasActive = currentLi.classList.contains("active");
+
+                // Сначала скрываем ВСЕ подменю и убираем ВСЕ классы 'active'
+                allLis.forEach((li) => {
+                    li.classList.remove("active");
+                    const submenu = li.querySelector<HTMLElement>(
+                        ".mobbile-catologe-item-info",
+                    );
+                    if (submenu) {
+                        submenu.style.display = "none";
+                    }
+                });
+
+                // Если элемент не был активен (т.е. мы его открываем)
+                if (!wasActive) {
+                    // Добавляем класс и показываем подменю
+                    currentLi.classList.add("active");
+                    currentSubmenu.style.display = "block";
+                }
+                // Если элемент был активен (wasActive === true),
+                // то мы его уже закрыли на предыдущем шаге,
+                // и ничего больше делать не нужно.
+            });
+        });
+    });
+</script>
+
+<style>
+    .header-container {
+        width: 100%;
+        font-family: "JetBrainsMono", sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        position: relative;
+        top: auto;
+        left: auto;
+        z-index: 3; /* Шапка всегда сверху, пока не прокрутится */
+        border-bottom: 1px solid oklch(from var(--stroke) l c h); /* Добавляем тонкую линию под шапкой */
+    }
+
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 107.25rem;
+        margin: 0 auto;
+        padding: 22px 0;
+    }
+
+    .header-nav {
+        max-width: 1305px;
+        width: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .cataloge {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        text-transform: uppercase;
+    }
+
+    .main-nav ul:not(.info-menu ul) {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .main-nav a {
+        text-decoration: none;
+    }
+
+    .main-nav li:hover {
+        color: oklch(from var(--purple-text) l c h);
+        transition: color 0.3s;
+    }
+
+    .configurator-button {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+    }
+
+    .arrow-icon {
+        margin-left: 5px;
+        font-weight: bold;
+        color: oklch(from var(--purple-text) l c h);
+    }
+
+    .user-controls {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        font-size: 14px;
+    }
+
+    .user-controls img {
+        cursor: pointer;
+        display: block;
+        align-items: center;
+    }
+
+    .search {
+        position: relative;
+        text-transform: uppercase;
+    }
+
+    .search::before {
+        content: url("../assets/icons/Search.svg");
+        position: absolute;
+        top: 35%;
+        left: 0.5rem;
+
+        transform: translateY(-50%);
+
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .search input {
+        padding: 0 0.5rem 0 2rem;
+        max-width: 6rem;
+        font-size: 16px;
+        border-radius: 0.1rem;
+        font-family: "JetBrainsMono";
+        text-transform: uppercase;
+    }
+
+    .search input::-webkit-search-cancel-button {
+        display: none;
+    }
+
+    .user-collection {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .info-catalog-wrapper {
+        position: relative;
+    }
+    .info-catalog-wrapper span {
+        text-transform: uppercase;
+    }
+    .info-catalog {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        padding: 0;
+        text-transform: uppercase;
+    }
+
+    .info-menu,
+    .phone-menu-bottom {
+        position: absolute;
+        z-index: 3;
+        padding: 0.5rem 1rem;
+        min-width: 14.8125rem;
+
+        color: oklch(from var(--body-text) l c h);
+        background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
+        text-transform: uppercase;
+        ul {
             list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 2rem;
         }
-
-        .main-nav a {
-            text-decoration: none;
-        }
-
-        .main-nav li:hover {
-            color: oklch(from var(--purple-text) l c h);
-            transition: color 0.3s;
-        }
-
-        .configurator-button {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .arrow-icon {
-            margin-left: 5px;
-            font-weight: bold;
-            color: oklch(from var(--purple-text) l c h);
-        }
-
-        .user-controls {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            font-size: 14px;
-        }
-
-        .user-controls img {
-            cursor: pointer;
-            display: block;
+    }
+    .info-menu ul,
+    .phone-menu-bottom ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .phone-menu-bottom {
+        top: 100%;
+        min-width: 0;
+        ul{
             align-items: center;
         }
+    }
 
-        .search {
-            position: relative;
-            text-transform: uppercase;
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .mobbile-product-cataloge ul {
+        display: none;
+    }
+
+    .modal-overlay {
+        position: absolute;
+        left: 0;
+        background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
+        z-index: 10;
+        display: flex;
+        overflow-y: auto;
+    }
+
+    .modal-window {
+        width: 100vw;
+        height: auto;
+        display: flex;
+    }
+
+    .sidebar {
+        border-right: 1px solid oklch(from var(--stroke) l c h);
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar li {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 12px 8px;
+        cursor: pointer;
+        color: oklch(from var(--text) l c h);
+        font-size: 20px;
+        transition: background 0.14s;
+        border-left: 2px solid transparent;
+    }
+
+    .sidebar li .icon {
+        width: 70px;
+        height: 68px;
+        border: 1px dashed oklch(from var(--light-stroke) l c h);
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar li.active,
+    .sidebar li:hover {
+        color: oklch(from var(--purple-text) l c h);
+    }
+    .sidebar li.active .icon,
+    .sidebar li:hover .icon {
+        border-color: #b860ff66;
+    }
+    .sidebar li.active .icon.angles-white::before,
+    .sidebar li:hover .icon.angles-white::before {
+        --c: #b860ff;
+    }
+
+    .sidebar li.active span {
+        color: oklch(from var(--purple-text) l c h);
+    }
+
+    .sidebar li .icon img {
+        width: 43px;
+        height: 50px;
+    }
+
+    .sidebar li.active .icon img {
+        filter: none;
+    }
+
+    .modal-content {
+        flex: 1 1 auto;
+        padding: 44px 56px 44px 56px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    .columns {
+        display: flex;
+        width: 100%;
+    }
+
+    .column {
+        min-width: 270px;
+        border-right: 1px dashed oklch(from var(--stroke) l c h);
+        padding: 0 2rem;
+    }
+
+    .category-title {
+        font-family: "JetBrainsMono";
+        font-size: 20px;
+        color: oklch(from var(--purple-text));
+        background: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: table;
+
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+    .category-group strong {
+        display: block;
+        font-size: 16px;
+        margin: 18px 0 6px 0;
+    }
+
+    .category-group ul {
+        padding-left: 14px;
+        margin: 0 0 2px 0;
+        list-style: none;
+    }
+
+    .category-group ul li {
+        margin-bottom: 3px;
+    }
+
+    .purple-effect4 {
+        overflow: hidden;
+    }
+
+    .purple-effect4::before {
+        bottom: 0;
+        top: -20%;
+        right: -20%;
+        width: 80%;
+        height: 100%;
+        transform: rotate(220deg);
+        background-position: 0 70%;
+        background-repeat: no-repeat;
+    }
+
+    .burger,
+    .phone-menu {
+        display: none;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        padding: 33px 40px;
+        left: 0;
+        width: 100%;
+        background-color: oklch(from var(--bg) l c h);
+        background-image: url(/src/assets/icons/main-pattern.svg);
+        background-repeat: repeat;
+        overflow-y: auto;
+        flex-direction: column;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(100%);
+    }
+
+    .mobile-menu.active {
+        display: flex;
+        transform: translateX(0);
+    }
+
+    .mobile-menu
+        ul:not(
+            .mobbile-phone-menu-bottom ul,
+            .mobbile-info-menu ul,
+            .mobbile-product-cataloge ul,
+            .category-group ul
+        ) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 1rem;
+        border-bottom: 1px dashed oklch(from var(--light-stroke) l c h);
+        margin-bottom: 1rem;
+        gap: 1rem;
+        font-size: 20px;
+        list-style: none;
+    }
+
+    .mobbile-phone-menu-bottom ul,
+    .mobbile-info-menu ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 16px;
+        color: oklch(from var(--light-stroke) l c h);
+        line-height: 120%;
+        margin: 1rem 0;
+    }
+
+    .mobile-menu .search input {
+        width: 100%;
+        max-width: none;
+    }
+
+    @media (max-width: 1440px) {
+        .phone-menu-bottom{
+            right: 0;
         }
-
-        .search::before {
-            content: url("../assets/icons/Search.svg");
-            position: absolute;
-            top: 35%;
-            left: 0.5rem;
-
-            transform: translateY(-50%);
-
-            width: 1rem;
-            height: 1rem;
-        }
-
-        .search input {
-            padding: 0 0.5rem 0 2rem;
-            max-width: 6rem;
-            font-size: 16px;
-            border-radius: 0.1rem;
-            font-family: "JetBrainsMono";
-            text-transform: uppercase;
-        }
-
-        .search input::-webkit-search-cancel-button {
+    }
+    @media (max-width: 1024px) {
+        .desktop-only {
             display: none;
         }
 
-        .user-collection {
-            display: flex;
-            flex-direction: row;
-            gap: 1rem;
+        .header-content {
+            padding: 2rem;
         }
 
-        .info-catalog-wrapper {
-            position: relative;
-        }
-        .info-catalog-wrapper span {
-            text-transform: uppercase;
-        }
-        .info-catalog {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-            padding: 0;
-            text-transform: uppercase;
+        .header-nav {
+            width: auto;
+            justify-content: space-between;
         }
 
-        .phone-menu-bottom {
-            top: 100%;
-            right: 0;
-        }
-        .info-menu,
-        .phone-menu-bottom {
-            position: absolute;
-            z-index: 3;
-            padding: 0.5rem 1rem;
-            min-width: 14.8125rem;
-
-            color: oklch(from var(--body-text) l c h);
-            background-color: oklch(from var(--bg) l c h);
-            background-image: url(/src/assets/icons/main-pattern.svg);
-            background-repeat: repeat;
-            text-transform: uppercase;
-            ul {
-                list-style: none;
-            }
-        }
-        .info-menu ul,
-        .phone-menu-bottom ul {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        .header-nav .phone-menu {
+            display: block;
         }
 
-        body.modal-open {
-            overflow: hidden;
+        .user-controls .phone-number {
+            display: none;
         }
 
-        .modal-overlay {
-            position: absolute;
+        .burger {
+            display: block;
+            z-index: 5;
+        }
+
+        .header-container .phone-menu,
+        .header-container .logo {
+            display: block;
+        }
+
+        .header-container .logo {
+            margin-left: 1rem;
+        }
+        .search::before {
             left: 0;
-            background-color: oklch(from var(--bg) l c h);
-            background-image: url(/src/assets/icons/main-pattern.svg);
-            background-repeat: repeat;
-            z-index: 10;
-            display: flex;
-            overflow-y: auto;
+            top: 37%;
         }
-
-        .modal-window {
-            width: 100vw;
-            height: auto;
-            display: flex;
+        .search input::placeholder {
+            color: oklch(from var(--body-text) l c h);
+            font-size: 20px;
         }
-
-        .sidebar {
-            border-right: 1px solid oklch(from var(--stroke) l c h);
+        .btn.cataloge {
             padding: 0;
+        }
+        .modal-window {
+            height: auto;
+            width: 100%;
+        }
+        .mobbile-product-cataloge ul {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .sidebar ul {
+            gap: 15px;
+            margin: 1rem 0;
             list-style: none;
-            padding: 0;
-            margin: 0;
         }
-
-        .sidebar li {
+        .mobbile-product-cataloge .mobbile-catologe-item {
             display: flex;
             align-items: center;
-            gap: 14px;
-            padding: 12px 8px;
-            cursor: pointer;
-            color: oklch(from var(--text) l c h);
-            font-size: 20px;
-            transition: background 0.14s;
-            border-left: 2px solid transparent;
+            gap: 19px;
+            font-size: 18px;
         }
-
-        .sidebar li .icon {
-            width: 70px;
-            height: 68px;
+        .mobbile-product-cataloge .icon {
+            width: 40px;
+            height: 40px;
+            padding: 0.4rem;
             border: 1px dashed oklch(from var(--light-stroke) l c h);
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
+            img {
+                width: 100%;
+                height: auto;
+            }
         }
-
-        .sidebar li.active,
-        .sidebar li:hover {
-            background: rgba(79, 74, 104, 0.11);
+        .mobbile-product-cataloge li.active .mobbile-catologe-item,
+        .mobbile-product-cataloge li:hover .mobbile-catologe-item {
             color: oklch(from var(--purple-text) l c h);
         }
-
-        .sidebar li.active span {
-            color: oklch(from var(--purple-text) l c h);
+        .mobbile-product-cataloge li.active .icon,
+        .mobbile-product-cataloge li:hover .icon {
+            border-color: #b860ff66;
         }
-
-        .sidebar li .icon img {
-            width: 43px;
-            height: 50px;
-            /* filter: grayscale(1) brightness(1.2) drop-shadow(0 0 3px #b085e770); */
+        .mobbile-product-cataloge li.active .icon.angles-white::before,
+        .mobbile-product-cataloge li:hover .icon.angles-white::before {
+            --c: #b860ff;
         }
-
-        .sidebar li.active .icon img {
-            filter: none;
-        }
-
-        .modal-content {
-            flex: 1 1 auto;
-            padding: 44px 56px 44px 56px;
+        .mobbile-catologe-item-info {
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            overflow-y: auto;
+            margin: 1rem 0;
+            overflow: scroll;
+            max-height: 28.25rem;
         }
-
-        .columns {
-            display: flex;
+        .mobile-menu li:first-child {
             width: 100%;
         }
-
-        .column {
-            min-width: 270px;
-            border-right: 1px dashed oklch(from var(--stroke) l c h);
-            padding: 0 2rem;
-        }
-
         .category-title {
-            font-family: "JetBrainsMono";
             font-size: 20px;
-            color: oklch(from var(--purple-text));
-            background: linear-gradient(90deg, #e3c3fd 0%, #853ac2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: table;
-
-            margin-bottom: 16px;
-            text-transform: uppercase;
         }
-
         .category-group strong {
-            display: block;
-            font-size: 16px;
-            margin: 18px 0 6px 0;
+            margin: 0;
+            font-family: "JetBrainsMono";
         }
-
-        .category-group ul {
-            padding-left: 14px;
-            margin: 0 0 2px 0;
-            list-style: none;
-        }
-
-        .category-group ul li {
-            margin-bottom: 3px;
-        }
-
-        .purple-effect4 {
-            overflow: hidden;
-        }
-
-        .purple-effect4::before {
-            bottom: 0;
-            top: -20%;
-            right: -20%;
-            width: 80%;
-            height: 100%;
-            transform: rotate(220deg);
-            background-position: 0 70%;
-            background-repeat: no-repeat;
-        }
-
-        .burger,
-        .phone-menu {
-            display: none;
-            background: none;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-        }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            padding: 33px 40px;
-            left: 0;
-            width: 100%;
-            background-color: oklch(from var(--bg) l c h);
-            background-image: url(/src/assets/icons/main-pattern.svg);
-            background-repeat: repeat;
-            overflow-y: auto;
-            flex-direction: column;
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-
-        .mobile-menu.active {
-            display: flex;
-            transform: translateX(0);
-        }
-
-        .mobile-menu ul {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding-bottom: 1rem;
-            border-bottom: 1px dashed oklch(from var(--light-stroke) l c h);
-            margin-bottom: 1rem;
-            gap: 1rem;
-            font-size: 20px;
-            list-style: none;
-        }
-
-        .mobile-menu .search input {
-            width: 100%;
-            max-width: none;
-        }
-
-        /* Mobile media query */
-        @media (max-width: 1024px) {
-            .desktop-only {
-                display: none;
-            }
-
-            .header-content {
-                padding: 2rem;
-            }
-
-            .header-nav {
-                width: auto;
-                justify-content: space-between;
-            }
-
-            .header-nav .phone-menu {
-                display: block;
-            }
-
-            .user-controls .phone-number {
-                display: none;
-            }
-
-            .burger {
-                display: block;
-                z-index: 5;
-            }
-
-            .header-container .phone-menu,
-            .header-container .logo {
-                display: block;
-            }
-
-            .header-container .logo {
-                margin-left: 1rem;
-            }
-            .search[data-astro-cid-3ef6ksr2]::before {
-                left: 0;
-                top: 37%;
-            }
-            .search input::placeholder {
-                color: oklch(from var(--body-text) l c h);
-                font-size: 20px;
-            }
-            .btn.cataloge {
-                padding: 0;
-            }
-        }
-    </style>
-</header>
+    }
+</style>
