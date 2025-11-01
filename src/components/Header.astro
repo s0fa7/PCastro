@@ -50,16 +50,32 @@ import Menu from "../assets/icons/Menu.svg";
 
         <div class="user-controls desktop-only">
             <div class="search">
-                <input type="search" placeholder="поиск" />
+                <input
+                    type="search"
+                    class="search"
+                    placeholder="поиск"
+                    oninput="filterResults(this.value)"
+                />
+                <div class="results-dropdown" data-desktop></div>
             </div>
             <div class="user-collection">
-                <a href="#">
+                <a
+                    href="#"
+                    data-count="23"
+                    aria-label="Корзина, 23 товара"
+                    class="icon-badge"
+                >
                     <img
                         src="/src/assets/icons/shopping-bag.svg"
                         alt="basket"
                     />
                 </a>
-                <a href="#">
+                <a
+                    href="#"
+                    data-count="0"
+                    aria-label="Корзина, пусто"
+                    class="icon-badge"
+                >
                     <img src="/src/assets/icons/heart.svg" alt="favorite" />
                 </a>
             </div>
@@ -457,10 +473,16 @@ import Menu from "../assets/icons/Menu.svg";
                 <li>
                     <a href="">
                         <div>
-                            <img
-                                src="/src/assets/icons/shopping-bag.svg"
-                                alt="basket"
-                            />
+                            <div
+                                data-count="23"
+                                aria-label="Корзина, 23 товара"
+                                class="icon-badge"
+                            >
+                                <img
+                                    src="/src/assets/icons/shopping-bag.svg"
+                                    alt="basket"
+                                />
+                            </div>
                             <span>Корзина</span>
                         </div>
                     </a>
@@ -468,17 +490,29 @@ import Menu from "../assets/icons/Menu.svg";
                 <li>
                     <a href="">
                         <div>
-                            <img
-                                src="/src/assets/icons/heart.svg"
-                                alt="favorite"
-                            />
+                            <div
+                                data-count="0"
+                                aria-label="Корзина, пусто"
+                                class="icon-badge"
+                            >
+                                <img
+                                    src="/src/assets/icons/heart.svg"
+                                    alt="favorite"
+                                />
+                            </div>
                             <span>избранное</span>
                         </div>
                     </a>
                 </li>
                 <li>
                     <div class="search">
-                        <input type="search" placeholder="поиск" />
+                        <input
+                            type="search"
+                            class="search"
+                            placeholder="поиск"
+                            oninput="filterResults(this.value)"
+                        />
+                        <div class="results-dropdown" data-mobile></div>
                     </div>
                 </li>
             </ul>
@@ -780,6 +814,162 @@ import Menu from "../assets/icons/Menu.svg";
 </header>
 
 <script>
+    //поиск
+
+    // --- 1. ТЕСТОВЫЕ ДАННЫЕ И КОНСТАНТЫ ---
+    interface SearchItem {
+        id: number;
+        title: string;
+        description: string;
+    }
+
+    const SEARCH_DATA: SearchItem[] = [
+        {
+            id: 1,
+            title: "Продукт А",
+            description: "Лучший товар для десктопа.",
+        },
+        { id: 2, title: "Продукт Б", description: "Мобильный аксессуар." },
+        { id: 3, title: "Услуга В", description: "Полезный сервис." },
+        { id: 4, title: "Категория Г", description: "Поиск по категориям." },
+    ];
+
+    const MOBILE_MAX_WIDTH = 1024;
+    const DROPDOWN_SELECTOR = ".results-dropdown";
+    const MOBILE_DROPDOWN_ATTR = "data-mobile";
+    const DESKTOP_DROPDOWN_ATTR = "data-desktop";
+    const ACTIVE_CLASS = "is-active"; // <-- Новый класс для стилизации
+
+    // --- 2. УТИЛИТЫ ---
+
+    function isMobileView(): boolean {
+        const isMobile = window.matchMedia(
+            `(max-width: ${MOBILE_MAX_WIDTH}px)`,
+        ).matches;
+        return isMobile;
+    }
+
+    function getActiveDropdown(): HTMLElement | null {
+        const isMobile = isMobileView();
+        const attr = isMobile ? MOBILE_DROPDOWN_ATTR : DESKTOP_DROPDOWN_ATTR;
+        const selector = `${DROPDOWN_SELECTOR}[${attr}]`;
+        const dropdown = document.querySelector<HTMLElement>(selector);
+
+        return dropdown;
+    }
+
+    // --- 3. ФУНКЦИИ РЕНДЕРИНГА И ФИЛЬТРАЦИИ ---
+
+    function renderResults(
+        results: SearchItem[],
+        dropdownElement: HTMLElement,
+    ): void {
+        if (results.length === 0) {
+            dropdownElement.innerHTML =
+                '<div class="no-results">Ничего не найдено.</div>';
+            return;
+        }
+
+        const html = results
+            .map(
+                (item) => `
+        <div class="result-item">
+            <strong>${item.title}</strong>
+            <p>${item.description}</p>
+        </div>
+    `,
+            )
+            .join("");
+
+        dropdownElement.innerHTML = html;
+    }
+
+    /**
+     * Обрабатывает ввод и управляет видимостью + контентом дропдауна.
+     */
+    function filterResults(query: string): void {
+        const trimmedQuery = query.trim().toLowerCase();
+        const activeDropdown = getActiveDropdown();
+
+        if (!activeDropdown) {
+            console.error("[filterResults] Активный дропдаун НЕ НАЙДЕН!");
+            return;
+        }
+
+        const shouldShow = trimmedQuery.length > 0;
+
+        // --- Управление видимостью через КЛАСС ---
+        if (shouldShow) {
+            activeDropdown.classList.add(ACTIVE_CLASS);
+        } else {
+            activeDropdown.classList.remove(ACTIVE_CLASS);
+        }
+
+        // Скрываем другой дропдаун, удаляя класс
+        const otherDropdown = document.querySelector<HTMLElement>(
+            isMobileView()
+                ? `${DROPDOWN_SELECTOR}[${DESKTOP_DROPDOWN_ATTR}]`
+                : `${DROPDOWN_SELECTOR}[${MOBILE_DROPDOWN_ATTR}]`,
+        );
+        if (otherDropdown) {
+            otherDropdown.classList.remove(ACTIVE_CLASS);
+        }
+
+        if (shouldShow) {
+            // Фильтрация данных
+            const filteredResults = SEARCH_DATA.filter(
+                (item) =>
+                    item.title.toLowerCase().includes(trimmedQuery) ||
+                    item.description.toLowerCase().includes(trimmedQuery),
+            );
+            renderResults(filteredResults, activeDropdown);
+        } else {
+            // Если запрос пуст, очищаем содержимое
+            activeDropdown.innerHTML = "";
+        }
+    }
+
+    // --- 4. ИНИЦИАЛИЗАЦИЯ ---
+
+    function setupDropdownLogic() {
+        // 1. Присваиваем функцию глобальному объекту
+        (window as any).filterResults = filterResults;
+
+        // 2. Добавляем слушателя на изменение размера окна
+        const mediaQuery = window.matchMedia(
+            `(max-width: ${MOBILE_MAX_WIDTH}px)`,
+        );
+        mediaQuery.addEventListener("change", () => {
+            const input = document.querySelector<HTMLInputElement>(".search");
+            if (input) {
+                filterResults(input.value);
+            } else {
+                console.warn(
+                    "[mediaQuery] Поле поиска не найдено при изменении размера.",
+                );
+            }
+        });
+
+        // 3. Устанавливаем начальное состояние
+        const initialInput =
+            document.querySelector<HTMLInputElement>(".search");
+        if (initialInput) {
+            // Убедимся, что при загрузке оба дропдауна не активны
+            const allDropdowns =
+                document.querySelectorAll<HTMLElement>(DROPDOWN_SELECTOR);
+            allDropdowns.forEach((d) => d.classList.remove(ACTIVE_CLASS));
+
+            filterResults(initialInput.value);
+        } else {
+            console.error(
+                "[setupDropdownLogic] Ошибка: Поле поиска (.search) не найдено!",
+            );
+        }
+    }
+
+    // Запуск инициализации
+    document.addEventListener("DOMContentLoaded", setupDropdownLogic);
+
     //информация появление
 
     document.addEventListener("click", toggleDropdown);
@@ -1110,9 +1300,113 @@ import Menu from "../assets/icons/Menu.svg";
         align-items: center;
     }
 
+    .icon-badge {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .icon-badge {
+        --badge-size: 18px; /* минимальный диаметр бейджа */
+        --badge-font-size: 8px; /* размер шрифта в бейдже */
+        --badge-offset-x: 0px; /* смещение по X */
+        --badge-offset-y: 0px; /* смещение по Y */
+    }
+
+    /* Сам бейдж через ::after */
+    .icon-badge::after {
+        content: attr(data-count); /* отображаем число из data-count */
+        position: absolute;
+        top: var(--badge-offset-y, -6px);
+        right: var(--badge-offset-x, -6px);
+        display: inline-block;
+        min-width: var(--badge-size);
+        height: var(--badge-size);
+        border-radius: 100%;
+        background: oklch(from var(--purple) l c h);
+        color: oklch(from var(--white) l c h);
+        font-size: var(--badge-font-size);
+        line-height: calc(var(--badge-size) - 2px);
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transform: translate(50%, 100%);
+        pointer-events: none; /* бейдж не мешает клику по иконке */
+    }
+
+    /* Скрывать бейдж, если data-count равен 0 или пустая строка */
+    .icon-badge[data-count="0"]::after,
+    .icon-badge:not([data-count])::after,
+    .icon-badge[data-count=""]::after {
+        display: none;
+    }
+
+    .icon-badge[data-count="100"]::after {
+        content: "99+";
+    }
+
+    /* Мелкая адаптация для очень маленьких иконок */
+    .icon-badge.small {
+        --badge-size: 14px;
+        --badge-font-size: 10px;
+        --badge-offset-x: -4px;
+        --badge-offset-y: -4px;
+    }
+
     .search {
         position: relative;
         text-transform: uppercase;
+        &:focus {
+            border: 1px solid oklch(from var(--light-stroke) l c h);
+            transition: 0.35s ease;
+            color: oklch(from var(--white) l c h);
+            padding: 0.25rem 0 0.1rem 2rem;
+
+            &::-webkit-input-placeholder {
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+
+            &::-moz-placeholder {
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+
+            &:-ms-placeholder {
+                transition: opacity 0.45s ease;
+                opacity: 0;
+            }
+        }
+    }
+
+    .results-dropdown {
+        display: none;
+        position: absolute;
+        background-color: oklch(from var(--card) l c h);
+        border: solid 1px oklch(from var(--stroke) l c h);
+        color: oklch(from var(--white) l c h);
+        max-height: 200px;
+        padding: 1rem;
+        overflow-y: auto;
+        z-index: 10;
+    }
+
+    .results-dropdown.is-active {
+        display: block;
+    }
+
+    /* Стили для результатов (пример) */
+    .results-dropdown .result-item {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .results-dropdown .no-results {
+        padding: 10px;
+        color: #666;
     }
 
     .search::before {
@@ -1185,7 +1479,7 @@ import Menu from "../assets/icons/Menu.svg";
     .phone-menu-bottom {
         top: 100%;
         min-width: 0;
-        ul{
+        ul {
             align-items: center;
         }
     }
@@ -1359,7 +1653,7 @@ import Menu from "../assets/icons/Menu.svg";
         background-color: oklch(from var(--bg) l c h);
         background-image: url(/src/assets/icons/main-pattern.svg);
         background-repeat: repeat;
-        overflow-y: auto;
+        /* overflow-y: auto; */
         flex-direction: column;
         transition: transform 0.3s ease-in-out;
         transform: translateX(100%);
@@ -1406,7 +1700,7 @@ import Menu from "../assets/icons/Menu.svg";
     }
 
     @media (max-width: 1440px) {
-        .phone-menu-bottom{
+        .phone-menu-bottom {
             right: 0;
         }
     }
