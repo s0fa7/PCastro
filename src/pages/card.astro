@@ -138,12 +138,40 @@ const myPath = [
                 </button>
             </div>
             <div class="info-card-container__product">
-                <img
+                <!-- <img
                     width="556px"
                     height="560px"
                     src="/src/assets/images/product1.png"
                     alt="процессор амд"
-                />
+                /> -->
+                <div class="product-gallery">
+                    <div class="gallery-main-image-cont">
+                        <img
+                            src="/src/assets/images/product1.png"
+                            alt="товар"
+                            id="main-image"
+                            class="gallery-main-image"
+                        />
+                    </div>
+
+                    <div class="gallery-controls">
+                        <button
+                            id="prev-btn"
+                            aria-label="Предыдущее изображение">&lt;&lt;</button
+                        >
+                        <span id="current-index" class="counter">001</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <span id="total-count" class="counter">002</span>
+                        <button id="next-btn" aria-label="Следующее изображение"
+                            >&gt;&gt;</button
+                        >
+                    </div>
+
+                    <div class="thumbnail-container" id="thumbnail-container">
+                    </div>
+                </div>
                 <div class="info-card-container__product-info">
                     <h3>Процессор AMD Athlon 3 3000G OEM YD3000C6M2OFH</h3>
                     <ul>
@@ -255,22 +283,7 @@ const myPath = [
                 </div>
             </div>
         </div>
-        <!-- <div class="product-img">
-            <img
-                width="112px"
-                height="112px"
-                src="/src/assets/images/product1.png"
-                alt="фото 1"
-            />
-            <img
-                width="112px"
-                height="112px"
-                src="/src/assets/images/product2.png"
-                alt="фото 2"
-            />
-        </div> -->
     </div>
-    <section></section>
     <section class="return-container">
         <PurpleTag text="О товаре" />
         <div class="warranty-content">
@@ -723,6 +736,183 @@ const myPath = [
             });
         });
     }
+
+    //переключение фото
+    class ProductImageSwitcher {
+        private images: string[];
+        private currentIndex: number;
+
+        constructor(imageUrls: string[], initialIndex: number = 0) {
+            if (!imageUrls || imageUrls.length === 0) {
+                throw new Error(
+                    "Галерея должна содержать хотя бы одно изображение.",
+                );
+            }
+            this.images = imageUrls;
+            this.currentIndex = Math.max(
+                0,
+                Math.min(initialIndex, imageUrls.length - 1),
+            );
+        }
+
+        public next(): void {
+            if (!this.isAtEnd) {
+                this.currentIndex++;
+            }
+        }
+
+        public previous(): void {
+            if (!this.isAtStart) {
+                this.currentIndex--;
+            }
+        }
+
+        public setActive(index: number): void {
+            if (index >= 0 && index < this.images.length) {
+                this.currentIndex = index;
+            } else {
+                console.warn(
+                    `[ProductImageSwitcher] Попытка установить неверный индекс: ${index}`,
+                );
+            }
+        }
+
+        public get currentImage(): string {
+            return this.images[this.currentIndex];
+        }
+
+        public get index(): number {
+            return this.currentIndex;
+        }
+
+        public get currentNumber(): number {
+            return this.currentIndex + 1;
+        }
+
+        public get total(): number {
+            return this.images.length;
+        }
+
+        public get allImages(): string[] {
+            return [...this.images];
+        }
+
+        public get isAtStart(): boolean {
+            return this.currentIndex === 0;
+        }
+
+        public get isAtEnd(): boolean {
+            return this.currentIndex === this.images.length - 1;
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Укажите здесь пути к изображениям
+        const productImages: string[] = [
+            "/src/assets/images/product1.png", // Изображение для индекса 0
+            "/src/assets/images/product2.png", // Изображение для индекса 1
+            // 'path/to/image_3.png'
+        ];
+
+        const switcher = new ProductImageSwitcher(productImages);
+
+        const mainImage = document.getElementById(
+            "main-image",
+        ) as HTMLImageElement;
+        const prevBtn = document.getElementById(
+            "prev-btn",
+        ) as HTMLButtonElement;
+        const nextBtn = document.getElementById(
+            "next-btn",
+        ) as HTMLButtonElement;
+        const currentIndexEl = document.getElementById(
+            "current-index",
+        ) as HTMLSpanElement;
+        const totalCountEl = document.getElementById(
+            "total-count",
+        ) as HTMLSpanElement;
+        const progressFill = document.getElementById(
+            "progress-fill",
+        ) as HTMLDivElement;
+        const thumbnailContainer = document.getElementById(
+            "thumbnail-container",
+        ) as HTMLDivElement;
+
+        if (
+            !mainImage ||
+            !prevBtn ||
+            !nextBtn ||
+            !currentIndexEl ||
+            !totalCountEl ||
+            !progressFill ||
+            !thumbnailContainer
+        ) {
+            console.error(
+                "Ошибка: один или несколько элементов галереи не найдены в DOM.",
+            );
+            return;
+        }
+
+        const formatNumber = (num: number): string =>
+            num.toString().padStart(3, "0");
+
+        switcher.allImages.forEach((imgUrl, index) => {
+            const thumb = document.createElement("img");
+            thumb.src = imgUrl;
+            thumb.alt = `Миниатюра ${index + 1}`;
+            thumb.className = "thumbnail";
+            thumb.dataset.index = index.toString(); // Сохраняем индекс
+
+            thumb.addEventListener("click", () => {
+                switcher.setActive(index);
+                updateUI();
+            });
+
+            thumbnailContainer.appendChild(thumb);
+        });
+
+        const thumbnails =
+            thumbnailContainer.querySelectorAll<HTMLImageElement>(".thumbnail");
+
+        function updateUI(): void {
+            // 1. Обновить главное изображение
+            mainImage.src = switcher.currentImage;
+            mainImage.alt = `Изображение ${switcher.currentNumber}`;
+
+            // 2. Обновить счетчики
+            currentIndexEl.textContent = formatNumber(switcher.currentNumber);
+            totalCountEl.textContent = formatNumber(switcher.total);
+
+            // 3. Обновить прогресс-бар
+            const progressPercent =
+                (switcher.currentNumber / switcher.total) * 100;
+            progressFill.style.width = `${progressPercent}%`;
+
+            // 4. Обновить состояние кнопок
+            prevBtn.disabled = switcher.isAtStart;
+            nextBtn.disabled = switcher.isAtEnd;
+
+            // 5. Обновить активную миниатюру
+            thumbnails.forEach((thumb, index) => {
+                if (index === switcher.index) {
+                    thumb.classList.add("active");
+                } else {
+                    thumb.classList.remove("active");
+                }
+            });
+        }
+
+        prevBtn.addEventListener("click", () => {
+            switcher.previous();
+            updateUI();
+        });
+
+        nextBtn.addEventListener("click", () => {
+            switcher.next();
+            updateUI();
+        });
+        updateUI();
+    });
 </script>
 
 <style>
@@ -760,13 +950,10 @@ const myPath = [
         height: 1rem;
         margin-right: 0.5rem;
     }
-    .info-card-container__product img:not(.deliviry-icon img) {
-        max-width: 28%;
-        height: 100%;
-    }
     .info-card-container__product {
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
         width: 100%;
         padding: 21px 0;
         border-top: 1px dashed oklch(from var(--light-stroke) l c h);
@@ -827,6 +1014,76 @@ const myPath = [
         color: oklch(from var(--grey-text) l c h);
     }
 
+    /* галерея товара */
+    .product-gallery {
+        max-width: 28%;
+        padding: 0.5rem;
+    }
+    .gallery-main-image-cont {
+        display: block;
+        min-height: 545px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .gallery-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        user-select: none;
+    }
+
+    .gallery-controls button {
+        background: none;
+        border: none;
+        color: oklch(from var(--body-text) l c h);
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .gallery-controls .counter {
+        font-family: "JetBrainsMono";
+        font-size: 16px;
+        padding: 0 15px;
+    }
+
+    .progress-bar {
+        flex-grow: 1;
+        height: 1rem;
+        background-color: #44444400;
+        border: 1px solid oklch(from var(--body-text) l c h);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        width: 50%; /* Начальное значение, будет обновлено JS */
+        background: repeating-linear-gradient(
+            120deg,
+            #b99be500 0 8px,
+            #9250b4 0 12px
+        );
+        border-radius: 3px;
+        transition: width 0.3s ease;
+    }
+
+    .thumbnail-container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.5rem;
+        img {
+            width: 112px;
+            height: 112px;
+            object-fit: contain;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+    }
+
     .deliviry-icon {
         display: flex;
         width: 100%;
@@ -847,6 +1104,7 @@ const myPath = [
         background-size: contain;
         background-position: center;
         padding: 45px;
+        min-height: 35rem;
     }
     .price-card-top {
         display: flex;
@@ -1288,7 +1546,7 @@ const myPath = [
         .price-card {
             max-width: none;
             width: 343px;
-            height: 452px;
+            min-height: 452px;
             padding: 35px 25px;
         }
         .price-card-top-price {
@@ -1330,13 +1588,28 @@ const myPath = [
         .review-form {
             padding: 24px 16px;
         }
-        .review-form button:first-child{
+        .review-form button:first-child {
             top: 0;
             right: -0.2rem;
         }
-        .review-form h3{
+        .review-form h3 {
             font-size: 22px;
             max-width: 311px;
+        }
+        .product-gallery {
+            max-width: 100%;
+            padding: 1rem;
+        }
+        .gallery-main-image-cont {
+            min-height: 0;
+            max-height: 340px;
+            max-width: 343px;
+        }
+        .thumbnail-container {
+            img {
+                width: 5.25rem;
+                height: 5.25rem;
+            }
         }
     }
 </style>
