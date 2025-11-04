@@ -344,7 +344,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions catalog-btn">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -360,7 +360,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -376,7 +376,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -392,7 +392,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -408,7 +408,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -424,7 +424,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -440,7 +440,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -456,7 +456,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -472,7 +472,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                     <div class="comp-card" role="listitem">
@@ -541,7 +541,7 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions">
-                            <OrderButton text="выбрать" class="" />
+                            <OrderButton text="выбрать" classes="" />
                         </div>
                     </div>
                 </div>
@@ -562,7 +562,7 @@ const PathProducts = [
                             hrefPage=""
                         />
                     </button>
-                    <OrderButton text="отмена" class="" />
+                    <OrderButton text="отмена" classes="" />
                 </div>
             </div>
         </div>
@@ -596,7 +596,7 @@ const PathProducts = [
                             Оставьте свои данные и мы свяжемся с вами
                             для дальнейшего оформления заказа
                         </h3>
-                        <div class="input-group angles-white">
+                        <div class="input-group">
                             <input
                                 type="text"
                                 id="name"
@@ -605,20 +605,19 @@ const PathProducts = [
                                 required
                             />
                         </div>
-                        <div class="input-group angles-white">
+                        <div class="input-group">
                             <input
                                 type="tel"
                                 id="phone"
                                 name="phone"
-                                placeholder="+7(000) 000 00 00"
-                                title="Формат: +7(XXX) XXX-XX-XX"
+                                placeholder="+7 000 000-00-00"
                                 required
-                                pattern="/^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/"
-                                minlength="11"
-                                maxlength="18"
+                                pattern="\+?7[ -]?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}|8[ -]?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}"
+                                title="Введите номер в формате +7 (XXX) XXX-XX-XX"
+                                minlength="10"
                             />
                         </div>
-                        <div class="input-group angles-white">
+                        <div class="input-group">
                             <input
                                 type="email"
                                 id="email"
@@ -627,13 +626,15 @@ const PathProducts = [
                                 required
                             />
                         </div>
-                        <div class="input-group angles-white">
+                        <div class="input-group">
                             <input
                                 type="text"
                                 id="map"
                                 name="map"
-                                placeholder="адрес доставки"
+                                placeholder="Адрес доставки"
                                 required
+                                pattern=".{5,}"
+                                title="Введите полный адрес (минимум 5 символов)"
                             />
                         </div>
                     </form>
@@ -648,7 +649,7 @@ const PathProducts = [
                         </p>
                         <BigButton
                             buttonText="отправить"
-                            hrefPage="#"
+                            hrefPage=""
                             classes="contact-btn"
                             type={"submit"}
                         />
@@ -682,7 +683,7 @@ const PathProducts = [
                             hrefPage=""
                         />
                     </button>
-                    <OrderButton text="выбрать другой" class="" />
+                    <OrderButton text="выбрать другой" classes="" />
                 </div>
                 <button class="popup-error__close btn">
                     <Cross />
@@ -1072,7 +1073,7 @@ const PathProducts = [
                                         6000MHz, 2x16GB]
                                     </ProductCard>
                                 </div>
-                                <OrderButton text="показать все" class="" />
+                                <OrderButton text="показать все" classes="" />
                             </div>
                         </div>
                     </div>
@@ -1947,6 +1948,19 @@ const PathProducts = [
         transform: rotate(45deg);
     }
 
+    /* error input */
+    input:invalid:not(:placeholder-shown) {
+        border-color: #b30000;
+    }
+
+    input:valid:not(:placeholder-shown) {
+        border-color: #b860ff;
+    }
+
+    input:invalid:not(:placeholder-shown):focus {
+        /* На некоторых браузерах при фокусе может появиться нативное сообщение из title */
+    }
+
     /* Responsive */
     @media (max-width: 1440px) {
         .header h2 {
@@ -2137,31 +2151,31 @@ const PathProducts = [
         .popup-error {
             gap: 1rem;
         }
-        .popup-reset{
+        .popup-reset {
             padding: 1.4rem 0.75rem;
         }
-        .popup-save div{
+        .popup-save div {
             padding: 1rem 0.75rem;
         }
-        .copy-text{
+        .copy-text {
             overflow-x: scroll;
             font-size: 12px;
         }
     }
     @media (max-width: 375px) {
         .header h2 {
-        font-size: 28px;
+            font-size: 28px;
         }
         .contact-btn {
             padding: 0.8rem;
             gap: 1rem;
         }
         .detail-actions,
-        .comp-left{
+        .comp-left {
             padding: 0.2rem;
         }
         .popup-save {
-            margin : 0.2rem;
+            margin: 0.2rem;
         }
     }
 </style>

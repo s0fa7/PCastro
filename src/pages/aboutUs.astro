@@ -444,13 +444,12 @@ const myPath = [
                             type="tel"
                             id="phone"
                             name="phone"
-                            placeholder="+7 000 000 00 00"
+                            placeholder="+7 000 000-00-00"
+                            required
+                            pattern="\+?7[ -]?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}|8[ -]?\(?\d{3}\)?[ -]?\d{3}[ -]?\d{2}[ -]?\d{2}"
+                            title="Введите номер в формате +7 (XXX) XXX-XX-XX"
+                            minlength="10"
                         />
-                        <!-- title="Формат: +7(XXX) XXX-XX-XX"
-                        required pattern="/^(1\s|1|)?((\(\d{3}\))|\d{
-                            3
-                        })(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/" minlength="11"
-                        maxlength="18" -->
                     </div>
                     <div class="input-group angles-white">
                         <input
@@ -1086,6 +1085,18 @@ const myPath = [
     .prev {
         transform: rotate(180deg);
     }
+    /* error input */
+    input:invalid:not(:placeholder-shown) {
+        border-color: #b30000;
+    }
+
+    input:valid:not(:placeholder-shown) {
+        border-color: #b860ff;
+    }
+
+    input:invalid:not(:placeholder-shown):focus {
+        /* На некоторых браузерах при фокусе может появиться нативное сообщение из title */
+    }
     @media (max-width: 1440px) {
         .difference-container {
             flex-direction: column;
@@ -1181,7 +1192,7 @@ const myPath = [
         .difference h2 {
             padding: 1rem;
         }
-        .carousel-item.active{
+        .carousel-item.active {
             padding-bottom: 0;
         }
     }
@@ -1267,10 +1278,10 @@ const myPath = [
             padding: 1rem 2rem;
             align-items: flex-start;
         }
-        .carousel-item.active{
+        .carousel-item.active {
             padding-bottom: 0;
         }
-        .carousel-navigation{
+        .carousel-navigation {
             gap: 0;
         }
         .props-icon {
