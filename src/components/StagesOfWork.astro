@@ -43,6 +43,7 @@ const { stages, startFrom = 1 } = Astro.props;
 
     .stages__list h2 {
         max-width: none;
+        margin-bottom: 0.5rem;
     }
 
     .stages__item {
@@ -128,6 +129,10 @@ const { stages, startFrom = 1 } = Astro.props;
         }
         .stages__item p{
             grid-area: 3 / 1 / 4 / 2;
+        }
+        .stages__list,
+        .stages__item{
+            padding: 1rem;
         }
     }
 </style>

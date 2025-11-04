@@ -735,8 +735,9 @@ option {
         align-items: stretch;
     }
 }
+
 @media (max-width: 1024px) {
-    .products{
+    .products {
         gap: 2.5rem;
     }
 }

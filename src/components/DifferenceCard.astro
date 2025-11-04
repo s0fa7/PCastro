@@ -13,7 +13,7 @@ const { number, title, text } = Astro.props;
   <div class="column">
     <span class="number">{number}</span>
     <div class="review-icon angles-white">
-      <StarIcon width={48} height={50}/>
+      <StarIcon width={48} height={50} />
     </div>
   </div>
   <div class="column">
@@ -47,6 +47,7 @@ const { number, title, text } = Astro.props;
     max-width: 135px;
     padding: 0;
     font-family: "JetBrainsMono";
+    border-right: 1px dashed #ffffff80;
   }
 
   .number {
@@ -55,12 +56,8 @@ const { number, title, text } = Astro.props;
     position: relative;
     top: -10%;
     font-size: 1rem;
-    color: oklch(from var(--grey-text)l c h);
+    color: oklch(from var(--grey-text) l c h);
     opacity: 0.8;
-  }
-
-  .column:not(:last-child) {
-    border-right: 1px dashed #ffffff80;
   }
 
   .column h4 {
@@ -80,8 +77,9 @@ const { number, title, text } = Astro.props;
     color: #fff;
   }
   .review-icon {
-    display: block;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.5rem;
     width: 71px;
     height: 68px;
@@ -89,5 +87,44 @@ const { number, title, text } = Astro.props;
   }
   .angles-white::before {
     z-index: 1;
+  }
+  @media (max-width: 1024px) {
+    .difference-container {
+      width: 343px;
+      height: 262px;
+      padding: 40px 12px 20px 13px;
     }
+    .review-icon {
+      width: 41px;
+      height: 40px;
+      padding: 6px;
+    }
+    .review-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+    .column:first-child {
+      max-width: 63px;
+    }
+    .number {
+      width: 27px;
+    }
+    .column h4 {
+      font-size: 16px;
+    }
+    .column p {
+      font-size: 14px;
+      overflow-y: scroll;
+    }
+  }
+  @media (max-width: 350px) {
+    .difference-container {
+      width: 100%;
+    }
+    .review-icon {
+      width: 31px;
+      height: 30px;
+      padding: 3px;
+    }
+  }
 </style>
