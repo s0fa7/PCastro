@@ -16,6 +16,7 @@ import OrderButton from "../components/OrderButton.astro";
 import Cross from "../assets/icons/product-card/cross.svg";
 import GraphicCard from "../assets/images/products/product-card/graphic-card.png";
 import Ram from "../assets/images/products/product-card/ram.png";
+import Filtr from "../assets/icons/Filtr.svg";
 
 const myPath = [
     { text: "главное", href: "#" },
@@ -161,10 +162,12 @@ const PathProducts = [
                         class="small-actions"
                         aria-label="Дополнительные действия"
                     >
-                        <button class="btn" title="Печать">
+                        <button class="btn error-btn" title="Печать">
                             <Printer width={36} height={36} />
                             <span>Печать</span>
                         </button>
+
+                        <!-- класс для ошибки совместимости пока на кнопке выше -->
 
                         <button class="btn" title="На почту">
                             <Mail width={36} height={36} />
@@ -222,7 +225,7 @@ const PathProducts = [
                                             <Reset width={30} height={30} />
                                         </button>
                                         <button
-                                            class="btn-ghost btn error-btn"
+                                            class="btn-ghost btn"
                                             title="Удалить"
                                         >
                                             <Trash width={30} height={30} />
@@ -241,10 +244,7 @@ const PathProducts = [
                             >
                                 <Reset width={30} height={30} />
                             </button>
-                            <button
-                                class="btn-ghost btn error-btn"
-                                title="Удалить"
-                            >
+                            <button class="btn-ghost btn" title="Удалить">
                                 <Trash width={30} height={30} />
                             </button>
                         </div>
@@ -282,7 +282,7 @@ const PathProducts = [
                                             <Reset width={30} height={30} />
                                         </button>
                                         <button
-                                            class="btn-ghost btn error-btn"
+                                            class="btn-ghost btn"
                                             title="Удалить"
                                         >
                                             <Trash width={30} height={30} />
@@ -309,7 +309,7 @@ const PathProducts = [
                                             <Reset width={30} height={30} />
                                         </button>
                                         <button
-                                            class="btn-ghost btn error-btn"
+                                            class="btn-ghost btn"
                                             title="Удалить"
                                         >
                                             <Trash width={30} height={30} />
@@ -323,7 +323,10 @@ const PathProducts = [
                             </div>
                         </div>
                         <div class="detail-actions selected">
-                            <button class="btn-ghost btn" title="Редактировать">
+                            <button
+                                class="btn-ghost btn catalog-btn"
+                                title="Редактировать"
+                            >
                                 <Reset width={30} height={30} />
                             </button>
                             <button class="btn-ghost btn" title="Удалить">
@@ -502,13 +505,13 @@ const PathProducts = [
                                 <span>2 520₽</span>
                                 <div class="detail-actions">
                                     <button
-                                        class="btn-ghost btn catalog-btn"
+                                        class="btn-ghost btn"
                                         title="Редактировать"
                                     >
                                         <Reset width={30} height={30} />
                                     </button>
                                     <button
-                                        class="btn-ghost btn error-btn"
+                                        class="btn-ghost btn"
                                         title="Удалить"
                                     >
                                         <Trash width={30} height={30} />
@@ -704,6 +707,9 @@ const PathProducts = [
                                         <span>сбросить</span>
                                         <Cross />
                                     </button>
+                                    <button class="filtr-btn btn">
+                                        <Filtr />
+                                    </button>
                                 </div>
 
                                 <div class="filter-section">
@@ -822,44 +828,44 @@ const PathProducts = [
                                     <div class="filter-label collapsible">
                                         цена
                                     </div>
-                                    <div class="price-row">
-                                        <input
-                                            type="number"
-                                            id="min-input"
-                                            min="3216"
-                                            max="132450"
-                                            step="100"
-                                            value="3216"
-                                            class="price-input"
-                                        />
-
-                                        <div class="slider-wrapper">
-                                            <div class="slider-track"></div>
+                                    <div class="filter-list">
+                                        <div class="price-row">
                                             <input
-                                                type="range"
-                                                min="0"
+                                                type="number"
+                                                id="min-input"
+                                                min="3216"
                                                 max="132450"
+                                                step="100"
                                                 value="3216"
-                                                id="min-range"
+                                                class="price-input"
                                             />
+                                            <div class="slider-wrapper">
+                                                <div class="slider-track"></div>
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="132450"
+                                                    value="3216"
+                                                    id="min-range"
+                                                />
+                                                <input
+                                                    type="range"
+                                                    min="0"
+                                                    max="132450"
+                                                    value="132450"
+                                                    id="max-range"
+                                                />
+                                            </div>
                                             <input
-                                                type="range"
+                                                type="number"
+                                                id="max-input"
                                                 min="0"
                                                 max="132450"
+                                                step="100"
                                                 value="132450"
-                                                id="max-range"
+                                                class="price-input"
                                             />
                                         </div>
-
-                                        <input
-                                            type="number"
-                                            id="max-input"
-                                            min="0"
-                                            max="132450"
-                                            step="100"
-                                            value="132450"
-                                            class="price-input"
-                                        />
                                     </div>
                                 </div>
 
@@ -964,6 +970,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         MSI (G5080-16GTC) GeForce RTX 5080 16G
                                         GAMING TRIO OC
@@ -977,6 +984,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         TEAMGROUP T-Force Delta RGB [DDR5,
                                         6000MHz, 2x16GB]
@@ -990,6 +998,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         MSI (G5080-16GTC) GeForce RTX 5080 16G
                                         GAMING TRIO OC
@@ -1003,6 +1012,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         TEAMGROUP T-Force Delta RGB [DDR5,
                                         6000MHz, 2x16GB]
@@ -1016,6 +1026,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         MSI (G5080-16GTC) GeForce RTX 5080 16G
                                         GAMING TRIO OC
@@ -1029,6 +1040,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         TEAMGROUP T-Force Delta RGB [DDR5,
                                         6000MHz, 2x16GB]
@@ -1042,6 +1054,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         MSI (G5080-16GTC) GeForce RTX 5080 16G
                                         GAMING TRIO OC
@@ -1055,6 +1068,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         TEAMGROUP T-Force Delta RGB [DDR5,
                                         6000MHz, 2x16GB]
@@ -1068,6 +1082,7 @@ const PathProducts = [
                                         price="140 000"
                                         isBadgeVisible={false}
                                         isHeartVisible={true}
+                                        isPuzzleVisible={true}
                                     >
                                         TEAMGROUP T-Force Delta RGB [DDR5,
                                         6000MHz, 2x16GB]
@@ -1096,8 +1111,8 @@ const PathProducts = [
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // кнопки/попапы
-        const trashBtn =
-            document.querySelector<HTMLButtonElement>(".trash-btn");
+        const trashBtns = // Множественное число
+            document.querySelectorAll<HTMLButtonElement>(".trash-btn"); // Ищем .error-btn
         const popupReset =
             document.querySelector<HTMLDivElement>(".popup-reset");
 
@@ -1107,8 +1122,8 @@ const PathProducts = [
         const formBtn = document.querySelector<HTMLButtonElement>(".form-btn");
         const popupForm = document.querySelector<HTMLDivElement>(".popup-form");
 
-        const catalogBtn =
-            document.querySelector<HTMLButtonElement>(".catalog-btn");
+        const catalogBtns = // Множественное число
+            document.querySelectorAll<HTMLButtonElement>(".catalog-btn");
         const popupChoose =
             document.querySelector<HTMLDivElement>(".popup-choose");
 
@@ -1207,11 +1222,17 @@ const PathProducts = [
         };
 
         // --- POPUP RESET ---
-        if (trashBtn && popupReset) {
-            trashBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupReset);
+        // ИСПРАВЛЕНИЕ: Проверяем .length и вешаем обработчики в цикле
+        if (trashBtns.length > 0 && popupReset) {
+            trashBtns.forEach((btn) => {
+                // <--- Цикл
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    openPopup(popupReset);
+                });
             });
+
+            // Логика кнопки закрытия остается прежней
             const cancelBtn = popupReset.querySelector<HTMLElement>(
                 ".order-button, .popup-reset-btns button:last-child",
             );
@@ -1312,12 +1333,17 @@ const PathProducts = [
         }
 
         // --- POPUP CHOOSE ---
-        if (catalogBtn && popupChoose) {
-            catalogBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                openPopup(popupChoose);
+        // ИСПРАВЛЕНИЕ: Проверяем .length и вешаем обработчики в цикле
+        if (catalogBtns.length > 0 && popupChoose) {
+            catalogBtns.forEach((btn) => {
+                // <--- Цикл
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    openPopup(popupChoose);
+                });
             });
 
+            // Логика кнопки закрытия остается прежней
             const closeBtn = popupChoose.querySelector<HTMLButtonElement>(
                 ".popup-choose-btn__close",
             );
@@ -1463,6 +1489,81 @@ const PathProducts = [
         maxInput.addEventListener("input", () => syncValues(true));
 
         updateBeforeGradient();
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // фильтры адаптации
+        const container = document.querySelector(".filter-container");
+        if (!container) return;
+
+        const filtrBtn = container.querySelector(
+            ".filtr-btn",
+        ) as HTMLElement | null;
+        const resetBtn = container.querySelector(
+            ".reset-btn",
+        ) as HTMLElement | null;
+        const filterSections = container.querySelectorAll(".filter-section");
+
+        if (!filtrBtn) return;
+
+        let isOpen = false;
+
+        filtrBtn.addEventListener("click", () => {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                filterSections.forEach((section) => {
+                    (section as HTMLElement).style.display = "flex";
+                });
+
+                filtrBtn.innerHTML = `<svg width="24" height="24" viewBox="0 0 24 24">
+                <g clip-path="url(#clip0_944_7643)">
+                <path d="M4.5664 3.99998L9.74841 8.51035C10.1915 8.89604 10.4427 9.45705 10.4352 10.0445L10.4134 11.752C10.407 12.2495 10.2155 12.7268 9.87607 13.0906L5.35182 17.941" stroke="#B860FF" stroke-width="2"/>
+                <path d="M19.543 3.99998L14.361 8.51035C13.9178 8.89604 13.6667 9.45705 13.6742 10.0445L13.696 11.752C13.7023 12.2495 13.8939 12.7268 14.2333 13.0906L18.7575 17.941" stroke="#B860FF" stroke-width="2"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_944_7643">
+                <rect width="24" height="24" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>`;
+            } else {
+                filterSections.forEach((section) => {
+                    (section as HTMLElement).style.display = "none";
+                });
+
+                if (resetBtn) (resetBtn as HTMLElement).style.display = "none";
+
+                filtrBtn.innerHTML = `<svg width="15" height="15" viewBox="0 0 15 16">
+                <path d="M13.6367 16H10.9092V14.667H13.6367V16ZM10.9092 14.667H9.5459V14H0V12.667H9.5459V12H10.9092V14.667ZM15 14.667H13.6367V12H15V14.667ZM13.6367 12H10.9092V10.667H13.6367V12ZM4.09082 10.667H1.36328V9.33301H4.09082V10.667ZM1.36328 9.33301H0V6.66699H1.36328V9.33301ZM5.4541 9.33301H4.09082V6.66699H5.4541V9.33301ZM15 8.66699H6.81836V7.33301H15V8.66699ZM4.09082 6.66699H1.36328V5.33301H4.09082V6.66699ZM10.2275 5.33301H7.5V4H10.2275V5.33301ZM7.5 4H6.13672V3.33301H0V2H6.13672V1.33301H7.5V4ZM11.5908 4H10.2275V1.33301H11.5908V4ZM15 3.33301H12.9541V2H15V3.33301ZM10.2275 1.33301H7.5V0H10.2275V1.33301Z" fill="#B860FF"/>
+                </svg>`;
+            }
+        });
+        //подфильтры
+        const sections = document.querySelectorAll(".filter-section");
+
+        sections.forEach((section) => {
+            const label = section.querySelector(".filter-label");
+            if (!label) return;
+
+            const content = Array.from(section.children).filter(
+                (el) => !el.classList.contains("filter-label"),
+            ) as HTMLElement[];
+
+            if (content.length > 0) {
+                label.addEventListener("click", () => {
+                    const isVisible = content[0].style.display !== "none";
+
+                    if (isVisible) {
+                        content.forEach((el) => (el.style.display = "none"));
+                        section.classList.remove("open");
+                    } else {
+                        content.forEach((el) => (el.style.display = ""));
+                        section.classList.add("open");
+                    }
+                });
+            }
+        });
     });
 </script>
 
@@ -1788,7 +1889,7 @@ const PathProducts = [
     .popup-error {
         gap: 1.5rem;
         position: relative;
-        top: 30%;
+        top: 25%;
         background: oklch(from var(--dark-card) l c h);
         box-shadow: 2px 2px 5px 3px oklch(from var(--purple) l c h);
 
@@ -1876,7 +1977,6 @@ const PathProducts = [
         right: 10%;
         top: 3%;
         padding: 3.75rem;
-        border: 1px dashed oklch(from var(--light-stroke) l c h);
     }
     .contacts-bottom {
         display: flex;
@@ -1890,7 +1990,7 @@ const PathProducts = [
         fill: #fff;
         transform: rotate(45deg);
         position: absolute;
-        top: 2%;
+        top: 10%;
         right: 2%;
     }
     input:not(.product-catalog input) {
@@ -1961,7 +2061,6 @@ const PathProducts = [
         /* На некоторых браузерах при фокусе может появиться нативное сообщение из title */
     }
 
-    /* Responsive */
     @media (max-width: 1440px) {
         .header h2 {
             font-size: 36px;
@@ -2162,6 +2261,11 @@ const PathProducts = [
             font-size: 12px;
         }
     }
+    @media (max-width: 500px) {
+        .popup-choose {
+            padding: 0;
+        }
+    }
     @media (max-width: 375px) {
         .header h2 {
             font-size: 28px;
@@ -2176,6 +2280,13 @@ const PathProducts = [
         }
         .popup-save {
             margin: 0.2rem;
+        }
+        .popup-error__btns {
+            align-items: center;
+            flex-direction: column;
+        }
+        .popup-error {
+            padding: 1.5rem 1.5rem 0;
         }
     }
 </style>

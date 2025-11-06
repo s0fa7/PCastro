@@ -50,7 +50,7 @@ const customArticles = [
             </p>
         </div>
         <PurpleTag text="гарантия и вовзрат" />
-        <div class="warranty-content">
+        <div class="warranty-content corner-stars-container">
             <div class="sidebar">
                 <button class="btn tab-btn angles-white active" data-index="1">
                     <img
@@ -106,7 +106,7 @@ const customArticles = [
                             которым была произведена оплата.
                         </p>
                     </div>
-                    <OrderButton text="скачать заявление на возврат" class="" />
+                    <OrderButton text="скачать заявление на возврат" classes="" />
                 </div>
                 <div id="content-2" class="content-block">
                     <p>
@@ -202,6 +202,8 @@ const customArticles = [
         justify-content: center;
         justify-content: space-between;
         width: 100%;
+        padding: 1rem;
+        border: 1px solid oklch(from var(--stroke) l c h);
     }
 
     .tab-btn {

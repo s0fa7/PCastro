@@ -179,7 +179,7 @@ import Ram from "../assets/images/products/product-card/ram.png";
         </div>
     </div>
 
-    <div class="carousel-pagination">
+    <div class="carousel-pagination corner-stars-container">
         <div class="pagination-info">
             <span id="currentSlideId">001</span>
             <div class="progress-bar-container">
@@ -252,8 +252,19 @@ import Ram from "../assets/images/products/product-card/ram.png";
         justify-content: space-between;
         align-items: center;
         margin-top: 1rem;
-        padding: 0 10px;
-        font-family: monospace;
+        padding: 1.5rem 2rem;
+        border: 1px solid oklch(from var(--stroke)l c h);
+        border-bottom: none;
+    }
+    .carousel-pagination.corner-stars-container::before {
+        bottom: -5px;
+        left: -5px;
+        top: auto;
+    }
+    .carousel-pagination.corner-stars-container::after {
+        bottom: -5px;
+        right: -5px;
+        top: auto;
     }
     .pagination-info {
         display: flex;
@@ -306,135 +317,117 @@ import Ram from "../assets/images/products/product-card/ram.png";
         cursor: not-allowed;
         opacity: 0.5;
     }
+    @media (max-width: 375px) {
+        .popular-list.active {
+            justify-items: start;
+        }
+        .carousel-pagination {
+            flex-direction: column;
+            padding: 0.7rem 2rem;
+        }
+    }
 </style>
 <script>
-    // (carousel.ts) - С логированием и использованием классов для кнопок
+    // (carousel.ts) - С логированием и поддержкой одиночных каруселей
 
     document.addEventListener("DOMContentLoaded", () => {
-        console.log(
-            "CAROUSEL: Script loaded. Starting initialization for all tab-panes.",
-        );
+        console.log("CAROUSEL: Script loaded.");
 
         const stateMap = new WeakMap<HTMLElement, { currentPage: number }>();
 
-        document
-            .querySelectorAll(".tab-pane")
-            .forEach((rootElement, rootIndex) => {
-                const paneId = rootElement.id || `pane-${rootIndex}`;
-                console.log(
-                    `CAROUSEL: Initializing mechanisms for tab-pane ID: #${paneId}`,
+        const allCarouselRoots = document.querySelectorAll(
+            ".tab-pane, .card-list-conntainer",
+        );
+
+        console.log(
+            `CAROUSEL: Found ${allCarouselRoots.length} potential carousel roots.`,
+        );
+
+        allCarouselRoots.forEach((rootElement, rootIndex) => {
+            const paneId =
+                rootElement.id ||
+                rootElement.className.split(" ")[0] ||
+                `root-${rootIndex}`;
+            const isTabPane = rootElement.classList.contains("tab-pane");
+
+            stateMap.set(rootElement as HTMLElement, { currentPage: 1 });
+
+            const listElements = rootElement.querySelectorAll(
+                ".popular-list",
+            ) as NodeListOf<HTMLElement>;
+            const prevBtn = rootElement.querySelector(
+                ".prev-btn",
+            ) as HTMLButtonElement | null;
+            const nextBtn = rootElement.querySelector(
+                ".next-btn",
+            ) as HTMLButtonElement | null;
+            const progressFill = rootElement.querySelector(
+                "#progressBarFill",
+            ) as HTMLElement | null;
+            const currentSlideDisplay = rootElement.querySelector(
+                "#currentSlideId",
+            ) as HTMLElement | null;
+            const totalSlidesDisplay = rootElement.querySelector(
+                "#totalSlidesCount",
+            ) as HTMLElement | null;
+
+            if (
+                !listElements.length ||
+                !prevBtn ||
+                !nextBtn ||
+                !progressFill ||
+                !currentSlideDisplay ||
+                !totalSlidesDisplay
+            ) {
+                console.warn(
+                    `CAROUSEL: Skipping .${paneId} (Missing required controls).`,
                 );
+                return;
+            }
 
-                // Инициализация состояния для этой карусели
-                stateMap.set(rootElement as HTMLElement, { currentPage: 1 });
+            const totalPages = listElements.length;
+            totalSlidesDisplay.textContent = String(totalPages).padStart(
+                3,
+                "0",
+            );
 
-                // --- Ищем элементы по КЛАССУ, чтобы избежать конфликта ID ---
-                const listElements = rootElement.querySelectorAll(
-                    ".popular-list",
-                ) as NodeListOf<HTMLElement>;
+            const updateCarouselState = (): void => {
+                const state = stateMap.get(rootElement as HTMLElement)!;
+                const currentPage = state.currentPage;
 
-                // ! ИСПРАВЛЕНИЕ: Ищем кнопки по классу
-                const prevBtn = rootElement.querySelector(
-                    ".prev-btn",
-                ) as HTMLButtonElement | null;
-                const nextBtn = rootElement.querySelector(
-                    ".next-btn",
-                ) as HTMLButtonElement | null;
+                listElements.forEach((list, index) => {
+                    const isActive = index + 1 === currentPage;
+                    list.classList.toggle("active", isActive);
+                });
 
-                // Остальные элементы, если они уникальны внутри tab-pane, могут остаться по ID
-                const progressFill = rootElement.querySelector(
-                    "#progressBarFill",
-                ) as HTMLElement | null;
-                const currentSlideDisplay = rootElement.querySelector(
-                    "#currentSlideId",
-                ) as HTMLElement | null;
-                const totalSlidesDisplay = rootElement.querySelector(
-                    "#totalSlidesCount",
-                ) as HTMLElement | null;
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
 
-                if (
-                    !listElements.length ||
-                    !prevBtn ||
-                    !nextBtn ||
-                    !progressFill ||
-                    !currentSlideDisplay ||
-                    !totalSlidesDisplay
-                ) {
-                    console.warn(
-                        `CAROUSEL: Skipping #${paneId} due to missing required controls (Buttons found: ${!!prevBtn && !!nextBtn}).`,
-                    );
-                    return; // Пропускаем инициализацию, если кнопки не найдены
-                }
-
-                const totalPages = listElements.length;
-                totalSlidesDisplay.textContent = String(totalPages).padStart(
+                const progressPercentage = (currentPage / totalPages) * 100;
+                progressFill.style.width = `${progressPercentage}%`;
+                currentSlideDisplay.textContent = String(currentPage).padStart(
                     3,
                     "0",
                 );
+            };
 
-                /** Обновляет состояние и внешний вид карусели. */
-                const updateCarouselState = (): void => {
-                    const state = stateMap.get(rootElement as HTMLElement)!;
-                    const currentPage = state.currentPage;
+            prevBtn.addEventListener("click", () => {
+                const state = stateMap.get(rootElement as HTMLElement)!;
+                if (state.currentPage > 1) {
+                    state.currentPage--;
+                    updateCarouselState();
+                }
+            });
 
-                    console.log(
-                        `CAROUSEL #${paneId}: Updating state to page ${currentPage}/${totalPages}`,
-                    );
+            nextBtn.addEventListener("click", () => {
+                const state = stateMap.get(rootElement as HTMLElement)!;
+                if (state.currentPage < totalPages) {
+                    state.currentPage++;
+                    updateCarouselState();
+                }
+            });
 
-                    // 1. Обновление Видимости Контейнеров
-                    listElements.forEach((list, index) => {
-                        const isActive = index + 1 === currentPage;
-                        if (isActive) {
-                            list.classList.add("active");
-                        } else {
-                            list.classList.remove("active");
-                        }
-                    });
-
-                    // 2. Обновление Кнопок
-                    prevBtn.disabled = currentPage === 1;
-                    nextBtn.disabled = currentPage === totalPages;
-
-                    // 3. Обновление Пагинации
-                    const progressPercentage = (currentPage / totalPages) * 100;
-                    progressFill.style.width = `${progressPercentage}%`;
-                    currentSlideDisplay.textContent = String(
-                        currentPage,
-                    ).padStart(3, "0");
-                };
-
-                // --- Установка обработчиков на кнопки ---
-                prevBtn.addEventListener("click", () => {
-                    const state = stateMap.get(rootElement as HTMLElement)!;
-                    if (state.currentPage > 1) {
-                        state.currentPage--;
-                        console.log(
-                            `CAROUSEL #${paneId}: Prev clicked. New page: ${state.currentPage}`,
-                        );
-                        updateCarouselState();
-                    } else {
-                        console.log(
-                            `CAROUSEL #${paneId}: Prev clicked. Already on first page.`,
-                        );
-                    }
-                });
-
-                nextBtn.addEventListener("click", () => {
-                    const state = stateMap.get(rootElement as HTMLElement)!;
-                    if (state.currentPage < totalPages) {
-                        state.currentPage++;
-                        console.log(
-                            `CAROUSEL #${paneId}: Next clicked. New page: ${state.currentPage}`,
-                        );
-                        updateCarouselState();
-                    } else {
-                        console.log(
-                            `CAROUSEL #${paneId}: Next clicked. Already on last page.`,
-                        );
-                    }
-                });
-
-                // --- Добавление MutationObserver ---
+            if (isTabPane) {
                 const observer = new MutationObserver((mutationsList) => {
                     for (const mutation of mutationsList) {
                         if (
@@ -442,26 +435,29 @@ import Ram from "../assets/images/products/product-card/ram.png";
                             mutation.attributeName === "class"
                         ) {
                             if (rootElement.classList.contains("active")) {
-                                // Таб только что активирован
                                 const state = stateMap.get(
                                     rootElement as HTMLElement,
                                 )!;
-                                state.currentPage = 1; // Сбрасываем на первую страницу при переключении
-                                console.log(
-                                    `CAROUSEL #${paneId}: MutationObserver triggered: Tab activated! Resetting to page 1.`,
-                                );
+                                state.currentPage = 1;
                                 updateCarouselState();
                             }
                         }
                     }
                 });
-
                 observer.observe(rootElement, { attributes: true });
 
-                // Инициализация активной карусели при загрузке
                 if (rootElement.classList.contains("active")) {
+                    console.log(
+                        `CAROUSEL .${paneId}: Tab is already active. Initializing.`,
+                    );
                     updateCarouselState();
                 }
-            }); // Конец forEach
+            } else {
+                console.log(
+                    `CAROUSEL .${paneId}: Is a Standalone carousel. Initializing immediately.`,
+                );
+                updateCarouselState();
+            }
+        });
     });
 </script>

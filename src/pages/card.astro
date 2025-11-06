@@ -138,12 +138,6 @@ const myPath = [
                 </button>
             </div>
             <div class="info-card-container__product">
-                <!-- <img
-                    width="556px"
-                    height="560px"
-                    src="/src/assets/images/product1.png"
-                    alt="процессор амд"
-                /> -->
                 <div class="product-gallery">
                     <div class="gallery-main-image-cont">
                         <img
@@ -284,7 +278,7 @@ const myPath = [
             </div>
         </div>
     </div>
-    <section class="return-container">
+    <section class="return-container corner-stars-container">
         <PurpleTag text="О товаре" />
         <div class="warranty-content">
             <div class="sidebar">
@@ -1022,7 +1016,7 @@ const myPath = [
     .gallery-main-image-cont {
         display: block;
         min-height: 545px;
-        img{
+        img {
             width: 100%;
             height: auto;
         }
@@ -1190,9 +1184,10 @@ const myPath = [
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 2rem;
         width: 90%;
         margin: 0 auto;
+        padding: 0 4rem;
+        border-inline: 1px solid oklch(from var(--stroke) l c h);
     }
     .warranty-header {
         display: flex;
@@ -1211,6 +1206,10 @@ const myPath = [
         display: flex;
         flex-direction: column;
         width: 100%;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+        border: 1px solid oklch(from var(--stroke) l c h);
+        border-inline: none;
     }
 
     .section-title {
@@ -1610,6 +1609,21 @@ const myPath = [
                 width: 5.25rem;
                 height: 5.25rem;
             }
+        }
+        .return-container{
+            padding: 0 11px;
+        }
+    }
+    @media (max-width: 375px) {
+        .price-card {
+            max-width: 310px;
+            padding: 45px 15px;
+        }
+        .card-list-conntainer{
+            width: 100%;
+        }
+        .card-list-conntainer h2{
+            padding: 1rem;
         }
     }
 </style>

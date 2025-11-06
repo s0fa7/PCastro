@@ -1,5 +1,4 @@
 ---
-import Header from "./Header.astro";
 import PurpleTag from "./PurpleTag.astro";
 import BigButton from "./BigButton.astro";
 import CookieBanner from "./CookieBanner.astro";
@@ -8,71 +7,91 @@ import StarIcon1 from "../assets/icons/StarIcon1.svg";
 import StarIcon2 from "../assets/icons/StarIcon2.svg";
 import StarIcon3 from "../assets/icons/StarIcon3.svg";
 
+interface Slide {
+    background: string;
+    purpleBoxText: string;
+    title: string;
+    subtitle: string;
+}
+
 interface Props {
-    background?: string;
-    purpleBoxText?: string;
-    title?: string;
-    subtitle?: string;
-    rightTopText?: string;
+    slides: Slide[];
+    rightTopText: string;
     text1: string;
     text2: string;
     text3: string;
 }
 
-const {
-    background = "src/assets/images/MainSectionBannerBg.png",
-    purpleBoxText = "ДЛЯ ИГР, РАБОТЫ ИЛИ УЧЁБЫ",
-    title = "КОНФИГУРАТОР ПК",
-    subtitle = "Выбирай любые комплектующие из каталога — мы соберём мощную машину под твои задачи",
-    rightTopText = "Преумещества:\\ Подбираем и собираем системы, ориентируясь на качество, стабильность и точный расчёт. Без компромиссов в эстетике, мощности и сервисе.",
-    text1 = "Высококачественные комплектующие от проверенных производителей",
-    text2 = "Индивидуальная сборка ПК под потребности клиента",
-    text3 = "Гарантия на комплектующие и собранные ПК",
-} = Astro.props;
+const { slides, rightTopText, text1, text2, text3 } = Astro.props;
+
+const initialSlide = slides[0];
+const formatSlideNumber = (num: number) => num.toString().padStart(3, "0");
 ---
 
 <div class="main-section">
-    <Header />
-    <div class="configurator">
-        <div
-            class="left"
-            style={`background-image: url(${background}); background-size: contain; background-position: top; background-repeat: no-repeat;`}
-        >
-            <div class="banner-info">
-                <PurpleTag text={purpleBoxText} />
-                <div class="banner-info__tittle">
-                    <h2>{title}</h2>
-                    <p class="subtitle">{subtitle}</p>
+    <div
+        class="left corner-stars-container"
+        id="banner-left"
+        style={`background-image: url(${initialSlide.background}); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+    >
+        <div class="banner-info">
+            <PurpleTag text={initialSlide.purpleBoxText} id="banner-tag" />
+            <div class="banner-info__tittle">
+                <h2 id="banner-title">{initialSlide.title}</h2>
+                <p class="subtitle" id="banner-subtitle">
+                    {initialSlide.subtitle}
+                </p>
+            </div>
+        </div>
+
+        <CookieBanner classes="cookie active" />
+
+        <BigButton
+            buttonText="сконфигурировать"
+            hrefPage="#"
+            classes="config-btn"
+        />
+    </div>
+
+    <div class="slider-controls">
+        <div class="slider-controls-slide">
+            <span id="current-slide">{formatSlideNumber(1)}</span>
+            <div class="progress-bar">
+                <div
+                    id="progress-fill"
+                    class="progress-bar__fill"
+                    style={`width: ${100 / slides.length}%`}
+                >
                 </div>
             </div>
-            <CookieBanner classes="cookie active" />
-            <BigButton
-                buttonText="сконфигурировать"
-                hrefPage="#"
-                classes="config-btn"
-            />
+            <span id="total-slides">{formatSlideNumber(slides.length)}</span>
         </div>
-        <div class="right">
-            <div class="right-top">{rightTopText}</div>
-            <div class="features">
-                <div class="feature">
-                    <div class="feature-icon angles-white">
-                        <StarIcon1 width={30} height={30} />
-                    </div>
-                    <span>{text1}</span>
+        <div class="slider-nav">
+            <button id="prev-btn" aria-label="Previous slide">&lt;&lt;</button>
+            <button id="next-btn" aria-label="Next slide">&gt;&gt;</button>
+        </div>
+    </div>
+
+    <div class="right">
+        <div class="right-top">{rightTopText}</div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon angles-white">
+                    <StarIcon1 width={30} height={30} />
                 </div>
-                <div class="feature">
-                    <div class="feature-icon angles-white">
-                        <StarIcon2 width={30} height={30} />
-                    </div>
-                    <span>{text2}</span>
+                <span>{text1}</span>
+            </div>
+            <div class="feature">
+                <div class="feature-icon angles-white">
+                    <StarIcon2 width={30} height={30} />
                 </div>
-                <div class="feature">
-                    <div class="feature-icon angles-white">
-                        <StarIcon3 width={30} height={30} />
-                    </div>
-                    <span>{text3}</span>
+                <span>{text2}</span>
+            </div>
+            <div class="feature">
+                <div class="feature-icon angles-white">
+                    <StarIcon3 width={30} height={30} />
                 </div>
+                <span>{text3}</span>
             </div>
         </div>
     </div>
@@ -80,39 +99,41 @@ const {
 
 <style>
     .main-section {
-        /* background-image: url(../assets/images/BgElements.png);
-        background-repeat: no-repeat;
-        background-size: cover; */
-
-        height: 1014px;
-        max-width: 1919px;
-        margin: 0 auto;
-    }
-    .configurator {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        height: 86.4%;
-
-        color: oklch(from var(--text) l c h);
-        overflow: hidden;
-        /* border-bottom: 1px solid oklch(from var(--stroke) l c h); */
+    display: grid;
+    
+    grid-template-columns: 1fr auto; 
+    grid-template-rows: 1fr auto; 
+    grid-template-areas: 
+        "left right"
+        "controls controls"; 
+    height: 914px;
+    max-width: 1919px;
+    margin: 0 auto;
+    width: 90%; 
+    padding: 0;
+    gap: 1rem;
+    position: relative;
+    color: oklch(from var(--text) l c h);
     }
 
     .left {
-        position: absolute;
-        top: 0;
-        left: 4.5%;
-        right: 20%;
-
-        max-width: 1305px;
-        width: auto;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 2rem;
+        position: relative;
+
+        grid-area: left;
+        height: 100%;
+        border: 1px solid oklch(from var(--stroke) l c h);
     }
-    .banner-info {
-        margin: 2rem;
+    .config-btn {
+        position: static;
+        align-self: flex-end;
     }
+
     .banner-info,
     .banner-info__tittle {
         display: flex;
@@ -122,14 +143,11 @@ const {
     }
     .banner-info__tittle {
         gap: 1rem;
-        max-width: 729px;
     }
-
     .banner-info h2 {
         font-size: 68px;
         text-transform: uppercase;
     }
-
     .subtitle {
         max-width: 500px;
         font-size: 1rem;
@@ -141,29 +159,25 @@ const {
         flex-direction: column;
         justify-content: space-between;
         max-width: 33.125rem;
-        width: 20%;
         padding: 1rem;
+        grid-area: right;
     }
-
     .right-top {
         font-size: 1rem;
         font-family: "JetBrainsMono";
         color: hsla(188, 39%, 89%, 0.5);
         line-height: 1.2;
     }
-
     .features {
         display: flex;
         flex-direction: column;
         gap: 60px;
     }
-
     .feature {
         display: flex;
         align-items: center;
         gap: 0.8rem;
     }
-
     .feature-icon {
         width: 70px;
         height: 70px;
@@ -174,33 +188,183 @@ const {
         padding: 1rem;
     }
 
-    .config-btn {
-        position: absolute;
-        bottom: 2%;
-        right: 1%;
+    /* Стили контроллов */
+    .slider-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 70%;
+
+        color: oklch(from var(--text) l c h / 0.7);
+        font-family: "JetBrainsMono";
+
+        grid-area: controls;
+    }
+    .slider-controls-slide{
+        width: 30%;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .progress-bar {
+        flex-grow: 1;
+        height: 16px;
+        background-color: #ffffff00;
+        border: 1px solid oklch(from var(--body-text) l c h);
+        border-radius: 2px;
+        overflow: hidden;
+    }
+    .progress-bar__fill {
+        height: 100%;
+        background: repeating-linear-gradient(120deg,
+            #b99be500 0 8px,
+            #9250b4 0 12px);
+        transition: width 0.3s ease;
+    }
+    .slider-nav button {
+        background: none;
+        border: none;
+        color: oklch(from var(--text) l c h / 0.7);
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    .slider-nav button:hover {
+        color: oklch(from var(--text) l c h);
+    }
+    #current-slide{
+        color: oklch(from var(--body-text) l c h);
     }
 
-    @media (max-width: 1710px) {
-        .config-btn {
-            bottom: 10%;
-        }
-    }
-    @media (max-width: 1560px) {
-        .main-section{
-            height: 800px;
-        }
-        .config-btn {
-            right: 5%;
-        }
-    }
-    @media (max-width: 1365px) {
-        .main-section{
-            height: 600px;
-        }
-    }
     @media (max-width: 1024px) {
+        .main-section {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding-bottom: 4rem;
+
+            grid-template-columns: 1fr;
+            grid-template-areas: none;
+
+            width: 100%;
+            margin: 0;
+        }
+
+        .configurator {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 2rem;
+
+            order: 1;
+            height: auto;
+            margin: 0;
+            padding: 0 1rem;
+        }
+
+        .left {
+            order: 1;
+            min-height: 600px;
+            width: 100%;
+            padding: 2rem 1rem;
+        }
+
+        .right {
+            order: 3;
+            max-width: 100%;
+            padding: 0 1rem;
+            gap: 1rem;
+        }
+
+        .slider-controls {
+            order: 2;
+            width: 100%;
+            margin: 0;
+            padding: 0 1rem;
+        }
+        .slider-controls-slide{
+            width: 50%;
+        }
+
         .banner-info h2 {
             font-size: 30px;
         }
+        .features{
+            gap: 1rem;
+        }
+        .feature{
+            font-size: 12px;
+        }
+        .feature-icon{
+            width: 40px;
+            height: 40px;
+            padding: 11px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .left {
+            padding: 1rem;
+            min-height: 500px;
+        }
     }
 </style>
+
+<script define:vars={{ slides }}>
+    const slideData = slides;
+    let currentIndex = 0;
+    const totalSlides = slideData.length;
+
+    // Элементы контента
+    const bannerLeft = document.getElementById("banner-left");
+    const bannerTag = document.getElementById("banner-tag");
+    const bannerTitle = document.getElementById("banner-title");
+    const bannerSubtitle = document.getElementById("banner-subtitle");
+
+    // Элементы управления
+    const currentSlideEl = document.getElementById("current-slide");
+    const progressFillEl = document.getElementById("progress-fill");
+    const nextBtn = document.getElementById("next-btn");
+    const prevBtn = document.getElementById("prev-btn");
+
+    const formatSlideNumber = (num) => (num + 1).toString().padStart(3, "0");
+
+    // Главная функция обновления
+    function updateSlide(index) {
+        const slide = slideData[index];
+
+        // Обновляем текстовый контент
+        if (bannerTag)
+            bannerTag.querySelector("span").textContent = slide.purpleBoxText;
+        if (bannerTitle) bannerTitle.textContent = slide.title;
+        if (bannerSubtitle) bannerSubtitle.textContent = slide.subtitle;
+
+        // Обновляем фон
+        if (bannerLeft) {
+            bannerLeft.style.backgroundImage = `url(${slide.background})`;
+        }
+
+        // Обновляем контроллы
+        if (currentSlideEl) {
+            currentSlideEl.textContent = formatSlideNumber(index);
+        }
+
+        // Обновление прогресс-бара
+        if (progressFillEl) {
+            progressFillEl.style.width = `${((index + 1) / totalSlides) * 100}%`;
+        }
+    }
+
+    // Навешиваем обработчики
+    nextBtn?.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlide(currentIndex);
+    });
+
+    prevBtn?.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlide(currentIndex);
+    });
+</script>

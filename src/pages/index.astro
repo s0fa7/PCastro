@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
 import MainSection from "../components/MainSection.astro";
 import TheArticle from "../components/TheArticle.astro";
 import BigButton from "../components/BigButton.astro";
@@ -10,6 +11,28 @@ import Footer from "../components/Footer.astro";
 import PopularList from "../components/PopularList.astro";
 import Review from "../components/Review.astro";
 import CategoryCard from "../components/CategoryCard.astro";
+
+const slidesData = [
+    {
+        background: "src/assets/images/MainSectionBannerBg.png",
+        purpleBoxText: "ДЛЯ ИГР, РАБОТЫ ИЛИ УЧЁБЫ",
+        title: "КОНФИГУРАТОР ПК",
+        subtitle:
+            "Выбирай любые комплектующие из каталога — мы соберём мощную машину под твои задачи",
+    },
+    {
+        background: "src/assets/images/MainSectionBannerBg.png",
+        purpleBoxText: "ГОТОВЫЕ РЕШЕНИЯ",
+        title: "ИГРОВЫЕ СБОРКИ",
+        subtitle: "Мощные ПК, протестированные в современных играх.",
+    },
+    {
+        background: "src/assets/images/MainSectionBannerBg.png",
+        purpleBoxText: "ДЛЯ ПРОФЕССИОНАЛОВ",
+        title: "РАБОЧИЕ СТАНЦИИ",
+        subtitle: "Надежные машины для 3D-моделирования...",
+    },
+];
 
 const customArticles = [
     {
@@ -26,11 +49,10 @@ const customArticles = [
 ---
 
 <Layout>
+    <Header />
+
     <MainSection
-        background="src/assets/images/MainSectionBannerBg.png"
-        purpleBoxText="для игр, работы или учебы"
-        title="Конфигуратор пк"
-        subtitle="Выбирай любые комплектующие из каталога — мы соберём мощную машину под твои задачи"
+        slides={slidesData}
         rightTopText="ПРЕИМУЩЕСТВА: // Подбираем и собираем системы, ориентируясь на качество, стабильность и точный расчёт. Без компромиссов в эстетике, мощности и сервисе."
         text1="Высококачественные комплектующие от проверенных производителей"
         text2="Индивидуальная сборка ПК под потребности клиента"
@@ -313,7 +335,6 @@ const customArticles = [
     });
 
     // товары
-    // (tabs.ts) - С логированием
 
     document.addEventListener("DOMContentLoaded", () => {
         console.log("TABS: Script loaded.");
@@ -491,36 +512,6 @@ const customArticles = [
         max-height: 80%;
     }
 
-    .tabs-header {
-        display: flex;
-        gap: 5rem;
-        margin: 0 1rem 1.5rem;
-    }
-
-    .tab-title {
-        font-size: 68px;
-        cursor: pointer;
-        text-transform: uppercase;
-        color: oklch(from var(--grey-text) l c h);
-        transition: color 0.3s;
-        user-select: none;
-        h2{
-            max-width: none;
-        }
-    }
-
-    .tab-title.active {
-        color: oklch(from var(--body-text) l c h);
-    }
-
-    .tab-pane {
-        display: none;
-    }
-
-    .tab-pane.active {
-        display: block;
-    }
-
     .close {
         position: absolute;
         top: 20px;
@@ -554,6 +545,16 @@ const customArticles = [
 
         .tab-title {
             font-size: 30px;
+        }
+    }
+    @media (max-width: 425px) {
+        .brands-tittle {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1rem;
+        }
+        .brands-tittle__btn button {
+            padding: 0;
         }
     }
 </style>

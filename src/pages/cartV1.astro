@@ -32,7 +32,7 @@ const myPath = [
                 <span>Y44568RT</span>
             </div>
         </div>
-        <div class="container">
+        <div class="container corner-stars-container">
             <div class="cart">
                 <div class="cart-head">
                     <a href="#">&lt;&lt; вернуться к покупкам</a>
@@ -201,12 +201,12 @@ const myPath = [
     }
     .container {
         max-width: 1751px;
-        margin: 0 auto;
+        margin: 1rem auto;
         padding: 40px 0;
         display: flex;
         gap: 40px;
+        border-inline: 1px solid oklch(from var(--stroke) l c h);
     }
-
     .basket-cards {
         display: flex;
         flex-direction: column;
@@ -223,6 +223,7 @@ const myPath = [
         gap: 1rem;
         justify-content: space-between;
         max-height: 1449px;
+        border-bottom: 1px solid oklch(from var(--stroke) l c h);
     }
 
     .cart {
@@ -237,6 +238,8 @@ const myPath = [
         font-size: 16px;
         color: oklch(from var(--body-text) l c h);
         font-family: "JetBrainsMono";
+        padding-bottom: 1rem;
+        border-bottom: 1px solid oklch(from var(--stroke) l c h);
         .btn {
             text-transform: uppercase;
             padding: 0;
@@ -471,7 +474,15 @@ const myPath = [
         }
         .container {
             padding: 4px;
+            border: none;
         }
+        .corner-stars-container::before,
+        .corner-stars-container::after,
+        .corner-stars-container > :first-child::before,
+        .corner-stars-container > :first-child::after {
+            display: none;
+        }
+
         .basket-cards {
             overflow: visible;
             gap: 0.5rem;
@@ -479,6 +490,7 @@ const myPath = [
         .cart,
         .order-form {
             padding: 10px;
+            border: none;
         }
         .optionals label,
         .order-bottom__info {
@@ -508,6 +520,9 @@ const myPath = [
         }
         .summary-row__price {
             font-size: 22px;
+        }
+        .cart-head {
+            border: none;
         }
     }
 </style>

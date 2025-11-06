@@ -5,6 +5,7 @@ import PurpleTag from "./PurpleTag.astro";
 import TwoSlashesIcon from "../assets/icons/product-card/line.svg";
 import OrderButton from "./OrderButton.astro";
 import Heart from "../assets/icons/product-card/heart.svg";
+import Puzzle from "../assets/icons/Puzzle.svg"
 
 interface Props {
   id: string;
@@ -15,6 +16,7 @@ interface Props {
   price: string;
   isBadgeVisible?: boolean;
   isHeartVisible?: boolean;
+  isPuzzleVisible?: boolean;
 }
 
 const {
@@ -26,6 +28,7 @@ const {
   price,
   isBadgeVisible = true,
   isHeartVisible = false,
+  isPuzzleVisible = false,
 } = Astro.props;
 ---
 
@@ -48,6 +51,13 @@ const {
           () => {
             if (isBadgeVisible) {
               return <PurpleTag text="Хит" iconSVG="src/assets/icons/Hit.svg" />;
+            }
+          }
+        }
+        {
+          () => {
+            if (isPuzzleVisible) {
+              return <Puzzle class="puzzle" />;
             }
           }
         }
@@ -121,7 +131,6 @@ const {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    /* gap: 0.5rem; */
   }
 
   .product {
@@ -179,6 +188,10 @@ const {
   .heart {
     width: 20px;
     height: 18px;
+  }
+  .puzzle {
+    width: 19.5px;
+    height: 19.5px;
   }
 
   .product-header{

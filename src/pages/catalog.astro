@@ -456,9 +456,27 @@ const customArticles = [
             </div>
         </div>
     </section>
+
     <section>
-        <PopularList />
+        <div class="tabs-container">
+            <div class="tabs-header" id="tabsHeader">
+                <h2 class="tab-title active" data-target="popular-content">
+                    популярное
+                </h2>
+                <h2 class="tab-title" data-target="new-content">новинки</h2>
+            </div>
+
+            <div class="tabs-content">
+                <div id="popular-content" class="tab-pane active">
+                    <PopularList idSuffix="popular" />
+                </div>
+                <div id="new-content" class="tab-pane">
+                    <PopularList idSuffix="new" />
+                </div>
+            </div>
+        </div>
     </section>
+
     <section>
         <div class="faq-section purple-effect2">
             <h4>.Intel///AMD</h4>
@@ -780,5 +798,64 @@ const customArticles = [
                 });
             }
         });
+    });
+    
+    
+    // товары
+
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("TABS: Script loaded.");
+
+        const tabTitles = document.querySelectorAll(
+            ".tab-title",
+        ) as NodeListOf<HTMLElement>;
+        const tabPanes = document.querySelectorAll(
+            ".tab-pane",
+        ) as NodeListOf<HTMLElement>;
+
+        const activateTab = (targetId: string): void => {
+            console.log(`TABS: Activating target ID: ${targetId}`);
+
+            // 1. Сброс всех активных классов
+            tabTitles.forEach((title) => title.classList.remove("active"));
+            tabPanes.forEach((pane) => {
+                // Log перед удалением класса, чтобы увидеть, какой таб деактивируется
+                if (pane.classList.contains("active")) {
+                    console.log(`TABS: Deactivating pane: #${pane.id}`);
+                }
+                pane.classList.remove("active");
+            });
+
+            // 2. Активация заголовка
+            const activeTitle = Array.from(tabTitles).find(
+                (title) => title.getAttribute("data-target") === targetId,
+            );
+            if (activeTitle) {
+                activeTitle.classList.add("active");
+                console.log("TABS: Title active class set.");
+            }
+
+            // 3. Активация панели контента
+            const activePane = document.getElementById(targetId);
+            if (activePane) {
+                activePane.classList.add("active"); // <-- ЭТО ВЫЗОВЕТ MutationObserver в carousel.ts
+                console.log(`TABS: Pane #${targetId} active class set.`);
+            }
+        };
+
+        tabTitles.forEach((title) => {
+            title.addEventListener("click", () => {
+                const targetId = title.getAttribute("data-target");
+                if (targetId) {
+                    activateTab(targetId);
+                }
+            });
+        });
+
+        // Инициализация
+        const initialTarget = tabTitles[0]?.getAttribute("data-target");
+        if (initialTarget) {
+            activateTab(initialTarget);
+        }
     });
 </script>
